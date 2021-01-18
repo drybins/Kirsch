@@ -1,0 +1,19 @@
+{
+    "id": "{78C25384-CC96-7D02-6F52-EA0CEBF0B8E1}",
+    "name": "BHKWSP",
+    "type": 2,
+    "vendor": "Kirsch",
+    "aliases": [],
+    "parentRequirements": [
+        "{79827379-F36E-4ADA-8A95-5F8D1DC92FA9}"
+    ],
+    "childRequirements": [
+        "{BE6AD74D-45BF-A8EC-5577-7030BD1B5708}"
+    ],
+    "implemented": [
+        "{143F3E62-007F-360B-4389-3D518891A7E5}",
+        "{018EF6B5-AB94-40C6-AA53-46943E824ACF}"
+    ],
+    "prefix": "BHKWSP",
+    "url": ""
+}

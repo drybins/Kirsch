@@ -114,6 +114,10 @@
 			}
 		}
 		
+		public function VorlaufSoll()
+		{
+			IPS_LogMessage("Außentemperatur", GetIDForIdent("Aussentemperatur");
+		}
 		private function statePP($data)
 		{
 			$xmlData = @new SimpleXMLElement(utf8_encode($data), LIBXML_NOBLANKS + LIBXML_NONET);

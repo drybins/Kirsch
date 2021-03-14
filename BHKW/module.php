@@ -55,7 +55,8 @@
 				$this->RegisterVariableFloat("Speicherunten", "Speichertemperatur unten", "~Temperature", 80);
 				
 				$this->RegisterVariableFloat("Aussentemperatur", "Außentemperatur", "~Temperature", 85);
-				$this->RegisterVariableFloat("VorlaufTemperatur", "Vorlauf Temperatur", "~Temperature", 90);
+				$this->RegisterVariableFloat("VorlaufTemperaturIst", "Vorlauf Temperatur ist", "~Temperature", 91);
+				$this->RegisterVariableFloat("VorlaufTemperaturSoll", "Vorlauf Temperatur soll", "~Temperature", 90);
 				$this->RegisterVariableFloat("RuecklaufTemperatur", "Rücklauf Temperatur", "~Temperature", 95);
 				
 				$this->RegisterVariableInteger("WLPG", "Wirkleistung gesamt", "Kirsch.Watt", 100);

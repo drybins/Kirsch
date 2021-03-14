@@ -128,6 +128,7 @@
 			$VorlaufSoll = ((20-$AussenTemp)* $VorlaufTempStep) + 45;
 			IPS_LogMessage("AußentemperaturT",$VorlaufSoll);
 			IPS_LogMessage("Außentemperatur", $this->GetIDForIdent("Aussentemperatur"));
+			SetValueFloat($this->GetIDForIdent("VorlaufTemperaturSoll"), $VorlaufSoll);
 		}
 				       
 		private function statePP($data)

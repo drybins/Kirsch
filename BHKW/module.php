@@ -121,8 +121,8 @@
 			//const VorlaufSoll20 = 45;
 			//const VorlaufSollminus20 = 70;
 			
-			//$VorlaufSoll = GetValueFloat($this->GetIDForIdent("VorlaufTemperaturSoll"));
-			//$AussenTemp = GetValueFloat($this->GetIDForIdent("Aussentemperatur"));
+			$VorlaufSoll = GetValueFloat($this->GetIDForIdent("VorlaufTemperaturSoll"));
+			$AussenTemp = GetValueFloat($this->GetIDForIdent("Aussentemperatur"));
 			$VorlaufTempDiff = 70 - 45;
 			$VorlaufTempStep = $VorlaufTempDiff/40;
 			$VorlaufSoll = (20-$AussenTemp)* $VorlaufSollTempStep) + 45;

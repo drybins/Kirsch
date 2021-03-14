@@ -69,14 +69,21 @@
 				$this->RegisterVariableFloat("SP3", "Spannung Phase3", "~Volt.230", 130);
 				
 				//statePower Variablen anlegen
-			$eventID = IPS_CreateEvent(0);
-			IPS_SetParent($eventID, $this->GetIDForIdent('Aussentemperatur'));
+			//$eventID = IPS_CreateEvent(0);
+			//IPS_SetParent($eventID, $this->GetIDForIdent('Aussentemperatur'));
 			//IPS_SetEventCondition($eventID,$this->GetIDForIdent('Aussentemperatur'));
-			IPS_SetEventTrigger($eventID,0,$this->GetIDForIdent('Aussentemperatur'));
-			IPS_SetEventScript($eventID, "$this->VorlaufSoll()");
+			//IPS_SetEventTrigger($eventID,0,$this->GetIDForIdent('Aussentemperatur'));
+			//IPS_SetEventScript($eventID, "$this->VorlaufSoll()");
 				
+			$scriptID = $this->RegisterScript("VorlaufSoll", "$AussenTemp = GetValueFloat($this->GetIDForIdent("Aussentemperatur"));
+			$VorlaufTempDiff = 70 - 45;
+			$VorlaufTempStep = $VorlaufTempDiff/40;
+			$VorlaufSoll = ((20-$AussenTemp)* $VorlaufTempStep) + 45;
+			IPS_LogMessage("AußentemperaturT",$VorlaufSoll);
+			IPS_LogMessage("Außentemperatur", $this->GetIDForIdent("Aussentemperatur"));
+			SetValueFloat($this->GetIDForIdent("VorlaufTemperaturSoll"), $VorlaufSoll);");
 			
-				$this->ConnectParent("{33B9B2D7-6BC5-1CF6-A86F-E76622A7FFB7}");
+			$this->ConnectParent("{33B9B2D7-6BC5-1CF6-A86F-E76622A7FFB7}");
 		}
 
 		public function Destroy()

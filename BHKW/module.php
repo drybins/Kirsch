@@ -86,6 +86,7 @@
 			
 			$eventID = IPS_CreateEvent(0);
 			IPS_SetParent($eventID, $this->GetIDForIdent('Aussentemperatur'));
+			IPS_SetEventCondition($eventID,$this->GetIDForIdent('Aussentemperatur'));
 		}
 
 		public function Send()

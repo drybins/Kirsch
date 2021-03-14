@@ -83,6 +83,9 @@
 		{
 			//Never delete this line!
 			parent::ApplyChanges();
+			
+			$eventID = IPS_CreateEvent(0);
+			IPS_SetParent($eventID, $this->GetIDForIdent('Aussentemperatur'));
 		}
 
 		public function Send()
@@ -130,6 +133,8 @@
 			IPS_LogMessage("Außentemperatur", $this->GetIDForIdent("Aussentemperatur"));
 			SetValueFloat($this->GetIDForIdent("VorlaufTemperaturSoll"), $VorlaufSoll);
 		}
+		
+		
 				       
 		private function statePP($data)
 		{

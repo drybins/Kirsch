@@ -116,6 +116,7 @@
 		
 		public function VorlaufSoll()
 		{
+			IPS_LogMessage("AußentemperaturT");
 			IPS_LogMessage("Außentemperatur", $this->GetIDForIdent("Aussentemperatur"));
 		}
 				       

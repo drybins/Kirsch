@@ -117,13 +117,13 @@
 		
 		public function VorlaufSoll()
 		{
-			const TempDiff =40;
-			const VorlaufSoll20 = 45;
-			const VorlaufSollminus20 = 70;
+			//const TempDiff =40;
+			//const VorlaufSoll20 = 45;
+			//const VorlaufSollminus20 = 70;
 			
 			//$VorlaufSoll = GetValueFloat($this->GetIDForIdent("VorlaufTemperaturSoll"));
 			//$AussenTemp = GetValueFloat($this->GetIDForIdent("Aussentemperatur"));
-			//$VorlaufTempDiff = VorlaufSollminus20 - VorlaufSoll20;
+			$VorlaufTempDiff = 70 - 45;
 			//$VorlaufTempStep = $VorlaufTempDiff/TempDiff;
 			//$VorlaufSoll = (20-$AussenTemp)* $VorlaufSollTempStep) + VorlaufSoll20;
 			//IPS_LogMessage("AußentemperaturT",$VorlaufSoll);

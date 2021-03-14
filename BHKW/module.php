@@ -75,7 +75,7 @@
 			//IPS_SetEventTrigger($eventID,0,$this->GetIDForIdent('Aussentemperatur'));
 			//IPS_SetEventScript($eventID, "$this->VorlaufSoll()");
 				
-			$scriptID = $this->RegisterScript("VorlaufSoll", "IPS_LogMessage("AußentemperaturT","Dierk");");
+			$scriptID = $this->RegisterScript("VorlaufSoll1", "IPS_LogMessage("AußentemperaturT","Dierk");");
 			//$AussenTemp = GetValueFloat($this->GetIDForIdent("Aussentemperatur"));
 			//$VorlaufTempDiff = 70 - 45;
 			//$VorlaufTempStep = $VorlaufTempDiff/40;

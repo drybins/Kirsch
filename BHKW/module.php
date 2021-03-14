@@ -121,12 +121,12 @@
 			const VorlaufSoll20 = 45;
 			const VorlaufSollminus20 = 70;
 			
-			$VorlaufSoll = GetValueFloat($this->GetIDForIdent("VorlaufTemperaturSoll"));
-			$AussenTemp = GetValueFloat($this->GetIDForIdent("Aussentemperatur"));
-			$VorlaufTempDiff = VorlaufSollminus20 - VorlaufSoll20;
-			$VorlaufTempStep = $VorlaufTempDiff/TempDiff;
-			$VorlaufSoll = (20-$AussenTemp)* $VorlaufSollTempStep) + VorlaufSoll20;
-			IPS_LogMessage("AußentemperaturT",$VorlaufSoll);
+			//$VorlaufSoll = GetValueFloat($this->GetIDForIdent("VorlaufTemperaturSoll"));
+			//$AussenTemp = GetValueFloat($this->GetIDForIdent("Aussentemperatur"));
+			//$VorlaufTempDiff = VorlaufSollminus20 - VorlaufSoll20;
+			//$VorlaufTempStep = $VorlaufTempDiff/TempDiff;
+			//$VorlaufSoll = (20-$AussenTemp)* $VorlaufSollTempStep) + VorlaufSoll20;
+			//IPS_LogMessage("AußentemperaturT",$VorlaufSoll);
 			IPS_LogMessage("Außentemperatur", $this->GetIDForIdent("Aussentemperatur"));
 		}
 				       

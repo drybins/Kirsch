@@ -124,9 +124,9 @@
 			//$VorlaufSoll = GetValueFloat($this->GetIDForIdent("VorlaufTemperaturSoll"));
 			//$AussenTemp = GetValueFloat($this->GetIDForIdent("Aussentemperatur"));
 			$VorlaufTempDiff = 70 - 45;
-			//$VorlaufTempStep = $VorlaufTempDiff/TempDiff;
-			//$VorlaufSoll = (20-$AussenTemp)* $VorlaufSollTempStep) + VorlaufSoll20;
-			//IPS_LogMessage("AußentemperaturT",$VorlaufSoll);
+			$VorlaufTempStep = $VorlaufTempDiff/40;
+			$VorlaufSoll = (20-$AussenTemp)* $VorlaufSollTempStep) + 45;
+			IPS_LogMessage("AußentemperaturT",$VorlaufSoll);
 			IPS_LogMessage("Außentemperatur", $this->GetIDForIdent("Aussentemperatur"));
 		}
 				       

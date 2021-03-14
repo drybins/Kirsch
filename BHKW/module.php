@@ -116,7 +116,7 @@
 		
 		public function VorlaufSoll()
 		{
-			//IPS_LogMessage("Außentemperatur", $this->GetIDForIdent("Aussentemperatur");
+			IPS_LogMessage("Außentemperatur", $this->GetIDForIdent("Aussentemperatur"));
 		}
 				       
 		private function statePP($data)

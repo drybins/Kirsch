@@ -73,7 +73,7 @@
 			IPS_SetParent($eventID, $this->GetIDForIdent('Aussentemperatur'));
 			//IPS_SetEventCondition($eventID,$this->GetIDForIdent('Aussentemperatur'));
 			IPS_SetEventTrigger($eventID,0,$this->GetIDForIdent('Aussentemperatur'));
-			IPS_SetEventScript($eventID, $this->VorlaufSoll());
+			IPS_SetEventScript($eventID, "$this->VorlaufSoll()");
 				
 			
 				$this->ConnectParent("{33B9B2D7-6BC5-1CF6-A86F-E76622A7FFB7}");

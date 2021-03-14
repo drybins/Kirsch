@@ -69,10 +69,12 @@
 				$this->RegisterVariableFloat("SP3", "Spannung Phase3", "~Volt.230", 130);
 				
 				//statePower Variablen anlegen
+			$eventID = IPS_CreateEvent(0);
+			IPS_SetParent($eventID, $this->GetIDForIdent('Aussentemperatur'));
+			//IPS_SetEventCondition($eventID,$this->GetIDForIdent('Aussentemperatur'));
+			IPS_SetEventTrigger($eventID,0,$this->GetIDForIdent('Aussentemperatur'));
 				
-
-		}
-				
+			
 				$this->ConnectParent("{33B9B2D7-6BC5-1CF6-A86F-E76622A7FFB7}");
 		}
 
@@ -87,10 +89,7 @@
 			//Never delete this line!
 			parent::ApplyChanges();
 			
-			$eventID = IPS_CreateEvent(0);
-			IPS_SetParent($eventID, $this->GetIDForIdent('Aussentemperatur'));
-			//IPS_SetEventCondition($eventID,$this->GetIDForIdent('Aussentemperatur'));
-			//IPS_SetEventTrigger($eventID,0,$this->GetIDForIdent('Aussentemperatur'));
+		}
 
 		public function Send()
 		{

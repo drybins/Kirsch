@@ -29,6 +29,7 @@
 		{
 			$data = json_decode($JSONString);
 			IPS_LogMessage("IO FRWD", utf8_decode($data->Buffer));
+			IPS_LogMessage("Parent ID: ","Dierk");
 		}
 
 		public function Send(string $Text)

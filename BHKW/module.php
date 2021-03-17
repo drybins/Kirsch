@@ -77,6 +77,8 @@
 				
 
 			$this->ConnectParent("{33B9B2D7-6BC5-1CF6-A86F-E76622A7FFB7}");
+			
+			IPS_LogMessage("Parent ID: ",$this->GetParentId());
 		}
 
 		public function Destroy()

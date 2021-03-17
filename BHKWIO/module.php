@@ -20,7 +20,7 @@
 		{
 			//Never delete this line!
 			parent::ApplyChanges();
-			
+			IPS_LogMessage("Parent ID: ","dierk");
 			//IPS_LogMessage("Parent ID: ",$this->GetParentId());
 			//IPS_LogMessage("BHKWIO ID: ", $this->InstanceID));
 		}

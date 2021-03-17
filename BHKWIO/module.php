@@ -17,6 +17,8 @@
 		{
 			//Never delete this line!
 			parent::ApplyChanges();
+			
+			IPS_LogMessage("BHKWIO ID: ", $this->InstanceID));
 		}
 
 		public function ForwardData($JSONString)

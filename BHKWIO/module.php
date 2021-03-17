@@ -7,7 +7,7 @@
 			parent::Create();
 			
 			IPS_LogMessage("Parent ID: ","dierk");
-			IPS_LogMessage("BHKWIO ID: ", $this->InstanceID));
+			//IPS_LogMessage("BHKWIO ID: ", $this->InstanceID));
 		}
 
 		public function Destroy()
@@ -21,8 +21,8 @@
 			//Never delete this line!
 			parent::ApplyChanges();
 			
-			IPS_LogMessage("Parent ID: ",$this->GetParentId());
-			IPS_LogMessage("BHKWIO ID: ", $this->InstanceID));
+			//IPS_LogMessage("Parent ID: ",$this->GetParentId());
+			//IPS_LogMessage("BHKWIO ID: ", $this->InstanceID));
 		}
 
 		public function ForwardData($JSONString)

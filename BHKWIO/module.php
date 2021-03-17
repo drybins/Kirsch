@@ -5,6 +5,8 @@
 		{
 			//Never delete this line!
 			parent::Create();
+			
+			IPS_LogMessage("BHKWIO ID: ", $this->InstanceID));
 		}
 
 		public function Destroy()

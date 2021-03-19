@@ -7,7 +7,8 @@
 			parent::Create();
 
 			$this->RequireParent("{3CFF0FD9-E306-41DB-9B5A-9D06D38576C3}");
-			IPS_LogMessage("Parent SPID: ",$this->GetParentId());
+			$BHKWIOID = $this->GetParentId();
+			IPS_LogMessage("Parent SPID: ",$BHKWIOID);
 		}
 
 		public function Destroy()

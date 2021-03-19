@@ -8,7 +8,7 @@
 
 			$this->RequireParent("{3CFF0FD9-E306-41DB-9B5A-9D06D38576C3}");
 			$BHKWIOID = $this->GetParentId();
-			IPS_SetName ($BHKWIOID, "BHKWIO")
+			IPS_SetName ($BHKWIOID, "BHKWIO");
 			IPS_LogMessage("Parent SPID: ",$BHKWIOID);
 		}
 

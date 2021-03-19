@@ -75,4 +75,14 @@
 			//$data = $cmd;
 			$this->SendDataToChildren(json_encode(Array("DataID" => "{185A67F4-5748-3EE1-4EED-CAF56975F21B}", "Buffer" => utf8_encode($cmd))));
 		}
+		
+		/**
+     		* get connected parent instance id
+     		* @return mixed
+     		*/
+    		protected function GetParentId()
+    		{
+        		$instance = @IPS_GetInstance($this->InstanceID);
+        		return $instance['ConnectionID'];
+    		}		
 	}

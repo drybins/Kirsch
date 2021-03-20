@@ -6,7 +6,7 @@
 			//Never delete this line!
 			parent::Create();
 			
-			IPS_LogMessage("Parent ID: ","Dierk");
+			//IPS_LogMessage("Parent ID: ","Dierk");
 			//IPS_LogMessage("BHKWIO ID: ", $this->InstanceID));
 		}
 
@@ -21,7 +21,7 @@
 			//Never delete this line!
 			parent::ApplyChanges();
 			
-			IPS_LogMessage("Parent ID: ","Dierk");
+			//IPS_LogMessage("Parent ID: ","Dierk");
 
 			//IPS_LogMessage("Parent ID: ",$this->GetParentId());
 			//IPS_LogMessage("BHKWIO ID: ", $this->InstanceID));

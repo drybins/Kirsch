@@ -34,6 +34,8 @@
 				//}
 				//IPS_LogMessage("BHKW ID", $BHKWID);
 				//$Parent = IPS_GetParent();
+				$Parent = $this->GetParentId();
+				IPS_LogMessage("BHKW ID", $Parent);
 				//BHKW statePP Variablen anlegen
 				$this->RegisterVariableInteger("KirschStatus", "Status", "Kirsch.Status", 10);
 				//$StatusID =IPS_GetObjectIDByIdent("KirschStatus",$BHKWID);

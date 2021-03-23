@@ -20,10 +20,10 @@
 				IPS_SetVariableProfileAssociation("Kirsch.Status", 5, "abkühlen", "", 0x7cfc00);
 				IPS_SetVariableProfileAssociation("Kirsch.Status", 10, "Notstop", "", 0xff0000);
 				IPS_SetVariableProfileAssociation("Kirsch.Status", 11, "Fehler", "", 0xff0000);	
-				//$BHKWID = IPS_GetInstance($this->InstanceID)["InstanceID"];
-				//Echo "BHKWID=" . $BHKWID;
-				//if(IPS_CategoryExists(IPS_GetObjectIDByIdent("statePP",$BHKWID)))
-				//{
+				//E7 Wirkleistung Gesamt
+				//E71 Wirkleistung Phase 1
+				//E72 Wirkleistung Phase 2
+				//E73 Wirkleistung Phase 3
 					//$CatID = IPS_CreateCategory();       // Kategorie anlegen
 					//IPS_SetName($CatID, "statePP"); // Kategorie benennen
 					//IPS_SetParent($CatID, $BHKWID);

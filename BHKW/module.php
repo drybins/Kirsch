@@ -262,5 +262,9 @@
 			       IPS_SetVariableProfileIcon($ProfileName, $Icon);
 		    }
 		}
-
+    		protected function GetParentId()
+    		{
+        		$instance = @IPS_GetInstance($this->InstanceID);
+        		return $instance['ConnectionID'];
+    		}
 	}

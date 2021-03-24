@@ -33,9 +33,9 @@
 			//E72 Wirkleistung Phase 2
 			//E73 Wirkleistung Phase 3
 			$this->RegisterVariableInteger("E7", "Wirkleistung Gesamt", "Kirsch.Watt", 21);
-			$this->RegisterVariableInteger("E71", "Wirkleistung Gesamt", "Kirsch.Watt", 22);	
-			$this->RegisterVariableInteger("E72", "Wirkleistung Gesamt", "Kirsch.Watt", 23);
-			$this->RegisterVariableInteger("E73", "Wirkleistung Gesamt", "Kirsch.Watt", 24);
+			$this->RegisterVariableInteger("E71", "Wirkleistung Phase1", "Kirsch.Watt", 22);	
+			$this->RegisterVariableInteger("E72", "Wirkleistung Phase2", "Kirsch.Watt", 23);
+			$this->RegisterVariableInteger("E73", "Wirkleistung Phase3", "Kirsch.Watt", 24);
 
 			$this->RegisterVariableFloat("Oeltemperatur", "Öltemperatur", "~Temperature", 30);
 			$this->RegisterVariableFloat("Heizwasser", "Heizwasser", "~Temperature", 35);

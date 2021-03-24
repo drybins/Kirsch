@@ -11,6 +11,7 @@
 			$this->IPS_CreateVariableProfile("Kirsch.Kw", 1, " Kw", 0, 0,1, 2, "");
 			$this->IPS_CreateVariableProfile("Kirsch.Watt", 1, " Watt", 0, 0,1, 0, "");
 			$this->IPS_CreateVariableProfile("Kirsch.Volt", 1, " Volt", 0, 0,1, 0, "");
+			$this->IPS_CreateVariableProfile("Kirsch.Ampere", 1, " Ampere", 0, 0,1,2, "");
 			$this->IPS_CreateVariableProfile("Kirsch.Prozent", 1, " %", 0, 100,1, 0, "");
 			$this->IPS_CreateVariableProfile("Kirsch.Status", 1, "", 1, 11, 1, 2, "");
 				
@@ -29,22 +30,28 @@
 			//IPS_SetParent($StatusID, $CatID);
 			$this->RegisterVariableInteger("Zielleistung", "Zielleistung", "Kirsch.Kw", 15);
 			$this->RegisterVariableInteger("Referenzleistung", "Referenz Leistung", "Kirsch.Watt", 20);
-			//E1 Wirkleistung Phase 1
-			//E2 Wirkleistung Phase 2
-			//E3 Wirkleistung Phase 3
+			//E1 Spannung Phase 1
+			//E2 Spannung Phase 2
+			//E3 Spannung Phase 3
 			$this->RegisterVariableInteger("E1", "Spannung Phase1", "Kirsch.Volt", 21);	
 			$this->RegisterVariableInteger("E2", "Spannung Phase2", "Kirsch.Volt", 22);
 			$this->RegisterVariableInteger("E3", "Spannung Phase3", "Kirsch.Volt", 23);
+			//E4 Strom Phase 1
+			//E5 Strom Phase 2
+			//E6 Strom Phase 3
+			$this->RegisterVariableFloat("E4", "Strom Phase1", "Kirsch.Ampere", 24);	
+			$this->RegisterVariableFloat("E5", "Strom Phase2", "Kirsch.Ampere", 25);
+			$this->RegisterVariableFloat("E6", "Strom Phase3", "Kirsch.Ampere", 26);
 			//E7 Wirkleistung Gesamt
 			//E71 Wirkleistung Phase 1
 			//E72 Wirkleistung Phase 2
 			//E73 Wirkleistung Phase 3
-			$this->RegisterVariableInteger("E7", "Wirkleistung Gesamt", "Kirsch.Watt", 24);
-			$this->RegisterVariableInteger("E71", "Wirkleistung Phase1", "Kirsch.Watt", 25);	
-			$this->RegisterVariableInteger("E72", "Wirkleistung Phase2", "Kirsch.Watt", 26);
-			$this->RegisterVariableInteger("E73", "Wirkleistung Phase3", "Kirsch.Watt", 27);
+			$this->RegisterVariableInteger("E7", "Wirkleistung Gesamt", "Kirsch.Watt", 27);
+			$this->RegisterVariableInteger("E71", "Wirkleistung Phase1", "Kirsch.Watt", 28);	
+			$this->RegisterVariableInteger("E72", "Wirkleistung Phase2", "Kirsch.Watt", 29);
+			$this->RegisterVariableInteger("E73", "Wirkleistung Phase3", "Kirsch.Watt", 30);
 			//
-			$this->RegisterVariableFloat("Oeltemperatur", "Öltemperatur", "~Temperature", 30);
+			$this->RegisterVariableFloat("Oeltemperatur", "Öltemperatur", "~Temperature", 31);
 			$this->RegisterVariableFloat("Heizwasser", "Heizwasser", "~Temperature", 35);
 			$this->RegisterVariableFloat("Abgasteperatur", "Abgasteperatur", "~Temperature", 40);
 			$this->RegisterVariableFloat("Gehaeusetemperatur", "Gehäusetemperatur", "~Temperature", 45);
@@ -60,15 +67,6 @@
 				$this->RegisterVariableFloat("VorlaufTemperaturIst", "Vorlauf Temperatur ist", "~Temperature", 91);
 				$this->RegisterVariableFloat("VorlaufTemperaturSoll", "Vorlauf Temperatur soll", "~Temperature", 90);
 				$this->RegisterVariableFloat("RuecklaufTemperatur", "Rücklauf Temperatur", "~Temperature", 95);
-				
-				$this->RegisterVariableInteger("WLPG", "Wirkleistung gesamt", "Kirsch.Watt", 100);
-				$this->RegisterVariableInteger("WLP1", "Wirkleistung Phase1", "Kirsch.Watt", 105);
-				$this->RegisterVariableInteger("WLP2", "Wirkleistung Phase2", "Kirsch.Watt", 110);
-				$this->RegisterVariableInteger("WLP3", "Wirkleistung Phase3", "Kirsch.Watt", 115);
-				
-				$this->RegisterVariableFloat("SP1", "Spannung Phase1", "~Volt.230", 120);
-				$this->RegisterVariableFloat("SP2", "Spannung Phase2", "~Volt.230", 125);
-				$this->RegisterVariableFloat("SP3", "Spannung Phase3", "~Volt.230", 130);
 				
 				//statePower Variablen anlegen
 			//$eventID = IPS_CreateEvent(0);
@@ -193,6 +191,14 @@
 			$ScriptData['E3'] = (Float) $xmlData->electric[0]->E3;
 			SetValue ($this->GetIDForIdent("E3") , $ScriptData['E3']);
 			
+			/*[Eickeloh\Heizung\BHKW\Strom*/
+			$ScriptData['E4'] = (Float) $xmlData->electric[0]->E4;
+			SetValue ($this->GetIDForIdent("E4") , $ScriptData['E4']);
+			$ScriptData['E5'] = (Float) $xmlData->electric[0]->E5;
+			SetValue ($this->GetIDForIdent("E5") , $ScriptData['E5']);
+			$ScriptData['E6'] = (Float) $xmlData->electric[0]->E6;
+			SetValue ($this->GetIDForIdent("E6") , $ScriptData['E6']);
+			
 			/*[Eickeloh\Heizung\BHKW\Wirkleistung Gesamt]*/
 			$ScriptData['E7'] = (Float) $xmlData->electric[0]->E7;
 			SetValue ($this->GetIDForIdent("E7") , $ScriptData['E7']);
@@ -242,16 +248,7 @@
 			$ScriptData['T6'] =  (Float) $xmlData->sensors[0]->T6;
 			SetValue ($this->GetIDForIdent("RuecklaufTemperatur") , $ScriptData['T6']);
 
-			
-			/*[Eickeloh\Heizung\BHKW\Spannung Phase 1]*/
-			$ScriptData['E1'] = (Float) $xmlData->electric[0]->E1;
-			SetValue ($this->GetIDForIdent("SP1") , $ScriptData['E1']);
-			/*[Eickeloh\Heizung\BHKW\Spannung Phase 2]*/
-			$ScriptData['E2'] = (Float) $xmlData->electric[0]->E2;
-			SetValue ($this->GetIDForIdent("SP2") , $ScriptData['E2']);
-			/*[Eickeloh\Heizung\BHKW\Spannung Phase 3]*/
-			$ScriptData['E3'] = (Float) $xmlData->electric[0]->E3;	
-			SetValue ($this->GetIDForIdent("SP3") , $ScriptData['E3']);
+
 			
 		}
 		

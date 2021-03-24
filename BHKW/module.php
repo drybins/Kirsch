@@ -192,12 +192,12 @@
 			SetValue ($this->GetIDForIdent("E3") , $ScriptData['E3']);
 			
 			/*[Eickeloh\Heizung\BHKW\Strom*/
-			//$ScriptData['E4'] = (Float) $xmlData->electric[0]->E4;
-			//SetValue ($this->GetIDForIdent("E4") , $ScriptData['E4']);
-			//$ScriptData['E5'] = (Float) $xmlData->electric[0]->E5;
-			//SetValue ($this->GetIDForIdent("E5") , $ScriptData['E5']);
-			//$ScriptData['E6'] = (Float) $xmlData->electric[0]->E6;
-			//SetValue ($this->GetIDForIdent("E6") , $ScriptData['E6']);
+			$ScriptData['E4'] = (Float) $xmlData->electric[0]->E4;
+			SetValue ($this->GetIDForIdent("E4") , $ScriptData['E4']);
+			$ScriptData['E5'] = (Float) $xmlData->electric[0]->E5;
+			SetValue ($this->GetIDForIdent("E5") , $ScriptData['E5']);
+			$ScriptData['E6'] = (Float) $xmlData->electric[0]->E6;
+			SetValue ($this->GetIDForIdent("E6") , $ScriptData['E6']);
 			
 			/*[Eickeloh\Heizung\BHKW\Wirkleistung Gesamt]*/
 			$ScriptData['E7'] = (Float) $xmlData->electric[0]->E7;

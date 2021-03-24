@@ -20,25 +20,28 @@
 			IPS_SetVariableProfileAssociation("Kirsch.Status", 5, "abkühlen", "", 0x7cfc00);
 			IPS_SetVariableProfileAssociation("Kirsch.Status", 10, "Notstop", "", 0xff0000);
 			IPS_SetVariableProfileAssociation("Kirsch.Status", 11, "Fehler", "", 0xff0000);	
-				//E7 Wirkleistung Gesamt
-				//E71 Wirkleistung Phase 1
-				//E72 Wirkleistung Phase 2
-				//E73 Wirkleistung Phase 3
 			$Parent = $this->GetParentId();
 			IPS_LogMessage("BHKW ID", $Parent);
-				//BHKW statePP Variablen anlegen
-				$this->RegisterVariableInteger("KirschStatus", "Status", "Kirsch.Status", 10);
-				//$StatusID =IPS_GetObjectIDByIdent("KirschStatus",$BHKWID);
-				//IPS_SetParent($StatusID, $CatID);
-				$this->RegisterVariableInteger("Zielleistung", "Zielleistung", "Kirsch.Kw", 15);
-				$this->RegisterVariableInteger("Referenzleistung", "Referenz Leistung", "Kirsch.Watt", 20);
-				$this->RegisterVariableInteger("Wirkleistung", "Wirkleistung", "Kirsch.Watt", 25);
-				
-				$this->RegisterVariableFloat("Oeltemperatur", "Öltemperatur", "~Temperature", 30);
-				$this->RegisterVariableFloat("Heizwasser", "Heizwasser", "~Temperature", 35);
-				$this->RegisterVariableFloat("Abgasteperatur", "Abgasteperatur", "~Temperature", 40);
-				$this->RegisterVariableFloat("Gehaeusetemperatur", "Gehäusetemperatur", "~Temperature", 45);
-				$this->RegisterVariableInteger("Motordrehzahl", "Motordrehzahl", "Kirsch.UpM", 50);
+			//BHKW statePP Variablen anlegen
+			$this->RegisterVariableInteger("KirschStatus", "Status", "Kirsch.Status", 10);
+			//$StatusID =IPS_GetObjectIDByIdent("KirschStatus",$BHKWID);
+			//IPS_SetParent($StatusID, $CatID);
+			$this->RegisterVariableInteger("Zielleistung", "Zielleistung", "Kirsch.Kw", 15);
+			$this->RegisterVariableInteger("Referenzleistung", "Referenz Leistung", "Kirsch.Watt", 20);
+			//E7 Wirkleistung Gesamt
+			//E71 Wirkleistung Phase 1
+			//E72 Wirkleistung Phase 2
+			//E73 Wirkleistung Phase 3
+			$this->RegisterVariableInteger("E7", "Wirkleistung Gesamt", "Kirsch.Watt", 21);
+			$this->RegisterVariableInteger("E71", "Wirkleistung Gesamt", "Kirsch.Watt", 22);	
+			$this->RegisterVariableInteger("E72", "Wirkleistung Gesamt", "Kirsch.Watt", 23);
+			$this->RegisterVariableInteger("E73", "Wirkleistung Gesamt", "Kirsch.Watt", 24);
+
+			$this->RegisterVariableFloat("Oeltemperatur", "Öltemperatur", "~Temperature", 30);
+			$this->RegisterVariableFloat("Heizwasser", "Heizwasser", "~Temperature", 35);
+			$this->RegisterVariableFloat("Abgasteperatur", "Abgasteperatur", "~Temperature", 40);
+			$this->RegisterVariableFloat("Gehaeusetemperatur", "Gehäusetemperatur", "~Temperature", 45);
+			$this->RegisterVariableInteger("Motordrehzahl", "Motordrehzahl", "Kirsch.UpM", 50);
 				$this->RegisterVariableInteger("Speicherladepumpe", "Speicherladepumpe", "Kirsch.Prozent", 55);
 				$this->RegisterVariableInteger("Drosselklapenstellung", "Drosselklapenstellung", "Kirsch.Prozent", 60);
 				
@@ -177,7 +180,7 @@
 			SetValueInteger ($this->GetIDForIdent("Referenzleistung"), $ScriptData['RL']);
 			//Wirkleistung
 			$ScriptData['E7'] = (integer) $xmlData->electric[0]->E7;
-			SetValue ($this->GetIDForIdent("Wirkleistung"), $ScriptData['E7']);
+			SetValue ($this->GetIDForIdent("E7"), $ScriptData['E7']);
 			
 			$ScriptData['OelT'] = (float) $xmlData->sensors[0]->TI4;
 			SetValueFloat ($this->GetIDForIdent("Oeltemperatur"), $ScriptData['OelT']);

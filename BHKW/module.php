@@ -183,6 +183,7 @@
 			//Referenzleistung
 			$ScriptData['RL'] = (float) $xmlData->common[0]->referencePower*1000;
 			SetValueInteger ($this->GetIDForIdent("Referenzleistung"), $ScriptData['RL']);
+			
 			/*[Eickeloh\Heizung\BHKW\Spannung*/
 			$ScriptData['E1'] = (Float) $xmlData->electric[0]->E1;
 			SetValue ($this->GetIDForIdent("E1") , $ScriptData['E1']);

@@ -178,9 +178,19 @@
 			//Referenzleistung
 			$ScriptData['RL'] = (float) $xmlData->common[0]->referencePower*1000;
 			SetValueInteger ($this->GetIDForIdent("Referenzleistung"), $ScriptData['RL']);
-			//Wirkleistung
-			$ScriptData['E7'] = (integer) $xmlData->electric[0]->E7;
-			SetValue ($this->GetIDForIdent("E7"), $ScriptData['E7']);
+			/*[Eickeloh\Heizung\BHKW\Wirkleistung Gesamt]*/
+			$ScriptData['E7'] = (Float) $xmlData->electric[0]->E7;
+			SetValue ($this->GetIDForIdent("WLPG") , $ScriptData['E7']);
+			
+			/*[Eickeloh\Heizung\BHKW\Wirkleistung Phase1]*/
+			$ScriptData['E71'] = (integer) $xmlData->electric[0]->E71;
+			SetValue ($this->GetIDForIdent("WLP1") , $ScriptData['E71']);
+			/*[Eickeloh\Heizung\BHKW\Wirkleistung Phase2]*/
+			$ScriptData['E72'] = (integer) $xmlData->electric[0]->E72;
+			SetValue ($this->GetIDForIdent("WLP2") , $ScriptData['E72']);
+			/*[Eickeloh\Heizung\BHKW\Wirkleistung Phase3]*/
+			$ScriptData['E73'] = (integer) $xmlData->electric[0]->E73;
+			SetValue ($this->GetIDForIdent("WLP3") , $ScriptData['E73']);
 			
 			$ScriptData['OelT'] = (float) $xmlData->sensors[0]->TI4;
 			SetValueFloat ($this->GetIDForIdent("Oeltemperatur"), $ScriptData['OelT']);
@@ -218,19 +228,6 @@
 			$ScriptData['T6'] =  (Float) $xmlData->sensors[0]->T6;
 			SetValue ($this->GetIDForIdent("RuecklaufTemperatur") , $ScriptData['T6']);
 
-			/*[Eickeloh\Heizung\BHKW\Wirkleistung Gesamt]*/
-			$ScriptData['E7'] = (Float) $xmlData->electric[0]->E7;
-			SetValue ($this->GetIDForIdent("WLPG") , $ScriptData['E7']);
-			
-			/*[Eickeloh\Heizung\BHKW\Wirkleistung Phase1]*/
-			$ScriptData['E71'] = (integer) $xmlData->electric[0]->E71;
-			SetValue ($this->GetIDForIdent("WLP1") , $ScriptData['E71']);
-			/*[Eickeloh\Heizung\BHKW\Wirkleistung Phase2]*/
-			$ScriptData['E72'] = (integer) $xmlData->electric[0]->E72;
-			SetValue ($this->GetIDForIdent("WLP2") , $ScriptData['E72']);
-			/*[Eickeloh\Heizung\BHKW\Wirkleistung Phase3]*/
-			$ScriptData['E73'] = (integer) $xmlData->electric[0]->E73;
-			SetValue ($this->GetIDForIdent("WLP3") , $ScriptData['E73']);
 			
 			/*[Eickeloh\Heizung\BHKW\Spannung Phase 1]*/
 			$ScriptData['E1'] = (Float) $xmlData->electric[0]->E1;

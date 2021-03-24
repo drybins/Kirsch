@@ -187,11 +187,11 @@
 			SetValueInteger ($this->GetIDForIdent("Referenzleistung"), $ScriptData['RL']);
 			/*[Eickeloh\Heizung\BHKW\Spannung*/
 			$ScriptData['E1'] = (Float) $xmlData->electric[0]->E1;
-			SetValue ($this->GetIDForIdent("E2") , $ScriptData['E7']);
+			SetValue ($this->GetIDForIdent("E2") , $ScriptData['E1']);
 			$ScriptData['E2'] = (Float) $xmlData->electric[0]->E2;
-			SetValue ($this->GetIDForIdent("E3") , $ScriptData['E7']);
+			SetValue ($this->GetIDForIdent("E3") , $ScriptData['E2']);
 			$ScriptData['E3'] = (Float) $xmlData->electric[0]->E3;
-			SetValue ($this->GetIDForIdent("E7") , $ScriptData['E7']);
+			SetValue ($this->GetIDForIdent("E7") , $ScriptData['E3']);
 			
 			/*[Eickeloh\Heizung\BHKW\Wirkleistung Gesamt]*/
 			$ScriptData['E7'] = (Float) $xmlData->electric[0]->E7;

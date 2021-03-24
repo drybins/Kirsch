@@ -5,7 +5,7 @@
 		{
 			//Never delete this line!
 			parent::Create();
-			$this->RegisterPropertyInteger('bhkw_ip', "192.168.178.111");
+			$this->RegisterPropertyString('bhkw_ip', "192.168.178.111");
 			$this->RegisterPropertyInteger('port', 12004);
         		
 			//IPS_LogMessage("Parent ID: ","Dierk");
@@ -49,6 +49,17 @@
 	$this->bhkw_ip = $this->ReadPropertyInteger('bhkw_ip');
         $this->port = $this->ReadPropertyInteger('port');
         
+    }
+		    public function GetConfigurationForParent()
+    {
+        // read config
+        $this->ReadConfig();
+
+        // return config
+        return json_encode([
+            'Port' => $this->port,
+            'Open' => true
+        ]);
     }
 
 	}

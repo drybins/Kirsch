@@ -5,7 +5,9 @@
 		{
 			//Never delete this line!
 			parent::Create();
-			
+			$this->RegisterPropertyInteger('bhkw_ip', "192.168.178.111");
+			$this->RegisterPropertyInteger('port', 12004);
+        		
 			//IPS_LogMessage("Parent ID: ","Dierk");
 			//IPS_LogMessage("BHKWIO ID: ", $this->InstanceID));
 		}
@@ -37,5 +39,16 @@
 		{
 			$this->SendDataToChildren(json_encode(Array("DataID" => "{683476B1-08B4-682B-EF58-B892247FC2E1}", "Buffer" => $Text)));
 		}
+		
+		    /**
+     * Read config
+     */
+    private function ReadConfig()
+    {
+        // get settings
+	$this->bhkw_ip = $this->ReadPropertyInteger('bhkw_ip');
+        $this->port = $this->ReadPropertyInteger('port');
+        
+    }
 
 	}

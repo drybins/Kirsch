@@ -60,9 +60,9 @@
 			//E101 Frequenz Phase 1
 			//E102 Frequenz Phase 2
 			//E103 Frequenz Phase 3
-			$this->RegisterVariableInteger("E101", "Frequenz Phase1", "Kirsch.Frequenz", 260);	
-			$this->RegisterVariableInteger("E102", "Frequenz Phase2", "Kirsch.Frequenz", 270);
-			$this->RegisterVariableInteger("E103", "Frequenz Phase3", "Kirsch.Frequenz", 280);
+			$this->RegisterVariableFloat("E101", "Frequenz Phase1", "Kirsch.Frequenz", 260);	
+			$this->RegisterVariableFloat("E102", "Frequenz Phase2", "Kirsch.Frequenz", 270);
+			$this->RegisterVariableFloat("E103", "Frequenz Phase3", "Kirsch.Frequenz", 280);
 			//
 			$this->RegisterVariableFloat("Oeltemperatur", "Öltemperatur", "~Temperature", 310);
 			$this->RegisterVariableFloat("Heizwasser", "Heizwasser", "~Temperature", 350);

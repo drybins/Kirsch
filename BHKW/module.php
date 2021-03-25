@@ -41,7 +41,7 @@
 			//E6 Strom Phase 3
 			$this->RegisterVariableFloat("E4", "Strom Phase1", "Kirsch.Ampere", 160);	
 			$this->RegisterVariableFloat("E5", "Strom Phase2", "Kirsch.Ampere", 170);
-			$this->RegisterVariableFloat("E6", "Strom Phase3", "Kirsch.Ampere", 180;
+			$this->RegisterVariableFloat("E6", "Strom Phase3", "Kirsch.Ampere", 180);
 			//E7 Wirkleistung Gesamt
 			//E71 Wirkleistung Phase 1
 			//E72 Wirkleistung Phase 2
@@ -54,8 +54,8 @@
 			//E82 Scheinleistung Phase 2
 			//E83 Scheinleistung Phase 3
 			$this->RegisterVariableInteger("E81", "Scheinleistung Phase1", "Kirsch.Watt", 230);	
-			//$this->RegisterVariableInteger("E82", "Scheinleistung Phase2", "Kirsch.Watt", 240);
-			//$this->RegisterVariableInteger("E83", "Scheinleistung Phase3", "Kirsch.Watt", 250);
+			$this->RegisterVariableInteger("E82", "Scheinleistung Phase2", "Kirsch.Watt", 240);
+			$this->RegisterVariableInteger("E83", "Scheinleistung Phase3", "Kirsch.Watt", 250);
 			//
 			$this->RegisterVariableFloat("Oeltemperatur", "Öltemperatur", "~Temperature", 310);
 			$this->RegisterVariableFloat("Heizwasser", "Heizwasser", "~Temperature", 350);

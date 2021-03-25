@@ -56,6 +56,12 @@
 			$this->RegisterVariableInteger("E81", "Scheinleistung Phase1", "Kirsch.Watt", 230);	
 			$this->RegisterVariableInteger("E82", "Scheinleistung Phase2", "Kirsch.Watt", 240);
 			$this->RegisterVariableInteger("E83", "Scheinleistung Phase3", "Kirsch.Watt", 250);
+			//E101 Frequenz Phase 1
+			//E102 Frequenz Phase 2
+			//E103 Frequenz Phase 3
+			$this->RegisterVariableInteger("E101", "Frequenz Phase1", "Kirsch.Watt", 260);	
+			$this->RegisterVariableInteger("E102", "Frequenz Phase2", "Kirsch.Watt", 270);
+			$this->RegisterVariableInteger("E103", "Frequenz Phase3", "Kirsch.Watt", 280);
 			//
 			$this->RegisterVariableFloat("Oeltemperatur", "Öltemperatur", "~Temperature", 310);
 			$this->RegisterVariableFloat("Heizwasser", "Heizwasser", "~Temperature", 350);
@@ -218,6 +224,7 @@
 			/*[Eickeloh\Heizung\BHKW\Wirkleistung Phase3]*/
 			$ScriptData['E73'] = (integer) $xmlData->electric[0]->E73;
 			SetValue ($this->GetIDForIdent("E73") , $ScriptData['E73']);
+			
 			/*[Eickeloh\Heizung\BHKW\Scheinleistung*/
 			$ScriptData['E81'] = (Float) $xmlData->electric[0]->E81;
 			SetValue ($this->GetIDForIdent("E81") , $ScriptData['E81']);
@@ -225,6 +232,14 @@
 			SetValue ($this->GetIDForIdent("E82") , $ScriptData['E82']);
 			$ScriptData['E83'] = (Float) $xmlData->electric[0]->E83;
 			SetValue ($this->GetIDForIdent("E83") , $ScriptData['E83']);
+			
+			/*[Eickeloh\Heizung\BHKW\Frequenz*/
+			$ScriptData['E101'] = (Float) $xmlData->electric[0]->E101;
+			SetValue ($this->GetIDForIdent("E101") , $ScriptData['E101']);
+			$ScriptData['E102'] = (Float) $xmlData->electric[0]->E102;
+			SetValue ($this->GetIDForIdent("E102") , $ScriptData['E102']);
+			$ScriptData['E103'] = (Float) $xmlData->electric[0]->E103;
+			SetValue ($this->GetIDForIdent("E103") , $ScriptData['E103']);
 						
 			$ScriptData['OelT'] = (float) $xmlData->sensors[0]->TI4;
 			SetValueFloat ($this->GetIDForIdent("Oeltemperatur"), $ScriptData['OelT']);

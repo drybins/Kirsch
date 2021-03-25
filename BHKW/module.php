@@ -219,12 +219,12 @@
 			$ScriptData['E73'] = (integer) $xmlData->electric[0]->E73;
 			SetValue ($this->GetIDForIdent("E73") , $ScriptData['E73']);
 			/*[Eickeloh\Heizung\BHKW\Scheinleistung*/
-			//$ScriptData['E81'] = (Float) $xmlData->electric[0]->E81;
-			//SetValue ($this->GetIDForIdent("E81") , $ScriptData['E81']);
-			//$ScriptData['E82'] = (Float) $xmlData->electric[0]->E82;
-			//SetValue ($this->GetIDForIdent("E82") , $ScriptData['E82']);
-			//$ScriptData['E83'] = (Float) $xmlData->electric[0]->E83;
-			//SetValue ($this->GetIDForIdent("E83") , $ScriptData['E83']);
+			$ScriptData['E81'] = (Float) $xmlData->electric[0]->E81;
+			SetValue ($this->GetIDForIdent("E81") , $ScriptData['E81']);
+			$ScriptData['E82'] = (Float) $xmlData->electric[0]->E82;
+			SetValue ($this->GetIDForIdent("E82") , $ScriptData['E82']);
+			$ScriptData['E83'] = (Float) $xmlData->electric[0]->E83;
+			SetValue ($this->GetIDForIdent("E83") , $ScriptData['E83']);
 						
 			$ScriptData['OelT'] = (float) $xmlData->sensors[0]->TI4;
 			SetValueFloat ($this->GetIDForIdent("Oeltemperatur"), $ScriptData['OelT']);

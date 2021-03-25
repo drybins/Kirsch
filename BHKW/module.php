@@ -25,48 +25,54 @@
 			$Parent = $this->GetParentId();
 			IPS_LogMessage("BHKW ID", $Parent);
 			//BHKW statePP Variablen anlegen
-			$this->RegisterVariableInteger("KirschStatus", "Status", "Kirsch.Status", 10);
+			$this->RegisterVariableInteger("KirschStatus", "Status", "Kirsch.Status", 100);
 			//$StatusID =IPS_GetObjectIDByIdent("KirschStatus",$BHKWID);
 			//IPS_SetParent($StatusID, $CatID);
-			$this->RegisterVariableInteger("Zielleistung", "Zielleistung", "Kirsch.Kw", 15);
-			$this->RegisterVariableInteger("Referenzleistung", "Referenz Leistung", "Kirsch.Watt", 20);
+			$this->RegisterVariableInteger("Zielleistung", "Zielleistung", "Kirsch.Kw", 110);
+			$this->RegisterVariableInteger("Referenzleistung", "Referenz Leistung", "Kirsch.Watt", 120);
 			//E1 Spannung Phase 1
 			//E2 Spannung Phase 2
 			//E3 Spannung Phase 3
-			$this->RegisterVariableInteger("E1", "Spannung Phase1", "Kirsch.Volt", 21);	
-			$this->RegisterVariableInteger("E2", "Spannung Phase2", "Kirsch.Volt", 22);
-			$this->RegisterVariableInteger("E3", "Spannung Phase3", "Kirsch.Volt", 23);
+			$this->RegisterVariableInteger("E1", "Spannung Phase1", "Kirsch.Volt", 130);	
+			$this->RegisterVariableInteger("E2", "Spannung Phase2", "Kirsch.Volt", 140);
+			$this->RegisterVariableInteger("E3", "Spannung Phase3", "Kirsch.Volt", 150);
 			//E4 Strom Phase 1
 			//E5 Strom Phase 2
 			//E6 Strom Phase 3
-			$this->RegisterVariableFloat("E4", "Strom Phase1", "Kirsch.Ampere", 24);	
-			$this->RegisterVariableFloat("E5", "Strom Phase2", "Kirsch.Ampere", 25);
-			$this->RegisterVariableFloat("E6", "Strom Phase3", "Kirsch.Ampere", 26);
+			$this->RegisterVariableFloat("E4", "Strom Phase1", "Kirsch.Ampere", 160);	
+			$this->RegisterVariableFloat("E5", "Strom Phase2", "Kirsch.Ampere", 170);
+			$this->RegisterVariableFloat("E6", "Strom Phase3", "Kirsch.Ampere", 180;
 			//E7 Wirkleistung Gesamt
 			//E71 Wirkleistung Phase 1
 			//E72 Wirkleistung Phase 2
 			//E73 Wirkleistung Phase 3
-			$this->RegisterVariableInteger("E7", "Wirkleistung Gesamt", "Kirsch.Watt", 27);
-			$this->RegisterVariableInteger("E71", "Wirkleistung Phase1", "Kirsch.Watt", 28);	
-			$this->RegisterVariableInteger("E72", "Wirkleistung Phase2", "Kirsch.Watt", 29);
-			$this->RegisterVariableInteger("E73", "Wirkleistung Phase3", "Kirsch.Watt", 30);
+			$this->RegisterVariableInteger("E7", "Wirkleistung Gesamt", "Kirsch.Watt", 190);
+			$this->RegisterVariableInteger("E71", "Wirkleistung Phase1", "Kirsch.Watt", 200);	
+			$this->RegisterVariableInteger("E72", "Wirkleistung Phase2", "Kirsch.Watt", 210);
+			$this->RegisterVariableInteger("E73", "Wirkleistung Phase3", "Kirsch.Watt", 220);
+			//E81 Scheinleistung Phase 1
+			//E82 Scheinleistung Phase 2
+			//E83 Scheinleistung Phase 3
+			$this->RegisterVariableInteger("E81", "Scheinleistung Phase1", "Kirsch.Watt", 230);	
+			$this->RegisterVariableInteger("E82", "Scheinleistung Phase2", "Kirsch.Watt", 240);
+			$this->RegisterVariableInteger("E83", "Scheinleistung Phase3", "Kirsch.Watt", 250);
 			//
-			$this->RegisterVariableFloat("Oeltemperatur", "Öltemperatur", "~Temperature", 31);
-			$this->RegisterVariableFloat("Heizwasser", "Heizwasser", "~Temperature", 35);
-			$this->RegisterVariableFloat("Abgasteperatur", "Abgasteperatur", "~Temperature", 40);
-			$this->RegisterVariableFloat("Gehaeusetemperatur", "Gehäusetemperatur", "~Temperature", 45);
-			$this->RegisterVariableInteger("Motordrehzahl", "Motordrehzahl", "Kirsch.UpM", 50);
-				$this->RegisterVariableInteger("Speicherladepumpe", "Speicherladepumpe", "Kirsch.Prozent", 55);
-				$this->RegisterVariableInteger("Drosselklapenstellung", "Drosselklapenstellung", "Kirsch.Prozent", 60);
+			$this->RegisterVariableFloat("Oeltemperatur", "Öltemperatur", "~Temperature", 310);
+			$this->RegisterVariableFloat("Heizwasser", "Heizwasser", "~Temperature", 350);
+			$this->RegisterVariableFloat("Abgasteperatur", "Abgasteperatur", "~Temperature", 400);
+			$this->RegisterVariableFloat("Gehaeusetemperatur", "Gehäusetemperatur", "~Temperature", 450);
+			$this->RegisterVariableInteger("Motordrehzahl", "Motordrehzahl", "Kirsch.UpM", 500);
+			$this->RegisterVariableInteger("Speicherladepumpe", "Speicherladepumpe", "Kirsch.Prozent", 550);
+			$this->RegisterVariableInteger("Drosselklapenstellung", "Drosselklapenstellung", "Kirsch.Prozent", 600);
+			
+			$this->RegisterVariableFloat("Speicheroben", "Speichertemperatur oben", "~Temperature", 700);
+			$this->RegisterVariableFloat("Speichermitte", "Speichertemperatur mitte", "~Temperature", 750);
+			$this->RegisterVariableFloat("Speicherunten", "Speichertemperatur unten", "~Temperature", 800);
 				
-				$this->RegisterVariableFloat("Speicheroben", "Speichertemperatur oben", "~Temperature", 70);
-				$this->RegisterVariableFloat("Speichermitte", "Speichertemperatur mitte", "~Temperature", 75);
-				$this->RegisterVariableFloat("Speicherunten", "Speichertemperatur unten", "~Temperature", 80);
-				
-				$this->RegisterVariableFloat("Aussentemperatur", "Außentemperatur", "~Temperature", 85);
-				$this->RegisterVariableFloat("VorlaufTemperaturIst", "Vorlauf Temperatur ist", "~Temperature", 91);
-				$this->RegisterVariableFloat("VorlaufTemperaturSoll", "Vorlauf Temperatur soll", "~Temperature", 90);
-				$this->RegisterVariableFloat("RuecklaufTemperatur", "Rücklauf Temperatur", "~Temperature", 95);
+			$this->RegisterVariableFloat("Aussentemperatur", "Außentemperatur", "~Temperature", 850);
+			$this->RegisterVariableFloat("VorlaufTemperaturIst", "Vorlauf Temperatur ist", "~Temperature", 910);
+			$this->RegisterVariableFloat("VorlaufTemperaturSoll", "Vorlauf Temperatur soll", "~Temperature", 900);
+			$this->RegisterVariableFloat("RuecklaufTemperatur", "Rücklauf Temperatur", "~Temperature", 950);
 				
 				//statePower Variablen anlegen
 			//$eventID = IPS_CreateEvent(0);
@@ -212,7 +218,14 @@
 			/*[Eickeloh\Heizung\BHKW\Wirkleistung Phase3]*/
 			$ScriptData['E73'] = (integer) $xmlData->electric[0]->E73;
 			SetValue ($this->GetIDForIdent("E73") , $ScriptData['E73']);
-			
+			/*[Eickeloh\Heizung\BHKW\Scheinleistung*/
+			$ScriptData['E81'] = (Float) $xmlData->electric[0]->E81;
+			SetValue ($this->GetIDForIdent("E81") , $ScriptData['E81']);
+			$ScriptData['E82'] = (Float) $xmlData->electric[0]->E82;
+			SetValue ($this->GetIDForIdent("E82") , $ScriptData['E82']);
+			$ScriptData['E83'] = (Float) $xmlData->electric[0]->E83;
+			SetValue ($this->GetIDForIdent("E83") , $ScriptData['E83']);
+						
 			$ScriptData['OelT'] = (float) $xmlData->sensors[0]->TI4;
 			SetValueFloat ($this->GetIDForIdent("Oeltemperatur"), $ScriptData['OelT']);
 			$ScriptData['HW'] =  (float) $xmlData->sensors[0]->TI3;

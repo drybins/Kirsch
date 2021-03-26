@@ -14,8 +14,8 @@
 			$this->IPS_CreateVariableProfile("Kirsch.Ampere", 2, " Ampere", 0, 0,1,2, ""); 
 			$this->IPS_CreateVariableProfile("Kirsch.Frequenz", 2, " Hz", 0, 0,1,2, ""); 
 			$this->IPS_CreateVariableProfile("Kirsch.Prozent", 1, " %", 0, 100,1, 0, "");
+			
 			$this->IPS_CreateVariableProfile("Kirsch.Status", 1, "", 1, 11, 1, 2, "");
-				
 			IPS_SetVariableProfileAssociation("Kirsch.Status", 1, "gestoppet", "", 0x7cfc00);
 			IPS_SetVariableProfileAssociation("Kirsch.Status", 2, "startet", "", 0x7cfc00);
 			IPS_SetVariableProfileAssociation("Kirsch.Status", 3, "aufwärmen", "", 0x7cfc00);
@@ -23,8 +23,9 @@
 			IPS_SetVariableProfileAssociation("Kirsch.Status", 5, "abkühlen", "", 0x7cfc00);
 			IPS_SetVariableProfileAssociation("Kirsch.Status", 10, "Notstop", "", 0xff0000);
 			IPS_SetVariableProfileAssociation("Kirsch.Status", 11, "Fehler", "", 0xff0000);	
-			$Parent = $this->GetParentId();
-			IPS_LogMessage("BHKW ID", $Parent);
+			
+			//$Parent = $this->GetParentId();
+			//IPS_LogMessage("BHKW ID", $Parent);
 			//BHKW statePP Variablen anlegen
 			$this->RegisterVariableInteger("KirschStatus", "Status", "Kirsch.Status", 100);
 			//$StatusID =IPS_GetObjectIDByIdent("KirschStatus",$BHKWID);
@@ -83,7 +84,7 @@
 			$this->RegisterVariableString("C1", "Hauptschütz", "", 420);
 			$this->RegisterVariableString("C2", "Kondensatorschütz", "", 430);
 			$this->RegisterVariableString("SS", "Sanftanlauf", "", 440);
-			$this->RegisterVariableString("V1", "Gasventil", "", 450);
+			$this->RegisterVariableBoolean("V1", "Gasventil", "", 450);
 
 			
 			$this->RegisterVariableInteger("Speicherladepumpe", "Speicherladepumpe", "Kirsch.Prozent", 550);
@@ -295,7 +296,18 @@
 			$ScriptData['SS'] =  (string) $xmlData->actors[0]->SS;
 			SetValueString ($this->GetIDForIdent("SS") , $ScriptData['SS']);
 			$ScriptData['V1'] =  (string) $xmlData->actors[0]->V1;
-			SetValueString ($this->GetIDForIdent("V1") , $ScriptData['V1']);
+			//SetValueString ($this->GetIDForIdent("V1") , $ScriptData['V1']);
+			switch ($ScriptData['V1']) 
+			{
+			case "on":
+				SetValueBoolean($StatusID, true);
+				break;
+			case "off":
+				SetValueBoolean ($StatusID, false);
+				break;
+			default:
+				//SetValueString (14320 , "Status nicht gefunden:" . $ScriptData['STATUS']);
+			}
 
 			
 			$ScriptData['P1'] =  (Float) $xmlData->actors[0]->P1;

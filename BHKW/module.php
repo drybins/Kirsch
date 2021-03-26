@@ -74,7 +74,18 @@
 			$this->RegisterVariableString("TS5", "Abgas-STB", "", 340);
 			$this->RegisterVariableString("TS6", "Gehäuse-STB", "", 350);
 			
-			$this->RegisterVariableInteger("Motordrehzahl", "Motordrehzahl", "Kirsch.UpM", 500);
+			$this->RegisterVariableInteger("S1", "Motordrehzahl", "Kirsch.UpM", 360);
+			$this->RegisterVariableString("S4", "Öldrucksensor", "", 370);
+			$this->RegisterVariableString("S7", "Leckagesensor", "", 380);
+			$this->RegisterVariableString("S9", "Gaswarnsensor", "", 390);
+			$this->RegisterVariableString("S12", "Gasüberdruckwächter", "", 400);
+			$this->RegisterVariableString("S13", "Kondensatniveau", "", 410);
+			$this->RegisterVariableString("C1", "Hauptschütz", "", 420);
+			$this->RegisterVariableString("C2", "Kondensatorschütz", "", 430);
+			$this->RegisterVariableString("SS", "Sanftanlauf", "", 440);
+			$this->RegisterVariableString("V1", "Gasventil", "", 450);
+
+			
 			$this->RegisterVariableInteger("Speicherladepumpe", "Speicherladepumpe", "Kirsch.Prozent", 550);
 			$this->RegisterVariableInteger("Drosselklapenstellung", "Drosselklapenstellung", "Kirsch.Prozent", 600);
 			
@@ -265,7 +276,11 @@
 			SetValueString ($this->GetIDForIdent("TS6") , $ScriptData['TS6']);
 			
 			$ScriptData['S1'] =  (Float) $xmlData->sensors[0]->S1;
-			SetValue ($this->GetIDForIdent("Motordrehzahl")  , $ScriptData['S1']);
+			SetValue ($this->GetIDForIdent("S1")  , $ScriptData['S1']);
+			
+			$ScriptData['S4'] =  (string) $xmlData->actors[0]->S4;
+			SetValueString ($this->GetIDForIdent("S4") , $ScriptData['S4']);
+			
 			$ScriptData['P1'] =  (Float) $xmlData->actors[0]->P1;
 			SetValue ($this->GetIDForIdent("Speicherladepumpe")  , $ScriptData['P1']);
 			$ScriptData['V2'] =  (Float) $xmlData->actors[0]->V2;

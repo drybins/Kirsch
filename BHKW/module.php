@@ -24,9 +24,9 @@
 			IPS_SetVariableProfileAssociation("Kirsch.Status", 10, "Notstop", "", 0xff0000);
 			IPS_SetVariableProfileAssociation("Kirsch.Status", 11, "Fehler", "", 0xff0000);
 			
-			$this->IPS_CreateVariableProfile("Kirsch.Gasventiel", 0, "", 1, 11, 1, 2, "");
-			IPS_SetVariableProfileAssociation("Kirsch.Gasventiel", true, "Geöffnet", "", 0x000000);
-			IPS_SetVariableProfileAssociation("Kirsch.Gasventiel", false, "Geschlossen", "", 0x000000);
+			$this->IPS_CreateVariableProfile("Kirsch.Gasventil", 0, "", 1, 11, 1, 2, "");
+			IPS_SetVariableProfileAssociation("Kirsch.Gasventil", true, "Geöffnet", "", 0x000000);
+			IPS_SetVariableProfileAssociation("Kirsch.Gasventil", false, "Geschlossen", "", 0x000000);
 			
 			//$Parent = $this->GetParentId();
 			//IPS_LogMessage("BHKW ID", $Parent);
@@ -89,7 +89,7 @@
 			$this->RegisterVariableString("C2", "Kondensatorschütz", "", 430);
 			$this->RegisterVariableString("SS", "Sanftanlauf", "", 440);
 			
-			$this->RegisterVariableBoolean("V1", "Gasventil", "Kirsch.Gasventiel", 450);
+			$this->RegisterVariableBoolean("V1", "Gasventil", "Kirsch.Gasventil", 450);
 			$this->RegisterVariableInteger("V2", "Drosselklapenstellung", "Kirsch.Prozent", 460);
 			$this->RegisterVariableString("V3", "Status Lambdaregelung", "", 470);
 	

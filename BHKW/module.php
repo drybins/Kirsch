@@ -297,19 +297,19 @@
 			SetValueString ($this->GetIDForIdent("SS") , $ScriptData['SS']);
 			$ScriptData['V1'] =  (string) $xmlData->actors[0]->V1;
 			//SetValueString ($this->GetIDForIdent("V1") , $ScriptData['V1']);
-			/*
+			//
 			switch ($ScriptData['V1']) 
 			{
 			case "on":
-				SetValueBoolean($StatusID, true);
+				SetValueBoolean($this->GetIDForIdent("V1"), true);
 				break;
 			case "off":
-				SetValueBoolean ($StatusID, false);
+				SetValueBoolean ($this->GetIDForIdent("V1"), false);
 				break;
 			default:
 				//SetValueString (14320 , "Status nicht gefunden:" . $ScriptData['STATUS']);
 			}
-*/
+			//
 			
 			$ScriptData['P1'] =  (Float) $xmlData->actors[0]->P1;
 			SetValue ($this->GetIDForIdent("Speicherladepumpe")  , $ScriptData['P1']);

@@ -278,7 +278,7 @@
 			$ScriptData['S1'] =  (Float) $xmlData->sensors[0]->S1;
 			SetValue ($this->GetIDForIdent("S1")  , $ScriptData['S1']);
 			
-			$ScriptData['S4'] =  (string) $xmlData->actors[0]->S4;
+			$ScriptData['S4'] =  (string) $xmlData->sensors[0]->S4;
 			SetValueString ($this->GetIDForIdent("S4") , $ScriptData['S4']);
 			
 			$ScriptData['P1'] =  (Float) $xmlData->actors[0]->P1;

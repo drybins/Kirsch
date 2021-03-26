@@ -63,12 +63,12 @@
 			$this->RegisterVariableFloat("E101", "Frequenz Phase1", "Kirsch.Frequenz", 260);	
 			$this->RegisterVariableFloat("E102", "Frequenz Phase2", "Kirsch.Frequenz", 270);
 			$this->RegisterVariableFloat("E103", "Frequenz Phase3", "Kirsch.Frequenz", 280);
-			//
+			/*
 			$this->RegisterVariableFloat("TI3", "Heizwasser", "~Temperature", 290);
 			$this->RegisterVariableFloat("TI4", "Öltemperatur", "~Temperature", 300);
 			$this->RegisterVariableFloat("TI5", "Abgasteperatur", "~Temperature", 310);
 			$this->RegisterVariableFloat("TI6", "Gehäusetemperatur", "~Temperature", 320);
-			
+			*/
 
 			$this->RegisterVariableInteger("Motordrehzahl", "Motordrehzahl", "Kirsch.UpM", 500);
 			$this->RegisterVariableInteger("Speicherladepumpe", "Speicherladepumpe", "Kirsch.Prozent", 550);
@@ -79,7 +79,7 @@
 			$this->RegisterVariableFloat("Speicherunten", "Speichertemperatur unten", "~Temperature", 800);
 				
 			$this->RegisterVariableFloat("Aussentemperatur", "Außentemperatur", "~Temperature", 850);
-			$this->RegisterVariableFloat("T3", "Vorlauf Temperatur ist", "~Temperature", 910)
+			$this->RegisterVariableFloat("T3", "Vorlauf Temperatur ist", "~Temperature", 910);
 			$this->RegisterVariableFloat("VorlaufTemperaturSoll", "Vorlauf Temperatur soll", "~Temperature", 900);
 			$this->RegisterVariableFloat("RuecklaufTemperatur", "Rücklauf Temperatur", "~Temperature", 950);
 				

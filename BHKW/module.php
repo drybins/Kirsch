@@ -25,8 +25,8 @@
 			IPS_SetVariableProfileAssociation("Kirsch.Status", 11, "Fehler", "", 0xff0000);
 			
 			$this->IPS_CreateVariableProfile("Kirsch.Gasventil", 0, "", 1, 11, 1, 2, "");
-			IPS_SetVariableProfileAssociation("Kirsch.Gasventil", true, "Geöffnet", "", 0x000000);
-			IPS_SetVariableProfileAssociation("Kirsch.Gasventil", false, "Geschlossen", "", 0x000000);
+			IPS_SetVariableProfileAssociation("Kirsch.Gasventil", true, "Geöffnet", "", 0xFFFFFF);
+			IPS_SetVariableProfileAssociation("Kirsch.Gasventil", false, "Geschlossen", "", 0xFFFFFF);
 			
 			//$Parent = $this->GetParentId();
 			//IPS_LogMessage("BHKW ID", $Parent);

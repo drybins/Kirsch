@@ -25,8 +25,8 @@
 			IPS_SetVariableProfileAssociation("Kirsch.Status", 11, "Fehler", "", 0xff0000);
 			
 			$this->IPS_CreateVariableProfile("Kirsch.Gasventiel", 0, "", 1, 11, 1, 2, "");
-			IPS_SetVariableProfileAssociation("Kirsch.Gasventiel", true, "Geöffnet", "", 0x7cfc00);
-			IPS_SetVariableProfileAssociation("Kirsch.Gasventiel", false, "Geschlossen", "", 0x7cfc00);
+			IPS_SetVariableProfileAssociation("Kirsch.Gasventiel", true, "Geöffnet", "", 0x000000);
+			IPS_SetVariableProfileAssociation("Kirsch.Gasventiel", false, "Geschlossen", "", 0x000000);
 			
 			//$Parent = $this->GetParentId();
 			//IPS_LogMessage("BHKW ID", $Parent);
@@ -88,11 +88,13 @@
 			$this->RegisterVariableString("C1", "Hauptschütz", "", 420);
 			$this->RegisterVariableString("C2", "Kondensatorschütz", "", 430);
 			$this->RegisterVariableString("SS", "Sanftanlauf", "", 440);
-			$this->RegisterVariableBoolean("V1", "Gasventil", "Kirsch.Gasventiel", 450);
-
 			
+			$this->RegisterVariableBoolean("V1", "Gasventil", "Kirsch.Gasventiel", 450);
+			$this->RegisterVariableInteger("V2", "Drosselklapenstellung", "Kirsch.Prozent", 460);
+			$this->RegisterVariableString("V3", "Status Lambdaregelung", "", 470);
+	
 			$this->RegisterVariableInteger("Speicherladepumpe", "Speicherladepumpe", "Kirsch.Prozent", 550);
-			$this->RegisterVariableInteger("Drosselklapenstellung", "Drosselklapenstellung", "Kirsch.Prozent", 600);
+			
 			
 			$this->RegisterVariableFloat("Speicheroben", "Speichertemperatur oben", "~Temperature", 700);
 			$this->RegisterVariableFloat("Speichermitte", "Speichertemperatur mitte", "~Temperature", 750);
@@ -299,9 +301,8 @@
 			SetValueString ($this->GetIDForIdent("C2") , $ScriptData['C2']);
 			$ScriptData['SS'] =  (string) $xmlData->actors[0]->SS;
 			SetValueString ($this->GetIDForIdent("SS") , $ScriptData['SS']);
+
 			$ScriptData['V1'] =  (string) $xmlData->actors[0]->V1;
-			//SetValueString ($this->GetIDForIdent("V1") , $ScriptData['V1']);
-			//
 			switch ($ScriptData['V1']) 
 			{
 			case "on":
@@ -313,12 +314,14 @@
 			default:
 				//SetValueString (14320 , "Status nicht gefunden:" . $ScriptData['STATUS']);
 			}
-			//
+			$ScriptData['V2'] =  (Float) $xmlData->actors[0]->V2;
+			SetValue ($this->GetIDForIdent("Drosselklapenstellung")  , $ScriptData['V2']);
+			$ScriptData['V3'] =  (string) $xmlData->actors[0]->V3;
+			SetValueString ($this->GetIDForIdent("V3") , $ScriptData['V3']);
 			
 			$ScriptData['P1'] =  (Float) $xmlData->actors[0]->P1;
 			SetValue ($this->GetIDForIdent("Speicherladepumpe")  , $ScriptData['P1']);
-			$ScriptData['V2'] =  (Float) $xmlData->actors[0]->V2;
-			SetValue ($this->GetIDForIdent("Drosselklapenstellung")  , $ScriptData['V2']);
+
 			
 			/*[Eickeloh\Heizung\BHKW\Heizung\Speichertemperatur oben]*/
 			$ScriptData['SO'] =  (Float) $xmlData->sensors[0]->T2;

@@ -315,7 +315,7 @@
 				//SetValueString (14320 , "Status nicht gefunden:" . $ScriptData['STATUS']);
 			}
 			$ScriptData['V2'] =  (Float) $xmlData->actors[0]->V2;
-			SetValue ($this->GetIDForIdent("Drosselklapenstellung")  , $ScriptData['V2']);
+			SetValue ($this->GetIDForIdent("V2")  , $ScriptData['V2']);
 			$ScriptData['V3'] =  (string) $xmlData->actors[0]->V3;
 			SetValueString ($this->GetIDForIdent("V3") , $ScriptData['V3']);
 			

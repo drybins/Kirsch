@@ -63,12 +63,12 @@
 			$this->RegisterVariableFloat("E101", "Frequenz Phase1", "Kirsch.Frequenz", 260);	
 			$this->RegisterVariableFloat("E102", "Frequenz Phase2", "Kirsch.Frequenz", 270);
 			$this->RegisterVariableFloat("E103", "Frequenz Phase3", "Kirsch.Frequenz", 280);
-			/*
+			//
 			$this->RegisterVariableFloat("TI3", "Heizwasser", "~Temperature", 290);
 			$this->RegisterVariableFloat("TI4", "Öltemperatur", "~Temperature", 300);
 			$this->RegisterVariableFloat("TI5", "Abgasteperatur", "~Temperature", 310);
 			$this->RegisterVariableFloat("TI6", "Gehäusetemperatur", "~Temperature", 320);
-			*/
+			//
 
 			$this->RegisterVariableInteger("Motordrehzahl", "Motordrehzahl", "Kirsch.UpM", 500);
 			$this->RegisterVariableInteger("Speicherladepumpe", "Speicherladepumpe", "Kirsch.Prozent", 550);
@@ -244,14 +244,14 @@
 			$ScriptData['E103'] = (Float) $xmlData->electric[0]->E103;
 			SetValue ($this->GetIDForIdent("E103") , $ScriptData['E103']);
 			
-			//$ScriptData['TI3'] =  (float) $xmlData->sensors[0]->TI3;
-			//tValueFloat($this->GetIDForIdent("TI3") , $ScriptData['TI3']);						
-			//criptData['OelT'] = (float) $xmlData->sensors[0]->TI4;
-			//tValueFloat ($this->GetIDForIdent("TI4"), $ScriptData['OelT']);
-			//criptData['AT'] =  (float) $xmlData->sensors[0]->TI5;
-			//tValueFloat ($this->GetIDForIdent("TI5") , $ScriptData['AT']);
-			//criptData['GT'] =  (float) $xmlData->sensors[0]->TI6;
-			//tValueFloat ($this->GetIDForIdent("TI6") , $ScriptData['GT']);
+			$ScriptData['TI3'] =  (float) $xmlData->sensors[0]->TI3;
+			SetValueFloat($this->GetIDForIdent("TI3") , $ScriptData['TI3']);						
+			$ScriptData['OelT'] = (float) $xmlData->sensors[0]->TI4;
+			SetValueFloat ($this->GetIDForIdent("TI4"), $ScriptData['OelT']);
+			$ScriptData['AT'] =  (float) $xmlData->sensors[0]->TI5;
+			SetValueFloat ($this->GetIDForIdent("TI5") , $ScriptData['AT']);
+			$ScriptData['GT'] =  (float) $xmlData->sensors[0]->TI6;
+			SetValueFloat ($this->GetIDForIdent("TI6") , $ScriptData['GT']);
 			
 			$ScriptData['S1'] =  (Float) $xmlData->sensors[0]->S1;
 			SetValue ($this->GetIDForIdent("Motordrehzahl")  , $ScriptData['S1']);

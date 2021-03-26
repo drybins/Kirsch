@@ -257,11 +257,11 @@
 			$ScriptData['TI6'] =  (float) $xmlData->sensors[0]->TI6;
 			SetValueFloat ($this->GetIDForIdent("TI6") , $ScriptData['TI6']);
 			
-			$ScriptData['TS3'] =  (float) $xmlData->sensors[0]->TS3;
+			$ScriptData['TS3'] =  (string) $xmlData->sensors[0]->TS3;
 			SetValueString ($this->GetIDForIdent("TS3"), $ScriptData['TS3']);
-			$ScriptData['TS5'] =  (float) $xmlData->sensors[0]->TS5;
+			$ScriptData['TS5'] =  (string) $xmlData->sensors[0]->TS5;
 			SetValueString ($this->GetIDForIdent("TS5") , $ScriptData['TS5']);
-			$ScriptData['TS6'] =  (float) $xmlData->sensors[0]->TS6;
+			$ScriptData['TS6'] =  (string) $xmlData->sensors[0]->TS6;
 			SetValueString ($this->GetIDForIdent("TS6") , $ScriptData['TS6']);
 			
 			$ScriptData['S1'] =  (Float) $xmlData->sensors[0]->S1;

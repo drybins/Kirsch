@@ -64,10 +64,12 @@
 			$this->RegisterVariableFloat("E102", "Frequenz Phase2", "Kirsch.Frequenz", 270);
 			$this->RegisterVariableFloat("E103", "Frequenz Phase3", "Kirsch.Frequenz", 280);
 			//
-			$this->RegisterVariableFloat("Oeltemperatur", "Öltemperatur", "~Temperature", 310);
-			$this->RegisterVariableFloat("Heizwasser", "Heizwasser", "~Temperature", 350);
-			$this->RegisterVariableFloat("Abgasteperatur", "Abgasteperatur", "~Temperature", 400);
-			$this->RegisterVariableFloat("Gehaeusetemperatur", "Gehäusetemperatur", "~Temperature", 450);
+			$this->RegisterVariableFloat("TI3", "Heizwasser", "~Temperature", 290);
+			$this->RegisterVariableFloat("TI4", "Öltemperatur", "~Temperature", 300);
+			$this->RegisterVariableFloat("TI5", "Abgasteperatur", "~Temperature", 310);
+			$this->RegisterVariableFloat("TI6", "Gehäusetemperatur", "~Temperature", 320);
+			
+
 			$this->RegisterVariableInteger("Motordrehzahl", "Motordrehzahl", "Kirsch.UpM", 500);
 			$this->RegisterVariableInteger("Speicherladepumpe", "Speicherladepumpe", "Kirsch.Prozent", 550);
 			$this->RegisterVariableInteger("Drosselklapenstellung", "Drosselklapenstellung", "Kirsch.Prozent", 600);
@@ -77,7 +79,7 @@
 			$this->RegisterVariableFloat("Speicherunten", "Speichertemperatur unten", "~Temperature", 800);
 				
 			$this->RegisterVariableFloat("Aussentemperatur", "Außentemperatur", "~Temperature", 850);
-			$this->RegisterVariableFloat("VorlaufTemperaturIst", "Vorlauf Temperatur ist", "~Temperature", 910);
+			$this->RegisterVariableFloat("T3", "Vorlauf Temperatur ist", "~Temperature", 910)
 			$this->RegisterVariableFloat("VorlaufTemperaturSoll", "Vorlauf Temperatur soll", "~Temperature", 900);
 			$this->RegisterVariableFloat("RuecklaufTemperatur", "Rücklauf Temperatur", "~Temperature", 950);
 				
@@ -241,15 +243,15 @@
 			SetValue ($this->GetIDForIdent("E102") , $ScriptData['E102']);
 			$ScriptData['E103'] = (Float) $xmlData->electric[0]->E103;
 			SetValue ($this->GetIDForIdent("E103") , $ScriptData['E103']);
-						
+			
+			$ScriptData['TI3'] =  (float) $xmlData->sensors[0]->TI3;
+			SetValueFloat($this->GetIDForIdent("TI3") , $ScriptData['TI3']);						
 			$ScriptData['OelT'] = (float) $xmlData->sensors[0]->TI4;
-			SetValueFloat ($this->GetIDForIdent("Oeltemperatur"), $ScriptData['OelT']);
-			$ScriptData['HW'] =  (float) $xmlData->sensors[0]->TI3;
-			SetValueFloat($this->GetIDForIdent("Heizwasser") , $ScriptData['HW']);
+			SetValueFloat ($this->GetIDForIdent("TI4"), $ScriptData['OelT']);
 			$ScriptData['AT'] =  (float) $xmlData->sensors[0]->TI5;
-			SetValueFloat ($this->GetIDForIdent("Abgasteperatur") , $ScriptData['AT']);
+			SetValueFloat ($this->GetIDForIdent("TI5") , $ScriptData['AT']);
 			$ScriptData['GT'] =  (float) $xmlData->sensors[0]->TI6;
-			SetValueFloat ($this->GetIDForIdent("Gehaeusetemperatur") , $ScriptData['GT']);
+			SetValueFloat ($this->GetIDForIdent("TI6") , $ScriptData['GT']);
 			
 			$ScriptData['S1'] =  (Float) $xmlData->sensors[0]->S1;
 			SetValue ($this->GetIDForIdent("Motordrehzahl")  , $ScriptData['S1']);
@@ -271,9 +273,7 @@
 			/*[Eickeloh\Heizung\BHKW\Heizung\Außentemperatur]*/
 			$ScriptData['T1'] =  (Float) $xmlData->sensors[0]->T1;
 			SetValue ($this->GetIDForIdent("Aussentemperatur") , $ScriptData['T1']);
-			/*[Eickeloh\Heizung\BHKW\Heizung\Vorlauftemperatur ist]*/
-			$ScriptData['T5'] =  (Float) $xmlData->sensors[0]->T5;
-			SetValue ($this->GetIDForIdent("VorlaufTemperaturIst") , $ScriptData['T5']);
+
 			/*[Eickeloh\Heizung\BHKW\Heizung\Rücklauftemperatur]*/
 			$ScriptData['T6'] =  (Float) $xmlData->sensors[0]->T6;
 			SetValue ($this->GetIDForIdent("RuecklaufTemperatur") , $ScriptData['T6']);

@@ -244,14 +244,14 @@
 			$ScriptData['E103'] = (Float) $xmlData->electric[0]->E103;
 			SetValue ($this->GetIDForIdent("E103") , $ScriptData['E103']);
 			
-			$ScriptData['TI3'] =  (float) $xmlData->sensors[0]->TI3;
-			SetValueFloat($this->GetIDForIdent("TI3") , $ScriptData['TI3']);						
-			$ScriptData['OelT'] = (float) $xmlData->sensors[0]->TI4;
-			SetValueFloat ($this->GetIDForIdent("TI4"), $ScriptData['OelT']);
-			$ScriptData['AT'] =  (float) $xmlData->sensors[0]->TI5;
-			SetValueFloat ($this->GetIDForIdent("TI5") , $ScriptData['AT']);
-			$ScriptData['GT'] =  (float) $xmlData->sensors[0]->TI6;
-			SetValueFloat ($this->GetIDForIdent("TI6") , $ScriptData['GT']);
+			//$ScriptData['TI3'] =  (float) $xmlData->sensors[0]->TI3;
+			//tValueFloat($this->GetIDForIdent("TI3") , $ScriptData['TI3']);						
+			//criptData['OelT'] = (float) $xmlData->sensors[0]->TI4;
+			//tValueFloat ($this->GetIDForIdent("TI4"), $ScriptData['OelT']);
+			//criptData['AT'] =  (float) $xmlData->sensors[0]->TI5;
+			//tValueFloat ($this->GetIDForIdent("TI5") , $ScriptData['AT']);
+			//criptData['GT'] =  (float) $xmlData->sensors[0]->TI6;
+			//tValueFloat ($this->GetIDForIdent("TI6") , $ScriptData['GT']);
 			
 			$ScriptData['S1'] =  (Float) $xmlData->sensors[0]->S1;
 			SetValue ($this->GetIDForIdent("Motordrehzahl")  , $ScriptData['S1']);

@@ -280,6 +280,23 @@
 			
 			$ScriptData['S4'] =  (string) $xmlData->sensors[0]->S4;
 			SetValueString ($this->GetIDForIdent("S4") , $ScriptData['S4']);
+			$ScriptData['S7'] =  (string) $xmlData->sensors[0]->S7;
+			SetValueString ($this->GetIDForIdent("S7") , $ScriptData['S7']);
+			$ScriptData['S9'] =  (string) $xmlData->sensors[0]->S9;
+			SetValueString ($this->GetIDForIdent("S9") , $ScriptData['S9']);
+			$ScriptData['S12'] =  (string) $xmlData->sensors[0]->S12;
+			SetValueString ($this->GetIDForIdent("S12") , $ScriptData['S12']);
+			$ScriptData['S13'] =  (string) $xmlData->sensors[0]->S13;
+			SetValueString ($this->GetIDForIdent("S13") , $ScriptData['S13']);
+			$ScriptData['C1'] =  (string) $xmlData->sensors[0]->C1;
+			SetValueString ($this->GetIDForIdent("C1") , $ScriptData['C1']);
+			$ScriptData['C2'] =  (string) $xmlData->sensors[0]->C2;
+			SetValueString ($this->GetIDForIdent("C2") , $ScriptData['C2']);
+			$ScriptData['SS'] =  (string) $xmlData->sensors[0]->SS;
+			SetValueString ($this->GetIDForIdent("SS") , $ScriptData['SS']);
+			$ScriptData['V1'] =  (string) $xmlData->sensors[0]->V1;
+			SetValueString ($this->GetIDForIdent("V1") , $ScriptData['V1']);
+
 			
 			$ScriptData['P1'] =  (Float) $xmlData->actors[0]->P1;
 			SetValue ($this->GetIDForIdent("Speicherladepumpe")  , $ScriptData['P1']);

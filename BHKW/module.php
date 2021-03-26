@@ -84,7 +84,7 @@
 			$this->RegisterVariableString("S7", "Leckagesensor", "", 380);
 			$this->RegisterVariableString("S9", "Gaswarnsensor", "", 390);
 			$this->RegisterVariableString("S12", "Gasüberdruckwächter", "", 400);
-			$this->RegisterVariableString("S13", "Kondensatniveau", "", 410);
+			$this->RegisterVariableString("S13", "Kondensatniveau", "", 410); 
 			$this->RegisterVariableString("C1", "Hauptschütz", "", 420);
 			$this->RegisterVariableString("C2", "Kondensatorschütz", "", 430);
 			$this->RegisterVariableString("SS", "Sanftanlauf", "", 440);

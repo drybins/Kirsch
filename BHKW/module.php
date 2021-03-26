@@ -70,6 +70,10 @@
 			$this->RegisterVariableFloat("TI6", "Gehäusetemperatur", "~Temperature", 320);
 			//
 
+			$this->RegisterVariableString("TS3", "Vorlauf-STB", "", 330);
+			$this->RegisterVariableString("TS5", "Abgas-STB", "", 340);
+			$this->RegisterVariableString("TS6", "Gehäuse-STB", "", 350);
+			
 			$this->RegisterVariableInteger("Motordrehzahl", "Motordrehzahl", "Kirsch.UpM", 500);
 			$this->RegisterVariableInteger("Speicherladepumpe", "Speicherladepumpe", "Kirsch.Prozent", 550);
 			$this->RegisterVariableInteger("Drosselklapenstellung", "Drosselklapenstellung", "Kirsch.Prozent", 600);
@@ -246,12 +250,19 @@
 			
 			$ScriptData['TI3'] =  (float) $xmlData->sensors[0]->TI3;
 			SetValueFloat($this->GetIDForIdent("TI3") , $ScriptData['TI3']);						
-			$ScriptData['OelT'] = (float) $xmlData->sensors[0]->TI4;
-			SetValueFloat ($this->GetIDForIdent("TI4"), $ScriptData['OelT']);
-			$ScriptData['AT'] =  (float) $xmlData->sensors[0]->TI5;
-			SetValueFloat ($this->GetIDForIdent("TI5") , $ScriptData['AT']);
-			$ScriptData['GT'] =  (float) $xmlData->sensors[0]->TI6;
-			SetValueFloat ($this->GetIDForIdent("TI6") , $ScriptData['GT']);
+			$ScriptData['TI4'] = (float) $xmlData->sensors[0]->TI4;
+			SetValueFloat ($this->GetIDForIdent("TI4"), $ScriptData['TI4']);
+			$ScriptData['TI5'] =  (float) $xmlData->sensors[0]->TI5;
+			SetValueFloat ($this->GetIDForIdent("TI5") , $ScriptData['TI5']);
+			$ScriptData['TI6'] =  (float) $xmlData->sensors[0]->TI6;
+			SetValueFloat ($this->GetIDForIdent("TI6") , $ScriptData['TI6']);
+			
+			$ScriptData['TS3'] =  (float) $xmlData->sensors[0]->TS3;
+			SetValueString ($this->GetIDForIdent("TS3"), $ScriptData['TS3']);
+			$ScriptData['TS4'] =  (float) $xmlData->sensors[0]->TS4;
+			SetValueString ($this->GetIDForIdent("TS4") , $ScriptData['TS4']);
+			$ScriptData['TS5'] =  (float) $xmlData->sensors[0]->TS5;
+			SetValueString ($this->GetIDForIdent("TS5") , $ScriptData['TS5']);
 			
 			$ScriptData['S1'] =  (Float) $xmlData->sensors[0]->S1;
 			SetValue ($this->GetIDForIdent("Motordrehzahl")  , $ScriptData['S1']);

@@ -259,10 +259,10 @@
 			
 			$ScriptData['TS3'] =  (float) $xmlData->sensors[0]->TS3;
 			SetValueString ($this->GetIDForIdent("TS3"), $ScriptData['TS3']);
-			$ScriptData['TS4'] =  (float) $xmlData->sensors[0]->TS4;
-			SetValueString ($this->GetIDForIdent("TS4") , $ScriptData['TS4']);
 			$ScriptData['TS5'] =  (float) $xmlData->sensors[0]->TS5;
 			SetValueString ($this->GetIDForIdent("TS5") , $ScriptData['TS5']);
+			$ScriptData['TS6'] =  (float) $xmlData->sensors[0]->TS6;
+			SetValueString ($this->GetIDForIdent("TS6") , $ScriptData['TS6']);
 			
 			$ScriptData['S1'] =  (Float) $xmlData->sensors[0]->S1;
 			SetValue ($this->GetIDForIdent("Motordrehzahl")  , $ScriptData['S1']);

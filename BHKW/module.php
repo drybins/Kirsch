@@ -288,13 +288,13 @@
 			SetValueString ($this->GetIDForIdent("S12") , $ScriptData['S12']);
 			$ScriptData['S13'] =  (string) $xmlData->sensors[0]->S13;
 			SetValueString ($this->GetIDForIdent("S13") , $ScriptData['S13']);
-			$ScriptData['C1'] =  (string) $xmlData->sensors[0]->C1;
+			$ScriptData['C1'] =  (string) $xmlData->actors[0]->C1;
 			SetValueString ($this->GetIDForIdent("C1") , $ScriptData['C1']);
-			$ScriptData['C2'] =  (string) $xmlData->sensors[0]->C2;
+			$ScriptData['C2'] =  (string) $xmlData->actors[0]->C2;
 			SetValueString ($this->GetIDForIdent("C2") , $ScriptData['C2']);
-			$ScriptData['SS'] =  (string) $xmlData->sensors[0]->SS;
+			$ScriptData['SS'] =  (string) $xmlData->actors[0]->SS;
 			SetValueString ($this->GetIDForIdent("SS") , $ScriptData['SS']);
-			$ScriptData['V1'] =  (string) $xmlData->sensors[0]->V1;
+			$ScriptData['V1'] =  (string) $xmlData->actors[0]->V1;
 			SetValueString ($this->GetIDForIdent("V1") , $ScriptData['V1']);
 
 			

@@ -88,7 +88,7 @@
 			$this->RegisterVariableString("C1", "Hauptschütz", "", 420);
 			$this->RegisterVariableString("C2", "Kondensatorschütz", "", 430);
 			$this->RegisterVariableString("SS", "Sanftanlauf", "", 440);
-			$this->RegisterVariableBoolean("V1", "Gasventil", "", 450);
+			$this->RegisterVariableBoolean("V1", "Gasventil", "Kirsch.Gasventiel", 450);
 
 			
 			$this->RegisterVariableInteger("Speicherladepumpe", "Speicherladepumpe", "Kirsch.Prozent", 550);

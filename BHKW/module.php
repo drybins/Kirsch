@@ -113,7 +113,7 @@
 			$this->RegisterVariableFloat("T5", "Vorlauf Heizkreis 1", "~Temperature", 540);
 			$this->RegisterVariableFloat("T6", "Rücklauf Heizkreis 1", "~Temperature", 540);
 			
-			$this->RegisterVariableBoolean("mixer1", "Mischer Heizkreis 1", "", 550);
+			//$this->RegisterVariableBoolean("mixer1", "Mischer Heizkreis 1", "", 550);
 			$this->RegisterVariableFloat("totalTime", "Gesamtbetriebszeit", "Kirsch.Std", 560);
 			$this->RegisterVariableFloat("oilTime", "Betriebszeit nach Ölnachfüllung", "Kirsch.Std", 570);
 			$this->RegisterVariableFloat("electricity", "Elektrische Energiemenge", "Kirsch.kWh", 580);
@@ -374,7 +374,7 @@
 			/*[Eickeloh\Heizung\BHKW\Heizung\Rücklauftemperatur]*/
 			$ScriptData['T6'] =  (Float) $xmlData->sensors[0]->T6;
 			SetValue ($this->GetIDForIdent("T6") , $ScriptData['T6']);
-			
+			/*
 			$ScriptData['mixer1'] =  (string) $xmlData->actors[0]->mixer1;
 			switch ($ScriptData['mixer1']) 
 			{
@@ -387,11 +387,18 @@
 			default:
 				//SetValueString (14320 , "Status nicht gefunden:" . $ScriptData['STATUS']);
 			}
-			
+			*/
 			$ScriptData['totalTime'] =  (Float) $xmlData->operatingData[0]->totalTime/3600;
 			SetValue ($this->GetIDForIdent("totalTime") , $ScriptData['totalTime']);
-
-			
+			$ScriptData['oilTime'] =  (Float) $xmlData->operatingData[0]->oilTime/3600;
+			SetValue ($this->GetIDForIdent("oilTime") , $ScriptData['oilTime']);
+			$ScriptData['electricity'] =  (Float) $xmlData->operatingData[0]->electricity;
+			SetValue ($this->GetIDForIdent("electricity") , $ScriptData['electricity']);			
+			$ScriptData['heat'] =  (Float) $xmlData->operatingData[0]->heat;
+			SetValue ($this->GetIDForIdent("heat") , $ScriptData['heat']);		
+		
+		
+		
 		}
 		
 		private function IPS_CreateVariableProfile($ProfileName, $ProfileType, $Suffix, $MinValue, $MaxValue, $StepSize, $Digits, $Icon) 

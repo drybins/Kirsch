@@ -21,6 +21,7 @@
 			IPS_SetVariableProfileAssociation("Kirsch.Status", 3, "aufwärmen", "", 0x7cfc00);
 			IPS_SetVariableProfileAssociation("Kirsch.Status", 4, "läuft", "", 0x7cfc00);
 			IPS_SetVariableProfileAssociation("Kirsch.Status", 5, "abkühlen", "", 0x7cfc00);
+			IPS_SetVariableProfileAssociation("Kirsch.Status", 6, "selbsttest", "", 0x7cfc00);
 			IPS_SetVariableProfileAssociation("Kirsch.Status", 10, "Notstop", "", 0xff0000);
 			IPS_SetVariableProfileAssociation("Kirsch.Status", 11, "Fehler", "", 0xff0000);
 			
@@ -94,7 +95,7 @@
 			$this->RegisterVariableString("V3", "Status Lambdaregelung", "", 470);
 	
 			$this->RegisterVariableInteger("P1", "Leistung der Speicherladepumpe", "Kirsch.Prozent", 480);
-			$this->RegisterVariableString("P2", "Drehrichtung Ölpumpe", "", 490);
+			$this->RegisterVariableInteger("P2", "Drehrichtung Ölpumpe", "", 490);
 			
 			$this->RegisterVariableFloat("T1", "Außentemperatur", "~Temperature", 500);
 			$this->RegisterVariableFloat("T2", "Speichertemperatur oben", "~Temperature", 510);
@@ -204,6 +205,9 @@
 				break;
 			case "cooldown":
 				SetValueInteger ($StatusID, 5);
+				break;
+			case "selftest":
+				SetValueInteger ($StatusID, 6);
 				break;
 			case "emergencystop":
 				SetValueInteger ($StatusID, 10);
@@ -323,7 +327,21 @@
 			$ScriptData['P1'] =  (Float) $xmlData->actors[0]->P1;
 			SetValue ($this->GetIDForIdent("Speicherladepumpe")  , $ScriptData['P1']);
 			$ScriptData['P2'] =  (string) $xmlData->actors[0]->P2;
-			SetValueString ($this->GetIDForIdent("P2") , $ScriptData['P2']);
+			//SetValueString ($this->GetIDForIdent("P2") , $ScriptData['P2']);
+			switch ($ScriptData['P2']) 
+			{
+			case "off":
+				SetValueBoolean($this->GetIDForIdent("P2"), 1);
+				break;
+			case "forward":
+				SetValueBoolean ($this->GetIDForIdent("P2"), 2);
+				break;
+			case "reverse":
+				SetValueBoolean ($this->GetIDForIdent("P2"), 3);
+				break;
+			default:
+				//SetValueString (14320 , "Status nicht gefunden:" . $ScriptData['STATUS']);
+			}
 			
 			/*[Eickeloh\Heizung\BHKW\Heizung\Außentemperatur]*/
 			$ScriptData['T1'] =  (Float) $xmlData->sensors[0]->T1;

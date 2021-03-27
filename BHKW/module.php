@@ -331,13 +331,13 @@
 			switch ($ScriptData['P2']) 
 			{
 			case "off":
-				SetValueBoolean($this->GetIDForIdent("P2"), 1);
+				SetValueInteger($this->GetIDForIdent("P2"), 1);
 				break;
 			case "forward":
-				SetValueBoolean ($this->GetIDForIdent("P2"), 2);
+				SetValueInteger ($this->GetIDForIdent("P2"), 2);
 				break;
 			case "reverse":
-				SetValueBoolean ($this->GetIDForIdent("P2"), 3);
+				SetValueInteger ($this->GetIDForIdent("P2"), 3);
 				break;
 			default:
 				//SetValueString (14320 , "Status nicht gefunden:" . $ScriptData['STATUS']);

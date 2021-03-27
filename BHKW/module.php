@@ -327,7 +327,7 @@
 			
 			/*[Eickeloh\Heizung\BHKW\Heizung\Außentemperatur]*/
 			$ScriptData['T1'] =  (Float) $xmlData->sensors[0]->T1;
-			SetValue ($this->GetIDForIdent("Aussentemperatur") , $ScriptData['T1']);
+			SetValue ($this->GetIDForIdent("T1") , $ScriptData['T1']);
 			/*[Eickeloh\Heizung\BHKW\Heizung\Speichertemperatur oben]*/
 			$ScriptData['T2'] =  (Float) $xmlData->sensors[0]->T2;
 			SetValueFloat ($this->GetIDForIdent("T2") , $ScriptData['T2']);

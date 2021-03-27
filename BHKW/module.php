@@ -100,7 +100,7 @@
 			$this->RegisterVariableString("V3", "Status Lambdaregelung", "", 470);
 	
 			$this->RegisterVariableInteger("P1", "Leistung der Speicherladepumpe", "Kirsch.Prozent", 480);
-			$this->RegisterVariableInteger("P2", "Drehrichtung Ölpumpe", "", 490);
+			$this->RegisterVariableInteger("P2", "Drehrichtung Ölpumpe", "Kirsch.OelPumpe", 490);
 			
 			$this->RegisterVariableFloat("T1", "Außentemperatur", "~Temperature", 500);
 			$this->RegisterVariableFloat("T2", "Speichertemperatur oben", "~Temperature", 510);

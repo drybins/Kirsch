@@ -388,7 +388,7 @@
 				//SetValueString (14320 , "Status nicht gefunden:" . $ScriptData['STATUS']);
 			}
 			
-			$ScriptData['totalTime'] =  (Float) $xmlData->sensors[0]->totalTime;
+			$ScriptData['totalTime'] =  (Float) $xmlData->operatingData[0]->totalTime;
 			SetValue ($this->GetIDForIdent("totalTime") , $ScriptData['totalTime']);
 
 			

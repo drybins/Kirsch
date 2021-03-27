@@ -93,17 +93,18 @@
 			$this->RegisterVariableInteger("V2", "Drosselklapenstellung", "Kirsch.Prozent", 460);
 			$this->RegisterVariableString("V3", "Status Lambdaregelung", "", 470);
 	
-			$this->RegisterVariableInteger("Speicherladepumpe", "Speicherladepumpe", "Kirsch.Prozent", 550);
+			$this->RegisterVariableInteger("P1", "Leistung der Speicherladepumpe", "Kirsch.Prozent", 480);
+			$this->RegisterVariableString("P2", "Drehrichtung Ölpumpe", "", 490);
 			
-			
-			$this->RegisterVariableFloat("Speicheroben", "Speichertemperatur oben", "~Temperature", 700);
-			$this->RegisterVariableFloat("Speichermitte", "Speichertemperatur mitte", "~Temperature", 750);
-			$this->RegisterVariableFloat("Speicherunten", "Speichertemperatur unten", "~Temperature", 800);
+			$this->RegisterVariableFloat("T1", "Außentemperatur", "~Temperature", 500);
+			$this->RegisterVariableFloat("T2", "Speichertemperatur oben", "~Temperature", 510);
+			$this->RegisterVariableFloat("T3", "Speichertemperatur mitte", "~Temperature", 520);
+			$this->RegisterVariableFloat("T4", "Speichertemperatur unten", "~Temperature", 530);
 				
-			$this->RegisterVariableFloat("Aussentemperatur", "Außentemperatur", "~Temperature", 850);
-			$this->RegisterVariableFloat("T3", "Vorlauf Temperatur ist", "~Temperature", 910);
+			$this->RegisterVariableFloat("T5", "Vorlauf Heizkreis 1", "~Temperature", 540);
+			$this->RegisterVariableFloat("T6", "Rücklauf Heizkreis 1", "~Temperature", 540);
 			$this->RegisterVariableFloat("VorlaufTemperaturSoll", "Vorlauf Temperatur soll", "~Temperature", 900);
-			$this->RegisterVariableFloat("RuecklaufTemperatur", "Rücklauf Temperatur", "~Temperature", 950);
+			
 				
 				//statePower Variablen anlegen
 			//$eventID = IPS_CreateEvent(0);
@@ -321,25 +322,28 @@
 			
 			$ScriptData['P1'] =  (Float) $xmlData->actors[0]->P1;
 			SetValue ($this->GetIDForIdent("Speicherladepumpe")  , $ScriptData['P1']);
-
-			
-			/*[Eickeloh\Heizung\BHKW\Heizung\Speichertemperatur oben]*/
-			$ScriptData['SO'] =  (Float) $xmlData->sensors[0]->T2;
-			SetValueFloat ($this->GetIDForIdent("Speicheroben") , $ScriptData['SO']);
-			/*[Eickeloh\Heizung\BHKW\Heizung\Speichertemperatur mitte]*/
-			$ScriptData['SM'] =  (Float) $xmlData->sensors[0]->T3;
-			SetValueFloat ($this->GetIDForIdent("Speichermitte") , $ScriptData['SM']);
-			/*[Eickeloh\Heizung\BHKW\Heizung\Speichertemperatur unten]*/
-			$ScriptData['SU'] =  (Float) $xmlData->sensors[0]->T4;
-			SetValueFloat($this->GetIDForIdent("Speicherunten") , $ScriptData['SU']);
+			$ScriptData['P2'] =  (string) $xmlData->actors[0]->P2;
+			SetValueString ($this->GetIDForIdent("P2") , $ScriptData['P2']);
 			
 			/*[Eickeloh\Heizung\BHKW\Heizung\Außentemperatur]*/
 			$ScriptData['T1'] =  (Float) $xmlData->sensors[0]->T1;
 			SetValue ($this->GetIDForIdent("Aussentemperatur") , $ScriptData['T1']);
-
+			/*[Eickeloh\Heizung\BHKW\Heizung\Speichertemperatur oben]*/
+			$ScriptData['T2'] =  (Float) $xmlData->sensors[0]->T2;
+			SetValueFloat ($this->GetIDForIdent("T2") , $ScriptData['T2']);
+			/*[Eickeloh\Heizung\BHKW\Heizung\Speichertemperatur mitte]*/
+			$ScriptData['T3'] =  (Float) $xmlData->sensors[0]->T3;
+			SetValueFloat ($this->GetIDForIdent("T3") , $ScriptData['T3']);
+			/*[Eickeloh\Heizung\BHKW\Heizung\Speichertemperatur unten]*/
+			$ScriptData['T4'] =  (Float) $xmlData->sensors[0]->T4;
+			SetValueFloat($this->GetIDForIdent("T4") , $ScriptData['T4']);
+			
+			/*[Eickeloh\Heizung\BHKW\Heizung\Rücklauftemperatur]*/
+			$ScriptData['T5'] =  (Float) $xmlData->sensors[0]->T5;
+			SetValue ($this->GetIDForIdent("T5") , $ScriptData['T5']);
 			/*[Eickeloh\Heizung\BHKW\Heizung\Rücklauftemperatur]*/
 			$ScriptData['T6'] =  (Float) $xmlData->sensors[0]->T6;
-			SetValue ($this->GetIDForIdent("RuecklaufTemperatur") , $ScriptData['T6']);
+			SetValue ($this->GetIDForIdent("T6") , $ScriptData['T6']);
 
 
 			

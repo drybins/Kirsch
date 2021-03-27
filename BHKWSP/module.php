@@ -7,10 +7,7 @@
 			parent::Create();
 
 			$this->RequireParent("{3CFF0FD9-E306-41DB-9B5A-9D06D38576C3}");
-			$BHKWIOID = $this->GetParentId();
-			IPS_SetName ($BHKWIOID, "BHKWIO");
-			IPS_SetIdent ($BHKWIOID, "BHKWIO");
-			IPS_LogMessage("Parent SPID: ",$BHKWIOID);
+
 		}
 
 		public function Destroy()
@@ -23,6 +20,12 @@
 		{
 			//Never delete this line!
 			parent::ApplyChanges();
+			$BHKWIOID = $this->GetParentId();
+			IPS_SetName ($BHKWIOID, "BHKWIO");
+			IPS_SetIdent ($BHKWIOID, "BHKWIO");
+			IPS_LogMessage("Parent SPID: ",$BHKWIOID);
+			IPS_SetProperty($BHKWIOID, 'Host', "192.168.178.111");
+			IPS_SetProperty($BHKWIOID, 'Port', "7603");
 		}
 
 		public function ForwardData($JSONString)

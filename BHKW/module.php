@@ -330,7 +330,7 @@
 			SetValueString ($this->GetIDForIdent("V3") , $ScriptData['V3']);
 			
 			$ScriptData['P1'] =  (Float) $xmlData->actors[0]->P1;
-			SetValue ($this->GetIDForIdent("Speicherladepumpe")  , $ScriptData['P1']);
+			SetValue ($this->GetIDForIdent("P1")  , $ScriptData['P1']);
 			$ScriptData['P2'] =  (string) $xmlData->actors[0]->P2;
 			//SetValueString ($this->GetIDForIdent("P2") , $ScriptData['P2']);
 			switch ($ScriptData['P2']) 

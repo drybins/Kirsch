@@ -14,6 +14,8 @@
 			$this->IPS_CreateVariableProfile("Kirsch.Ampere", 2, " Ampere", 0, 0,1,2, ""); 
 			$this->IPS_CreateVariableProfile("Kirsch.Frequenz", 2, " Hz", 0, 0,1,2, ""); 
 			$this->IPS_CreateVariableProfile("Kirsch.Prozent", 1, " %", 0, 100,1, 0, "");
+			$this->IPS_CreateVariableProfile("Kirsch.kWh", 2, " kWh", 0, 0,1, 0, "");
+			$this->IPS_CreateVariableProfile("Kirsch.Std", 2, " hh.mm", 0, 0,1, 0, "");
 			
 			$this->IPS_CreateVariableProfile("Kirsch.Status", 1, "", 1, 11, 1, 2, "");
 			IPS_SetVariableProfileAssociation("Kirsch.Status", 1, "gestoppet", "", 0x7cfc00);
@@ -106,11 +108,16 @@
 			$this->RegisterVariableFloat("T2", "Speichertemperatur oben", "~Temperature", 510);
 			$this->RegisterVariableFloat("T3", "Speichertemperatur mitte", "~Temperature", 520);
 			$this->RegisterVariableFloat("T4", "Speichertemperatur unten", "~Temperature", 530);
-				
+
+			$this->RegisterVariableFloat("VorlaufTemperaturSoll", "Vorlauf Temperatur soll", "~Temperature", 535);
 			$this->RegisterVariableFloat("T5", "Vorlauf Heizkreis 1", "~Temperature", 540);
 			$this->RegisterVariableFloat("T6", "Rücklauf Heizkreis 1", "~Temperature", 540);
-			$this->RegisterVariableFloat("VorlaufTemperaturSoll", "Vorlauf Temperatur soll", "~Temperature", 900);
 			
+			$this->RegisterVariableBoolean("mixer1", "Mischer Heizkreis 1", "", 550);
+			$this->RegisterVariableFloat("totalTime", "Gesamtbetriebszeit", "Kirsch.Std", 560);
+			$this->RegisterVariableFloat("oilTime", "Betriebszeit nach Ölnachfüllung", "Kirsch.Std", 570);
+			$this->RegisterVariableFloat("electricity", "Elektrische Energiemenge", "Kirsch.kWh", 580);
+			$this->RegisterVariableFloat("heat", "Thermische Energiemenge", "Kirsch.kWh", 590);			
 				
 				//statePower Variablen anlegen
 			//$eventID = IPS_CreateEvent(0);
@@ -367,7 +374,22 @@
 			/*[Eickeloh\Heizung\BHKW\Heizung\Rücklauftemperatur]*/
 			$ScriptData['T6'] =  (Float) $xmlData->sensors[0]->T6;
 			SetValue ($this->GetIDForIdent("T6") , $ScriptData['T6']);
-
+			
+			$ScriptData['mixer1'] =  (string) $xmlData->actors[0]->mixer1;
+			switch ($ScriptData['mixer1']) 
+			{
+			case "on":
+				SetValueBoolean($this->GetIDForIdent("mixer1"), true);
+				break;
+			case "off":
+				SetValueBoolean ($this->GetIDForIdent("mixer1"), false);
+				break;
+			default:
+				//SetValueString (14320 , "Status nicht gefunden:" . $ScriptData['STATUS']);
+			}
+			
+			$ScriptData['totalTime'] =  (Float) $xmlData->sensors[0]->totalTime;
+			SetValue ($this->GetIDForIdent("totalTime") , $ScriptData['totalTime']);
 
 			
 		}

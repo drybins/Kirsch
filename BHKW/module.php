@@ -168,7 +168,7 @@
 			switch ($cmd)
 			{
 				case "statePP":
-					SetValue($this->GetIDForIdent("LPR"), date("d.m.y H:i"));
+					SetValue(GetIDForIdent("LPR"), date("d.m.y H:i"));
 					$this->statePP($data);
 					break;
 				case "statePower":

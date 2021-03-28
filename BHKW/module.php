@@ -125,7 +125,9 @@
 			//IPS_SetEventCondition($eventID,$this->GetIDForIdent('Aussentemperatur'));
 			//IPS_SetEventTrigger($eventID,0,$this->GetIDForIdent('Aussentemperatur'));
 			//IPS_SetEventScript($eventID, "$this->VorlaufSoll()");
-				
+			$CatID = IPS_CreateCategory();       // Kategorie anlegen
+			IPS_SetName($CatID, "statePP");	
+			$this->RegisterVariableInteger("LPR", "Letztes Paket empfangen", "", 900);
 
 			$this->ConnectParent("{33B9B2D7-6BC5-1CF6-A86F-E76622A7FFB7}");
 			

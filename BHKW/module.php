@@ -168,7 +168,7 @@
 			switch ($cmd)
 			{
 				case "statePP":
-					SetValue(37729, date("d.m.y H:i",time()));
+					SetValue(37729, time());
 					$this->statePP($data);
 					break;
 				case "statePower":

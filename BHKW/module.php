@@ -128,7 +128,7 @@
 			$CatID = IPS_CreateCategory();       // Kategorie anlegen
 			IPS_SetName($CatID, "statePP");	
 			$this->RegisterVariableInteger("LPR", "Letztes Paket empfangen", "", 900);
-			IPS_SetParent($CatID, $this->GetIDForIdent('LPR'));
+			IPS_SetParent($this->GetIDForIdent('LPR'),$CatID);
 
 			$this->ConnectParent("{33B9B2D7-6BC5-1CF6-A86F-E76622A7FFB7}");
 			

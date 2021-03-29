@@ -181,7 +181,7 @@ if (!defined('VorlaufSollminus20')) {
 			switch ($cmd)
 			{
 				case "statePP":
-					SetValue(37729, time());
+					//SetValue(37729, time());
 					$this->statePP($data);
 					break;
 				case "statePower":

@@ -1,4 +1,17 @@
 <?php
+			//const TempDiff =40;
+			//const VorlaufSoll20 = 45;
+			//const VorlaufSollminus20 = 70;
+if (!defined('TempDiff')) {
+    define('TempDiff', '40');
+}
+if (!defined('VorlaufSoll20')) {
+    define('VorlaufSoll20', '45');
+}
+if (!defined('VorlaufSollminus20')) {
+    define('VorlaufSollminus20', '70');
+}
+
 	class BHKW extends IPSModule {
 
 		public function Create()
@@ -181,17 +194,15 @@
 		
 		public function VorlaufSoll()
 		{
-			//const TempDiff =40;
-			//const VorlaufSoll20 = 45;
-			//const VorlaufSollminus20 = 70;
+
 			
 			//$VorlaufSoll = GetValueFloat($this->GetIDForIdent("VorlaufTemperaturSoll"));
-			$AussenTemp = GetValueFloat($this->GetIDForIdent("Aussentemperatur"));
+			$AussenTemp = GetValueFloat($this->GetIDForIdent("T1"));
 			$VorlaufTempDiff = 70 - 45;
 			$VorlaufTempStep = $VorlaufTempDiff/40;
 			$VorlaufSoll = ((20-$AussenTemp)* $VorlaufTempStep) + 45;
 			IPS_LogMessage("AußentemperaturT",$VorlaufSoll);
-			IPS_LogMessage("Außentemperatur", $this->GetIDForIdent("Aussentemperatur"));
+			IPS_LogMessage("Außentemperatur", $this->GetIDForIdent("T1"));
 			SetValueFloat($this->GetIDForIdent("VorlaufTemperaturSoll"), $VorlaufSoll);
 		}
 		

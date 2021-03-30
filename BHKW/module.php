@@ -122,6 +122,8 @@ if (!defined('VorlaufSollminus20')) {
 			$this->RegisterVariableFloat("T3", "Speichertemperatur mitte", "~Temperature", 520);
 			$this->RegisterVariableFloat("T4", "Speichertemperatur unten", "~Temperature", 530);
 
+			$this->RegisterVariableBoolean("R1", "Heizkreispumpe", "", 532);
+			
 			$this->RegisterVariableFloat("VorlaufTemperaturSoll", "Vorlauf Temperatur soll", "~Temperature", 535);
 			$this->RegisterVariableFloat("T5", "Vorlauf Heizkreis 1", "~Temperature", 540);
 			$this->RegisterVariableFloat("T6", "Rücklauf Heizkreis 1", "~Temperature", 540);
@@ -383,6 +385,19 @@ if (!defined('VorlaufSollminus20')) {
 			/*[Eickeloh\Heizung\BHKW\Heizung\Speichertemperatur unten]*/
 			$ScriptData['T4'] =  (Float) $xmlData->sensors[0]->T4;
 			SetValueFloat($this->GetIDForIdent("T4") , $ScriptData['T4']);
+						
+			$ScriptData['R1'] =  (string) $xmlData->actors[0]->R1;
+			switch ($ScriptData['R1']) 
+			{
+			case "on":
+				SetValueBoolean($this->GetIDForIdent("R1"), true);
+				break;
+			case "off":
+				SetValueBoolean ($this->GetIDForIdent("R1"), false);
+				break;
+			default:
+				//SetValueString (14320 , "Status nicht gefunden:" . $ScriptData['STATUS']);
+			}
 			
 			/*[Eickeloh\Heizung\BHKW\Heizung\Rücklauftemperatur]*/
 			$ScriptData['T5'] =  (Float) $xmlData->sensors[0]->T5;

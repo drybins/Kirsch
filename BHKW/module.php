@@ -49,6 +49,10 @@ if (!defined('VorlaufSollminus20')) {
 			IPS_SetVariableProfileAssociation("Kirsch.OelPumpe", 2, "vorwärtz", "", -1);
 			IPS_SetVariableProfileAssociation("Kirsch.OelPumpe", 3, "rückwärtz", "", -1);
 			
+			$this->IPS_CreateVariableProfile("Kirsch.AnAus", 0, "", 1, 11, 1, 2, "");
+			IPS_SetVariableProfileAssociation("Kirsch.AnAus", true, "An", "", -1);
+			IPS_SetVariableProfileAssociation("Kirsch.AnAus", false, "Aus", "", -1);
+			
 			//$Parent = $this->GetParentId();
 			//IPS_LogMessage("BHKW ID", $Parent);
 			//BHKW statePP Variablen anlegen
@@ -122,7 +126,7 @@ if (!defined('VorlaufSollminus20')) {
 			$this->RegisterVariableFloat("T3", "Speichertemperatur mitte", "~Temperature", 520);
 			$this->RegisterVariableFloat("T4", "Speichertemperatur unten", "~Temperature", 530);
 
-			$this->RegisterVariableBoolean("R1", "Heizkreispumpe", "", 532);
+			$this->RegisterVariableBoolean("R1", "Heizkreispumpe", "Kirsch.AnAus", 532);
 			
 			$this->RegisterVariableFloat("VorlaufTemperaturSoll", "Vorlauf Temperatur soll", "~Temperature", 535);
 			$this->RegisterVariableFloat("T5", "Vorlauf Heizkreis 1", "~Temperature", 540);

@@ -1,5 +1,21 @@
 {
-    "elements": [],
+    "elements": [
+    {
+    "elements": [
+        {
+      "type": "Label",
+      "label": "___ [ Settings ] _______________________________________________________________________________________"
+    },
+    {
+      "type": "NumberSpinner",
+      "name": "port",
+      "caption": "Target Port"
+    }
+    ],
+    "actions": [],
+    "status": []
+}
+],
     "actions": [],
     "status": []
 }

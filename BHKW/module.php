@@ -207,6 +207,7 @@ if (!defined('VorlaufSollminus20')) {
 			$VorlaufTempDiff = 70 - 45;
 			$VorlaufTempStep = $VorlaufTempDiff/40;
 			$VorlaufSoll = ((20-$AussenTemp)* $VorlaufTempStep) + 45;
+			IPS_LogMessage("$VorlaufTempStep",$VorlaufTempStep);
 			IPS_LogMessage("AußentemperaturT",$VorlaufSoll);
 			IPS_LogMessage("Außentemperatur", $this->GetIDForIdent("T1"));
 			SetValueFloat($this->GetIDForIdent("VorlaufTemperaturSoll"), $VorlaufSoll);

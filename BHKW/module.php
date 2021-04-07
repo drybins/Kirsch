@@ -1,7 +1,7 @@
 <?php
-			//const TempDiff =40;
-			//const VorlaufSoll20 = 45;
-			//const VorlaufSollminus20 = 70;
+//const TempDiff =40;
+//const VorlaufSoll20 = 45;
+//const VorlaufSollminus20 = 70;
 if (!defined('TempDiff')) {
     define('TempDiff', '40');
 }

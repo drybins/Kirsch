@@ -137,7 +137,10 @@ if (!defined('VorlaufSollminus20')) {
 			$this->RegisterVariableFloat("oilTime", "Betriebszeit nach Ölnachfüllung", "Kirsch.Std", 570);
 			$this->RegisterVariableFloat("electricity", "Elektrische Energiemenge", "Kirsch.kWh", 580);
 			$this->RegisterVariableFloat("heat", "Thermische Energiemenge", "Kirsch.kWh", 590);			
-				
+			
+			//Errors Variablen anlegen
+			
+			
 				//statePower Variablen anlegen
 			//$eventID = IPS_CreateEvent(0);
 			//IPS_SetParent($eventID, $this->GetIDForIdent('Aussentemperatur'));

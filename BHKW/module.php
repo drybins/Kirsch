@@ -219,6 +219,9 @@ if (!defined('VorlaufSollminus20')) {
 		
 		private function errors($data)
 		{
+			$arr = [];
+			$array = json_decode(json_encode(simplexml_load_string($data)),true);
+			prin_r $array;
 			IPS_LogMessage("BHKW errors:", $data);
 		}
 		private function statePP($data)

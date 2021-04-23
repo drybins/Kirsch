@@ -223,15 +223,15 @@ if (!defined('VorlaufSollminus20')) {
 			$array = json_decode(json_encode(simplexml_load_string($data)),true);
 			if(!empty($array))
 			{
-				$sortarray = array();
-				array_multisort($array[5],SORT_DESC,SORT_STRING);
+				print_r ($array);
+				//$sortarray = array();
+				array_multisort($array["error"],SORT_DESC,SORT_STRING);
 				$i=0;
-				foreach($sortarray['error'] as $elem)
+				foreach($array['error'] as $elem)
 				{
 					IPS_LogMessage("BHKW Fehler datum:", $elem['date']);	
 				}
 			}
-			//print_r ($array);
 			IPS_LogMessage("BHKW errors:", $data);
 		}
 		

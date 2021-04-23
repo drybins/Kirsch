@@ -220,7 +220,7 @@ if (!defined('VorlaufSollminus20')) {
 		private function errors($data)
 		{
 			$arr = [];
-			$Datumalt ="";
+			$Datumalt =0;
 			$array = json_decode(json_encode(simplexml_load_string($data)),true);
 			if(!empty($array))
 			{
@@ -234,7 +234,7 @@ if (!defined('VorlaufSollminus20')) {
 					//IPS_LogMessage("BHKW Fehler Time:", $elem['time']);
 					$Datum = strtotime($elem['date'] . $elem['time']);
 					IPS_LogMessage("BHKW Unix Time:", $Datum);
-					if(!$Datumalt)
+					if($Datumalt == 0)
 						$Datumalt = $Datum;
 					if($Datum > $Datumalt)
 						SetValue(22698,$Datum);

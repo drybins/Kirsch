@@ -223,6 +223,8 @@ if (!defined('VorlaufSollminus20')) {
 			$array = json_decode(json_encode(simplexml_load_string($data)),true);
 			if(!empty($array))
 			{
+				$sortarray = array();
+				array_multisort($sortArray['date'],SORT_DESC,$array);
 				$i=0;
 				foreach($array['error'] as $elem)
 				{
@@ -232,6 +234,7 @@ if (!defined('VorlaufSollminus20')) {
 			//print_r ($array);
 			IPS_LogMessage("BHKW errors:", $data);
 		}
+		
 		private function statePP($data)
 		{
 			$xmlData = @new SimpleXMLElement(utf8_encode($data), LIBXML_NOBLANKS + LIBXML_NONET);

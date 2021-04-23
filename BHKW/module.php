@@ -225,7 +225,7 @@ if (!defined('VorlaufSollminus20')) {
 			{
 				//print_r ($array);
 				//$sortarray = array();
-				array_multisort($array["error","date"],SORT_DESC);
+				array_multisort($array["error"]["date"],SORT_DESC);
 				$i=0;
 				foreach($array['error' as $elem)
 				{

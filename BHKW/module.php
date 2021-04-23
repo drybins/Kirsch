@@ -229,7 +229,8 @@ if (!defined('VorlaufSollminus20')) {
 				$i=0;
 				foreach($array['error'] as $elem)
 				{
-					IPS_LogMessage("BHKW Fehler datum:", $elem['date']);	
+					IPS_LogMessage("BHKW Fehler datum:", $elem['date']);
+					IPS_LogMessage("BHKW Fehler Time:", $elem['time']);
 				}
 			}
 			IPS_LogMessage("BHKW errors:", $data);

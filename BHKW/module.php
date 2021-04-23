@@ -240,6 +240,7 @@ if (!defined('VorlaufSollminus20')) {
 					if($Datum > $Datumalt)
 					{
 						SetValue(22698,$Datum);
+						$Datumalt = $Datum;
 						IPS_LogMessage("BHKW Fehler datum next:", $elem['date']);
 					}
 				}

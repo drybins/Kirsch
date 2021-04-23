@@ -190,6 +190,10 @@ if (!defined('VorlaufSollminus20')) {
 					//SetValue(37729, time());
 					$this->statePP($data);
 					break;
+				case "errors":
+					//SetValue(37729, time());
+					$this->errors($data);
+					break;
 				case "statePower":
 					//$this->statePP($data);
 					break;
@@ -213,8 +217,10 @@ if (!defined('VorlaufSollminus20')) {
 			SetValueFloat($this->GetIDForIdent("VorlaufTemperaturSoll"), $VorlaufSoll);
 		}
 		
-		
-				       
+		private function errors($data)
+		{
+			IPS_LogMessage("BHKW errors:", $data);
+		}
 		private function statePP($data)
 		{
 			$xmlData = @new SimpleXMLElement(utf8_encode($data), LIBXML_NOBLANKS + LIBXML_NONET);
@@ -433,9 +439,6 @@ if (!defined('VorlaufSollminus20')) {
 			SetValue ($this->GetIDForIdent("electricity") , $ScriptData['electricity']);			
 			$ScriptData['heat'] =  (Float) $xmlData->operatingData[0]->heat;
 			SetValue ($this->GetIDForIdent("heat") , $ScriptData['heat']);		
-		
-		
-		
 		}
 		
 		private function IPS_CreateVariableProfile($ProfileName, $ProfileType, $Suffix, $MinValue, $MaxValue, $StepSize, $Digits, $Icon) 

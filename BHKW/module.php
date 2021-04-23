@@ -225,15 +225,18 @@ if (!defined('VorlaufSollminus20')) {
 			{
 				//print_r ($array);
 				//$sortarray = array();["error"]
-				array_multisort( array_column( $array, 'date' ),SORT_DESC);
+				//array_multisort( array_column( $array, 'date' ),SORT_DESC);
 				$i=0;
 				foreach($array['error'] as $elem)
 				{
-					IPS_LogMessage("BHKW Fehler datum:", $elem['date']);
-					IPS_LogMessage("BHKW Fehler Time:", $elem['time']);
+					//IPS_LogMessage("BHKW Fehler datum:", $elem['date']);
+					//IPS_LogMessage("BHKW Fehler Time:", $elem['time']);
 					$Datum = strtotime($elem['date'] . $elem['time']);
 					IPS_LogMessage("BHKW Unix Time:", $Datum);
-					SetValue(22698,$Datum);
+					if(!$Datumalt)
+						$Datumalt = $Datum;
+					if($Datum > $Datumalt)
+						SetValue(22698,$Datum);
 				}
 			}
 			IPS_LogMessage("BHKW errors:", $data);

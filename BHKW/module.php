@@ -223,7 +223,7 @@ if (!defined('VorlaufSollminus20')) {
 			$array = json_decode(json_encode(simplexml_load_string($data)),true);
 			if(!empty($array))
 			{
-				print_r ($array);
+				//print_r ($array);
 				//$sortarray = array();
 				array_multisort($array["error"],SORT_DESC,SORT_STRING);
 				$i=0;

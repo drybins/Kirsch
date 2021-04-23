@@ -225,9 +225,9 @@ if (!defined('VorlaufSollminus20')) {
 			{
 				//print_r ($array);
 				//$sortarray = array();
-				array_multisort($array["error"],SORT_DESC);
+				array_multisort($array["error","date"],SORT_DESC);
 				$i=0;
-				foreach($array['error'] as $elem)
+				foreach($array['error' as $elem)
 				{
 					IPS_LogMessage("BHKW Fehler datum:", $elem['date']);	
 				}

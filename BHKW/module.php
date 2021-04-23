@@ -233,6 +233,7 @@ if (!defined('VorlaufSollminus20')) {
 					IPS_LogMessage("BHKW Fehler Time:", $elem['time']);
 					$Datum = strtotime($elem['date'] . $elem['time']);
 					IPS_LogMessage("BHKW Unix Time:", $Datum);
+					SetValue(22698,$Datum);
 				}
 			}
 			IPS_LogMessage("BHKW errors:", $data);

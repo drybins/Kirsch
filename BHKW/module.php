@@ -230,15 +230,18 @@ if (!defined('VorlaufSollminus20')) {
 				$i=0;
 				foreach($array['error'] as $elem)
 				{
-					//IPS_LogMessage("BHKW Fehler datum:", $elem['date']);
-					//IPS_LogMessage("BHKW Fehler Time:", $elem['time']);
+					IPS_LogMessage("BHKW Fehler datum:", $elem['date']);
+					IPS_LogMessage("BHKW Fehler Time:", $elem['time']);
 					$Datum = strtotime($elem['date'] . $elem['time']);
 					IPS_LogMessage("BHKW Unix Time:", $Datum);
 					IPS_LogMessage("BHKW Unix Timea:", $Datumalt);
 					if($Datumalt == 0)
 						$Datumalt = $Datum;
 					if($Datum > $Datumalt)
+					{
 						SetValue(22698,$Datum);
+						IPS_LogMessage("BHKW Fehler datum next:", $elem['date']);
+					}
 				}
 			}
 			IPS_LogMessage("BHKW errors:", $data);

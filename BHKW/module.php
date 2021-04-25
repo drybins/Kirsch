@@ -148,6 +148,10 @@ if (!defined('VorlaufSollminus20')) {
 			$this->RegisterVariableString("state", "Status", "", 760);
 			$this->RegisterVariableString("date", "Datum", "", 770);
 			$this->RegisterVariableString("time", "Zeit", "", 780);
+			
+			$this->RegisterVariableString("Software", "Software", "", 800);
+			$this->RegisterVariableString("Messpunkt", "Mespunkt", "", 810);
+			$this->RegisterVariableString("Fehler", "Fehler", "", 820);
 						
 			
 			
@@ -244,10 +248,10 @@ if (!defined('VorlaufSollminus20')) {
 				foreach($array['error'] as $elem)
 				{
 					$Datum = strtotime($elem['date'] . $elem['time']);
-					//IPS_LogMessage("BHKW Unix Time:", $Datum);
-					//IPS_LogMessage("BHKW Unix Timea:", $Datumalt);
 					if($Datumalt == 0)
+					{
 						$Datumalt = $Datum;
+					}
 					if($Datum > $Datumalt)
 					{
 						SetValue(22698,$Datum);

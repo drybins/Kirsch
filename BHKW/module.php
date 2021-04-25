@@ -200,7 +200,14 @@ if (!defined('VorlaufSollminus20')) {
 			$end = strpos($data,">",$start);
 			$cmd = substr($data, $start+1, $end-$start-1);
 			IPS_LogMessage("Splitter CMD", $cmd);
-
+			$delimeter = "<?xml version='1.0' encoding='UTF-8'?>";
+			$pos = strrpos($data, $delimeter);
+			if($pos === true)
+			{
+				$data = substr($data,0,$pos);
+				IPS_LogMessage("Fehler Pos:", $pos);
+				IPS_LogMessage("Fehler ende pos:",substr($data,$pos));
+			}
 			switch ($cmd)
 			{
 				case "statePP":
@@ -209,18 +216,7 @@ if (!defined('VorlaufSollminus20')) {
 					break;
 				case "errors":
 					//SetValue(37729, time());
-					$delimeter = "<?xml version='1.0' encoding='UTF-8'?>";
-					$pos = strrpos($data, $delimeter);
-					if($pos === false)
-					{
-						$this->errors($data);
-					}
-					else
-					{
-						IPS_LogMessage("Fehler ende:",substr($data,strlen($data)-82));
-						IPS_LogMessage("Fehler Pos:", $pos);
-						IPS_LogMessage("Fehler ende pos:",substr($data,$pos));
-					}
+					$this->errors($data);
 					break;
 				case "statePower":
 					//$this->statePP($data);

@@ -209,9 +209,16 @@ if (!defined('VorlaufSollminus20')) {
 					break;
 				case "errors":
 					//SetValue(37729, time());
-					//if(right($data,9)
-					IPS_LogMessage("Errors ende:",substr($data,strlen($data)-9));
-					$this->errors($data);
+					sStr = "<?xml version='1.9' encoding='UTF-8'?>"
+					$pos = strrpos($data, sStr)
+					if($pos === false)
+					{
+						$this->errors($data);
+					}
+					else
+					{
+						IPS_LogMessage("Errors ende:",substr($data,strlen($data)-60));
+					}
 					break;
 				case "statePower":
 					//$this->statePP($data);

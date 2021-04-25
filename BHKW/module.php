@@ -209,8 +209,9 @@ if (!defined('VorlaufSollminus20')) {
 					break;
 				case "errors":
 					//SetValue(37729, time());
-					sStr = "<?xml version='1.0' encoding='UTF-8'?>";
-					$pos = strrpos($data, sStr)
+					$delimeter = "<?xml version='1.0' encoding='UTF-8'?>";
+					//sStr = "<?xml version='1.0' encoding='UTF-8'?>";
+					$pos = strrpos($data, $delimeter)
 					if($pos === false)
 					{
 						$this->errors($data);

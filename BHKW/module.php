@@ -217,7 +217,8 @@ if (!defined('VorlaufSollminus20')) {
 					}
 					else
 					{
-						IPS_LogMessage("Errors ende:",substr($data,strlen($data)-60));
+						IPS_LogMessage("Fehler ende:",substr($data,strlen($data)-82));
+						IPS_LogMessage("Fehler Pos:", $pos);
 					}
 					break;
 				case "statePower":

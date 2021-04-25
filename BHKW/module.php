@@ -53,8 +53,8 @@ if (!defined('VorlaufSollminus20')) {
 			IPS_SetVariableProfileAssociation("Kirsch.AnAus", true, "An", "", -1);
 			IPS_SetVariableProfileAssociation("Kirsch.AnAus", false, "Aus", "", -1);
 			
-			//$Parent = $this->GetParentId();
-			//IPS_LogMessage("BHKW ID", $Parent);
+			$Parent = $this->GetParentId();
+			IPS_LogMessage("BHKW ID", $Parent);
 			//BHKW statePP Variablen anlegen
 			$this->RegisterVariableInteger("KirschStatus", "Status", "Kirsch.Status", 100);
 			//$StatusID =IPS_GetObjectIDByIdent("KirschStatus",$BHKWID);

@@ -139,6 +139,16 @@ if (!defined('VorlaufSollminus20')) {
 			$this->RegisterVariableFloat("heat", "Thermische Energiemenge", "Kirsch.kWh", 590);			
 			
 			//Errors Variablen anlegen
+			$this->RegisterVariableString("class", "Klasse", "", 700);
+			$this->RegisterVariableString("device", "Gerät", "", 710);
+			$this->RegisterVariableString("type", "Typ", "", 720);
+			$this->RegisterVariableString("occurrence", "Anzahl", "", 730);
+			$this->RegisterVariableString("remoteConfirmed", "bestätigt", "", 740);
+			$this->RegisterVariableString("level", "Level", "", 750);
+			$this->RegisterVariableString("state", "Status", "", 760);
+			$this->RegisterVariableString("date", "Datum", "", 770);
+			$this->RegisterVariableString("time", "Zeit", "", 780);
+						
 			
 			
 				//statePower Variablen anlegen
@@ -222,7 +232,7 @@ if (!defined('VorlaufSollminus20')) {
 		
 		private function errors($data)
 		{
-			$arr = [];
+			//$arr = [];
 			$Datumalt =GetValue(22698);
 			$array = json_decode(json_encode(simplexml_load_string($data)),true);
 			if(!empty($array))

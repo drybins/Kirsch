@@ -266,7 +266,16 @@ if (!defined('VorlaufSollminus20')) {
 		
 		private function statePP($data)
 		{
-			$xmlData = @new SimpleXMLElement(utf8_encode($data), LIBXML_NOBLANKS + LIBXML_NONET);
+			try
+ 			{
+				$xmlData = @new SimpleXMLElement(utf8_encode($data), LIBXML_NOBLANKS + LIBXML_NONET);
+				//echo "Alles ok!";
+  			}
+  			catch(Exception $ex)
+  			{
+ 				//print_r($ex);
+  				IPS_LogMessage("BHKW statePP Fehler", $data);
+			}
 			
 			//Status des BHKW'S
 			$ScriptData['STATUS'] = (string) $xmlData->common[0]->state;			

@@ -163,7 +163,7 @@ if (!defined('VorlaufSollminus20')) {
 			//IPS_SetEventScript($eventID, "$this->VorlaufSoll()");
 			
 			$CatID = IPS_CreateCategory();       // Kategorie anlegen
-			IPS_SetName($CatID, "statePP");	
+			IPS_SetName($CatID, "Test1");	
 			$this->RegisterVariableInteger("LPR", "Letztes Paket empfangen", " ~UnixTimestamp", 900);
 			IPS_SetParent($this->GetIDForIdent('LPR'),$CatID);
 			

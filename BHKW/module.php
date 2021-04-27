@@ -58,6 +58,11 @@ if (!defined('VorlaufSollminus20')) {
 			$GUID = "{13D080B9-10DD-1AAD-4C21-B06937CDCA3C}";
 			$ID = IPS_GetInstanceListByModuleID($GUID)[0];
 			IPS_LogMessage("BHKW ID1", $ID);
+			if(!IPS_GetCategoryIDByName ("statePP", $ID))
+			{
+				IPS_LogMessage("statePP schon da");	
+			}
+			
 			
 			//BHKW statePP Variablen anlegen
 			$this->RegisterVariableInteger("KirschStatus", "Status", "Kirsch.Status", 100);

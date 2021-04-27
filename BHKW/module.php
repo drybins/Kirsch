@@ -60,7 +60,7 @@ if (!defined('VorlaufSollminus20')) {
 			IPS_LogMessage("BHKW ID1", $ID);
 			if(!IPS_GetCategoryIDByName ("statePP", $ID))
 			{
-				IPS_LogMessage("statePP schon da");	
+				IPS_LogMessage("statePP schon da!");	
 			}
 			
 			

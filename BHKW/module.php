@@ -153,9 +153,8 @@ if (!defined('VorlaufSollminus20')) {
 			$this->RegisterVariableString("Messpunkt", "Mespunkt", "", 810);
 			$this->RegisterVariableString("Fehler", "Fehler", "", 820);
 						
-			//IPS_LogMessage("Device ID", $this);
-			
-				//statePower Variablen anlegen
+					
+			//statePower Variablen anlegen
 			//$eventID = IPS_CreateEvent(0);
 			//IPS_SetParent($eventID, $this->GetIDForIdent('Aussentemperatur'));
 			//IPS_SetEventCondition($eventID,$this->GetIDForIdent('Aussentemperatur'));
@@ -164,6 +163,8 @@ if (!defined('VorlaufSollminus20')) {
 			
 			$CatID = IPS_CreateCategory();       // Kategorie anlegen
 			IPS_SetName($CatID, "Test1");	
+			$instance = @IPS_GetInstance($this->InstanceID);
+			IPS_LogMessage("BHKW ID", $instance);
 			//$this->RegisterVariableInteger("LPR", "Letztes Paket empfangen", " ~UnixTimestamp", 900);
 			//IPS_SetParent($this->GetIDForIdent('LPR'),$CatID);
 			

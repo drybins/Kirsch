@@ -153,7 +153,7 @@ if (!defined('VorlaufSollminus20')) {
 			$this->RegisterVariableString("Messpunkt", "Mespunkt", "", 810);
 			$this->RegisterVariableString("Fehler", "Fehler", "", 820);
 						
-			IPS_LogMessage("Device ID", $this);
+			//IPS_LogMessage("Device ID", $this);
 			
 				//statePower Variablen anlegen
 			//$eventID = IPS_CreateEvent(0);

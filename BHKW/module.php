@@ -61,7 +61,7 @@ if (!defined('VorlaufSollminus20')) {
 			$statePPID = IPS_GetCategoryIDByName ("statePP", $ID);
 			//if(!IPS_GetCategoryIDByName ("statePP", $ID))
 			//{
-				IPS_LogMessage("statePP schon da!", $ststePPID);	
+				IPS_LogMessage("statePP schon da!", $statePPID);	
 			//}
 			
 			

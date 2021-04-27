@@ -165,7 +165,7 @@ if (!defined('VorlaufSollminus20')) {
 			//IPS_SetName($CatID, "Test1");	
 			$instance = IPS_GetInstance($this->InstanceID);
 			//$instance = IPS_GetCategoryIDByName ("Kirsch BHKW", 0)
-			IPS_LogMessage("BHKW ID", $instance);
+			//IPS_LogMessage("BHKW ID", $instance);
 			//$this->RegisterVariableInteger("LPR", "Letztes Paket empfangen", " ~UnixTimestamp", 900);
 			//IPS_SetParent($this->GetIDForIdent('LPR'),$CatID);
 			

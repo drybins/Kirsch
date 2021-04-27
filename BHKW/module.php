@@ -164,8 +164,8 @@ if (!defined('VorlaufSollminus20')) {
 			
 			$CatID = IPS_CreateCategory();       // Kategorie anlegen
 			IPS_SetName($CatID, "Test1");	
-			$this->RegisterVariableInteger("LPR", "Letztes Paket empfangen", " ~UnixTimestamp", 900);
-			IPS_SetParent($this->GetIDForIdent('LPR'),$CatID);
+			//$this->RegisterVariableInteger("LPR", "Letztes Paket empfangen", " ~UnixTimestamp", 900);
+			//IPS_SetParent($this->GetIDForIdent('LPR'),$CatID);
 			
 			$this->ConnectParent("{33B9B2D7-6BC5-1CF6-A86F-E76622A7FFB7}");
 			

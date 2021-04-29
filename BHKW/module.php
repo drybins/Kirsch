@@ -513,6 +513,16 @@ if (!defined('VorlaufSollminus20')) {
 			SetValue ($this->GetIDForIdent("heat") , $ScriptData['heat']);		
 		}
 		
+		/**
+     		* Interne Funktion des SDK.
+     		*/
+    		public function GetConfigurationForm()
+    		{
+        		$form = json_decode(file_get_contents(__DIR__ . '/form.json'), true);
+		        //$ConfigVars = json_decode($this->ReadPropertyString('Variables'), true);
+		        return json_encode($form);
+    		}
+		
 		private function IPS_CreateVariableProfile($ProfileName, $ProfileType, $Suffix, $MinValue, $MaxValue, $StepSize, $Digits, $Icon) 
 		{
 		    if (!IPS_VariableProfileExists($ProfileName)) 

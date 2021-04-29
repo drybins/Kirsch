@@ -163,7 +163,7 @@ if (!defined('VorlaufSollminus20')) {
 			$this->RegisterVariableString("Messpunkt", "Mespunkt", "", 810);
 			$this->RegisterVariableString("Fehler", "Fehler", "", 820);
 						
-					
+			$this->RegisterVariableInteger("DLF", "Datum letzter Fehler", "~UnixTimestamp", 900);		
 			//statePower Variablen anlegen
 			//$eventID = IPS_CreateEvent(0);
 			//IPS_SetParent($eventID, $this->GetIDForIdent('Aussentemperatur'));
@@ -334,7 +334,7 @@ if (!defined('VorlaufSollminus20')) {
 		private function errors($data)
 		{
 			//$arr = [];
-			$Datumalt =GetValue(22698);
+			$Datumalt =GetValue($this->GetIDForIdent("DLF"));
 			$array = json_decode(json_encode(simplexml_load_string($data)),true);
 			if(!empty($array))
 			{

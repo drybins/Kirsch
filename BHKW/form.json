@@ -1,40 +1,15 @@
 {
     "elements": [
                {
-                    "type": "ExpansionPanel",
-                    "caption": "Connection",
-                    "items": [
-
-                        {
-                            "type": "RowLayout",
-                            "items": [
-                                {
-                                    "name": "Host",
-                                    "type": "ValidationTextBox",
-                                    "caption": "Host"
-                                }, 
-                                {
-                                    "name": "Database",
-                                    "type": "ValidationTextBox",
-                                    "caption": "Database"
-                                }]
-                        },
-                        {
-                            "type": "RowLayout",
-                            "items": [
-
-                                {
-                                    "name": "Username",
-                                    "type": "ValidationTextBox",
-                                    "caption": "Username"
-                                },
-                                {
-                                    "name": "Password",
-                                    "type": "PasswordTextBox",
-                                    "caption": "Password"
-                                }]
-                        }]
-                }
+                    "type": "List",
+                    "name": "Variables",
+                    "rowCount": 20,
+                    "add": true,
+                    "delete": true,
+                    "sort": {
+                        "column": "VariableId",
+                        "direction": "ascending"
+                    },
     ],
     "actions": [],
     "status": []

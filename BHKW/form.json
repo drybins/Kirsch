@@ -1,33 +1,10 @@
 {
     "elements": [
 	{
-		"type": "List",
-		"name": "Targets",
-		"caption": "Variables",
-		"add": true,
-		"delete": true,
-		"columns": [
-		  {
-			"caption": "Variable",
-			"name": "VariableID",
-			"width": "auto",
-			"add": 0,
-			"edit": {
-			  "type": "SelectVariable"
-			}
-		  },
-		  {
-			"caption": "Name (optional)",
-			"name": "Name",
-			"width": "200px",
-			"add": "",
-			"value": "",
-			"edit": {
-			  "type": "ValidationTextBox"
-			}
-		  }
-		]
-	  }
+		"type": "SelectVariable",
+		"name": "PropertyVariableID", 
+		"caption": "Target"
+	
     ],
     "actions": [],
     "status": []

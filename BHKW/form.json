@@ -1,33 +1,40 @@
 {
     "elements": [
-	{
-		"type": "List",
-		"name": "Targets",
-		"caption": "Variables",
-		"add": true,
-		"delete": true,
-		"columns": [
-		  {
-			"caption": "Variable",
-			"name": "VariableID",
-			"width": "auto",
-			"add": 0,
-			"edit": {
-			  "type": "SelectVariable"
-			}
-		  },
-		  {
-			"caption": "Name (optional)",
-			"name": "Name",
-			"width": "200px",
-			"add": "",
-			"value": "",
-			"edit": {
-			  "type": "ValidationTextBox"
-			}
-		  }
-		]
-	  }
+               {
+                    "type": "ExpansionPanel",
+                    "caption": "Connection",
+                    "items": [
+
+                        {
+                            "type": "RowLayout",
+                            "items": [
+                                {
+                                    "name": "Host",
+                                    "type": "ValidationTextBox",
+                                    "caption": "Host"
+                                }, 
+                                {
+                                    "name": "Database",
+                                    "type": "ValidationTextBox",
+                                    "caption": "Database"
+                                }]
+                        },
+                        {
+                            "type": "RowLayout",
+                            "items": [
+
+                                {
+                                    "name": "Username",
+                                    "type": "ValidationTextBox",
+                                    "caption": "Username"
+                                },
+                                {
+                                    "name": "Password",
+                                    "type": "PasswordTextBox",
+                                    "caption": "Password"
+                                }]
+                        }]
+                }
     ],
     "actions": [],
     "status": []

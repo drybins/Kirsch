@@ -186,20 +186,38 @@ if (!defined('VorlaufSollminus20')) {
 				
 				$uebersichtID=IPS_CreateCategory();
 				ips_setname($uebersichtID, "Überblick");
-				ips_setparent($uebersichtID, $BHKWID) ; 
+				ips_setparent($uebersichtID, $BHKWID);
+				ips_setposition($uebersichtID,10);
 				
 				$StatusID=IPS_CreateCategory();
 				ips_setname($StatusID, "Statusdaten");
 				ips_setparent($StatusID, $BHKWID) ; 
+				ips_setposition($StatusID,20);
 								
 				$FehlerID=IPS_CreateCategory();
 				ips_setname($FehlerID, "Fehlermeldungen");
-				ips_setparent($FehlerID, $BHKWID) ; 
+				ips_setparent($FehlerID, $BHKWID) ;
+				ips_setposition($FehlerID,30);
 				
 				$GuiID=IPS_CreateCategory();
 				ips_setname($GuiID, "GUI");
 				ips_setparent($GuiID, $BHKWID) ; 
+				ips_setposition($GuiID,40);
 				
+				$TestID=IPS_CreateCategory();
+				ips_setname($TestID, "Test");
+				ips_setparent($TestID, $BHKWID) ; 
+				ips_setposition($TestID,50);
+				
+				$KonfigID=IPS_CreateCategory();
+				ips_setname($KonfigID, "Konfiguration");
+				ips_setparent($KonfigID, $BHKWID) ; 
+				ips_setposition($KonfigID,60);				
+				
+				$KalibrierungID=IPS_CreateCategory();
+				ips_setname($KalibrierungID, "Kaliebrierung");
+				ips_setparent($KalibrierungID, $BHKWID) ; 
+				ips_setposition($KalibrierungID,70);
 			} 
 			
 			//$instance = IPS_GetCategoryIDByName ("Kirsch BHKW", 0)

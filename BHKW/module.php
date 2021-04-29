@@ -177,8 +177,12 @@ if (!defined('VorlaufSollminus20')) {
 			$KategorieID = @IPS_GetCategoryIDByName("Visualisierung " , 0);
 			if($KategorieID === false
 			   { 
-				$ViscatID=IPS_CreateCategory() ;
-				ips_setname($ViscatID, "Visualisierung");
+				$ViscatID=IPS_CreateCategory();
+				uebersichtID, "Visualisierung");
+				   
+				   $uebersichtID=IPS_CreateCategory();
+				   ips_setname($uebersichtID, "Überblick");
+				   ips_setparent($uebersichtID, $ViscatID) ; 
 			} 
 			
 			//$instance = IPS_GetCategoryIDByName ("Kirsch BHKW", 0)

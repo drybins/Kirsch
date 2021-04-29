@@ -175,19 +175,19 @@ if (!defined('VorlaufSollminus20')) {
 			//IPS_SetName($CatID, "Test1");	
 			//$instance = IPS_GetInstance($this->InstanceID);
 			$KategorieID = @IPS_GetCategoryIDByName("Visualisierung " , 0);
-			/*if($KategorieID === false)
+			if($KategorieID === false)
 			{ 
 				$ViscatID=IPS_CreateCategory();
-				uebersichtID, "Visualisierung");
+				ips_setname($ViscatID, "Visualisierung");
 								   
 				$BHKWID=IPS_CreateCategory();
-				ips_setname($uebersichtID, "BHKW");
-				ips_setparent($uebersichtID, $ViscatID) ;    
+				ips_setname($BHKWID, "BHKW");
+				ips_setparent($BHKWID, $ViscatID) ;    
 				
 				$uebersichtID=IPS_CreateCategory();
 				ips_setname($uebersichtID, "Überblick");
 				ips_setparent($uebersichtID, $BHKWID) ; 
-			} */
+			} 
 			
 			//$instance = IPS_GetCategoryIDByName ("Kirsch BHKW", 0)
 			//IPS_LogMessage("BHKW ID", $instance);

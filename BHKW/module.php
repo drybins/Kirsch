@@ -193,6 +193,11 @@ if (!defined('VorlaufSollminus20')) {
 				ips_setname($StatusID, "Statusdaten");
 				ips_setparent($StatusID, $BHKWID) ; 
 				ips_setposition($StatusID,20);
+				
+					$AllesID=IPS_CreateCategory();
+					ips_setname($AllesID, "Alles");
+					ips_setparent($AllesID, $StatusID) ; 
+					ips_setposition($AllesID,10);
 								
 				$FehlerID=IPS_CreateCategory();
 				ips_setname($FehlerID, "Fehlermeldungen");

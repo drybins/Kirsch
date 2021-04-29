@@ -10,6 +10,8 @@
                         "column": "VariableId",
                         "direction": "ascending"
                     },
+                                       "values": []
+                }
     ],
     "actions": [],
     "status": []

@@ -174,7 +174,7 @@ if (!defined('VorlaufSollminus20')) {
 			//$CatID = IPS_CreateCategory();       // Kategorie anlegen
 			//IPS_SetName($CatID, "Test1");	
 			//$instance = IPS_GetInstance($this->InstanceID);
-			$KategorieID = @IPS_GetCategoryIDByName("Visualisierung " , 0);
+			$KategorieID = @IPS_GetCategoryIDByName("Visualisierung" , 0);
 			if($KategorieID === false)
 			{ 
 				$ViscatID=IPS_CreateCategory();

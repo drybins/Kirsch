@@ -174,7 +174,13 @@ if (!defined('VorlaufSollminus20')) {
 			//$CatID = IPS_CreateCategory();       // Kategorie anlegen
 			//IPS_SetName($CatID, "Test1");	
 			//$instance = IPS_GetInstance($this->InstanceID);
-			//$KategorieID = @IPS_GetCategoryIDByName("statePP", $ÜbergeordneteID);
+			$KategorieID = @IPS_GetCategoryIDByName("Visualisierung " , 0);
+			if($KategorieID === false
+			   { 
+				$ViscatID=IPS_CreateCategory() ;
+				ips_setname($ViscatID, "Visualisierung");
+			} 
+			
 			//$instance = IPS_GetCategoryIDByName ("Kirsch BHKW", 0)
 			//IPS_LogMessage("BHKW ID", $instance);
 			//$this->RegisterVariableInteger("LPR", "Letztes Paket empfangen", " ~UnixTimestamp", 900);

@@ -198,7 +198,27 @@ if (!defined('VorlaufSollminus20')) {
 					ips_setname($AllesID, "Alles");
 					ips_setparent($AllesID, $StatusID) ; 
 					ips_setposition($AllesID,10);
-								
+									
+					$BHKSSID=IPS_CreateCategory();
+					ips_setname($BHKSSID, "BHKW");
+					ips_setparent($BHKSSID, $StatusID) ; 
+					ips_setposition($BHKSSID,20);
+				
+					$BetriebsdatenID=IPS_CreateCategory();
+					ips_setname($BetriebsdatenID, "Betriebsdaten");
+					ips_setparent($BetriebsdatenID, $StatusID) ; 
+					ips_setposition($BetriebsdatenID,30);
+					
+					$HeizungID=IPS_CreateCategory();
+					ips_setname($HeizungID, "Heizung");
+					ips_setparent($HeizungID, $StatusID) ; 
+					ips_setposition($HeizungID,40);
+				
+					$InbetribnahmeID=IPS_CreateCategory();
+					ips_setname($InbetribnahmeID, "Inbetriebnahme");
+					ips_setparent($InbetribnahmeID, $StatusID) ; 
+					ips_setposition($InbetribnahmeID,50);
+				
 				$FehlerID=IPS_CreateCategory();
 				ips_setname($FehlerID, "Fehlermeldungen");
 				ips_setparent($FehlerID, $BHKWID) ;

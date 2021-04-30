@@ -653,14 +653,14 @@ if (!defined('VorlaufSollminus20')) {
 			{
 				$NeueID=IPS_CreateCategory();
 				ips_setname($NeueID, $KategorieName);
-				if($ParentCat > 0)
+	/*			if($ParentCat > 0)
 				{
 					ips_setparent($NeueID, $ParentCat);
 				}
 				if($Position > 0)
 				{
 					ips_setposition($NeueID,$Position);
-				}
+				} */
 				IPS_LogMessage("neue Kategorie:", $NeueID .":" $KategorieName);
 		    	}
 			return $KategorieID;

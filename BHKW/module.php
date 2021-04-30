@@ -220,6 +220,21 @@ if (!defined('VorlaufSollminus20')) {
 						IPS_SetName($Link1ID, "Außentemperatur" ); // Link benennen
 						IPS_SetParent($Link1ID, $HeizungID); // Link einsortieren unter dem Objekt mit der ID "12345"
 						IPS_SetLinkTargetID($Link1ID, $this->GetIDForIdent("T1"));    // Link verknüpfen
+						
+						$Link2ID = IPS_CreateLink();             // Link anlegen
+						IPS_SetName($Link2ID, "Speichertemperatur oben" ); // Link benennen
+						IPS_SetParent($Link2ID, $HeizungID); // Link einsortieren unter dem Objekt mit der ID "12345"
+						IPS_SetLinkTargetID($Link2ID, $this->GetIDForIdent("T2"));    // Link verknüpfen
+								
+						$Link3ID = IPS_CreateLink();             // Link anlegen
+						IPS_SetName($Link3ID, "Speichertemperatur mitte" ); // Link benennen
+						IPS_SetParent($Link3ID, $HeizungID); // Link einsortieren unter dem Objekt mit der ID "12345"
+						IPS_SetLinkTargetID($Link3ID, $this->GetIDForIdent("T3"));    // Link verknüpfen
+								
+						$Link4ID = IPS_CreateLink();             // Link anlegen
+						IPS_SetName($Link4ID, "Speichertemperatur unten" ); // Link benennen
+						IPS_SetParent($Link4ID, $HeizungID); // Link einsortieren unter dem Objekt mit der ID "12345"
+						IPS_SetLinkTargetID($Link4ID, $this->GetIDForIdent("T4"));    // Link verknüpfen
 				
 					$InbetribnahmeID=IPS_CreateCategory();
 					ips_setname($InbetribnahmeID, "Inbetriebnahme");

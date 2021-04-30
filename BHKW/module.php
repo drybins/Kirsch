@@ -176,6 +176,7 @@ if (!defined('VorlaufSollminus20')) {
 			//$instance = IPS_GetInstance($this->InstanceID);
 			//$RCID = IPS_CreateKategorie("Visualisierung",0);
 			$ViscatID =  $this->IPS_CreateKategorie("Visualisierung1",0,10);
+			$BHKWID =  $this->IPS_CreateKategorie("BHKW",$ViscatID,10);
 			/*
 			$KategorieID = @IPS_GetCategoryIDByName("Visualisierung" , 0);
 			if($KategorieID === false)

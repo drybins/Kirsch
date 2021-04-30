@@ -238,7 +238,31 @@ if (!defined('VorlaufSollminus20')) {
 						IPS_SetName($Link4ID, "Speichertemperatur unten" ); // Link benennen
 						IPS_SetParent($Link4ID, $HeizungID); // Link einsortieren unter dem Objekt mit der ID "12345"
 						IPS_SetLinkTargetID($Link4ID, $this->GetIDForIdent("T4"));    // Link verknüpfen
-						ips_setposition($Lin41ID,40);
+						ips_setposition($Link4ID,40);
+						
+						$Link5ID = IPS_CreateLink();             // Link anlegen
+						IPS_SetName($Link5ID, "VorlaufTemperatur Soll" ); // Link benennen
+						IPS_SetParent($Link5ID, $HeizungID); // Link einsortieren unter dem Objekt mit der ID "12345"
+						IPS_SetLinkTargetID($Link5ID, $this->GetIDForIdent("VorlaufTemperaturSoll"));    // Link verknüpfen
+						ips_setposition($Link5ID,50);
+				
+						$Link6ID = IPS_CreateLink();             // Link anlegen
+						IPS_SetName($Link6ID, "Vorlauf Heizkreis 1" ); // Link benennen
+						IPS_SetParent($Link6ID, $HeizungID); // Link einsortieren unter dem Objekt mit der ID "12345"
+						IPS_SetLinkTargetID($Link6ID, $this->GetIDForIdent("T5"));    // Link verknüpfen
+						ips_setposition($Link6ID,60);
+						
+						$Link7ID = IPS_CreateLink();             // Link anlegen
+						IPS_SetName($Link7ID, "Rüklauf Heizkreis 1" ); // Link benennen
+						IPS_SetParent($Link7ID, $HeizungID); // Link einsortieren unter dem Objekt mit der ID "12345"
+						IPS_SetLinkTargetID($Link7ID, $this->GetIDForIdent("T6"));    // Link verknüpfen
+						ips_setposition($Link7ID,70);
+				
+						$Link8ID = IPS_CreateLink();             // Link anlegen
+						IPS_SetName($Link8ID, "Pumpe Heizkreis 1" ); // Link benennen
+						IPS_SetParent($Link8ID, $HeizungID); // Link einsortieren unter dem Objekt mit der ID "12345"
+						IPS_SetLinkTargetID($Link8ID, $this->GetIDForIdent("R1"));    // Link verknüpfen
+						ips_setposition($Link8ID,80);
 				
 					$InbetribnahmeID=IPS_CreateCategory();
 					ips_setname($InbetribnahmeID, "Inbetriebnahme");

@@ -648,12 +648,11 @@ if (!defined('VorlaufSollminus20')) {
 			
 		private function IPS_CreateKategorie($KategorieName, $ParentCat, $Position) 
 		{
-			$KategorieID = @IPS_GetCategoryIDByName($KategorieName, $ParentCat);
+		/*	$KategorieID = @IPS_GetCategoryIDByName($KategorieName, $ParentCat);
 			if($KategorieID === false)
 			{
 				$NeueID=IPS_CreateCategory();
-				ips_setname($NeueID, $KategorieName);
-	/*			if($ParentCat > 0)
+				ips_setname($NeueID, $KategorieName);/*			if($ParentCat > 0)
 				{
 					ips_setparent($NeueID, $ParentCat);
 				}

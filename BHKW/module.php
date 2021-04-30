@@ -215,12 +215,12 @@ if (!defined('VorlaufSollminus20')) {
 					ips_setname($HeizungID, "Heizung");
 					ips_setparent($HeizungID, $StatusID) ; 
 					ips_setposition($HeizungID,40);
-/*				
+				
 						$Link1ID = IPS_CreateLink();             // Link anlegen
 						IPS_SetName($Link1ID, "Außentemperatur" ); // Link benennen
 						IPS_SetParent($Link1ID, $HeizungID); // Link einsortieren unter dem Objekt mit der ID "12345"
 						IPS_SetLinkTargetID($Link1ID, $this->GetIDForIdent("T1"));    // Link verknüpfen
-*/				
+				
 					$InbetribnahmeID=IPS_CreateCategory();
 					ips_setname($InbetribnahmeID, "Inbetriebnahme");
 					ips_setparent($InbetribnahmeID, $StatusID) ; 

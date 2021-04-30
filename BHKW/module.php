@@ -176,7 +176,7 @@ if (!defined('VorlaufSollminus20')) {
 			//$instance = IPS_GetInstance($this->InstanceID);
 			//$RCID = IPS_CreateKategorie("Visualisierung",0);
 			//$ViscatID =  $this->IPS_CreateKategorie("Visualisierung",0,0);
-			/*
+			
 			$KategorieID = @IPS_GetCategoryIDByName("Visualisierung" , 0);
 			if($KategorieID === false)
 			{ 
@@ -296,7 +296,7 @@ if (!defined('VorlaufSollminus20')) {
 				ips_setname($KalibrierungID, "Kaliebrierung");
 				ips_setparent($KalibrierungID, $BHKWID) ; 
 				ips_setposition($KalibrierungID,70);
-			} */
+			} 
 			
 			//$instance = IPS_GetCategoryIDByName ("Kirsch BHKW", 0)
 			//IPS_LogMessage("BHKW ID", $instance);

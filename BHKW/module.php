@@ -661,8 +661,12 @@ if (!defined('VorlaufSollminus20')) {
 				{
 					ips_setposition($NeueID,$Position);
 				} 
-				//IPS_LogMessage("neue Kategorie:", $NeueID .":" $KategorieName);
+				IPS_LogMessage("neue Kategorie:", $NeueID .":" . $KategorieName);
 		    	}
+			else
+			{
+				IPS_LogMessage("alte Kategorie:", $KategorieID .":"  . $KategorieName);
+			}
 			return $NeueID;
 		}  
 

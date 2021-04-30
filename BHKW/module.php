@@ -174,7 +174,7 @@ if (!defined('VorlaufSollminus20')) {
 			//$CatID = IPS_CreateCategory();       // Kategorie anlegen
 			//IPS_SetName($CatID, "Test1");	
 			//$instance = IPS_GetInstance($this->InstanceID);
-			$RCID = IPS_CreateKategorie("Visualisierung",0);
+			//$RCID = IPS_CreateKategorie("Visualisierung",0);
 			$KategorieID = @IPS_GetCategoryIDByName("Visualisierung" , 0);
 			if($KategorieID === false)
 			{ 
@@ -646,12 +646,12 @@ if (!defined('VorlaufSollminus20')) {
 			
 		private function IPS_CreateKategorie($KategorieName, $ParentCat) 
 		{
-			$KategorieID = @IPS_GetCategoryIDByName($KategorieName); 
-			if ($KategorieID === false) 
+			$KategorieID = @IPS_GetCategoryIDByName($KategorieName, $ParentCat);
+			if($KategorieID === false)
 			{
 				IPS_LogMessage("neue Kategorie:", $KategorieID);
 		    	}
-			return $KategorieID;
+			//return $KategorieID;
 		}
 
 		private function IPS_CreateVariableProfile($ProfileName, $ProfileType, $Suffix, $MinValue, $MaxValue, $StepSize, $Digits, $Icon) 

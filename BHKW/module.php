@@ -175,13 +175,14 @@ if (!defined('VorlaufSollminus20')) {
 			//IPS_SetName($CatID, "Test1");	
 			//$instance = IPS_GetInstance($this->InstanceID);
 			//$RCID = IPS_CreateKategorie("Visualisierung",0);
-			$RCID =  $this->IPS_CreateKategorie("Visualisierung",0);
+			$ViscatID =  $this->IPS_CreateKategorie("Visualisierung",0,0);
+			/*
 			$KategorieID = @IPS_GetCategoryIDByName("Visualisierung" , 0);
 			if($KategorieID === false)
 			{ 
 				$ViscatID=IPS_CreateCategory();
 				ips_setname($ViscatID, "Visualisierung");
-								   
+			
 				$BHKWID=IPS_CreateCategory();
 				ips_setname($BHKWID, "BHKW");
 				ips_setparent($BHKWID, $ViscatID) ;    
@@ -295,7 +296,7 @@ if (!defined('VorlaufSollminus20')) {
 				ips_setname($KalibrierungID, "Kaliebrierung");
 				ips_setparent($KalibrierungID, $BHKWID) ; 
 				ips_setposition($KalibrierungID,70);
-			} 
+			} */
 			
 			//$instance = IPS_GetCategoryIDByName ("Kirsch BHKW", 0)
 			//IPS_LogMessage("BHKW ID", $instance);
@@ -645,12 +646,22 @@ if (!defined('VorlaufSollminus20')) {
 		        return json_encode($form);
     		}
 			
-		private function IPS_CreateKategorie($KategorieName, $ParentCat) 
+		private function IPS_CreateKategorie($KategorieName, $ParentCat, $Position) 
 		{
 			$KategorieID = @IPS_GetCategoryIDByName($KategorieName, $ParentCat);
 			if($KategorieID === false)
 			{
-				IPS_LogMessage("neue Kategorie:", $KategorieID);
+				$NeueID=IPS_CreateCategory();
+				ips_setname($NeueID, $KategorieName);
+				if($ParentCat > 0)
+				{
+					ips_setparent($NeueID, $ParentCat);
+				}
+				if($Position > 0)
+				{
+					ips_setposition($NeueID,$Position);
+				}
+				IPS_LogMessage("neue Kategorie:", $NeueID .":" $KategorieName);
 		    	}
 			return $KategorieID;
 		}

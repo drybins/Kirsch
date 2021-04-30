@@ -4,8 +4,8 @@
 		"type": "SelectVariable",
 		"name": "PropertyVariableID", 
 		"caption": "Target"
-	
-    ],
+	}
+],
     "actions": [],
     "status": []
 }

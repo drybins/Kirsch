@@ -663,7 +663,7 @@ if (!defined('VorlaufSollminus20')) {
 				} 
 				//IPS_LogMessage("neue Kategorie:", $NeueID .":" $KategorieName);
 		    	}
-			return $KategorieID;
+			return $NeueID;
 		}  
 
 		private function IPS_CreateVariableProfile($ProfileName, $ProfileType, $Suffix, $MinValue, $MaxValue, $StepSize, $Digits, $Icon) 

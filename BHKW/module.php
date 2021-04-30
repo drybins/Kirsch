@@ -667,7 +667,7 @@ if (!defined('VorlaufSollminus20')) {
 			{
 				IPS_LogMessage("alte Kategorie:", $KategorieID .":"  . $KategorieName);
 			}
-			return $this->$NeueID;
+			return "12345";
 		}  
 
 		private function IPS_CreateVariableProfile($ProfileName, $ProfileType, $Suffix, $MinValue, $MaxValue, $StepSize, $Digits, $Icon) 

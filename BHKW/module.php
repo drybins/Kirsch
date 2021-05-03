@@ -685,6 +685,8 @@ if (!defined('VorlaufSollminus20')) {
 			$VorlaufSoll = GetValue($this->GetIDForIdent("VorlaufTemperaturSoll"));
 			IPS_LogMessage("zHeizung VorlaufSoll:", $VorlaufSoll);
 			$VorlaufMitteAus = $VorlaufSoll +8;
+			$SPmitte = GetValue($this->GetIDForIdent("T3"));
+			IPS_LogMessage("zHeizung SPmitte:", $SPmitte);
 	/*		$VorlaufIst = GetValue($this->GetIDForIdent("T5"));
 			IPS_LogMessage("zHeizung VorlaufIst:", $VorlaufIst);
 			$HKPumpe = GetValue($this->GetIDForIdent("R1"));

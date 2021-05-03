@@ -684,6 +684,7 @@ if (!defined('VorlaufSollminus20')) {
 		{
 			$VorlaufSoll = GetValue($this->GetIDForIdent("VorlaufTemperaturSoll"));
 			IPS_LogMessage("zHeizung VorlaufSoll:", $VorlaufSoll);
+			$VorlaufMitteAus = $VorlaufSoll +8;
 	/*		$VorlaufIst = GetValue($this->GetIDForIdent("T5"));
 			IPS_LogMessage("zHeizung VorlaufIst:", $VorlaufIst);
 			$HKPumpe = GetValue($this->GetIDForIdent("R1"));
@@ -696,7 +697,7 @@ if (!defined('VorlaufSollminus20')) {
 					SetValue($this->GetIDForIdent("zH1"), true);
 				}
 				//(GetValue($this->GetIDForIdent("T3")) > 70) or 
-				if($this->GetIDForIdent("T3") > $VorlaufSoll+8)
+				if($this->GetIDForIdent("T3") > $VorlaufMitteAus)
 				{
 				//	SetValue($this->GetIDForIdent("zH1"), false);
 					IPS_LogMessage("zHeizung Heizung mitte:",GetValue($this->GetIDForIdent("T3")));

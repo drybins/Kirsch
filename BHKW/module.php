@@ -140,7 +140,7 @@ if (!defined('VorlaufSollminus20')) {
 			
 			$this->RegisterVariableFloat("VorlaufTemperaturSoll", "Vorlauf Temperatur soll", "~Temperature", 535);
 			$this->RegisterVariableFloat("T5", "Vorlauf Heizkreis 1", "~Temperature", 540);
-			$this->RegisterVariableFloat("T6", "Rücklauf Heizkreis 1", "~Temperature", 540);
+			$this->RegisterVariableFloat("T6", "Rücklauf Heizkreis 1", "~Temperature", 541);
 			$this->RegisterVariableBoolean("zH1", "ZusatzHeizung", "Kirsch.AnAus", 542);
 			
 			//$this->RegisterVariableBoolean("mixer1", "Mischer Heizkreis 1", "", 550);

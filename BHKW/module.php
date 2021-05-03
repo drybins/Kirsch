@@ -361,7 +361,7 @@ if (!defined('VorlaufSollminus20')) {
 				default:
 					break;
 			}
-			$this->ZusatzHeizung();
+			//$this->ZusatzHeizung();
 		}
 		
 

@@ -682,9 +682,9 @@ if (!defined('VorlaufSollminus20')) {
 
 		private function ZusatzHeizung()
 		{
-	/*		$VorlaufSoll = GetValue($this->GetIDForIdent("VorlaufTemperaturSoll"));
+			$VorlaufSoll = GetValue($this->GetIDForIdent("VorlaufTemperaturSoll"));
 			IPS_LogMessage("zHeizung VorlaufSoll:", $VorlaufSoll);
-			$VorlaufIst = GetValue($this->GetIDForIdent("T5"));
+	/*		$VorlaufIst = GetValue($this->GetIDForIdent("T5"));
 			IPS_LogMessage("zHeizung VorlaufIst:", $VorlaufIst);
 			$HKPumpe = GetValue($this->GetIDForIdent("R1"));
 			IPS_LogMessage("zHeizung HKPumpe:", $HKPumpe);	*/
@@ -696,11 +696,11 @@ if (!defined('VorlaufSollminus20')) {
 					SetValue($this->GetIDForIdent("zH1"), true);
 				}
 				//(GetValue($this->GetIDForIdent("T3")) > 70) or 
-				if($this->GetIDForIdent("T3") > GetValue($this->GetIDForIdent("VorlaufTemperaturSoll"))+8)
+				if($this->GetIDForIdent("T3") > $VorlaufSoll+8)
 				{
 				//	SetValue($this->GetIDForIdent("zH1"), false);
 					IPS_LogMessage("zHeizung Heizung mitte:",GetValue($this->GetIDForIdent("T3")));
-					IPS_LogMessage("zHeizung Heizung vor+8:",GetValue($this->GetIDForIdent("VorlaufTemperaturSoll"))+8);
+					IPS_LogMessage("zHeizung Heizung vor+8:",$VorlaufSoll+8);
 				}
 			}
 			else

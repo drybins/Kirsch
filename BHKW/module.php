@@ -706,12 +706,14 @@ if (!defined('VorlaufSollminus20')) {
 				// Speichertemperatur oben > 65 zusatzHeizung aus
 				if (GetValue($this->GetIDForIdent("T5")) > 65)
 				{
-					SetValue($this->GetIDForIdent("zH1"), false);	
+					SetValue($this->GetIDForIdent("zH1"), false);
+					IPS_LogMessage("zHeizung WWaus:");	
 				}
 				// Speichertemperatur oben < 55 zusatzHeizung an
 				if (GetValue($this->GetIDForIdent("T5")) < 55)
 				{
-					SetValue($this->GetIDForIdent("zH1"), true);	
+					SetValue($this->GetIDForIdent("zH1"), true);
+					IPS_LogMessage("zHeizung WWan:");
 				}
 			}
 			return;						     

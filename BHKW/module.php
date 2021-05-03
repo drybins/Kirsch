@@ -696,9 +696,11 @@ if (!defined('VorlaufSollminus20')) {
 					SetValue($this->GetIDForIdent("zH1"), true);
 				}
 				//(GetValue($this->GetIDForIdent("T3")) > 70) or 
-				//if((($this->GetIDForIdent("T5")) > GetValue($this->GetIDForIdent("VorlaufTemperaturSoll"))+8))
+				//if((($this->GetIDForIdent("T3")) > GetValue($this->GetIDForIdent("VorlaufTemperaturSoll"))+8))
 				//{
 				//	SetValue($this->GetIDForIdent("zH1"), false);
+				IPS_LogMessage("zHeizung Heizung mitte:",GetValue($this->GetIDForIdent("T3")));
+				IPS_LogMessage("zHeizung Heizung mitte:",GetValue($this->GetIDForIdent("VorlaufTemperaturSoll"))+8);
 				//}
 			}
 			else

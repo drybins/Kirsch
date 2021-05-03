@@ -678,11 +678,11 @@ if (!defined('VorlaufSollminus20')) {
 
 		private function ZusatzHeizung()
 		{
-			$VorlaufSoll = GetValue($this->GetIDForIdent("VorlaufTemperaturSoll");
+			$VorlaufSoll = GetValue($this->GetIDForIdent("VorlaufTemperaturSoll"));
 			IPS_LogMessage("zHeizung VorlaufSoll:", $VorlaufSoll);
-//			$VorlaufIst = GetValueFloat($this->GetIDForIdent("VorlaufTemperaturSoll");
-//			IPS_LogMessage("zHeizung VorlaufIst:", $VorlaufIst);
-//			return;						     
+			$VorlaufIst = GetValueFloat($this->GetIDForIdent("T5"));
+			IPS_LogMessage("zHeizung VorlaufIst:", $VorlaufIst);
+			return;						     
 		}
 		
 		private function IPS_CreateVariableProfile($ProfileName, $ProfileType, $Suffix, $MinValue, $MaxValue, $StepSize, $Digits, $Icon) 

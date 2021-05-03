@@ -691,7 +691,10 @@ if (!defined('VorlaufSollminus20')) {
 			if($HKPumpe)
 			{
 				// Heizung ist an
-				
+				if(GetValue($this->GetIDForIdent("T5")) < GetValue($this->GetIDForIdent("VorlaufTemperaturSoll"))-8)
+				{
+					SetValue($this->GetIDForIdent("zH1"), true);
+				}				
 			}
 			else
 			{

@@ -688,7 +688,7 @@ if (!defined('VorlaufSollminus20')) {
 			IPS_LogMessage("zHeizung VorlaufIst:", $VorlaufIst);
 			$HKPumpe = GetValue($this->GetIDForIdent("R1"));
 			IPS_LogMessage("zHeizung HKPumpe:", $HKPumpe);	*/
-			if($HKPumpe)
+			if(GetValue($this->GetIDForIdent("R1")))
 			{
 				// Heizung ist an
 				if(GetValue($this->GetIDForIdent("T5")) < GetValue($this->GetIDForIdent("VorlaufTemperaturSoll"))-8)

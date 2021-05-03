@@ -363,20 +363,7 @@ if (!defined('VorlaufSollminus20')) {
 			}
 		}
 		
-		public function VorlaufSoll()
-		{
 
-			
-			//$VorlaufSoll = GetValueFloat($this->GetIDForIdent("VorlaufTemperaturSoll"));
-			$AussenTemp = GetValueFloat($this->GetIDForIdent("T1"));
-			$VorlaufTempDiff = 70 - 45;
-			$VorlaufTempStep = $VorlaufTempDiff/40;
-			$VorlaufSoll = ((20-$AussenTemp)* $VorlaufTempStep) + 45;
-			IPS_LogMessage("$VorlaufTempStep",$VorlaufTempStep);
-			IPS_LogMessage("AußentemperaturT",$VorlaufSoll);
-			IPS_LogMessage("Außentemperatur", $this->GetIDForIdent("T1"));
-			SetValueFloat($this->GetIDForIdent("VorlaufTemperaturSoll"), $VorlaufSoll);
-		}
 		
 		private function errors($data)
 		{
@@ -671,7 +658,22 @@ if (!defined('VorlaufSollminus20')) {
 				$ID =  $KategorieID;
 			}
 			return $ID;
-		}  
+		} 
+		
+		public function VorlaufSoll()
+		{
+
+			
+			//$VorlaufSoll = GetValueFloat($this->GetIDForIdent("VorlaufTemperaturSoll"));
+			$AussenTemp = GetValueFloat($this->GetIDForIdent("T1"));
+			$VorlaufTempDiff = 70 - 45;
+			$VorlaufTempStep = $VorlaufTempDiff/40;
+			$VorlaufSoll = ((20-$AussenTemp)* $VorlaufTempStep) + 45;
+			IPS_LogMessage("$VorlaufTempStep",$VorlaufTempStep);
+			IPS_LogMessage("AußentemperaturT",$VorlaufSoll);
+			IPS_LogMessage("Außentemperatur", $this->GetIDForIdent("T1"));
+			SetValueFloat($this->GetIDForIdent("VorlaufTemperaturSoll"), $VorlaufSoll);
+		}
 
 		private function IPS_CreateVariableProfile($ProfileName, $ProfileType, $Suffix, $MinValue, $MaxValue, $StepSize, $Digits, $Icon) 
 		{

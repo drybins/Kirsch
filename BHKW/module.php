@@ -141,6 +141,7 @@ if (!defined('VorlaufSollminus20')) {
 			$this->RegisterVariableFloat("VorlaufTemperaturSoll", "Vorlauf Temperatur soll", "~Temperature", 535);
 			$this->RegisterVariableFloat("T5", "Vorlauf Heizkreis 1", "~Temperature", 540);
 			$this->RegisterVariableFloat("T6", "Rücklauf Heizkreis 1", "~Temperature", 540);
+			$this->RegisterVariableBoolean("zH1", "ZusatzHeizung", "Kirsch.AnAus", 542);
 			
 			//$this->RegisterVariableBoolean("mixer1", "Mischer Heizkreis 1", "", 550);
 			$this->RegisterVariableFloat("totalTime", "Gesamtbetriebszeit", "Kirsch.Std", 560);
@@ -361,7 +362,10 @@ if (!defined('VorlaufSollminus20')) {
 				default:
 					break;
 			}
-			$this->ZusatzHeizung();
+			if (date("H")<>0)
+    			{
+				$this->ZusatzHeizung();
+			}
 		}
 		
 
@@ -680,8 +684,29 @@ if (!defined('VorlaufSollminus20')) {
 		{
 			$VorlaufSoll = GetValue($this->GetIDForIdent("VorlaufTemperaturSoll"));
 			IPS_LogMessage("zHeizung VorlaufSoll:", $VorlaufSoll);
-			$VorlaufIst = GetValueFloat($this->GetIDForIdent("T5"));
+			$VorlaufIst = GetValue($this->GetIDForIdent("T5"));
 			IPS_LogMessage("zHeizung VorlaufIst:", $VorlaufIst);
+			$HKPumpe = GetValue($this->GetIDForIdent("R1"));
+			IPS_LogMessage("zHeizung HKPumpe:", $HKPumpe);	
+			if($HKPumpe)
+			{
+				// Heizung ist an
+				
+			}
+			else
+			{
+				// Heizung is aus (Warmwasser)
+				// Speichertemperatur oben > 65 zusatzHeizung aus
+				if (GetValue($this->GetIDForIdent("T5")) > 65)
+				{
+					SetValue($this->GetIDForIdent("zH1"), false);	
+				}
+				// Speichertemperatur oben < 55 zusatzHeizung an
+				if (GetValue($this->GetIDForIdent("T5")) < 55)
+				{
+					SetValue($this->GetIDForIdent("zH1"), true);	
+				}
+			}
 			return;						     
 		}
 		

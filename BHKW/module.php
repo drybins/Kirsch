@@ -694,7 +694,11 @@ if (!defined('VorlaufSollminus20')) {
 				if(GetValue($this->GetIDForIdent("T5")) < GetValue($this->GetIDForIdent("VorlaufTemperaturSoll"))-8)
 				{
 					SetValue($this->GetIDForIdent("zH1"), true);
-				}				
+				}
+				if((GetValue($this->GetIDForIdent("T3")) > 70) or (($this->GetIDForIdent("T3")) > GetValue($this->GetIDForIdent("VorlaufTemperaturSoll"))+8))
+				{
+					SetValue($this->GetIDForIdent("zH1"), false);
+				}
 			}
 			else
 			{

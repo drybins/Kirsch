@@ -675,7 +675,7 @@ if (!defined('VorlaufSollminus20')) {
 			IPS_LogMessage("Außentemperatur", $this->GetIDForIdent("T1"));
 			SetValueFloat($this->GetIDForIdent("VorlaufTemperaturSoll"), $VorlaufSoll);
 		}
-
+/*
 		public function ZusatzHeizung()
 		{
 			$VorlaufSoll = GetValueFloat($this->GetIDForIdent("VorlaufTemperaturSoll");
@@ -684,7 +684,7 @@ if (!defined('VorlaufSollminus20')) {
 			IPS_LogMessage("zHeizung VorlaufIst:", $VorlaufIst);
 			return;						     
 		}
-		
+*/		
 		private function IPS_CreateVariableProfile($ProfileName, $ProfileType, $Suffix, $MinValue, $MaxValue, $StepSize, $Digits, $Icon) 
 		{
 		    if (!IPS_VariableProfileExists($ProfileName)) 

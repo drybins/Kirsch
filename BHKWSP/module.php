@@ -5,9 +5,10 @@
 		{
 			//Never delete this line!
 			parent::Create();
-
+			
+			$this->RegisterPropertyInteger('port', 7603);
 			$this->RequireParent("{3CFF0FD9-E306-41DB-9B5A-9D06D38576C3}");
-			//IPS_LogMessage("Parent SPID: ",$this->GetParentId());
+
 		}
 
 		public function Destroy()
@@ -20,6 +21,12 @@
 		{
 			//Never delete this line!
 			parent::ApplyChanges();
+			$BHKWIOID = $this->GetParentId();
+			IPS_SetName ($BHKWIOID, "BHKWIO");
+			IPS_SetIdent ($BHKWIOID, "BHKWIO");
+			IPS_LogMessage("Parent SPID: ",$BHKWIOID);
+			IPS_SetProperty($BHKWIOID, 'Host', "192.168.178.111");
+			IPS_SetProperty($BHKWIOID, 'Port', "7603");
 		}
 
 		public function ForwardData($JSONString)
@@ -75,4 +82,69 @@
 			//$data = $cmd;
 			$this->SendDataToChildren(json_encode(Array("DataID" => "{185A67F4-5748-3EE1-4EED-CAF56975F21B}", "Buffer" => utf8_encode($cmd))));
 		}
+		
+		
+    /**
+     * register parent instance
+     */
+    protected function RegisterParent()
+    {
+        $OldParentId = $this->GetParentId();
+        $ParentId = @IPS_GetInstance($this->InstanceID)['ConnectionID'];
+        if ($ParentId <> $OldParentId) {
+            if ($OldParentId > 0) {
+                $this->UnregisterMessage($OldParentId, IM_CHANGESTATUS);
+                $this->UnregisterMessage($OldParentId, IM_DISCONNECT);
+
+                if ((float)IPS_GetKernelVersion() < 4.2) {
+                    $this->RegisterMessage($OldParentId, IPS_KERNELMESSAGE);
+                } else {
+                    $this->RegisterMessage($OldParentId, IPS_KERNELSTARTED);
+                    $this->RegisterMessage($OldParentId, IPS_KERNELSHUTDOWN);
+                }
+            }
+        }
+
+        if ($ParentId > 0) {
+            $this->RegisterMessage($ParentId, IM_CHANGESTATUS);
+            $this->UnregisterMessage($ParentId, IM_DISCONNECT);
+
+            if ((float)IPS_GetKernelVersion() < 4.2) {
+                $this->RegisterMessage($ParentId, IPS_KERNELMESSAGE);
+            } else {
+                $this->RegisterMessage($ParentId, IPS_KERNELSTARTED);
+                $this->RegisterMessage($ParentId, IPS_KERNELSHUTDOWN);
+            }
+        } else {
+            $ParentId = 0;
+        }
+
+        return $ParentId;
+    }
+
+    /**
+     * check, if module has an active parent
+     * @return bool
+     */
+    protected function HasActiveParent()
+    {
+        if ($ParentID = $this->GetParentId()) {
+            $parent = IPS_GetInstance($ParentID);
+            if ($parent['InstanceStatus'] == 102) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+		
+		/**
+     		* get connected parent instance id
+     		* @return mixed
+     		*/
+    		protected function GetParentId()
+    		{
+        		$instance = @IPS_GetInstance($this->InstanceID);
+        		return $instance['ConnectionID'];
+    		}		
 	}

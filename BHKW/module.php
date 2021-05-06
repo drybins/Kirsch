@@ -1,6 +1,8 @@
 <?php
-
-require_once __DIR__ . '/../libs/BHKW_Functions.php';
+// include autoloader
+define('__ROOT__', dirname(dirname(__FILE__)));
+require_once(__ROOT__ . '/libs/BHKW_Functions.php');
+//require_once __DIR__ . '/../libs/BHKW_Functions.php';
 //const TempDiff =40;
 //const VorlaufSoll20 = 45;
 //const VorlaufSollminus20 = 70;
@@ -20,7 +22,7 @@ if (!defined('VorlaufSollminus20')) {
 		{
 			//Never delete this line!
 			parent::Create();
-			$this->VS();
+			//$this->VS();
 			// Kirsch BHKW Profile anlegen
 			$this->IPS_CreateVariableProfile("Kirsch.UpM", 1, " UpM", 0, 0, 1, 0, "");
 			$this->IPS_CreateVariableProfile("Kirsch.Kw", 1, " Kw", 0, 0,1, 2, "");

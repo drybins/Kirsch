@@ -1,4 +1,7 @@
 <?php
+
+require_once __DIR__ . '/../libs/BHKW_func/Regelung.php';
+
 //const TempDiff =40;
 //const VorlaufSoll20 = 45;
 //const VorlaufSollminus20 = 70;
@@ -664,7 +667,7 @@ if (!defined('VorlaufSollminus20')) {
 			}
 			return $ID;
 		} 
-		
+/*		
 		public function VorlaufSoll()
 		{
 
@@ -691,7 +694,7 @@ if (!defined('VorlaufSollminus20')) {
 			IPS_LogMessage("Außentemperatur", $this->GetIDForIdent("T1"));
 			SetValueFloat($this->GetIDForIdent("VorlaufTemperaturSoll"), $VorlaufSoll);
 		}
-
+*/
 		private function ZusatzHeizung()
 		{
 			$VorlaufSoll = GetValue($this->GetIDForIdent("VorlaufTemperaturSoll"));

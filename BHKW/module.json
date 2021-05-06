@@ -3,7 +3,9 @@
     "name": "BHKW",
     "type": 3,
     "vendor": "Kirsch",
-    "aliases": [],
+    "aliases": [
+         "Kirsch BHKW Nano 4.12"
+    ],
     "parentRequirements": [
         "{EB1230DE-C6EE-1739-07A1-3742EE4FB43F}"
     ],
@@ -11,6 +13,6 @@
     "implemented": [
         "{185A67F4-5748-3EE1-4EED-CAF56975F21B}"
     ],
-    "prefix": "BHKWSP",
+    "prefix": "BHKW",
     "url": ""
 }

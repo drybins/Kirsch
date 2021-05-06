@@ -2,6 +2,8 @@
 
 declare(strict_types=1);
 
+trait CommonFunctions
+{
 public function VorlaufSoll()
 {
 
@@ -27,4 +29,5 @@ public function VorlaufSoll()
 	IPS_LogMessage("AußentemperaturT",$VorlaufSoll);
 	IPS_LogMessage("Außentemperatur", $this->GetIDForIdent("T1"));
 	SetValueFloat($this->GetIDForIdent("VorlaufTemperaturSoll"), $VorlaufSoll);
+}
 }

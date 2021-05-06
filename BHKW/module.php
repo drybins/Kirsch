@@ -1,6 +1,6 @@
 <?php
 
-require_once __DIR__ . '/../libs/BHKW_func/Regelung.php';
+require_once __DIR__ . '/../libs/Regelung.php';
 
 //const TempDiff =40;
 //const VorlaufSoll20 = 45;

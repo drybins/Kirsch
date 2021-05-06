@@ -17,7 +17,7 @@ if (!defined('VorlaufSollminus20')) {
 }
 
 	class BHKW extends IPSModule {
-
+use CommonFunctions;
 		public function Create()
 		{
 			//Never delete this line!

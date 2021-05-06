@@ -20,7 +20,7 @@ if (!defined('VorlaufSollminus20')) {
 		{
 			//Never delete this line!
 			parent::Create();
-			
+			$this->VS();
 			// Kirsch BHKW Profile anlegen
 			$this->IPS_CreateVariableProfile("Kirsch.UpM", 1, " UpM", 0, 0, 1, 0, "");
 			$this->IPS_CreateVariableProfile("Kirsch.Kw", 1, " Kw", 0, 0,1, 2, "");

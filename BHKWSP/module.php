@@ -61,7 +61,7 @@
 					$pos = strrpos($bufferParts[$i], $delimeter1);
 					if($pos > 0)
 					{
-						IPS_LogMessage("Splitter bufferParts", $i . ":" . $bufferParts[$i]);
+						IPS_LogMessage("Splitter bufferParts", $i . ":" . substr($bufferParts[$i],0,$pos));
 						IPS_LogMessage("Splitter bufferParts", $i . ":" . substr($bufferParts[$i], $pos));
 					}
 					//$this->SendDebug("Data", $bufferParts[$i], 0);

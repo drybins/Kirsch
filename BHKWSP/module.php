@@ -61,12 +61,16 @@
 					$pos = strrpos($bufferParts[$i], $delimeter1);
 					if($pos > 0)
 					{
+						$this->send2BHKW($delimeter . substr($bufferParts[$i],0,$pos));
+						$this->send2BHKW($delimeter . substr($bufferParts[$i],$pos));
 						IPS_LogMessage("Splitter bufferParts", $i . ":" . substr($bufferParts[$i],0,$pos));
 						IPS_LogMessage("Splitter bufferParts", $i . ":" . substr($bufferParts[$i], $pos));
 					}
-					//$this->SendDebug("Data", $bufferParts[$i], 0);
-					//$this->AnalyseData($delimeter . $bufferParts[$i]);
-					$this->send2BHKW($delimeter . $bufferParts[$i]);
+					else
+					{
+						$this->send2BHKW($delimeter . $bufferParts[$i]);
+				
+					}
 				}
 			}
 			$bufferData = $bufferParts[sizeof($bufferParts)-1];

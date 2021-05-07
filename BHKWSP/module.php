@@ -49,6 +49,7 @@
 			//IPS_LogMessage("Splitter bufferData", $bufferData);
 			
 			$delimeter = '<?xml version="1.0" encoding="UTF-8"?>';
+			$delimeter1 = "<?xml version='1.0' encoding='UTF-8'?>";
 			$bufferParts = explode($delimeter, $bufferData);	
 			//$bufferParts = explode("\r\n", $bufferData);
 
@@ -57,7 +58,12 @@
 			{
 				for($i=0; $i<sizeof($bufferParts)-1; $i++) 
 				{
-					//IPS_LogMessage("Splitter bufferParts", $i . ":" . $bufferParts[$i]);
+					$pos = strrpos($bufferParts[$i], $delimeter1);
+					if($pos > 0)
+					{
+						IPS_LogMessage("Splitter bufferParts", $i . ":" . $bufferParts[$i]);
+						IPS_LogMessage("Splitter bufferParts", $i . ":" . substr($bufferParts[$i], $pos);
+					}
 					//$this->SendDebug("Data", $bufferParts[$i], 0);
 					//$this->AnalyseData($delimeter . $bufferParts[$i]);
 					$this->send2BHKW($delimeter . $bufferParts[$i]);

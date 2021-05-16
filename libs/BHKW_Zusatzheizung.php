@@ -13,7 +13,7 @@ trait BHKWZusatzHeizung
 		$VorlaufMitteAus = $VorlaufSoll + 8;
 		$VorlaufSollAn = $VorlaufSoll-8;
 		//IPS_LogMessage("zHeizung SPmitte:", $SPmitte);
-	/*	IPS_LogMessage("zHeizung VorlaufIst:", $VorlaufIst);
+	 /*	IPS_LogMessage("zHeizung VorlaufIst:", $VorlaufIst);
 		$HKPumpe = GetValue($this->GetIDForIdent("R1"));
 		IPS_LogMessage("zHeizung HKPumpe:", $HKPumpe);	*/
 		if(GetValue($this->GetIDForIdent("R1")))

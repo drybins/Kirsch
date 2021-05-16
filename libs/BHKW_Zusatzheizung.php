@@ -32,7 +32,7 @@ trait BHKWZusatzHeizung
 			}
 		}
 		else
-		}
+		{
 			{
 				// Heizung is aus (Warmwasser)
 				// Speichertemperatur oben > 65 zusatzHeizung aus

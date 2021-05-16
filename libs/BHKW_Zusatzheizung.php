@@ -19,7 +19,7 @@ trait BHKWZusatzHeizung
 		if(GetValue($this->GetIDForIdent("R1")))
 		{
 			// Heizung ist an
-			if($VorlaufIst < $VorlaufSollAn) and ($SPmitte < $VorlaufSoll)
+			if($VorlaufIst < $VorlaufSollAn) && ($SPmitte < $VorlaufSoll)
 			{
 				SetValue($this->GetIDForIdent("zH1"), true);
 				IPS_LogMessage("zHeizung Heizung SP oben:",GetValue($this->GetIDForIdent("T5")));

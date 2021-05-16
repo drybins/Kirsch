@@ -2,9 +2,9 @@
 // include autoloader
 define('__ROOT__', dirname(dirname(__FILE__)));
 require_once(__ROOT__ . '/libs/BHKW_Functions.php');
-define('__ROOT__', dirname(dirname(__FILE__)));
-require_once(__ROOT__ . '/libs/BHKW_Zusatzheizung.php');
-//require_once __DIR__ . '/../libs/BHKW_Functions.php';
+//define('__ROOT__', dirname(dirname(__FILE__)));
+//require_once(__ROOT__ . '/libs/BHKW_Zusatzheizung.php');
+require_once __DIR__ . '../libs/BHKW_Zusatzheizung.php';
 //const TempDiff =40;
 //const VorlaufSoll20 = 45;
 //const VorlaufSollminus20 = 70;

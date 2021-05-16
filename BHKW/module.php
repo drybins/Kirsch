@@ -20,8 +20,7 @@ if (!defined('VorlaufSollminus20')) {
 
 	class BHKW extends IPSModule {
 	
-		use BHKWFunctions,
-		BHKWZusatzHeizung;
+		use BHKWFunctions, BHKWZusatzHeizung;
 		
 		public function Create()
 		{

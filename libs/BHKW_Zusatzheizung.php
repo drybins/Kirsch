@@ -1,4 +1,14 @@
 <?php
+/*****************************************************************************/
+/* erweitert das Kirsch BHKW Modul um dei möglichkeit eine Zusatheizung      */
+/* zu schalten.                                                              */
+/* Autohr:   D.Rybinski, KAT-CS                                              */
+/* Version:  1.0                                                             */
+/* Erstellt: 16.05.2021                                                      */
+/*                                                                           */
+/*                                                                           */
+/*                                                                           */
+/*****************************************************************************/
 
 declare(strict_types=1);
 

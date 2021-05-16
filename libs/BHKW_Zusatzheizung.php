@@ -7,30 +7,32 @@ trait BHKWZusatzHeizung
 	private function ZusatzHeizung()
 	{
 		$VorlaufSoll = GetValue($this->GetIDForIdent("VorlaufTemperaturSoll"));
-		//IPS_LogMessage("zHeizung VorlaufSoll:", $VorlaufSoll);
-		$VorlaufMitteAus = $VorlaufSoll +8;
+		$VorlaufIst = GetValue($this->GetIDForIdent("T5"));
 		$SPmitte = GetValue($this->GetIDForIdent("T3"));
+		//IPS_LogMessage("zHeizung VorlaufSoll:", $VorlaufSoll);
+		$VorlaufMitteAus = $VorlaufSoll + 8;
+		$VorlaufSollAn = $VorlaufSoll-8;
 		//IPS_LogMessage("zHeizung SPmitte:", $SPmitte);
-	/*	$VorlaufIst = GetValue($this->GetIDForIdent("T5"));
-		IPS_LogMessage("zHeizung VorlaufIst:", $VorlaufIst);
+	/*	IPS_LogMessage("zHeizung VorlaufIst:", $VorlaufIst);
 		$HKPumpe = GetValue($this->GetIDForIdent("R1"));
 		IPS_LogMessage("zHeizung HKPumpe:", $HKPumpe);	*/
 		if(GetValue($this->GetIDForIdent("R1")))
 		{
 			// Heizung ist an
-			if(GetValue($this->GetIDForIdent("T5")) < GetValue($this->GetIDForIdent("VorlaufTemperaturSoll"))-8)
+			if($VorlaufIst < $VorlaufSollAn) and ($SPmitte < $VorlaufSoll)
 			{
 				SetValue($this->GetIDForIdent("zH1"), true);
 				IPS_LogMessage("zHeizung Heizung SP oben:",GetValue($this->GetIDForIdent("T5")));
 			}
-			else
 			if($SPmitte > $VorlaufMitteAus)
 			{
 				SetValue($this->GetIDForIdent("zH1"), false);
 				IPS_LogMessage("zHeizung Heizung mitte:",GetValue($this->GetIDForIdent("T3")));
-				IPS_LogMessage("zHeizung Heizung vor+8:",$VorlaufSoll+8);
+				IPS_LogMessage("zHeizung Heizung vor+8:",$VorlaufMitteAus);
 			}
-			else
+		}
+		else
+		}
 			{
 				// Heizung is aus (Warmwasser)
 				// Speichertemperatur oben > 65 zusatzHeizung aus
@@ -46,7 +48,7 @@ trait BHKWZusatzHeizung
 					IPS_LogMessage("zHeizung WWan:",GetValue($this->GetIDForIdent("T2")));
 				}
 			}
-			return;						     
 		}
 	}
+	return;						     
 }

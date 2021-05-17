@@ -1,7 +1,10 @@
 <?php
-
-//require_once __DIR__ . '/../libs/Regelung.php';
-
+// include autoloader
+define('__ROOT__', dirname(dirname(__FILE__)));
+require_once(__ROOT__ . '/libs/BHKW_Functions.php');
+define('__ROOT1__', dirname(dirname(__FILE__)));
+require_once(__ROOT1__ . '/libs/BHKW_Zusatzheizung.php');
+//require_once __DIR__ . '../libs/BHKW_Zusatzheizung.php';
 //const TempDiff =40;
 //const VorlaufSoll20 = 45;
 //const VorlaufSollminus20 = 70;
@@ -16,12 +19,14 @@ if (!defined('VorlaufSollminus20')) {
 }
 
 	class BHKW extends IPSModule {
-
+	
+		use BHKWFunctions, BHKWZusatzHeizung;
+		
 		public function Create()
 		{
 			//Never delete this line!
 			parent::Create();
-			
+
 			// Kirsch BHKW Profile anlegen
 			$this->IPS_CreateVariableProfile("Kirsch.UpM", 1, " UpM", 0, 0, 1, 0, "");
 			$this->IPS_CreateVariableProfile("Kirsch.Kw", 1, " Kw", 0, 0,1, 2, "");
@@ -667,79 +672,6 @@ if (!defined('VorlaufSollminus20')) {
 			}
 			return $ID;
 		} 
-		
-		public function VorlaufSoll()
-		{
-
-			$time = date("H:i");			
-			//$VorlaufSoll = GetValueFloat($this->GetIDForIdent("VorlaufTemperaturSoll"));
-			$AussenTemp = GetValueFloat($this->GetIDForIdent("T1"));
-			$VorlaufTempDiff = 70 - 45;
-			$VorlaufTempStep = $VorlaufTempDiff/40;
-			$VorlaufSoll = ((20-$AussenTemp)* $VorlaufTempStep) + 45;
-			//Nachtabsenkung bei mehr als 3 Grad AußenTemperatur und zwischen 22:30 und 05:00 Uhr.
-			if(($time >= "22:30")or($time <= "05:00"))
-			{
-				$VorlaufSoll = $VorlaufSoll - 5;
-			}
-			//If($AußenTemperatur > 3)
-			//{
-    			//	If(($time >= "22:30")or($time <= "05:00"))
-    			//	{
-        		//$VorlaufSoll = $VorlaufSoll - 5;
-    			//	}
-			//}
-			IPS_LogMessage("$VorlaufTempStep",$VorlaufTempStep);
-			IPS_LogMessage("AußentemperaturT",$VorlaufSoll);
-			IPS_LogMessage("Außentemperatur", $this->GetIDForIdent("T1"));
-			SetValueFloat($this->GetIDForIdent("VorlaufTemperaturSoll"), $VorlaufSoll);
-		}
-
-		private function ZusatzHeizung()
-		{
-			$VorlaufSoll = GetValue($this->GetIDForIdent("VorlaufTemperaturSoll"));
-			//IPS_LogMessage("zHeizung VorlaufSoll:", $VorlaufSoll);
-			$VorlaufMitteAus = $VorlaufSoll +8;
-			$SPmitte = GetValue($this->GetIDForIdent("T3"));
-			//IPS_LogMessage("zHeizung SPmitte:", $SPmitte);
-	/*		$VorlaufIst = GetValue($this->GetIDForIdent("T5"));
-			IPS_LogMessage("zHeizung VorlaufIst:", $VorlaufIst);
-			$HKPumpe = GetValue($this->GetIDForIdent("R1"));
-			IPS_LogMessage("zHeizung HKPumpe:", $HKPumpe);	*/
-			if(GetValue($this->GetIDForIdent("R1")))
-			{
-				// Heizung ist an
-				if(GetValue($this->GetIDForIdent("T5")) < GetValue($this->GetIDForIdent("VorlaufTemperaturSoll"))-8)
-				{
-					SetValue($this->GetIDForIdent("zH1"), true);
-					IPS_LogMessage("zHeizung Heizung SP oben:",GetValue($this->GetIDForIdent("T5")));
-				}
-				//(GetValue($this->GetIDForIdent("T3")) > 70) or 
-				if($SPmitte > $VorlaufMitteAus)
-				{
-					SetValue($this->GetIDForIdent("zH1"), false);
-					IPS_LogMessage("zHeizung Heizung mitte:",GetValue($this->GetIDForIdent("T3")));
-					IPS_LogMessage("zHeizung Heizung vor+8:",$VorlaufSoll+8);
-				}
-			}
-			else
-			{
-				// Heizung is aus (Warmwasser)
-				// Speichertemperatur oben > 65 zusatzHeizung aus
-				if (GetValue($this->GetIDForIdent("T2")) > 65)
-				{
-					SetValue($this->GetIDForIdent("zH1"), false);
-					IPS_LogMessage("zHeizung WWaus:",GetValue($this->GetIDForIdent("T2")));	
-				}
-				// Speichertemperatur oben < 55 zusatzHeizung an
-				if (GetValue($this->GetIDForIdent("T2")) < 55)
-				{
-					SetValue($this->GetIDForIdent("zH1"), true);
-					IPS_LogMessage("zHeizung WWan:",GetValue($this->GetIDForIdent("T2")));
-				}
-			}
-			return;						     
-		}
 		
 		private function IPS_CreateVariableProfile($ProfileName, $ProfileType, $Suffix, $MinValue, $MaxValue, $StepSize, $Digits, $Icon) 
 		{

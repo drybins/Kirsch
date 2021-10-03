@@ -12,7 +12,7 @@ if (!defined('TempDiff')) {
     define('TempDiff', '40');
 }
 if (!defined('VorlaufSoll20')) {
-    define('VorlaufSoll20', '45');
+    define('VorlaufSoll20', '20');
 }
 if (!defined('VorlaufSollminus20')) {
     define('VorlaufSollminus20', '70');

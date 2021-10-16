@@ -508,8 +508,8 @@ if (!defined('VorlaufSollminus20')) {
 			$ScriptData['E103'] = (Float) $xmlData->electric[0]->E103;
 			SetValue ($this->GetIDForIdent("E103") , $ScriptData['E103']);
 			
-			$ScriptData['TI3'] =  (float) $xmlData->sensors[0]->TI3;
-			SetValueFloat($this->GetIDForIdent("TI3") , $ScriptData['TI3']);						
+			$ScriptData['TI1'] =  (float) $xmlData->sensors[0]->TI1;
+			SetValueFloat($this->GetIDForIdent("TI3") , $ScriptData['TI1']);						
 			$ScriptData['TI4'] = (float) $xmlData->sensors[0]->TI4;
 			SetValueFloat ($this->GetIDForIdent("TI4"), $ScriptData['TI4']);
 			$ScriptData['TI5'] =  (float) $xmlData->sensors[0]->TI5;

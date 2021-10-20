@@ -10,7 +10,7 @@ trait BHKWFunctions
 		$time = date("H:i");			
 		//$VorlaufSoll = GetValueFloat($this->GetIDForIdent("VorlaufTemperaturSoll"));
 		$AussenTemp = GetValueFloat($this->GetIDForIdent("T1"));
-		$VorlaufTempDiff = 70 - 20;
+		$VorlaufTempDiff = 58 - 20;
 		$VorlaufTempStep = $VorlaufTempDiff/40;
 		$VorlaufSoll = ((20-$AussenTemp)* $VorlaufTempStep) + 20;
 		//Nachtabsenkung bei mehr als 3 Grad AußenTemperatur und zwischen 22:30 und 05:00 Uhr.
@@ -21,9 +21,9 @@ trait BHKWFunctions
 		//If($AußenTemperatur > 3)
 		//{
     		//}
-		IPS_LogMessage("$VorlaufTempStep",$VorlaufTempStep);
-		IPS_LogMessage("AußentemperaturT",$VorlaufSoll);
-		IPS_LogMessage("Außentemperatur", $this->GetIDForIdent("T1"));
+		//IPS_LogMessage("$VorlaufTempStep",$VorlaufTempStep);
+		//IPS_LogMessage("AußentemperaturT",$VorlaufSoll);
+		//IPS_LogMessage("Außentemperatur", $this->GetIDForIdent("T1"));
 		SetValueFloat($this->GetIDForIdent("VorlaufTemperaturSoll"), $VorlaufSoll);
 	}
 }

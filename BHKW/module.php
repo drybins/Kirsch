@@ -156,7 +156,12 @@ if (!defined('VorlaufSollminus20')) {
 			$this->RegisterVariableFloat("oilTime", "Betriebszeit nach Ölnachfüllung", "Kirsch.Std", 570);
 			$this->RegisterVariableFloat("electricity", "Elektrische Energiemenge", "Kirsch.kWh", 580);
 			$this->RegisterVariableFloat("heat", "Thermische Energiemenge", "Kirsch.kWh", 590);			
+			//BHKW statePP Variablen anlegen ende
 			
+			//BHKW Status Variablen anlegen
+			
+			//BHKW Status Variablen anlegen ende
+						
 			//Errors Variablen anlegen
 			$this->RegisterVariableString("class", "Klasse", "", 700);
 			$this->RegisterVariableString("device", "Gerät", "", 710);

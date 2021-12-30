@@ -112,7 +112,8 @@ if (!defined('VorlaufSollminus20')) {
 			$this->RegisterVariableFloat("E102", "Frequenz Phase2", "Kirsch.Frequenz", 270);
 			$this->RegisterVariableFloat("E103", "Frequenz Phase3", "Kirsch.Frequenz", 280);
 			//
-			$this->RegisterVariableFloat("TI3", "Heizwasser", "~Temperature", 290);
+			$this->RegisterVariableFloat("TI2", "Kalt Wasser BHKW", "~Temperature", 285);
+			$this->RegisterVariableFloat("TI3", "Heizwasser BHKW", "~Temperature", 290);
 			$this->RegisterVariableFloat("TI4", "Öltemperatur", "~Temperature", 300);
 			$this->RegisterVariableFloat("TI5", "Abgasteperatur", "~Temperature", 310);
 			$this->RegisterVariableFloat("TI6", "Gehäusetemperatur", "~Temperature", 320);
@@ -515,6 +516,8 @@ if (!defined('VorlaufSollminus20')) {
 			
 			$ScriptData['TI1'] =  (float) $xmlData->sensors[0]->TI1;
 			SetValueFloat($this->GetIDForIdent("TI3") , $ScriptData['TI1']);						
+			$ScriptData['TI2'] =  (float) $xmlData->sensors[0]->TI2;
+			SetValueFloat($this->GetIDForIdent("TI2") , $ScriptData['TI2']);
 			$ScriptData['TI4'] = (float) $xmlData->sensors[0]->TI4;
 			SetValueFloat ($this->GetIDForIdent("TI4"), $ScriptData['TI4']);
 			$ScriptData['TI5'] =  (float) $xmlData->sensors[0]->TI5;

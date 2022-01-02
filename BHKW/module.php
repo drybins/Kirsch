@@ -391,6 +391,10 @@ if (!defined('VorlaufSollminus20')) {
 			$array = json_decode(json_encode(simplexml_load_string($data)),true);
 			if(!empty($array))
 			{
+				usort($array, function($a, $b)
+				{
+					return new DateTime($a['datetime']) <=> new DateTime(b['datetime']);
+				});
 				//print_r ($array);
 				//$sortarray = array();["error"]
 				//array_multisort( array_column( $array, 'date' ),SORT_DESC);

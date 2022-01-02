@@ -395,7 +395,7 @@ if (!defined('VorlaufSollminus20')) {
 				{
 					return new DateTime($a['datetime']) <=> new DateTime(b['datetime']);
 				});
-				//print_r ($array);
+				print_r ($array);
 				//$sortarray = array();["error"]
 				//array_multisort( array_column( $array, 'date' ),SORT_DESC);
 				$i=0;

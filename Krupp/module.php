@@ -1,5 +1,5 @@
 <?php
-class Krupp extends IPSModule 
+class KRUPP extends IPSModule 
 {
     public function Create()
 	{

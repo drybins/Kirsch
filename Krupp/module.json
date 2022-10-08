@@ -1,0 +1,18 @@
+{
+    "id": "{3B3248C8-FAC5-6C04-F4F5-A42F9F7477EE}",
+    "name": "BHKW",
+    "type": 3,
+    "vendor": "Krupp",
+    "aliases": [
+         "Krupp Kessel"
+    ],
+    "parentRequirements": [
+        "{}"
+    ],
+    "childRequirements": [],
+    "implemented": [
+        "{}"
+    ],
+    "prefix": "Krupp",
+    "url": ""
+}

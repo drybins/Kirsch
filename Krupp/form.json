@@ -1,0 +1,11 @@
+{
+    "elements": [
+	{
+		"type": "SelectVariable",
+		"name": "AN/Aus_Schalter", 
+		"caption": "An Aus Schalter"
+	}
+],
+    "actions": [],
+    "status": []
+}

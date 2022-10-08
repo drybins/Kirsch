@@ -2,7 +2,7 @@
     "elements": [
 	{
 		"type": "SelectVariable",
-		"name": "AN/Aus_Schalter", 
+		"name": "AN_Aus_Schalter", 
 		"caption": "An Aus Schalter"
 	}
 ],

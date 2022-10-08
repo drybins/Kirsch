@@ -1,5 +1,5 @@
 <?php
-class EseraGaszaehler extends IPSModule 
+class Krupp extends IPSModule 
 {
     public function Create()
 	{

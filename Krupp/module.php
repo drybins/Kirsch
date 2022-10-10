@@ -35,13 +35,13 @@ class KRUPP extends IPSModule
 	
 	}
 	
-	public function Pumpe(bool state)
+	public function Pumpe()
 	{
 		//schaltet die Pumpe An/Aus
 	
 	}
 	
-		public function Automatik(bool state)
+		public function Automatik()
 	{
 		//schaltet die Automatic An/Aus
 	

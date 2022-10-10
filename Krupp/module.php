@@ -23,13 +23,13 @@ class KRUPP extends IPSModule
         parent::ApplyChanges(); 
     }
 	
-	public function Power(bool state)
+	public function Power()
 	{
 		//schaltet die Heizung An/Aus
 	
 	}
 	
-	public function Brenner(bool state)
+	public function Brenner()
 	{
 		//schaltet die Brennner An/Aus
 	

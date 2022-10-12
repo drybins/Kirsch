@@ -9,7 +9,7 @@ class KRUPP extends IPSModule
         //You cannot use variables here. Just static values.
         $this->RegisterPropertyInteger("AN_Aus_Schalter", 0);
 		
-		//$this->RegisterVariableBoolean("Automatik", "Automatik", "Kirsch.AnAus", 10);
+		$this->RegisterVariableBoolean("Automatik", "Automatik", "Kirsch.AnAus", 10);
 	}
 	    public function Destroy()
 	{

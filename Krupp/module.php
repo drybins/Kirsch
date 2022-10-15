@@ -32,7 +32,7 @@ class KRUPP extends IPSModule
 	public function MainPower()
 	{
 		//schaltet die Heizung An/Aus
-	 //echo "dierk";
+	 //echo "Dierk";
 	}
 	
 	public function Brenner()

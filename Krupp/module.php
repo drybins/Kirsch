@@ -11,10 +11,11 @@ class KRUPP extends IPSModule
 		$this->RegisterPropertyInteger("Brenner_Schalter", 0);
 		$this->RegisterPropertyInteger("Pumpen_Schalter", 0);
 		
-		$this->RegisterVariableBoolean("Hauptschalter", "Hauptschalter", "Kirsch.AnAus", 0);
-		$this->RegisterVariableBoolean("Automatik", "Automatik", "Kirsch.AnAus", 10);
-		$this->RegisterVariableBoolean("Brenner", "Brenner", "Kirsch.AnAus", 20);
-		$this->RegisterVariableBoolean("Punmpe", "Pumpe", "Kirsch.AnAus", 30);
+		$this->RegisterVariableBoolean("Hauptschalter", "Hauptschalter", "Kirsch.AnAus", 10);
+		$this->RegisterVariableBoolean("Holz/Oel", "Holz/Oel", "Kirsch.AnAus", 20);
+		$this->RegisterVariableBoolean("Automatik", "Automatik", "Kirsch.AnAus", 30);
+		$this->RegisterVariableBoolean("Brenner", "Brenner", "Kirsch.AnAus", 40);
+		$this->RegisterVariableBoolean("Punmpe", "Pumpe", "Kirsch.AnAus", 50);
 	}
 	    public function Destroy()
 	{

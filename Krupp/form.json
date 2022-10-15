@@ -3,8 +3,9 @@
 	{
 		"type": "SelectVariable",
 		"name": "AN_Aus_Schalter", 
-		"caption": "An Aus Schalter",
-
+		"caption": "An Aus Schalter"
+	},
+	{
 		"type": "SelectVariable",
 		"name": "Brenner_Schalter", 
 		"caption": "Brenner Schalter"

@@ -5,6 +5,11 @@
 		"name": "AN_Aus_Schalter", 
 		"caption": "An Aus Schalter"
 	}
+	{
+		"type": "SelectVariable",
+		"name": "Brenner_Schalter", 
+		"caption": "Brenner Schalter"
+	}
 ],
     "actions": [],
     "status": []

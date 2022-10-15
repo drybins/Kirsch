@@ -2,13 +2,18 @@
     "elements": [
 	{
 		"type": "SelectVariable",
-		"name": "AN_Aus_Schalter", 
-		"caption": "An Aus Schalter"
+		"name": "Hauptschalter", 
+		"caption": "Hauptchalter"
 	},
 	{
 		"type": "SelectVariable",
 		"name": "Brenner_Schalter", 
 		"caption": "Brenner Schalter"
+	},
+		{
+		"type": "SelectVariable",
+		"name": "Pumpen_Schalter", 
+		"caption": "Pumpen Schalter"
 	}
 ],
     "actions": [],

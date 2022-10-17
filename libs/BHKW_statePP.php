@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 trait BHKWstatePP
-
+{
 		private function statePP($data)
 		{
 			try
@@ -233,3 +233,4 @@ trait BHKWstatePP
 			$ScriptData['heat'] =  (Float) $xmlData->operatingData[0]->heat;
 			SetValue ($this->GetIDForIdent("heat") , $ScriptData['heat']);		
 		}
+}

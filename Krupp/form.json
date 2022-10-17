@@ -14,6 +14,16 @@
 		"type": "SelectVariable",
 		"name": "Pumpen_Schalter", 
 		"caption": "Pumpen Schalter"
+	},
+		{
+		"type": "SelectVariable",
+		"name": "BHKW_Status", 
+		"caption": "BHKW Status"
+	},
+		{
+		"type": "SelectVariable",
+		"name": "Kessel_Anforderung", 
+		"caption": "Kessel Anforderung"
 	}
 ],
     "actions": [],

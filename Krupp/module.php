@@ -45,7 +45,7 @@ class KRUPP extends IPSModule
 		//Ein:
 		// BHKW_Status: Fehler,Running
 		// Zusatzheizung_Anforderung: An
-		
+		$this->SendDebug("Krupp", "Krupp Timer", 0);
 	
 	}
 	

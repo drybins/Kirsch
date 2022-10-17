@@ -19,6 +19,8 @@ class KRUPP extends IPSModule
 		$this->RegisterVariableBoolean("Automatik", "Automatik", "Kirsch.AnAus", 30);
 		$this->RegisterVariableBoolean("Brenner", "Brenner", "Kirsch.AnAus", 40);
 		$this->RegisterVariableBoolean("Pumpe", "Pumpe", "Kirsch.AnAus", 50);
+		
+		$this->RegisterTimer("Zusatzheizung_Refresh", 0, 'KRUPP_Refresh($_IPS[\'TARGET\']);');
 	}
 	    public function Destroy()
 	{
@@ -31,6 +33,21 @@ class KRUPP extends IPSModule
         //Never delete this line!
         parent::ApplyChanges(); 
     }
+	
+	public function Refresh()
+	{
+       $this->Timer();   
+    }
+	
+	public function Timer()
+	{
+		//schaltet die Zusatzheizung nach bedingungen
+		//Ein:
+		// BHKW_Status: Fehler,Running
+		// Zusatzheizung_Anforderung: An
+		
+	
+	}
 	
 	public function MainPower()
 	{
@@ -50,7 +67,7 @@ class KRUPP extends IPSModule
 	
 	}
 	
-		public function Automatik()
+	public function Automatik()
 	{
 		//schaltet die Automatic An/Aus
 	

@@ -1,4 +1,8 @@
 <?php
+declare(strict_types=1);
+
+trait BHKWstatePP
+
 		private function statePP($data)
 		{
 			try

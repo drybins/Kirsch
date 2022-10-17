@@ -34,6 +34,7 @@ class KRUPP extends IPSModule
         parent::ApplyChanges(); 
 		
 		$this->SetTimerInterval("Zusatzheizung_Refresh", 60 * 1000);
+		$this->SendDebug("Krupp", "Krupp Timer AC", 0);
     }
 	
 	public function Refresh()

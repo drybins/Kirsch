@@ -19,7 +19,7 @@ trait BHKWstatePower
  			catch(Exception $ex)
 		{
 			//print_r($ex);
-			IPS_LogMessage("BHKW statePP Fehler", $data);
+			IPS_LogMessage("BHKW statePower Fehler", $data);
 		}
 		
 		//Status des BHKW'S

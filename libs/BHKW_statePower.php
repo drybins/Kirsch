@@ -26,6 +26,5 @@ trait BHKWstatePower
 		$ScriptData['STATUS'] = (string) $xmlData->state;			
 		//$StatusID = $this->GetIDForIdent("KirschStatus");
 		IPS_LogMessage("BHKW statePower Status", $ScriptData['STATUS']);
-		
 	}
 }

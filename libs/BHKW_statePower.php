@@ -24,7 +24,37 @@ trait BHKWstatePower
 		
 		//Status des BHKW'S
 		$ScriptData['STATUS'] = (string) $xmlData->state;			
-		//$StatusID = $this->GetIDForIdent("KirschStatus");
-		IPS_LogMessage("BHKW statePower Status", $ScriptData['STATUS']);
+		$StatusID = $this->GetIDForIdent("KirschStatus");
+		//IPS_LogMessage("BHKW statePower Status", $ScriptData['STATUS']);
+				
+		switch ($ScriptData['STATUS']) 
+		{
+			case "stop":
+			SetValueInteger ($StatusID, 1);
+			break;
+		case "start":
+			SetValueInteger ($StatusID, 2);
+			break;
+		case "warmup":
+			SetValueInteger ($StatusID, 3);
+			break;
+		case "running":
+			SetValueInteger ($StatusID, 4);
+			break;
+		case "cooldown":
+			SetValueInteger ($StatusID, 5);
+			break;
+		case "selftest":
+			SetValueInteger ($StatusID, 6);
+			break;
+		case "emergencystop":
+			SetValueInteger ($StatusID, 10);
+			break;  
+		case "error":
+			SetValueInteger ($StatusID, 11);
+			break;         
+		default:
+			//SetValueString (14320 , "Status nicht gefunden:" . $ScriptData['STATUS']);
+		}
 	}
 }

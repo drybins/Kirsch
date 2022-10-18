@@ -2,11 +2,11 @@
 // include autoloader
 define('__ROOT__', dirname(dirname(__FILE__)));
 require_once(__ROOT__ . '/libs/BHKW_Functions.php');
-define('__ROOT1__', dirname(dirname(__FILE__)));
+//define('__ROOT1__', dirname(dirname(__FILE__)));
 require_once(__ROOT__ . '/libs/BHKW_Zusatzheizung.php');
-define('__ROOT2__', dirname(dirname(__FILE__)));
+//define('__ROOT2__', dirname(dirname(__FILE__)));
 require_once(__ROOT__ . '/libs/BHKW_statePP.php');
-define('__ROOT3__', dirname(dirname(__FILE__)));
+//define('__ROOT3__', dirname(dirname(__FILE__)));
 require_once(__ROOT__ . '/libs/BHKW_statePower.php');
 //const TempDiff =40;
 //const VorlaufSoll20 = 45;

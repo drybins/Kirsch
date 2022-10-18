@@ -249,7 +249,7 @@ if (!defined('VorlaufSollminus20')) {
 					break;
 				case "statePower":
 					$this->WriteLog1($data);
-					//$this->statePP($data);
+					$this->statePower($data);
 					break;
 				default:
 					break;

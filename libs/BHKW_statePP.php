@@ -4,6 +4,11 @@ declare(strict_types=1);
 
 trait BHKWstatePP
 {
+	private function WriteLog($data)
+	{
+		IPS_LogMessage("BHKW statePP TestLog", $data);
+	}
+	
 	private function statePP($data)
 	{
 		try

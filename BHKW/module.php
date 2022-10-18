@@ -4,10 +4,10 @@ define('__ROOT__', dirname(dirname(__FILE__)));
 require_once(__ROOT__ . '/libs/BHKW_Functions.php');
 define('__ROOT1__', dirname(dirname(__FILE__)));
 require_once(__ROOT1__ . '/libs/BHKW_Zusatzheizung.php');
-
 define('__ROOT2__', dirname(dirname(__FILE__)));
 require_once(__ROOT2__ . '/libs/BHKW_statePP.php');
-//require_once __DIR__ . '../libs/BHKW_Zusatzheizung.php';
+define('__ROOT3__', dirname(dirname(__FILE__)));
+require_once(__ROOT3__ . '/libs/BHKW_statePower.php');
 //const TempDiff =40;
 //const VorlaufSoll20 = 45;
 //const VorlaufSollminus20 = 70;
@@ -23,7 +23,7 @@ if (!defined('VorlaufSollminus20')) {
 
 	class BHKW extends IPSModule {
 	
-		use BHKWFunctions, BHKWZusatzHeizung, BHKWstatePP;
+		use BHKWFunctions, BHKWZusatzHeizung, BHKWstatePP, BHKWstatePower;
 		
 		public function Create()
 		{
@@ -195,133 +195,6 @@ if (!defined('VorlaufSollminus20')) {
 			//$RCID = IPS_CreateKategorie("Visualisierung",0);
 			$ViscatID =  $this->IPS_CreateKategorie("Visualisierung1",0,10);
 			$BHKWID =  $this->IPS_CreateKategorie("BHKW",$ViscatID,10);
-			/*
-			$KategorieID = @IPS_GetCategoryIDByName("Visualisierung" , 0);
-			if($KategorieID === false)
-			{ 
-				$ViscatID=IPS_CreateCategory();
-				ips_setname($ViscatID, "Visualisierung");
-			
-				$BHKWID=IPS_CreateCategory();
-				ips_setname($BHKWID, "BHKW");
-				ips_setparent($BHKWID, $ViscatID) ;    
-				
-				$uebersichtID=IPS_CreateCategory();
-				ips_setname($uebersichtID, "Überblick");
-				ips_setparent($uebersichtID, $BHKWID);
-				ips_setposition($uebersichtID,10);
-				
-				$StatusID=IPS_CreateCategory();
-				ips_setname($StatusID, "Statusdaten");
-				ips_setparent($StatusID, $BHKWID) ; 
-				ips_setposition($StatusID,20);
-				
-					$AllesID=IPS_CreateCategory();
-					ips_setname($AllesID, "Alles");
-					ips_setparent($AllesID, $StatusID) ; 
-					ips_setposition($AllesID,10);
-									
-					$BHKSSID=IPS_CreateCategory();
-					ips_setname($BHKSSID, "BHKW");
-					ips_setparent($BHKSSID, $StatusID) ; 
-					ips_setposition($BHKSSID,20);
-				
-				
-
-					$BetriebsdatenID=IPS_CreateCategory();
-					ips_setname($BetriebsdatenID, "Betriebsdaten");
-					ips_setparent($BetriebsdatenID, $StatusID) ; 
-					ips_setposition($BetriebsdatenID,30);
-					
-					$HeizungID=IPS_CreateCategory();
-					ips_setname($HeizungID, "Heizung");
-					ips_setparent($HeizungID, $StatusID) ; 
-					ips_setposition($HeizungID,40);
-				
-						$Link1ID = IPS_CreateLink();             // Link anlegen
-						IPS_SetName($Link1ID, "Außentemperatur" ); // Link benennen
-						IPS_SetParent($Link1ID, $HeizungID); // Link einsortieren unter dem Objekt mit der ID "12345"
-						IPS_SetLinkTargetID($Link1ID, $this->GetIDForIdent("T1"));    // Link verknüpfen
-						ips_setposition($Link1ID,10);
-						
-						$Link2ID = IPS_CreateLink();             // Link anlegen
-						IPS_SetName($Link2ID, "Speichertemperatur oben" ); // Link benennen
-						IPS_SetParent($Link2ID, $HeizungID); // Link einsortieren unter dem Objekt mit der ID "12345"
-						IPS_SetLinkTargetID($Link2ID, $this->GetIDForIdent("T2"));    // Link verknüpfen
-						ips_setposition($Link2ID,20);
-								
-						$Link3ID = IPS_CreateLink();             // Link anlegen
-						IPS_SetName($Link3ID, "Speichertemperatur mitte" ); // Link benennen
-						IPS_SetParent($Link3ID, $HeizungID); // Link einsortieren unter dem Objekt mit der ID "12345"
-						IPS_SetLinkTargetID($Link3ID, $this->GetIDForIdent("T3"));    // Link verknüpfen
-						ips_setposition($Link3ID,30);
-								
-						$Link4ID = IPS_CreateLink();             // Link anlegen
-						IPS_SetName($Link4ID, "Speichertemperatur unten" ); // Link benennen
-						IPS_SetParent($Link4ID, $HeizungID); // Link einsortieren unter dem Objekt mit der ID "12345"
-						IPS_SetLinkTargetID($Link4ID, $this->GetIDForIdent("T4"));    // Link verknüpfen
-						ips_setposition($Link4ID,40);
-						
-						$Link5ID = IPS_CreateLink();             // Link anlegen
-						IPS_SetName($Link5ID, "VorlaufTemperatur Soll" ); // Link benennen
-						IPS_SetParent($Link5ID, $HeizungID); // Link einsortieren unter dem Objekt mit der ID "12345"
-						IPS_SetLinkTargetID($Link5ID, $this->GetIDForIdent("VorlaufTemperaturSoll"));    // Link verknüpfen
-						ips_setposition($Link5ID,50);
-				
-						$Link6ID = IPS_CreateLink();             // Link anlegen
-						IPS_SetName($Link6ID, "Vorlauf Heizkreis 1" ); // Link benennen
-						IPS_SetParent($Link6ID, $HeizungID); // Link einsortieren unter dem Objekt mit der ID "12345"
-						IPS_SetLinkTargetID($Link6ID, $this->GetIDForIdent("T5"));    // Link verknüpfen
-						ips_setposition($Link6ID,60);
-						
-						$Link7ID = IPS_CreateLink();             // Link anlegen
-						IPS_SetName($Link7ID, "Rüklauf Heizkreis 1" ); // Link benennen
-						IPS_SetParent($Link7ID, $HeizungID); // Link einsortieren unter dem Objekt mit der ID "12345"
-						IPS_SetLinkTargetID($Link7ID, $this->GetIDForIdent("T6"));    // Link verknüpfen
-						ips_setposition($Link7ID,70);
-				
-						$Link8ID = IPS_CreateLink();             // Link anlegen
-						IPS_SetName($Link8ID, "Pumpe Heizkreis 1" ); // Link benennen
-						IPS_SetParent($Link8ID, $HeizungID); // Link einsortieren unter dem Objekt mit der ID "12345"
-						IPS_SetLinkTargetID($Link8ID, $this->GetIDForIdent("R1"));    // Link verknüpfen
-						ips_setposition($Link8ID,80);
-				
-					$InbetribnahmeID=IPS_CreateCategory();
-					ips_setname($InbetribnahmeID, "Inbetriebnahme");
-					ips_setparent($InbetribnahmeID, $StatusID) ; 
-					ips_setposition($InbetribnahmeID,50);
-				
-				$FehlerID=IPS_CreateCategory();
-				ips_setname($FehlerID, "Fehlermeldungen");
-				ips_setparent($FehlerID, $BHKWID) ;
-				ips_setposition($FehlerID,30);
-				
-				$GuiID=IPS_CreateCategory();
-				ips_setname($GuiID, "GUI");
-				ips_setparent($GuiID, $BHKWID) ; 
-				ips_setposition($GuiID,40);
-				
-				$TestID=IPS_CreateCategory();
-				ips_setname($TestID, "Test");
-				ips_setparent($TestID, $BHKWID) ; 
-				ips_setposition($TestID,50);
-				
-				$KonfigID=IPS_CreateCategory();
-				ips_setname($KonfigID, "Konfiguration");
-				ips_setparent($KonfigID, $BHKWID) ; 
-				ips_setposition($KonfigID,60);				
-				
-				$KalibrierungID=IPS_CreateCategory();
-				ips_setname($KalibrierungID, "Kaliebrierung");
-				ips_setparent($KalibrierungID, $BHKWID) ; 
-				ips_setposition($KalibrierungID,70);
-			}
-			*/
-			//$instance = IPS_GetCategoryIDByName ("Kirsch BHKW", 0)
-			//IPS_LogMessage("BHKW ID", $instance);
-			//$this->RegisterVariableInteger("LPR", "Letztes Paket empfangen", " ~UnixTimestamp", 900);
-			//IPS_SetParent($this->GetIDForIdent('LPR'),$CatID);
-			
 			$this->ConnectParent("{33B9B2D7-6BC5-1CF6-A86F-E76622A7FFB7}");
 			
 		}
@@ -375,6 +248,7 @@ if (!defined('VorlaufSollminus20')) {
 					$this->errors($data);
 					break;
 				case "statePower":
+					$this->WriteLog1($data);
 					//$this->statePP($data);
 					break;
 				default:

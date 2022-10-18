@@ -367,6 +367,7 @@ if (!defined('VorlaufSollminus20')) {
 			{
 				case "statePP":
 					//SetValue(37729, time());
+					$this->WriteLog($data);
 					$this->statePP($data);
 					break;
 				case "errors":
@@ -384,8 +385,6 @@ if (!defined('VorlaufSollminus20')) {
 				$this->ZusatzHeizung();
 			}
 		}
-		
-
 		
 		private function errors($data)
 		{

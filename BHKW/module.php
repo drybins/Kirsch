@@ -12,15 +12,15 @@ require_once(__ROOT__ . '/libs/BHKW_errors.php');
 //const TempDiff =40;
 //const VorlaufSoll20 = 45;
 //const VorlaufSollminus20 = 70;
-if (!defined('TempDiff')) {
-    define('TempDiff', '40');
-}
-if (!defined('VorlaufSoll20')) {
-    define('VorlaufSoll20', '20');
-}
-if (!defined('VorlaufSollminus20')) {
-    define('VorlaufSollminus20', '70');
-}
+//if (!defined('TempDiff')) {
+//    define('TempDiff', '40');
+//}
+//if (!defined('VorlaufSoll20')) {
+//    define('VorlaufSoll20', '20');
+//}
+//if (!defined('VorlaufSollminus20')) {
+//    define('VorlaufSollminus20', '70');
+//}
 
 	class BHKW extends IPSModule {
 	
@@ -76,7 +76,7 @@ if (!defined('VorlaufSollminus20')) {
 				IPS_LogMessage("statePP schon da!", $statePPID);	
 			//}
 			*/
-			
+			$this->RegisterVariableInteger("Seriennummer", "Seriennummer", "", 10);
 			//BHKW statePP Variablen anlegen
 			$this->RegisterVariableInteger("KirschStatus", "Status", "Kirsch.Status", 100);
 			//$StatusID =IPS_GetObjectIDByIdent("KirschStatus",$BHKWID);

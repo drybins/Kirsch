@@ -253,6 +253,10 @@ require_once(__ROOT__ . '/libs/BHKW_valuePP.php');
 					$this->WriteLog1($data);
 					$this->statePower($data);
 					break;
+				case "valuePP":
+					$this->WriteLog3($data);
+					$this->valuePP($data);
+					break;
 				default:
 					break;
 			}

@@ -223,8 +223,8 @@ require_once(__ROOT__ . '/libs/BHKW_valuePP.php');
 		{
 			$data = json_decode($JSONString);
 			$data = utf8_decode($data->Buffer);
-			IPS_LogMessage("Device RECV", $data);
-			//IPS_LogMessage("Device RECV", utf8_decode($data->Buffer));
+			//IPS_LogMessage("Device RECV", $data);
+			IPS_LogMessage("Device RECV", utf8_decode($data->Buffer));
 			
 			$start = strpos($data,"<",5);
 			$end = strpos($data,">",$start);

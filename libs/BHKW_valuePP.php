@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 trait BHKWvaluePP
 {
-	private function WriteLog1($data)
+	private function WriteLog3($data)
 	{
 		IPS_LogMessage("BHKW valuePP TestLog", $data);
 	}

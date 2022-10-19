@@ -224,15 +224,16 @@ require_once(__ROOT__ . '/libs/BHKW_valuePP.php');
 			$data = json_decode($JSONString);
 			$data = utf8_decode($data->Buffer);
 			//IPS_LogMessage("Device RECV", $data);
-			IPS_LogMessage("Device RECV", utf8_decode($data->Buffer));
+			//IPS_LogMessage("Device RECV", utf8_decode($data->Buffer));
 			
 			$start = strpos($data,"<",5);
 			$end = strpos($data,">",$start);
 			$cmd = substr($data, $start+1, $end-$start-1);
 			IPS_LogMessage("Splitter CMD", $cmd);
+			IPS_LogMessage("Splitter data", $data);
 			$delimeter = "<?xml version='1.0' encoding='UTF-8'?>";
 			$pos = strrpos($data, $delimeter);
-			
+			IPS_LogMessage("Fehler Pos:", $pos);
 			if($pos === true)
 			{
 				$data = substr($data,0,$pos);

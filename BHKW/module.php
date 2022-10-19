@@ -239,6 +239,8 @@ require_once(__ROOT__ . '/libs/BHKW_valuePP.php');
 				$start = strpos($data,"<",43);
 				$end = strpos($data,">",$start);
 				$cmd = substr($data, $start+1, $end-$start-1);
+				$data1 = $data;
+				$data=substr($data1,0,38) . substr($data1,72);
 			}	//$data = substr($data,0,$pos);
 				IPS_LogMessage("Splitter CMD2", $cmd);
 				IPS_LogMessage("Splitter Fehler Pos:", $pos);

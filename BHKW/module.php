@@ -238,7 +238,7 @@ require_once(__ROOT__ . '/libs/BHKW_valuePP.php');
 			{
 				$data = substr($data,0,$pos);
 				IPS_LogMessage("Splitter Fehler Pos:", $pos);
-				IPS_LogMessage("Splitter Fehler ende pos:",substr($data,$pos));
+				IPS_LogMessage("Splitter Fehler ende pos:",substr($data,0,$pos));
 			}
 			switch ($cmd)
 			{

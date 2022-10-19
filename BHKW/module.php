@@ -234,11 +234,11 @@ require_once(__ROOT__ . '/libs/BHKW_valuePP.php');
 			$delimeter = "<?xml version='1.0' encoding='UTF-8'?>";
 			$pos = strrpos($data, $delimeter);
 			IPS_LogMessage("Splitter Pos:", $pos);
-			if($pos === true)
+			if($pos !== false)
 			{
 				$data = substr($data,0,$pos);
-				IPS_LogMessage("Fehler Pos:", $pos);
-				IPS_LogMessage("Fehler ende pos:",substr($data,$pos));
+				IPS_LogMessage("Splitter Fehler Pos:", $pos);
+				IPS_LogMessage("Splitter Fehler ende pos:",substr($data,$pos));
 			}
 			switch ($cmd)
 			{

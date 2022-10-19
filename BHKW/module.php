@@ -185,6 +185,7 @@ require_once(__ROOT__ . '/libs/BHKW_valuePP.php');
 						
 			$this->RegisterVariableInteger("DLF", "Datum letzter Fehler", "~UnixTimestamp", 900);	
 
+			$this->RegisterVariableBoolean("ZielleistungDA", "Zielleistung Dynamische Anpassung", "Kirsch.AnAus", 999);
 			$this->RegisterVariableInteger("Zielleistung0", "Zielleistung 0 Uhr", "Kirsch.Kw", 1000);
 			$this->RegisterVariableInteger("Zielleistung1", "Zielleistung 1 Uhr", "Kirsch.Kw", 1010);
 			$this->RegisterVariableInteger("Zielleistung2", "Zielleistung 2 Uhr", "Kirsch.Kw", 1020);

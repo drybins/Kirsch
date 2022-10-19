@@ -23,7 +23,7 @@ trait BHKWvaluePP
 		}
 		
 		//Seriennummer des BHKW'S
-		$ScriptData['Ser'] = (string) $xmlData->valuePP->serial;			
+		$ScriptData['Ser'] = (string) $xmlData->serial;			
 		$SerID = $this->GetIDForIdent("Seriennummer");
 		//IPS_LogMessage("BHKW statePower Status", $ScriptData['STATUS']);
 		SetValueInteger ($SerID, $ScriptData['Ser']);

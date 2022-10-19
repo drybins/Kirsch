@@ -56,8 +56,8 @@ trait BHKWstatePower
 		default:
 			//SetValueString (14320 , "Status nicht gefunden:" . $ScriptData['STATUS']);
 		}
-	$ScriptData['Auto'] = (string) $xmlData->powerClasses[0]['autoAdapt'];
-	IPS_LogMessage("BHKW statePower Autoadapt", $ScriptData['Auto']);
+	$ScriptData['ZielleistungDA'] = (string) $xmlData->powerClasses[0]['autoAdapt'];
+	IPS_LogMessage("BHKW statePower Autoadapt", $ScriptData['ZielleistungDA']);
 		switch ($ScriptData['ZielleistungDA']) 
 		{
 		case "enabled":

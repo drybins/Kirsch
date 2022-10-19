@@ -183,7 +183,34 @@ require_once(__ROOT__ . '/libs/BHKW_valuePP.php');
 			$this->RegisterVariableString("Messpunkt", "Mespunkt", "", 810);
 			$this->RegisterVariableString("Fehler", "Fehler", "", 820);
 						
-			$this->RegisterVariableInteger("DLF", "Datum letzter Fehler", "~UnixTimestamp", 900);		
+			$this->RegisterVariableInteger("DLF", "Datum letzter Fehler", "~UnixTimestamp", 900);	
+
+			$this->RegisterVariableInteger("Zielleistung 0 Uhr", "Zielleistung0", "Kirsch.Kw", 1000);
+			$this->RegisterVariableInteger("Zielleistung 1 Uhr", "Zielleistung1", "Kirsch.Kw", 1010);
+			$this->RegisterVariableInteger("Zielleistung 2 Uhr", "Zielleistung2", "Kirsch.Kw", 1020);
+			$this->RegisterVariableInteger("Zielleistung 3 Uhr", "Zielleistung3", "Kirsch.Kw", 1030);
+			$this->RegisterVariableInteger("Zielleistung 4 Uhr", "Zielleistung4", "Kirsch.Kw", 1040);
+			$this->RegisterVariableInteger("Zielleistung 5 Uhr", "Zielleistung5", "Kirsch.Kw", 1050);
+			$this->RegisterVariableInteger("Zielleistung 6 Uhr", "Zielleistung6", "Kirsch.Kw", 1060);
+			$this->RegisterVariableInteger("Zielleistung 7 Uhr", "Zielleistung7", "Kirsch.Kw", 1070);
+			$this->RegisterVariableInteger("Zielleistung 8 Uhr", "Zielleistung8", "Kirsch.Kw", 1080);
+			$this->RegisterVariableInteger("Zielleistung 9 Uhr", "Zielleistung9", "Kirsch.Kw", 1090);
+			$this->RegisterVariableInteger("Zielleistung 10 Uhr", "Zielleistung10", "Kirsch.Kw", 1100);
+			$this->RegisterVariableInteger("Zielleistung 11 Uhr", "Zielleistung11", "Kirsch.Kw", 1110);
+			$this->RegisterVariableInteger("Zielleistung 12 Uhr", "Zielleistung12", "Kirsch.Kw", 1120);
+			$this->RegisterVariableInteger("Zielleistung 13 Uhr", "Zielleistung13", "Kirsch.Kw", 1130);
+			$this->RegisterVariableInteger("Zielleistung 14 Uhr", "Zielleistung14", "Kirsch.Kw", 1140);
+			$this->RegisterVariableInteger("Zielleistung 15 Uhr", "Zielleistung15", "Kirsch.Kw", 1150);
+			$this->RegisterVariableInteger("Zielleistung 16 Uhr", "Zielleistung16", "Kirsch.Kw", 1160);
+			$this->RegisterVariableInteger("Zielleistung 17 Uhr", "Zielleistung17", "Kirsch.Kw", 1170);
+			$this->RegisterVariableInteger("Zielleistung 18 Uhr", "Zielleistung18", "Kirsch.Kw", 1180);
+			$this->RegisterVariableInteger("Zielleistung 19 Uhr", "Zielleistung19", "Kirsch.Kw", 1190);
+			$this->RegisterVariableInteger("Zielleistung 20 Uhr", "Zielleistung20", "Kirsch.Kw", 1200);
+			$this->RegisterVariableInteger("Zielleistung 21 Uhr", "Zielleistung21", "Kirsch.Kw", 1210);
+			$this->RegisterVariableInteger("Zielleistung 22 Uhr", "Zielleistung22", "Kirsch.Kw", 1220);
+			$this->RegisterVariableInteger("Zielleistung 23 Uhr", "Zielleistung23", "Kirsch.Kw", 1230);
+
+			
 			//statePower Variablen anlegen
 			//$eventID = IPS_CreateEvent(0);
 			//IPS_SetParent($eventID, $this->GetIDForIdent('Aussentemperatur'));

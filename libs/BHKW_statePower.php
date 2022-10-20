@@ -69,6 +69,12 @@ trait BHKWstatePower
 		default:
 			//SetValueString (14320 , "Status nicht gefunden:" . $ScriptData['STATUS']);
 		}
+		
+		for ($x = 0; $x <= 6; $x+=1) 
+		{
+			$ScriptData['T'] = (string) $xmlData->temperatures->temperature[$x];
+			IPS_LogMessage("BHKW statePower time", $x . " : "$ScriptData['T']);
+		}
 		for ($x = 0; $x <= 23; $x+=1) 
 		{
 	

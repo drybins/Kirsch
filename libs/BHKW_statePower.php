@@ -74,15 +74,17 @@ trait BHKWstatePower
 	
 			$ScriptData['ZielleistungT'] = (string) $xmlData->powerClasses->targetPower[$x]['time'];
 			$TargetTime = substr($ScriptData['ZielleistungT'],0,2);
-			IPS_LogMessage("BHKW statePower time", $TargetTime);
-			IPS_LogMessage("BHKW statePower x", $x);
+			//IPS_LogMessage("BHKW statePower time", $TargetTime);
+			//IPS_LogMessage("BHKW statePower x", $x);
+			$ScriptData['Zielleistung'] = (string) $xmlData->powerClasses->targetPower[$x];
+			//IPS_LogMessage("BHKW statePower Zielleistung", $ScriptData['Zielleistung']);
+			//IPS_LogMessage("BHKW statePower Zielleistung", $this->GetIDForIdent("Zielleistung" . $x));
 			if($x == $TargetTime)
 			{
-					IPS_LogMessage("BHKW statePower time", "korreckt");
+					//IPS_LogMessage("BHKW statePower time", "korreckt");
+					SetValueInteger($this->GetIDForIdent("Zielleistung" . $x),$ScriptData['Zielleistung'])
 			}
-			$ScriptData['Zielleistung'] = (string) $xmlData->powerClasses->targetPower[$x];
-			IPS_LogMessage("BHKW statePower Zielleistung", $ScriptData['Zielleistung']);
-			IPS_LogMessage("BHKW statePower Zielleistung", $this->GetIDForIdent("Zielleistung" . $x));
+
 		}
 	}
 }

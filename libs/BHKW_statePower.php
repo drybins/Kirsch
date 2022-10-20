@@ -69,8 +69,10 @@ trait BHKWstatePower
 		default:
 			//SetValueString (14320 , "Status nicht gefunden:" . $ScriptData['STATUS']);
 		}
-	$ScriptData['ZielleistungT'] = (string) $xmlData->powerClasses->targetPower[0]['time'];
+	$ScriptData['ZielleistungT'] = (string) $xmlData->powerClasses->targetPower[1]['time'];
 	$TargetTime = substr($ScriptData['ZielleistungT'],0,2);
 	IPS_LogMessage("BHKW statePower time", $TargetTime);
+	$ScriptData['Zielleistung'] = (string) $xmlData->powerClasses->targetPower[0];
+	IPS_LogMessage("BHKW statePower time", $ScriptData['Zielleistung']);
 	}
 }

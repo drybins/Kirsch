@@ -82,7 +82,7 @@ trait BHKWstatePower
 			if($x == $TargetTime)
 			{
 					//IPS_LogMessage("BHKW statePower time", "korreckt");
-					SetValueInteger($this->GetIDForIdent("Zielleistung" . $x),$ScriptData['Zielleistung'])
+					SetValueInteger($this->GetIDForIdent("Zielleistung" . $x),$ScriptData['Zielleistung']);
 			}
 
 		}

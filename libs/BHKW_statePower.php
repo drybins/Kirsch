@@ -56,8 +56,8 @@ trait BHKWstatePower
 		default:
 			//SetValueString (14320 , "Status nicht gefunden:" . $ScriptData['STATUS']);
 		}
-	$ScriptData['ZielleistungDA'] = (string) $xmlData->powerClasses[0]['autoAdapt'];
-	IPS_LogMessage("BHKW statePower Autoadapt", $ScriptData['ZielleistungDA']);
+		$ScriptData['ZielleistungDA'] = (string) $xmlData->powerClasses[0]['autoAdapt'];
+		IPS_LogMessage("BHKW statePower Autoadapt", $ScriptData['ZielleistungDA']);
 		switch ($ScriptData['ZielleistungDA']) 
 		{
 		case "enabled":
@@ -69,10 +69,14 @@ trait BHKWstatePower
 		default:
 			//SetValueString (14320 , "Status nicht gefunden:" . $ScriptData['STATUS']);
 		}
-	$ScriptData['ZielleistungT'] = (string) $xmlData->powerClasses->targetPower[1]['time'];
-	$TargetTime = substr($ScriptData['ZielleistungT'],0,2);
-	IPS_LogMessage("BHKW statePower time", $TargetTime);
-	$ScriptData['Zielleistung'] = (string) $xmlData->powerClasses->targetPower[1];
-	IPS_LogMessage("BHKW statePower Zielleistung", $ScriptData['Zielleistung']);
+		for ($x = 0; $x <= 23; $x+=1) 
+		{
+	
+			$ScriptData['ZielleistungT'] = (string) $xmlData->powerClasses->targetPower[$x]['time'];
+			$TargetTime = substr($ScriptData['ZielleistungT'],0,2);
+			IPS_LogMessage("BHKW statePower time", $TargetTime);
+			$ScriptData['Zielleistung'] = (string) $xmlData->powerClasses->targetPower[$x];
+			IPS_LogMessage("BHKW statePower Zielleistung", $ScriptData['Zielleistung']);
+		}
 	}
 }

@@ -76,7 +76,7 @@ trait BHKWstatePower
 			IPS_LogMessage("BHKW statePower time", $x . " : " . $ScriptData['T']);
 			switch ($x) 
 			{
-				case 0:
+				case "0":
 					IPS_LogMessage("BHKW statePower T1", $x . " : " . $ScriptData['T']);
 				break;
 			default:

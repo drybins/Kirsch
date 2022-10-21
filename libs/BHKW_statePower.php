@@ -74,6 +74,14 @@ trait BHKWstatePower
 		{
 			$ScriptData['T'] = (string) $xmlData->temperatures->temperature[$x];
 			IPS_LogMessage("BHKW statePower time", $x . " : " . $ScriptData['T']);
+			switch ($x) 
+			{
+				case 0:
+					IPS_LogMessage("BHKW statePower T1", $x . " : " . $ScriptData['T']);
+				break;
+			default:
+				//;
+			} 
 		}
 		for ($x = 0; $x <= 23; $x+=1) 
 		{

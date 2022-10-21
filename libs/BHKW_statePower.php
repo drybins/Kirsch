@@ -77,7 +77,12 @@ trait BHKWstatePower
 			switch ($x) 
 			{
 				case "0":
+					SetValueFloat($this->GetIDForIdent("TI3") , $ScriptData['T']);
 					IPS_LogMessage("BHKW statePower T1", $x . " : " . $ScriptData['T']);
+				break;
+				case "1":
+					SetValueFloat($this->GetIDForIdent("TI2") , $ScriptData['T']);
+					IPS_LogMessage("BHKW statePower T2", $x . " : " . $ScriptData['T']);
 				break;
 			default:
 				//;

@@ -8,6 +8,7 @@ require_once(__ROOT__ . '/libs/BHKW_Zusatzheizung.php');
 require_once(__ROOT__ . '/libs/BHKW_statePP.php');
 //define('__ROOT3__', dirname(dirname(__FILE__)));
 require_once(__ROOT__ . '/libs/BHKW_statePower.php');
+require_once(__ROOT__ . '/libs/BHKW_stateHeatControl.php');
 require_once(__ROOT__ . '/libs/BHKW_errors.php');
 require_once(__ROOT__ . '/libs/BHKW_valuePP.php');
 //const TempDiff =40;
@@ -25,7 +26,7 @@ require_once(__ROOT__ . '/libs/BHKW_valuePP.php');
 
 	class BHKW extends IPSModule {
 	
-		use BHKWFunctions, BHKWZusatzHeizung, BHKWstatePP, BHKWstatePower, BHKWerrors, BHKWvaluePP;
+		use BHKWFunctions, BHKWZusatzHeizung, BHKWstatePP, BHKWstatePower, BHKWstateHeatControl, BHKWerrors, BHKWvaluePP;
 		
 		public function Create()
 		{
@@ -288,6 +289,10 @@ require_once(__ROOT__ . '/libs/BHKW_valuePP.php');
 				case "statePower":
 					$this->WriteLog1($data);
 					$this->statePower($data);
+					break;
+				case "stateHeatControl":
+					$this->WriteLog4($data);
+					$this->stateHeatControl($data);
 					break;
 				case "valuePP":
 					$this->WriteLog3($data);

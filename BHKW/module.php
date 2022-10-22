@@ -67,6 +67,8 @@ require_once(__ROOT__ . '/libs/BHKW_valuePP.php');
 			IPS_SetVariableProfileAssociation("Kirsch.AnAus", true, "An", "", -1);
 			IPS_SetVariableProfileAssociation("Kirsch.AnAus", false, "Aus", "", -1);
 			
+			$HSID=IPS_CreateCategory();
+			ips_setname($HSID, "HeizungsSteuerung");
 			//$Parent = @IPS_GetCategoryIDByName("BHKW" , 0);
 			//$Parent = $this->GetParentId();
 			//print_r(IPS_GetInstance($Parent));

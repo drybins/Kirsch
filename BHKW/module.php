@@ -67,7 +67,8 @@ require_once(__ROOT__ . '/libs/BHKW_valuePP.php');
 			IPS_SetVariableProfileAssociation("Kirsch.AnAus", true, "An", "", -1);
 			IPS_SetVariableProfileAssociation("Kirsch.AnAus", false, "Aus", "", -1);
 			
-			//$Parent = $this->GetParentId();
+			$Parent = $this->GetParentId();
+			IPS_LogMessage("BHKW ID1", $Parent);
 			/*
 			$GUID = "{13D080B9-10DD-1AAD-4C21-B06937CDCA3C}";
 			$ID = IPS_GetInstanceListByModuleID($GUID)[0];

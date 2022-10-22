@@ -67,7 +67,7 @@ require_once(__ROOT__ . '/libs/BHKW_valuePP.php');
 			IPS_SetVariableProfileAssociation("Kirsch.AnAus", true, "An", "", -1);
 			IPS_SetVariableProfileAssociation("Kirsch.AnAus", false, "Aus", "", -1);
 			
-			$Parent = IPS_GetObjectIDByName ("Kirsch BHKW", $ID)
+			$Parent = IPS_GetObjectIDByName ("Kirsch BHKW", 0)
 			//$Parent = $this->GetParentId();
 			IPS_LogMessage("BHKW ID1", $Parent);
 			/*

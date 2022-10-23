@@ -275,7 +275,7 @@ require_once(__ROOT__ . '/libs/BHKW_valuePP.php');
 			IPS_LogMessage("Splitter data", $data);
 			$delimeter = "<?xml version='1.0' encoding='UTF-8'?>";
 			$pos = strrpos($data, $delimeter);
-			IPS_LogMessage("Splitter Pos:", $pos);
+			//IPS_LogMessage("Splitter Pos:", $pos);
 			if($pos !== false)
 			{
 				$start = strpos($data,"<",43);
@@ -284,9 +284,9 @@ require_once(__ROOT__ . '/libs/BHKW_valuePP.php');
 				$data1 = $data;
 				$data=substr($data1,0,38) . substr($data1,76);
 			}	//$data = substr($data,0,$pos);
-				IPS_LogMessage("Splitter CMD2", $cmd);
-				IPS_LogMessage("Splitter Fehler Pos:", $pos);
-				IPS_LogMessage("Splitter Fehler ende pos:",substr($data,0,$pos));
+				//IPS_LogMessage("Splitter CMD2", $cmd);
+				//IPS_LogMessage("Splitter Fehler Pos:", $pos);
+				//IPS_LogMessage("Splitter Fehler ende pos:",substr($data,0,$pos));
 			//}
 			switch ($cmd)
 			{
@@ -345,12 +345,12 @@ require_once(__ROOT__ . '/libs/BHKW_valuePP.php');
 				{
 					ips_setposition($NeueID,$Position);
 				} 
-				IPS_LogMessage("neue Kategorie:", $NeueID .":" . $KategorieName);
+				//IPS_LogMessage("neue Kategorie:", $NeueID .":" . $KategorieName);
 				$ID =  $NeueID;
 		    	}
 			else
 			{
-				IPS_LogMessage("alte Kategorie:", $KategorieID .":"  . $KategorieName);
+				//IPS_LogMessage("alte Kategorie:", $KategorieID .":"  . $KategorieName);
 				$ID =  $KategorieID;
 			}
 			return $ID;

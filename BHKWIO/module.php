@@ -32,7 +32,7 @@
 		public function ForwardData($JSONString)
 		{
 			$data = json_decode($JSONString);
-			IPS_LogMessage("IO FRWD", utf8_decode($data->Buffer));
+			//IPS_LogMessage("IO FRWD", utf8_decode($data->Buffer));
 		}
 
 		public function Send(string $Text)
@@ -46,7 +46,7 @@
     private function ReadConfig()
     {
         // get settings
-	$this->bhkw_ip = $this->ReadPropertyInteger('bhkw_ip');
+		$this->bhkw_ip = $this->ReadPropertyInteger('bhkw_ip');
         $this->port = $this->ReadPropertyInteger('port');
         
     }

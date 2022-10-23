@@ -69,20 +69,20 @@ require_once(__ROOT__ . '/libs/BHKW_valuePP.php');
 			
 			//$HSID=IPS_CreateCategory();
 			//ips_setname($HSID, "HeizungsSteuerung");
-			$Parent = @IPS_GetCategoryIDByName("BHKW" , 58416);
-			IPS_LogMessage("BHKW ID2", $Parent);
+			//$Parent = @IPS_GetCategoryIDByName("BHKW" , 58416);
+			//IPS_LogMessage("BHKW ID2", $Parent);
 			//$Parent = $this->GetParentId();
 			//print_r(IPS_GetInstance($Parent));
 			//$ID = IPS_GetInstanceIDByName ("Kirsch BHKW Nano 4.12", 0);
 			//IPS_LogMessage("BHKW ID1", $ID);
-			/*
+			///*
 			$GUID = "{13D080B9-10DD-1AAD-4C21-B06937CDCA3C}";
 			$ID = IPS_GetInstanceListByModuleID($GUID)[0];
 			IPS_LogMessage("BHKW ID1", $ID);
-			$statePPID = IPS_GetCategoryIDByName ("statePP", $ID);
+			/$statePPID = IPS_GetCategoryIDByName ("statePP", $ID);
 			//if(!IPS_GetCategoryIDByName ("statePP", $ID))
 			//{
-				IPS_LogMessage("statePP schon da!", $statePPID);	
+			//	IPS_LogMessage("statePP schon da!", $statePPID);	
 			//}
 			*/
 			$this->RegisterVariableInteger("Seriennummer", "Seriennummer", "", 10);

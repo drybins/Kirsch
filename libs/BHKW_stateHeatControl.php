@@ -40,6 +40,33 @@ trait BHKWstateHeatControl
 		default:
 			//SetValueString (14320 , "Status nicht gefunden:" . $ScriptData['STATUS']);
 		}
+		for ($x = 0; $x <= 3; $x+=1) 
+		{
+			$ScriptData['T'] = (string) $xmlData->temperatures->temperature[$x];
+			//IPS_LogMessage("BHKW statePower time", $x . " : " . $ScriptData['T']);
+			switch ($x) 
+			{
+				case "0":
+					SetValueFloat($this->GetIDForIdent("T1") , $ScriptData['T']);
+					//IPS_LogMessage("BHKW statePower Ti1", $x . " : " . $ScriptData['T']);
+				break;
+				case "1":
+					SetValueFloat($this->GetIDForIdent("T4") , $ScriptData['T']);
+					//IPS_LogMessage("BHKW statePower Ti2", $x . " : " . $ScriptData['T']);
+				break;
+				case "2":
+					SetValueFloat($this->GetIDForIdent("T3") , $ScriptData['T']);
+					//IPS_LogMessage("BHKW statePower Ti4", $x . " : " . $ScriptData['T']);
+				break;
+				case "3":
+					SetValueFloat($this->GetIDForIdent("T2") , $ScriptData['T']);
+					//IPS_LogMessage("BHKW statePower Ti5", $x . " : " . $ScriptData['T']);
+				break;
+			default:
+				//;
+			} 
+		}
+
 
 	}
 }

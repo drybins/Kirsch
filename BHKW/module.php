@@ -54,6 +54,11 @@ require_once(__ROOT__ . '/libs/BHKW_valuePP.php');
 			IPS_SetVariableProfileAssociation("Kirsch.Status", 10, "Notstop", "", 0xff0000);
 			IPS_SetVariableProfileAssociation("Kirsch.Status", 11, "Fehler", "", 0xff0000);
 			
+			$this->IPS_CreateVariableProfile("Kirsch.Heizung", 1, "", 1, 11, 1, 2, "");
+			IPS_SetVariableProfileAssociation("Kirsch.Heizung", 1, "Automatik", "", 0x7cfc00);
+			IPS_SetVariableProfileAssociation("Kirsch.Heizung", 2, "Tag", "", 0x7cfc00);
+			IPS_SetVariableProfileAssociation("Kirsch.Heizung", 3, "Nacht", "", 0x7cfc00);
+			
 			$this->IPS_CreateVariableProfile("Kirsch.Gasventil", 0, "", 1, 11, 1, 2, "");
 			IPS_SetVariableProfileAssociation("Kirsch.Gasventil", true, "Geöffnet", "", -1);
 			IPS_SetVariableProfileAssociation("Kirsch.Gasventil", false, "Geschlossen", "", -1);

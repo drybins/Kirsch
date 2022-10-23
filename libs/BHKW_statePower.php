@@ -25,7 +25,7 @@ trait BHKWstatePower
 		//Status des BHKW'S
 		$ScriptData['STATUS'] = (string) $xmlData->state;			
 		$StatusID = $this->GetIDForIdent("KirschStatus");
-		IPS_LogMessage("BHKW statePower Status", $ScriptData['STATUS']);
+		//IPS_LogMessage("BHKW statePower Status", $ScriptData['STATUS']);
 				
 		switch ($ScriptData['STATUS']) 
 		{
@@ -57,7 +57,7 @@ trait BHKWstatePower
 			//SetValueString (14320 , "Status nicht gefunden:" . $ScriptData['STATUS']);
 		}
 		$ScriptData['ZielleistungDA'] = (string) $xmlData->powerClasses[0]['autoAdapt'];
-		IPS_LogMessage("BHKW statePower Autoadapt", $ScriptData['ZielleistungDA']);
+		//IPS_LogMessage("BHKW statePower Autoadapt", $ScriptData['ZielleistungDA']);
 		switch ($ScriptData['ZielleistungDA']) 
 		{
 		case "enabled":
@@ -73,28 +73,28 @@ trait BHKWstatePower
 		for ($x = 0; $x <= 5; $x+=1) 
 		{
 			$ScriptData['T'] = (string) $xmlData->temperatures->temperature[$x];
-			IPS_LogMessage("BHKW statePower time", $x . " : " . $ScriptData['T']);
+			//IPS_LogMessage("BHKW statePower time", $x . " : " . $ScriptData['T']);
 			switch ($x) 
 			{
 				case "0":
 					SetValueFloat($this->GetIDForIdent("TI3") , $ScriptData['T']);
-					IPS_LogMessage("BHKW statePower Ti1", $x . " : " . $ScriptData['T']);
+					//IPS_LogMessage("BHKW statePower Ti1", $x . " : " . $ScriptData['T']);
 				break;
 				case "1":
 					SetValueFloat($this->GetIDForIdent("TI2") , $ScriptData['T']);
-					IPS_LogMessage("BHKW statePower Ti2", $x . " : " . $ScriptData['T']);
+					//IPS_LogMessage("BHKW statePower Ti2", $x . " : " . $ScriptData['T']);
 				break;
 				case "3":
 					SetValueFloat($this->GetIDForIdent("TI4") , $ScriptData['T']);
-					IPS_LogMessage("BHKW statePower Ti4", $x . " : " . $ScriptData['T']);
+					//IPS_LogMessage("BHKW statePower Ti4", $x . " : " . $ScriptData['T']);
 				break;
 				case "4":
 					SetValueFloat($this->GetIDForIdent("TI5") , $ScriptData['T']);
-					IPS_LogMessage("BHKW statePower Ti5", $x . " : " . $ScriptData['T']);
+					//IPS_LogMessage("BHKW statePower Ti5", $x . " : " . $ScriptData['T']);
 				break;
 				case "5":
 					SetValueFloat($this->GetIDForIdent("TI6") , $ScriptData['T']);
-					IPS_LogMessage("BHKW statePower Ti6", $x . " : " . $ScriptData['T']);
+					//IPS_LogMessage("BHKW statePower Ti6", $x . " : " . $ScriptData['T']);
 				break;
 			default:
 				//;

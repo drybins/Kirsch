@@ -272,7 +272,7 @@ require_once(__ROOT__ . '/libs/BHKW_valuePP.php');
 			$end = strpos($data,">",$start);
 			$cmd = substr($data, $start+1, $end-$start-1);
 			IPS_LogMessage("Splitter CMD", $cmd);
-			IPS_LogMessage("Splitter data", $data);
+			//IPS_LogMessage("Splitter data", $data);
 			$delimeter = "<?xml version='1.0' encoding='UTF-8'?>";
 			$pos = strrpos($data, $delimeter);
 			//IPS_LogMessage("Splitter Pos:", $pos);
@@ -312,6 +312,7 @@ require_once(__ROOT__ . '/libs/BHKW_valuePP.php');
 					$this->valuePP($data);
 					break;
 				default:
+					IPS_LogMessage("Splitter CMD1", $cmd);
 					break;
 			}
 			if (date("H")<>0)

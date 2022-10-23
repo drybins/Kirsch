@@ -313,6 +313,7 @@ require_once(__ROOT__ . '/libs/BHKW_valuePP.php');
 					break;
 				default:
 					IPS_LogMessage("Splitter CMD1", $cmd);
+					IPS_LogMessage("Splitter data", $data);
 					break;
 			}
 			if (date("H")<>0)

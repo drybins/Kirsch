@@ -93,7 +93,7 @@ require_once(__ROOT__ . '/libs/BHKW_valuePP.php');
 			$this->RegisterVariableInteger("Seriennummer", "Seriennummer", "", 10);
 			//BHKW statePP Variablen anlegen
 			$this->RegisterVariableInteger("KirschStatus", "Status", "Kirsch.Status", 100);
-			$this->RegisterVariableInteger("Heizungs Status", "Heizung", "Kirsch.Heizung", 101);
+			$this->RegisterVariableInteger("HeizungsStatus", "Heizung Status", "Kirsch.Heizung", 101);
 			//$StatusID =IPS_GetObjectIDByIdent("KirschStatus",$BHKWID);
 			//IPS_SetParent($StatusID, $CatID);
 			$this->RegisterVariableInteger("Zielleistung", "Zielleistung", "Kirsch.Kw", 110);

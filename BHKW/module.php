@@ -271,7 +271,7 @@ require_once(__ROOT__ . '/libs/BHKW_valuePP.php');
 			$start = strpos($data,"<",5);
 			$end = strpos($data,">",$start);
 			$cmd = substr($data, $start+1, $end-$start-1);
-			IPS_LogMessage("Splitter CMD", $cmd);
+			//IPS_LogMessage("Splitter CMD", $cmd);
 			//IPS_LogMessage("Splitter data", $data);
 			$delimeter = "<?xml version='1.0' encoding='UTF-8'?>";
 			$pos = strrpos($data, $delimeter);

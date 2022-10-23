@@ -48,25 +48,23 @@ trait BHKWstateHeatControl
 			{
 				case "0":
 					SetValueFloat($this->GetIDForIdent("T1") , $ScriptData['T']);
-					//IPS_LogMessage("BHKW statePower Ti1", $x . " : " . $ScriptData['T']);
+					IPS_LogMessage("BHKW statePower T1", $x . " : " . $ScriptData['T']);
 				break;
 				case "1":
 					SetValueFloat($this->GetIDForIdent("T4") , $ScriptData['T']);
-					//IPS_LogMessage("BHKW statePower Ti2", $x . " : " . $ScriptData['T']);
+					IPS_LogMessage("BHKW statePower T4", $x . " : " . $ScriptData['T']);
 				break;
 				case "2":
 					SetValueFloat($this->GetIDForIdent("T3") , $ScriptData['T']);
-					//IPS_LogMessage("BHKW statePower Ti4", $x . " : " . $ScriptData['T']);
+					IPS_LogMessage("BHKW statePower T3", $x . " : " . $ScriptData['T']);
 				break;
 				case "3":
 					SetValueFloat($this->GetIDForIdent("T2") , $ScriptData['T']);
-					//IPS_LogMessage("BHKW statePower Ti5", $x . " : " . $ScriptData['T']);
+					IPS_LogMessage("BHKW statePower T2", $x . " : " . $ScriptData['T']);
 				break;
 			default:
 				//;
 			} 
 		}
-
-
 	}
 }

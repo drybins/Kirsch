@@ -69,7 +69,8 @@ require_once(__ROOT__ . '/libs/BHKW_valuePP.php');
 			
 			//$HSID=IPS_CreateCategory();
 			//ips_setname($HSID, "HeizungsSteuerung");
-			//$Parent = @IPS_GetCategoryIDByName("BHKW" , 0);
+			$Parent = @IPS_GetCategoryIDByName("BHKW" , 58416);
+			IPS_LogMessage("BHKW ID2", $Parent);
 			//$Parent = $this->GetParentId();
 			//print_r(IPS_GetInstance($Parent));
 			//$ID = IPS_GetInstanceIDByName ("Kirsch BHKW Nano 4.12", 0);

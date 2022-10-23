@@ -84,7 +84,7 @@ require_once(__ROOT__ . '/libs/BHKW_valuePP.php');
 			//{
 			//	IPS_LogMessage("statePP schon da!", $statePPID);	
 			//}
-			*/
+			//*/
 			$this->RegisterVariableInteger("Seriennummer", "Seriennummer", "", 10);
 			//BHKW statePP Variablen anlegen
 			$this->RegisterVariableInteger("KirschStatus", "Status", "Kirsch.Status", 100);

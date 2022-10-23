@@ -24,7 +24,22 @@ trait BHKWstateHeatControl
 		
 		//Status des BHKW'S
 		$ScriptData['MODE'] = (string) $xmlData->mode;			
-		//$StatusID = $this->GetIDForIdent("KirschStatus");
+		$StatusID = $this->GetIDForIdent("HeizungsStatus");
 		IPS_LogMessage("BHKW stateHeatControl Mode", $ScriptData['MODE']);
+		switch ($ScriptData['MODE']) 
+		{
+			case "automatic":
+			SetValueInteger ($StatusID, 1);
+			break;
+		case "day":
+			SetValueInteger ($StatusID, 2);
+			break;
+		case "night":
+			SetValueInteger ($StatusID, 3);
+			break;
+		default:
+			//SetValueString (14320 , "Status nicht gefunden:" . $ScriptData['STATUS']);
+		}
+
 	}
 }

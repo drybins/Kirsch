@@ -24,7 +24,7 @@
 			$BHKWIOID = $this->GetParentId();
 			IPS_SetName ($BHKWIOID, "BHKWIO");
 			IPS_SetIdent ($BHKWIOID, "BHKWIO");
-			IPS_LogMessage("Parent SPID: ",$BHKWIOID);
+			//IPS_LogMessage("Parent SPID: ",$BHKWIOID);
 			IPS_SetProperty($BHKWIOID, 'Host', "192.168.178.111");
 			IPS_SetProperty($BHKWIOID, 'Port', "7603");
 		}
@@ -63,8 +63,8 @@
 					{
 						$this->send2BHKW($delimeter . substr($bufferParts[$i],0,$pos));
 						$this->send2BHKW($delimeter . substr($bufferParts[$i],$pos));
-						IPS_LogMessage("Splitter bufferParts", $i . ":" . substr($bufferParts[$i],0,$pos));
-						IPS_LogMessage("Splitter bufferParts", $i . ":" . substr($bufferParts[$i], $pos));
+						//IPS_LogMessage("Splitter bufferParts", $i . ":" . substr($bufferParts[$i],0,$pos));
+						//IPS_LogMessage("Splitter bufferParts", $i . ":" . substr($bufferParts[$i], $pos));
 					}
 					else
 					{

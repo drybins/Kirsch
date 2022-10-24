@@ -68,7 +68,7 @@ trait BHKWstateHeatControl
 		}
 		
 		$ScriptData['HKStatus'] = (string) $xmlData->heatCircuits->heatCircuit->program[0]['state'];
-		SetValueFloat($this->GetIDForIdent("NAStatus") , $ScriptData['HKStatus']);
+		SetValueFloat(GetIDForIdent("NAStatus") , $ScriptData['HKStatus']);
 		IPS_LogMessage("BHKW stateHeatControl HKStatus", $ScriptData['HKStatus']);
 
 		$ScriptData['HKSZ'] = (string) $xmlData->heatCircuits->heatCircuit->program[0]->time[0];

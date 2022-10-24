@@ -69,5 +69,12 @@ trait BHKWstateHeatControl
 		
 		$ScriptData['HKStatus'] = (string) $xmlData->heatCircuits->heatCircuit->program[0]['state'];
 		IPS_LogMessage("BHKW stateHeatControl HKStatus", $ScriptData['HKStatus']);
+
+		$ScriptData['HKSZ'] = (string) $xmlData->heatCircuits->heatCircuit->program[0]->time[0];
+		IPS_LogMessage("BHKW stateHeatControl HKSZ", $ScriptData['HKSZ']);
+
+		$ScriptData['HKEZ'] = (string) $xmlData->heatCircuits->heatCircuit->program[0]->time[1];
+		IPS_LogMessage("BHKW stateHeatControl HKEZ", $ScriptData['HKEZ']);
+
 	}
 }

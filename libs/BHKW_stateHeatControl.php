@@ -103,5 +103,8 @@ trait BHKWstateHeatControl
 
 		$ScriptData['HKTFall'] = (string) $xmlData->heatCircuits->heatCircuit->program[0]->temperature[0];
 		SetValueInteger(IPS_GetVariableIDByName("Absenken um °Celsius", $KategorieID1), $ScriptData['HKTFall']);
+
+		$ScriptData['HKTmin'] = (string) $xmlData->heatCircuits->heatCircuit->program[0]->temperature[1];
+		SetValueInteger(IPS_GetVariableIDByName("nicht absenken bei unter °Celsius", $KategorieID1), $ScriptData['HKTmin']);
 	}
 }

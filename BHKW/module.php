@@ -100,7 +100,7 @@ require_once(__ROOT__ . '/libs/BHKW_valuePP.php');
 				ips_setname($HSID, "Nachtabsenkung");
 				IPS_SetParent($HSID, $HKID);
 			
-				$this->RegisterVariableInteger("NAStatus", "Status", "", 10);
+				$this->RegisterVariableInteger("NAStatus", "Status", "Kirsch.PGMStatus", 10);
 				$NASID = $this->GetIDForIdent("NAStatus");
 				IPS_SetParent($NASID, $HSID);
 				
@@ -109,9 +109,17 @@ require_once(__ROOT__ . '/libs/BHKW_valuePP.php');
 				IPS_SetParent($SZID, $HSID);
 				
 				$this->RegisterVariableInteger("EndeZeit", "Ende Zeit", "~UnixTimestamp", 30);
+				$EZID = $this->GetIDForIdent("EndeZeit");
+				IPS_SetParent($EZID, $HSID);
 				
 				$this->RegisterVariableInteger("TFall", "Absenken um °Celsius", "", 40);
+				$TFID = $this->GetIDForIdent("TFall");
+				IPS_SetParent($TFID, $HSID);
+
 				$this->RegisterVariableInteger("TMin", "nicht absenken bei unter °Celsius", "", 50);
+				$TMID = $this->GetIDForIdent("TMin");
+				IPS_SetParent($TMID, $HSID);
+
 			}
 			
 			

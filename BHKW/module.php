@@ -84,6 +84,7 @@ require_once(__ROOT__ . '/libs/BHKW_valuePP.php');
 			$GUID = "{13D080B9-10DD-1AAD-4C21-B06937CDCA3C}";
 			$ID = IPS_GetInstanceListByModuleID($GUID)[0];
 			IPS_LogMessage("BHKW ID1", $ID);
+			/*
 			if(!IPS_GetCategoryIDByName ("Heizkreislauf", $ID))
 			{
 			//	IPS_LogMessage("statePP schon da!", $statePPID);	
@@ -99,7 +100,7 @@ require_once(__ROOT__ . '/libs/BHKW_valuePP.php');
 			$NASID = $this->GetIDForIdent("NAStatus");
 			IPS_SetParent($NASID, $HSID);
 			}
-			
+			*/
 			
 			//$statePPID = IPS_GetCategoryIDByName ("statePP", $ID);
 			//if(!IPS_GetCategoryIDByName ("statePP", $ID))

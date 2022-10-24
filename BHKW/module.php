@@ -81,9 +81,9 @@ require_once(__ROOT__ . '/libs/BHKW_valuePP.php');
 			//$ID = IPS_GetInstanceIDByName ("Kirsch BHKW Nano 4.12", 0);
 			//IPS_LogMessage("BHKW ID1", $ID);
 			///*
-			//$GUID = "{13D080B9-10DD-1AAD-4C21-B06937CDCA3C}";
-			//$ID = IPS_GetInstanceListByModuleID($GUID)[0];
-			//IPS_LogMessage("BHKW ID1", $ID);
+			$GUID = "{13D080B9-10DD-1AAD-4C21-B06937CDCA3C}";
+			$ID = IPS_GetInstanceListByModuleID($GUID)[0];
+			IPS_LogMessage("BHKW ID1", $ID);
 			//$statePPID = IPS_GetCategoryIDByName ("statePP", $ID);
 			//if(!IPS_GetCategoryIDByName ("statePP", $ID))
 			//{

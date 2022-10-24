@@ -88,10 +88,10 @@ require_once(__ROOT__ . '/libs/BHKW_valuePP.php');
 			$GUID = "{13D080B9-10DD-1AAD-4C21-B06937CDCA3C}";
 			$ID = IPS_GetInstanceListByModuleID($GUID)[0];
 			IPS_LogMessage("BHKW ID1", $ID);
-			
-			if(@IPS_GetCategoryIDByName("Heizkreislauf", $ID) === false)
+			$HKID = @IPS_GetCategoryIDByName("Heizkreislauf", $ID);
+			if(@IPS_GetCategoryIDByName("Heizkreislauf 1", $ID) === false)
 			{
-				//IPS_LogMessage("Heizkreislauf nicht da!", "dierk1");	
+				IPS_LogMessage("Heizkreislauf nicht da!", "dierk1");	
 
 				$HKID=IPS_CreateCategory();
 				ips_setname($HKID, "Heizkreislauf 1");

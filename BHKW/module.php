@@ -103,7 +103,7 @@ require_once(__ROOT__ . '/libs/BHKW_valuePP.php');
 				$this->RegisterVariableInteger("NAStatus", "Status", "Kirsch.PGMStatus", 10);
 				$NASID = $this->GetIDForIdent("NAStatus");
 				IPS_SetParent($NASID, $HSID);
-				$NASID2 = $this->GetIDForIdent("NAStatus");
+				//$NASID2 = $this->GetIDForIdent("NAStatus");
 				
 				$this->RegisterVariableInteger("StartZeit", "Start Zeit", "~UnixTimestamp", 20);
 				$SZID = $this->GetIDForIdent("StartZeit");

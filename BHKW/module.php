@@ -86,7 +86,7 @@ require_once(__ROOT__ . '/libs/BHKW_valuePP.php');
 			IPS_LogMessage("BHKW ID1", $ID);
 			$HSID=IPS_CreateCategory();
 			ips_setname($HSID, "Nactabsenkung");
-			IPS_SetParent($HDID, $ID);
+			IPS_SetParent($HSID, $ID);
 			//$statePPID = IPS_GetCategoryIDByName ("statePP", $ID);
 			//if(!IPS_GetCategoryIDByName ("statePP", $ID))
 			//{

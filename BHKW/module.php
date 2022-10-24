@@ -87,7 +87,7 @@ require_once(__ROOT__ . '/libs/BHKW_valuePP.php');
 			
 			if(@IPS_GetCategoryIDByName("Heizkreislauf", $ID) === false)
 			{
-				IPS_LogMessage("Heizkreislauf schon da!", "dierk");	
+				IPS_LogMessage("Heizkreislauf schon da!", "dierk1");	
 				/*
 
 			$HKID=IPS_CreateCategory();

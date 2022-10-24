@@ -67,9 +67,16 @@ trait BHKWstateHeatControl
 			} 
 		}
 		
+		$GUID = "{13D080B9-10DD-1AAD-4C21-B06937CDCA3C}";
+		$ID = IPS_GetInstanceListByModuleID($GUID)[0];
+
+		$KategorieID = @IPS_GetCategoryIDByName("Heizkreislauf", $ID);
+		IPS_LogMessage("BHKW stateHeatControl Kategorie", $KategorieID);
 		$ScriptData['HKStatus'] = (string) $xmlData->heatCircuits->heatCircuit->program[0]['state'];
-		//SetValueFloat(GetIDForIdent("NAStatus") , $ScriptData['HKStatus']);
+		//SetValueFloat($this->GetIDForIdent("NAStatus") , $ScriptData['HKStatus']);
 		IPS_LogMessage("BHKW stateHeatControl HKStatus", $ScriptData['HKStatus']);
+		//IPS_LogMessage("BHKW stateHeatControl HKStatus", $NASID);
+
 
 		$ScriptData['HKSZ'] = (string) $xmlData->heatCircuits->heatCircuit->program[0]->time[0];
 		//SetValueFloat($this->GetIDForIdent("StartZeit") , $ScriptData['HKSZ']);

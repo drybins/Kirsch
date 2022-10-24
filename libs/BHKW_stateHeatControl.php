@@ -71,7 +71,7 @@ trait BHKWstateHeatControl
 		$ID = IPS_GetInstanceListByModuleID($GUID)[0];
 		IPS_LogMessage("BHKW stateHeatControl ID", $ID);
 		
-		$KategorieID = @IPS_GetCategoryIDByName("Heizkreislauf", $ID);
+		$KategorieID = @IPS_GetCategoryIDByName("Heizkreislauf 1", $ID);
 		IPS_LogMessage("BHKW stateHeatControl Kategorie", $KategorieID);
 		$ScriptData['HKStatus'] = (string) $xmlData->heatCircuits->heatCircuit->program[0]['state'];
 		//SetValueFloat($this->GetIDForIdent("NAStatus") , $ScriptData['HKStatus']);

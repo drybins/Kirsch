@@ -43,24 +43,24 @@ trait BHKWstateHeatControl
 		for ($x = 0; $x <= 3; $x+=1) 
 		{
 			$ScriptData['T'] = (string) $xmlData->temperatures->temperature[$x];
-			//IPS_LogMessage("BHKW statePower time", $x . " : " . $ScriptData['T']);
+			//IPS_LogMessage("BHKW stateHeatControl time", $x . " : " . $ScriptData['T']);
 			switch ($x) 
 			{
 				case "0":
 					SetValueFloat($this->GetIDForIdent("T1") , $ScriptData['T']);
-					//IPS_LogMessage("BHKW statePower T1", $x . " : " . $ScriptData['T']);
+					//IPS_LogMessage("BHKW stateHeatControl T1", $x . " : " . $ScriptData['T']);
 				break;
 				case "1":
 					SetValueFloat($this->GetIDForIdent("T4") , $ScriptData['T']);
-					//IPS_LogMessage("BHKW statePower T4", $x . " : " . $ScriptData['T']);
+					//IPS_LogMessage("BHKW stateHeatControl T4", $x . " : " . $ScriptData['T']);
 				break;
 				case "2":
 					SetValueFloat($this->GetIDForIdent("T3") , $ScriptData['T']);
-					//IPS_LogMessage("BHKW statePower T3", $x . " : " . $ScriptData['T']);
+					//IPS_LogMessage("BHKW stateHeatControl T3", $x . " : " . $ScriptData['T']);
 				break;
 				case "3":
 					SetValueFloat($this->GetIDForIdent("T2") , $ScriptData['T']);
-					//IPS_LogMessage("BHKW statePower T2", $x . " : " . $ScriptData['T']);
+					//IPS_LogMessage("BHKW stateHeatControl T2", $x . " : " . $ScriptData['T']);
 				break;
 			default:
 				//;
@@ -68,6 +68,6 @@ trait BHKWstateHeatControl
 		}
 		
 		$ScriptData['HKStatus'] = (string) $xmlData->heatCircuits->heatCircuit->program[0]['state'];
-		IPS_LogMessage("BHKW statePower HKStatus", $ScriptData['HKStatus']);
+		IPS_LogMessage("BHKW stateHeatControl HKStatus", $ScriptData['HKStatus']);
 	}
 }

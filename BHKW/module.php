@@ -87,20 +87,18 @@ require_once(__ROOT__ . '/libs/BHKW_valuePP.php');
 			
 			if(@IPS_GetCategoryIDByName("Heizkreislauf", $ID) === false)
 			{
-				IPS_LogMessage("Heizkreislauf schon da!", "dierk1");	
-				/*
+				//IPS_LogMessage("Heizkreislauf nicht da!", "dierk1");	
 
-			$HKID=IPS_CreateCategory();
-			ips_setname($HKID, "Heizkreislauf 1");
-			IPS_SetParent($HKID, $ID);
-			$HSID=IPS_CreateCategory();
-			ips_setname($HSID, "Nachtabsenkung");
-			IPS_SetParent($HSID, $HKID);
+				$HKID=IPS_CreateCategory();
+				ips_setname($HKID, "Heizkreislauf 1");
+				IPS_SetParent($HKID, $ID);
+				$HSID=IPS_CreateCategory();
+				ips_setname($HSID, "Nachtabsenkung");
+				IPS_SetParent($HSID, $HKID);
 			
-			$this->RegisterVariableInteger("NAStatus", "Status", "", 10);
-			$NASID = $this->GetIDForIdent("NAStatus");
-			IPS_SetParent($NASID, $HSID);
-			*/
+				$this->RegisterVariableInteger("NAStatus", "Status", "", 10);
+				$NASID = $this->GetIDForIdent("NAStatus");
+				IPS_SetParent($NASID, $HSID);
 			}
 			
 			

@@ -85,7 +85,7 @@ require_once(__ROOT__ . '/libs/BHKW_valuePP.php');
 			$ID = IPS_GetInstanceListByModuleID($GUID)[0];
 			IPS_LogMessage("BHKW ID1", $ID);
 			
-			if(IPS_GetCategoryIDByName("Heizkreislauf", $ID) == false)
+			if(@IPS_GetCategoryIDByName("Heizkreislauf", $ID) === false)
 			{
 				IPS_LogMessage("Heizkreislauf schon da!");	
 				/*

@@ -77,7 +77,18 @@ trait BHKWstateHeatControl
 		$ScriptData['HKStatus'] = (string) $xmlData->heatCircuits->heatCircuit->program[0]['state'];
 		$NASID = IPS_GetVariableIDByName("Status", $KategorieID1);
 		//IPS_LogMessage("BHKW stateHeatControl nasid", $NASID);
-		SetValueFloat($NASID , $ScriptData['HKStatus']);
+		
+		switch($ScriptData['HKStatus'])
+		{
+			case "enabled":
+				SetValueInteger($NASID , 1);
+			break;
+			case "disabled":
+				SetValueInteger($NASID , 2);
+			break;
+			default:
+		}
+		
 		IPS_LogMessage("BHKW stateHeatControl HKStatus", $ScriptData['HKStatus']);
 		//IPS_LogMessage("BHKW stateHeatControl HKStatus", $NASID);
 

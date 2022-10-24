@@ -73,7 +73,7 @@ require_once(__ROOT__ . '/libs/BHKW_valuePP.php');
 			IPS_SetVariableProfileAssociation("Kirsch.AnAus", false, "Aus", "", -1);
 			
 			$this->IPS_CreateVariableProfile("Kirsch.PGMStatus", 1, "", 1, 11, 1, 2, "");
-			IPS_SetVariableProfileAssociation("Kirsch.PGMStatus", 1 "Aktiv", "", -1);
+			IPS_SetVariableProfileAssociation("Kirsch.PGMStatus", 1, "Aktiv", "", -1);
 			IPS_SetVariableProfileAssociation("Kirsch.PGMStatus", 2, "Inaktiv", "", -1);
 			
 			//$HSID=IPS_CreateCategory();

@@ -91,9 +91,10 @@ require_once(__ROOT__ . '/libs/BHKW_valuePP.php');
 			ips_setname($HSID, "Nachtabsenkung");
 			IPS_SetParent($HSID, $HKID);
 			
-			$this->RegisterVariableInteger("NAStatus", "Status", "", 10);
-			$NASID = GetIDForIdent("NAStatus");
-			IPS_SetParent($NASID, $HSID);
+			//$this->RegisterVariableInteger("NAStatus", "Status", "", 10);
+			//$NASID = GetIDForIdent("NAStatus");
+			//IPS_SetParent($NASID, $HSID);
+			
 			//$statePPID = IPS_GetCategoryIDByName ("statePP", $ID);
 			//if(!IPS_GetCategoryIDByName ("statePP", $ID))
 			//{

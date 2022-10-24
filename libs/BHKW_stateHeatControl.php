@@ -66,5 +66,8 @@ trait BHKWstateHeatControl
 				//;
 			} 
 		}
+		
+		$ScriptData['HKStatus'] = (string) $xmlData->heatCircuits->heatCircuit->program[0]['state'];
+		IPS_LogMessage("BHKW statePower HKStatus", $ScriptData['HKStatus']);
 	}
 }

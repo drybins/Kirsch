@@ -72,9 +72,9 @@ require_once(__ROOT__ . '/libs/BHKW_valuePP.php');
 			IPS_SetVariableProfileAssociation("Kirsch.AnAus", true, "An", "", -1);
 			IPS_SetVariableProfileAssociation("Kirsch.AnAus", false, "Aus", "", -1);
 			
-			$this->IPS_CreateVariableProfile("Kirsch.PGMStatus", 1, "", 1, 11, 1, 2, "");
-			IPS_SetVariableProfileAssociation("Kirsch.PGMStatus", 1, "Aktiv", "", -1);
-			IPS_SetVariableProfileAssociation("Kirsch.PGMStatus", 2, "Inaktiv", "", -1);
+//			$this->IPS_CreateVariableProfile("Kirsch.PGMStatus", 1, "", 1, 11, 1, 2, "");
+//			IPS_SetVariableProfileAssociation("Kirsch.PGMStatus", 1, "Aktiv", "", -1);
+//			IPS_SetVariableProfileAssociation("Kirsch.PGMStatus", 2, "Inaktiv", "", -1);
 			
 			//$HSID=IPS_CreateCategory();
 			//ips_setname($HSID, "HeizungsSteuerung");
@@ -100,7 +100,7 @@ require_once(__ROOT__ . '/libs/BHKW_valuePP.php');
 				ips_setname($HSID, "Nachtabsenkung");
 				IPS_SetParent($HSID, $HKID);
 			
-				$this->RegisterVariableInteger("NAStatus", "Status", "Kirsch.PGMStatus", 10);
+				$this->RegisterVariableInteger("NAStatus", "Status", "", 10);
 				$NASID = $this->GetIDForIdent("NAStatus");
 				IPS_SetParent($NASID, $HSID);
 				

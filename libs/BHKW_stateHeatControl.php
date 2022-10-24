@@ -75,7 +75,7 @@ trait BHKWstateHeatControl
 		$KategorieID1 = @IPS_GetCategoryIDByName("Nachtabsenkung", $KategorieID);
 		IPS_LogMessage("BHKW stateHeatControl Kategorie1", $KategorieID1);
 		$ScriptData['HKStatus'] = (string) $xmlData->heatCircuits->heatCircuit->program[0]['state'];
-		$NASID = @IPS_GetVariableIDByName("NAStatus",$KategorieID1);
+		$NASID = IPS_GetVariableIDByName("NAStatus", $KategorieID1);
 		IPS_LogMessage("BHKW stateHeatControl nasid", $NASID);
 		//SetValueFloat(IPS_GetVariableIDByName("NAStatus",$KategorieID1) , $ScriptData['HKStatus']);
 		IPS_LogMessage("BHKW stateHeatControl HKStatus", $ScriptData['HKStatus']);

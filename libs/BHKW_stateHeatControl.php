@@ -94,7 +94,7 @@ trait BHKWstateHeatControl
 
 
 		$ScriptData['HKSZ'] = (string) $xmlData->heatCircuits->heatCircuit->program[0]->time[0];
-		SetValueInteger(IPS_GetVariableIDByName("Start Zeit", $KategorieID1), system.date($ScriptData['HKSZ']).ToInteger());
+		SetValueInteger(IPS_GetVariableIDByName("Start Zeit", $KategorieID1), strtotime($ScriptData['HKSZ']));
 		IPS_LogMessage("BHKW stateHeatControl HKSZ", $ScriptData['HKSZ']);
 
 		$ScriptData['HKEZ'] = (string) $xmlData->heatCircuits->heatCircuit->program[0]->time[1];

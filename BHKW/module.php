@@ -98,7 +98,6 @@ require_once(__ROOT__ . '/libs/BHKW_valuePP.php');
 			$this->RegisterVariableInteger("NAStatus", "Status", "", 10);
 			$NASID = $this->GetIDForIdent("NAStatus");
 			IPS_SetParent($NASID, $HSID);
-
 			}
 			
 			

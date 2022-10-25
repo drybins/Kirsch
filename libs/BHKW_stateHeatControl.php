@@ -131,8 +131,8 @@ trait BHKWstateHeatControl
 		$ScriptData['HKWWET'] = (string) $xmlData->programs->program[2]->time[1];
 		SetValueInteger(IPS_GetVariableIDByName("Ende Zeit", $KategorieID1), strtotime($ScriptData['HKWWET']));
 
-		$ScriptData['HKWWT'] = (string) $xmlData->programs->program[2]->->temperature[0];
-		SetValueInteger(IPS_GetVariableIDByName("warm Wasser Temperatur", $KategorieID1), $ScriptData['HKWWT']);
+		//$ScriptData['HKWWT'] = (string) $xmlData->programs->program[2]->->temperature[0];
+		//SetValueInteger(IPS_GetVariableIDByName("warm Wasser Temperatur", $KategorieID1), $ScriptData['HKWWT']);
 
 
 	}

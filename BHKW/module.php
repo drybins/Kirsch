@@ -185,7 +185,7 @@ require_once(__ROOT__ . '/libs/BHKW_valuePP.php');
 				//$NASID2 = $this->GetIDForIdent("NAStatus");
 			
 				$this->RegisterVariableInteger("WWStartZeit", "Start Zeit", "~UnixTimestampTime", 20);
-				$WWSID = $this->GetIDForIdent("StartZeit");
+				$WWSID = $this->GetIDForIdent("WWStartZeit");
 				IPS_SetParent($WWSID, $WWID);
 			
 				$this->RegisterVariableInteger("WWEndeZeit", "Ende Zeit", "~UnixTimestampTime", 30);

@@ -97,6 +97,19 @@ require_once(__ROOT__ . '/libs/BHKW_valuePP.php');
 				$HKID=IPS_CreateCategory();
 				ips_setname($HKID, "Heizkreislauf 1");
 				IPS_SetParent($HKID, $ID);
+				
+				$this->RegisterVariableInteger("APreset", "aktive Voreinstellungen", "", 10);
+				$TFID = $this->GetIDForIdent("APreset");
+				IPS_SetParent($TFID, $HSID);
+
+				
+				$this->RegisterVariableInteger("TKFlowMin", "Vorlauf bei 20°C", "Kirsch.GradC", 20);
+				$TFnID = $this->GetIDForIdent("TKFlowMin");
+				IPS_SetParent($TFnID, $HKID);
+
+				$this->RegisterVariableInteger("TKFlowMax", "Vorlauf bei -20°C", "Kirsch.GradC", 30);
+				$TFxID = $this->GetIDForIdent("TKFlowMax");
+				IPS_SetParent($TFxID, $HKID);
 			}
 				
 			if(@IPS_GetCategoryIDByName("Nachtabsenkung", $HKID) === false)

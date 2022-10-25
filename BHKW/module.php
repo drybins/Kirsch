@@ -162,6 +162,17 @@ require_once(__ROOT__ . '/libs/BHKW_valuePP.php');
 				IPS_SetParent($TFID, $HUID);
 			}
 			
+			if(@IPS_GetCategoryIDByName("Sommer", $HKID) === false)
+			{
+				$SID=IPS_CreateCategory();
+				ips_setname($SID, "Sommer");
+				IPS_SetParent($SID, $HKID);
+				
+				$this->RegisterVariableInteger("TOutdoor", "Abschalten bei Außentemperatur über", "Kirsch.GradC", 10);
+				$TOID = $this->GetIDForIdent("TOutdoor");
+				IPS_SetParent($TOID, $SID);
+			}
+			
 			//$statePPID = IPS_GetCategoryIDByName ("statePP", $ID);
 			//if(!IPS_GetCategoryIDByName ("statePP", $ID))
 			//{

@@ -177,7 +177,7 @@ require_once(__ROOT__ . '/libs/BHKW_valuePP.php');
 			{
 				$HWID=IPS_CreateCategory();
 				ips_setname($HWID, "Heißwasser");
-				IPS_SetParent($HWID, $HWID);
+				IPS_SetParent($HWID, $HKID);
 				
 				$this->RegisterVariableInteger("WWStatus", "Status", "Kirsch.PGMStatus", 10);
 				$WWID = $this->GetIDForIdent("WWStatus");

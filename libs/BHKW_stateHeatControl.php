@@ -123,5 +123,9 @@ trait BHKWstateHeatControl
 		}
 		//SetValueInteger(IPS_GetVariableIDByName("Status", $KategorieID1), $ScriptData['HKWWS']);
 
+		$ScriptData['HKWWST'] = (string) $xmlData->programs->program[2]->time[0];
+		SetValueInteger(IPS_GetVariableIDByName("Start Zeit", $KategorieID1), $ScriptData['HKWWST']);
+
+
 	}
 }

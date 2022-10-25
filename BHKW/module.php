@@ -38,6 +38,7 @@ require_once(__ROOT__ . '/libs/BHKW_valuePP.php');
 			$this->IPS_CreateVariableProfile("Kirsch.Kw", 1, " Kw", 0, 0,1, 2, "");
 			$this->IPS_CreateVariableProfile("Kirsch.Watt", 1, " Watt", 0, 0,1, 0, "");
 			$this->IPS_CreateVariableProfile("Kirsch.Volt", 1, " Volt", 0, 0,1, 0, "");
+			$this->IPS_CreateVariableProfile("Kirsch.GradC", 1, " °Celsius", 0, 0,1, 0, "");
 			$this->IPS_CreateVariableProfile("Kirsch.Ampere", 2, " Ampere", 0, 0,1,2, ""); 
 			$this->IPS_CreateVariableProfile("Kirsch.Frequenz", 2, " Hz", 0, 0,1,2, ""); 
 			$this->IPS_CreateVariableProfile("Kirsch.Prozent", 1, " %", 0, 100,1, 0, "");
@@ -117,10 +118,10 @@ require_once(__ROOT__ . '/libs/BHKW_valuePP.php');
 				$EZID = $this->GetIDForIdent("EndeZeit");
 				IPS_SetParent($EZID, $HSID);
 			
-				$this->RegisterVariableInteger("TFall", "Absenken um °Celsius", "", 40);
+				$this->RegisterVariableInteger("TFall", "Absenken um °Celsius", "Kirsch.GradC", 40);
 				$TFID = $this->GetIDForIdent("TFall");
 				IPS_SetParent($TFID, $HSID);
-				$this->RegisterVariableInteger("TMin", "nicht absenken bei unter °Celsius", "", 50);
+				$this->RegisterVariableInteger("TMin", "nicht absenken bei unter °Celsius", "Kirsch.GradC", 50);
 				$TMID = $this->GetIDForIdent("TMin");
 				IPS_SetParent($TMID, $HSID);
 			}
@@ -144,7 +145,7 @@ require_once(__ROOT__ . '/libs/BHKW_valuePP.php');
 				$EZID = $this->GetIDForIdent("EndeZeit");
 				IPS_SetParent($EZID, $HUID);
 			
-				$this->RegisterVariableInteger("TTarget", "Absenktemperatur", "", 40);
+				$this->RegisterVariableInteger("TTarget", "Absenktemperatur", "Kirsch.GradC", 40);
 				$TFID = $this->GetIDForIdent("TTarget");
 				IPS_SetParent($TFID, $HUID);
 			}

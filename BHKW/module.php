@@ -99,9 +99,8 @@ require_once(__ROOT__ . '/libs/BHKW_valuePP.php');
 				IPS_SetParent($HKID, $ID);
 				
 				$this->RegisterVariableInteger("APreset", "aktive Voreinstellungen", "", 10);
-				$TFID = $this->GetIDForIdent("APreset");
-				IPS_SetParent($TFID, $HSID);
-
+				$TPID = $this->GetIDForIdent("APreset");
+				IPS_SetParent($TPID, $HKID);
 				
 				$this->RegisterVariableInteger("TKFlowMin", "Vorlauf bei 20°C", "Kirsch.GradC", 20);
 				$TFnID = $this->GetIDForIdent("TKFlowMin");

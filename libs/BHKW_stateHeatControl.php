@@ -107,10 +107,10 @@ trait BHKWstateHeatControl
 		$ScriptData['HKTmin'] = (string) $xmlData->heatCircuits->heatCircuit->program[0]->temperature[1];
 		SetValueInteger(IPS_GetVariableIDByName("nicht absenken bei unter °Celsius", $KategorieID1), $ScriptData['HKTmin']);
 
-		$KategorieID1 = @IPS_GetCategoryIDByName("Sommer", $KategorieID);
+		$KategorieID1 = @IPS_GetCategoryIDByName("Heißwasser", $KategorieID);
 
-		$ScriptData['HKS'] = (string) $xmlData->programs->program[1]['state'];
-		SetValueInteger(IPS_GetVariableIDByName("Abschalten bei Außentemperatur über", $KategorieID1), $ScriptData['HKS']);
+		$ScriptData['HKWWS'] = (string) $xmlData->programs->program[2]['state'];
+		SetValueInteger(IPS_GetVariableIDByName("Status", $KategorieID1), $ScriptData['HKWWS']);
 
 	}
 }

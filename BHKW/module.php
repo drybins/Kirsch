@@ -172,6 +172,30 @@ require_once(__ROOT__ . '/libs/BHKW_valuePP.php');
 				$TOID = $this->GetIDForIdent("TOutdoor");
 				IPS_SetParent($TOID, $SID);
 			}
+
+			if(@IPS_GetCategoryIDByName("Heißwasser", $HKID) === false)
+			{
+				$HWID=IPS_CreateCategory();
+				ips_setname($HWID, "Heißwasser");
+				IPS_SetParent($HWID, $HWID);
+				
+				$this->RegisterVariableInteger("WWStatus", "Status", "Kirsch.PGMStatus", 10);
+				$WWID = $this->GetIDForIdent("WWStatus");
+				IPS_SetParent($WWID, $HWID);
+				//$NASID2 = $this->GetIDForIdent("NAStatus");
+			
+				$this->RegisterVariableInteger("WWStartZeit", "Start Zeit", "~UnixTimestampTime", 20);
+				$WWSID = $this->GetIDForIdent("StartZeit");
+				IPS_SetParent($WWSID, $WWID);
+			
+				$this->RegisterVariableInteger("WWEndeZeit", "Ende Zeit", "~UnixTimestampTime", 30);
+				$WWEID = $this->GetIDForIdent("WWEndeZeit");
+				IPS_SetParent($WWEID, $HWID);
+			
+				$this->RegisterVariableInteger("WWTTarget", "warm Wasser Temperatur", "Kirsch.GradC", 40);
+				$WWTID = $this->GetIDForIdent("WWTTarget");
+				IPS_SetParent($WWTID, $HWID);
+			}
 			
 			//$statePPID = IPS_GetCategoryIDByName ("statePP", $ID);
 			//if(!IPS_GetCategoryIDByName ("statePP", $ID))

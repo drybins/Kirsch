@@ -96,59 +96,58 @@ require_once(__ROOT__ . '/libs/BHKW_valuePP.php');
 				$HKID=IPS_CreateCategory();
 				ips_setname($HKID, "Heizkreislauf 1");
 				IPS_SetParent($HKID, $ID);
-				
-				if(@IPS_GetCategoryIDByName("Nachtabsenkung", $HKID) === false)
-				{
-					$HSID=IPS_CreateCategory();
-					ips_setname($HSID, "Nachtabsenkung");
-					IPS_SetParent($HSID, $HKID);
-			
-					$this->RegisterVariableInteger("NAStatus", "Status", "Kirsch.PGMStatus", 10);
-					$NASID = $this->GetIDForIdent("NAStatus");
-					IPS_SetParent($NASID, $HSID);
-					//$NASID2 = $this->GetIDForIdent("NAStatus");
-				
-					$this->RegisterVariableInteger("StartZeit", "Start Zeit", "~UnixTimestampTime", 20);
-					$SZID = $this->GetIDForIdent("StartZeit");
-					IPS_SetParent($SZID, $HSID);
-				
-					$this->RegisterVariableInteger("EndeZeit", "Ende Zeit", "~UnixTimestampTime", 30);
-					$EZID = $this->GetIDForIdent("EndeZeit");
-					IPS_SetParent($EZID, $HSID);
-				
-					$this->RegisterVariableInteger("TFall", "Absenken um °Celsius", "", 40);
-					$TFID = $this->GetIDForIdent("TFall");
-					IPS_SetParent($TFID, $HSID);
-
-					$this->RegisterVariableInteger("TMin", "nicht absenken bei unter °Celsius", "", 50);
-					$TMID = $this->GetIDForIdent("TMin");
-					IPS_SetParent($TMID, $HSID);
-				}
-				if(@IPS_GetCategoryIDByName("Urlaubsmodus", $HKID) === false)
-				{
-					$HUID=IPS_CreateCategory();
-					ips_setname($HUID, "Urlaubsmodus");
-					IPS_SetParent($HUID, $HKID);
-					
-					$this->RegisterVariableInteger("UStatus", "Status", "Kirsch.PGMStatus", 10);
-					$USID = $this->GetIDForIdent("UStatus");
-					IPS_SetParent($USID, $HUID);
-					//$NASID2 = $this->GetIDForIdent("NAStatus");
-				
-					$this->RegisterVariableInteger("StartZeit", "Start Zeit", "~UnixTimestampTime", 20);
-					$SZID = $this->GetIDForIdent("StartZeit");
-					IPS_SetParent($SZID, $HUID);
-				
-					$this->RegisterVariableInteger("EndeZeit", "Ende Zeit", "~UnixTimestampTime", 30);
-					$EZID = $this->GetIDForIdent("EndeZeit");
-					IPS_SetParent($EZID, $HUID);
-				
-					$this->RegisterVariableInteger("TTarget", "Absenktemperatur", "", 40);
-					$TFID = $this->GetIDForIdent("TTarget");
-					IPS_SetParent($TFID, $HUID);
-				}
 			}
+				
+			if(@IPS_GetCategoryIDByName("Nachtabsenkung", $HKID) === false)
+			{
+				$HSID=IPS_CreateCategory();
+				ips_setname($HSID, "Nachtabsenkung");
+				IPS_SetParent($HSID, $HKID);
+		
+				$this->RegisterVariableInteger("NAStatus", "Status", "Kirsch.PGMStatus", 10);
+				$NASID = $this->GetIDForIdent("NAStatus");
+				IPS_SetParent($NASID, $HSID);
+				//$NASID2 = $this->GetIDForIdent("NAStatus");
 			
+				$this->RegisterVariableInteger("StartZeit", "Start Zeit", "~UnixTimestampTime", 20);
+				$SZID = $this->GetIDForIdent("StartZeit");
+				IPS_SetParent($SZID, $HSID);
+				
+				$this->RegisterVariableInteger("EndeZeit", "Ende Zeit", "~UnixTimestampTime", 30);
+				$EZID = $this->GetIDForIdent("EndeZeit");
+				IPS_SetParent($EZID, $HSID);
+			
+				$this->RegisterVariableInteger("TFall", "Absenken um °Celsius", "", 40);
+				$TFID = $this->GetIDForIdent("TFall");
+				IPS_SetParent($TFID, $HSID);
+				$this->RegisterVariableInteger("TMin", "nicht absenken bei unter °Celsius", "", 50);
+				$TMID = $this->GetIDForIdent("TMin");
+				IPS_SetParent($TMID, $HSID);
+			}
+
+			if(@IPS_GetCategoryIDByName("Urlaubsmodus", $HKID) === false)
+			{
+				$HUID=IPS_CreateCategory();
+				ips_setname($HUID, "Urlaubsmodus");
+				IPS_SetParent($HUID, $HKID);
+				
+				$this->RegisterVariableInteger("UStatus", "Status", "Kirsch.PGMStatus", 10);
+				$USID = $this->GetIDForIdent("UStatus");
+				IPS_SetParent($USID, $HUID);
+				//$NASID2 = $this->GetIDForIdent("NAStatus");
+			
+				$this->RegisterVariableInteger("StartZeit", "Start Zeit", "~UnixTimestampTime", 20);
+				$SZID = $this->GetIDForIdent("StartZeit");
+				IPS_SetParent($SZID, $HUID);
+			
+				$this->RegisterVariableInteger("EndeZeit", "Ende Zeit", "~UnixTimestampTime", 30);
+				$EZID = $this->GetIDForIdent("EndeZeit");
+				IPS_SetParent($EZID, $HUID);
+			
+				$this->RegisterVariableInteger("TTarget", "Absenktemperatur", "", 40);
+				$TFID = $this->GetIDForIdent("TTarget");
+				IPS_SetParent($TFID, $HUID);
+			}
 			
 			//$statePPID = IPS_GetCategoryIDByName ("statePP", $ID);
 			//if(!IPS_GetCategoryIDByName ("statePP", $ID))

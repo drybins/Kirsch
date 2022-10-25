@@ -186,7 +186,7 @@ require_once(__ROOT__ . '/libs/BHKW_valuePP.php');
 			
 				$this->RegisterVariableInteger("WWStartZeit", "Start Zeit", "~UnixTimestampTime", 20);
 				$WWSID = $this->GetIDForIdent("WWStartZeit");
-				IPS_SetParent($WWSID, $WWID);
+				IPS_SetParent($WWSID, $HWID);
 			
 				$this->RegisterVariableInteger("WWEndeZeit", "Ende Zeit", "~UnixTimestampTime", 30);
 				$WWEID = $this->GetIDForIdent("WWEndeZeit");

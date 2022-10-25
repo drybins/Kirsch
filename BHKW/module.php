@@ -87,15 +87,16 @@ require_once(__ROOT__ . '/libs/BHKW_valuePP.php');
 			///*
 			$GUID = "{13D080B9-10DD-1AAD-4C21-B06937CDCA3C}";
 			$ID = IPS_GetInstanceListByModuleID($GUID)[0];
-			IPS_LogMessage("BHKW ID1", $ID);
-			$HKID = @IPS_GetCategoryIDByName("Heizkreislauf", $ID);
-			if(@IPS_GetCategoryIDByName("Heizkreislauf 1", $ID) === false)
+			//IPS_LogMessage("BHKW ID1", $ID);
+			$HKID = @IPS_GetCategoryIDByName("Heizkreislauf 1", $ID);
+			if($HKID === false)
 			{
 				IPS_LogMessage("Heizkreislauf nicht da!", "dierk1");	
 
 				$HKID=IPS_CreateCategory();
 				ips_setname($HKID, "Heizkreislauf 1");
 				IPS_SetParent($HKID, $ID);
+				
 				if(@IPS_GetCategoryIDByName("Nachtabsenkung", $HKID) === false)
 				{
 					$HSID=IPS_CreateCategory();

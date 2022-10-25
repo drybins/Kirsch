@@ -108,9 +108,11 @@ trait BHKWstateHeatControl
 		SetValueInteger(IPS_GetVariableIDByName("nicht absenken bei unter °Celsius", $KategorieID1), $ScriptData['HKTmin']);
 
 		$KategorieID1 = @IPS_GetCategoryIDByName("Heißwasser", $KategorieID);
-		$WWSID = IPS_GetVariableIDByName("Status", $KategorieID1);
 
+		$WWSID = IPS_GetVariableIDByName("Status", $KategorieID1);
 		$ScriptData['HKWWS'] = (string) $xmlData->programs->program[2]['state'];
+		IPS_LogMessage("BHKW stateHeatControl HKWWS", $ScriptData['HKWWS']);
+		
 		switch($ScriptData['HKWWS'])
 		{
 			case "enabled":

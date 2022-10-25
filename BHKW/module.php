@@ -145,7 +145,6 @@ require_once(__ROOT__ . '/libs/BHKW_valuePP.php');
 					$this->RegisterVariableInteger("TTarget", "Absenktemperatur", "", 40);
 					$TFID = $this->GetIDForIdent("TTarget");
 					IPS_SetParent($TFID, $HUID);
-
 				}
 			}
 			

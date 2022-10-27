@@ -137,10 +137,9 @@ trait BHKWstateHeatControl
 		$KategorieID1 = @IPS_GetCategoryIDByName("Sommer", $KategorieID);
 
 		$SSID = IPS_GetVariableIDByName("Status", $KategorieID1);
-		IPS_LogMessage("BHKW stateHeatControl SSID", $SSID);
+		//IPS_LogMessage("BHKW stateHeatControl SSID", $SSID);
 		$ScriptData['HKSS'] = (string) $xmlData->programs->program[1]['state'];
-		IPS_LogMessage("BHKW stateHeatControl HKSS", $ScriptData['HKSS']);
-		
+		//IPS_LogMessage("BHKW stateHeatControl HKSS", $ScriptData['HKSS']);
 		switch($ScriptData['HKSS'])
 		{
 			case "enabled":
@@ -155,5 +154,21 @@ trait BHKWstateHeatControl
 		$ScriptData['HKST'] = (string) $xmlData->programs->program[1]->temperature;
 		SetValueInteger(IPS_GetVariableIDByName("Abschalten bei Außentemperatur über", $KategorieID1), $ScriptData['HKST']);
 
+		$KategorieID1 = @IPS_GetCategoryIDByName("Urlaubsmodus", $KategorieID);
+		
+		$UID = IPS_GetVariableIDByName("Status", $KategorieID1);
+		IPS_LogMessage("BHKW stateHeatControl SSID", $UID);
+		$ScriptData['HKU'] = (string) $xmlData->programs->program[1]['state'];
+		IPS_LogMessage("BHKW stateHeatControl HKU", $ScriptData['HKU']);
+		switch($ScriptData['HKU'])
+		{
+			case "enabled":
+				SetValueInteger($UID , 1);
+			break;
+			case "disabled":
+				SetValueInteger($UID , 2);
+			break;
+			default:
+		}
 	}
 }

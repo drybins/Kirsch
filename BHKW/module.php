@@ -149,11 +149,11 @@ require_once(__ROOT__ . '/libs/BHKW_valuePP.php');
 				IPS_SetParent($USID, $HUID);
 				//$NASID2 = $this->GetIDForIdent("NAStatus");
 			
-				$this->RegisterVariableInteger("StartZeit", "Start Zeit", "~UnixTimestampTime", 20);
+				$this->RegisterVariableInteger("StartZeit", "Start Zeit", "~UnixTimestampDate", 20);
 				$SZID = $this->GetIDForIdent("StartZeit");
 				IPS_SetParent($SZID, $HUID);
 			
-				$this->RegisterVariableInteger("EndeZeit", "Ende Zeit", "~UnixTimestampTime", 30);
+				$this->RegisterVariableInteger("EndeZeit", "Ende Zeit", "~UnixTimestampDate", 30);
 				$EZID = $this->GetIDForIdent("EndeZeit");
 				IPS_SetParent($EZID, $HUID);
 			

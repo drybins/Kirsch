@@ -77,7 +77,7 @@ trait BHKWstateHeatControl
 		SetValueInteger(IPS_GetVariableIDByName("aktive Voreinstellungen", $KategorieID), $ScriptData['HKCP']);
 
 		$CPreset = $ScriptData['HKCP'] - 1;
-		$ScriptData['HKTKMin'] = (string) $xmlData->heatCircuits->heatCircuit->presets->preset[3];
+		$ScriptData['HKTKMin'] = (string) $xmlData->heatCircuits->heatCircuit->presets->preset[$CPreset]->temperature[0];
 		IPS_LogMessage("BHKW stateHeatControl Kategorie", $ScriptData['HKTKMin']);
 		SetValueInteger(IPS_GetVariableIDByName("TKFlowMin", $KategorieID), $ScriptData['HKTKMin']);
 		

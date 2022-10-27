@@ -167,8 +167,12 @@ require_once(__ROOT__ . '/libs/BHKW_valuePP.php');
 				$SID=IPS_CreateCategory();
 				ips_setname($SID, "Sommer");
 				IPS_SetParent($SID, $HKID);
+
+				$this->RegisterVariableInteger("SStatus", "Status", "Kirsch.PGMStatus", 10);
+				$SSID = $this->GetIDForIdent("SStatus");
+				IPS_SetParent($SSID, $SID);
 				
-				$this->RegisterVariableInteger("TOutdoor", "Abschalten bei Außentemperatur über", "Kirsch.GradC", 10);
+				$this->RegisterVariableInteger("TOutdoor", "Abschalten bei Außentemperatur über", "Kirsch.GradC", 20);
 				$TOID = $this->GetIDForIdent("TOutdoor");
 				IPS_SetParent($TOID, $SID);
 			}

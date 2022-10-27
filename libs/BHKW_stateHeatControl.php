@@ -169,10 +169,11 @@ trait BHKWstateHeatControl
 				SetValueInteger($UID , 2);
 			break;
 			default:
-
+		}
+		
 		$ScriptData['HKAST'] = (string) $xmlData->programs->program[1]->date[0];
 		SetValueInteger(IPS_GetVariableIDByName("Start Zeit", $KategorieID1), strtotime($ScriptData['HKAST']));
 		IPS_LogMessage("BHKW stateHeatControl HKAST", $ScriptData['HKAST']);
-		}
+
 	}
 }

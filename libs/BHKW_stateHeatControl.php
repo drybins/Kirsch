@@ -137,6 +137,7 @@ trait BHKWstateHeatControl
 		$KategorieID1 = @IPS_GetCategoryIDByName("Sommer", $KategorieID);
 
 		$SSID = IPS_GetVariableIDByName("Status", $KategorieID1);
+		IPS_LogMessage("BHKW stateHeatControl SSID", $SSID);
 		$ScriptData['HKSS'] = (string) $xmlData->programs->program[1]['state'];
 		IPS_LogMessage("BHKW stateHeatControl HKSS", $ScriptData['HKSS']);
 		

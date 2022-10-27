@@ -79,7 +79,7 @@ trait BHKWstateHeatControl
 		$CPreset = $ScriptData['HKCP'] - 1;
 		$ScriptData['HKTKMin'] = (string) $xmlData->heatCircuits->heatCircuit->presets->preset[$CPreset]->temperature[0];
 		IPS_LogMessage("BHKW stateHeatControl Kategorie", $ScriptData['HKTKMin']);
-		SetValueInteger(IPS_GetVariableIDByName("TKFlowMin", $KategorieID), $ScriptData['HKTKMin']);
+		//SetValueInteger(IPS_GetVariableIDByName("TKFlowMin", $KategorieID), $ScriptData['HKTKMin']);
 		
 		$KategorieID1 = @IPS_GetCategoryIDByName("Nachtabsenkung", $KategorieID);
 		//IPS_LogMessage("BHKW stateHeatControl Kategorie1", $KategorieID1);

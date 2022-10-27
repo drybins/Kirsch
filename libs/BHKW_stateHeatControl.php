@@ -152,5 +152,8 @@ trait BHKWstateHeatControl
 			default:
 		}
 
+		$ScriptData['HKST'] = (string) $xmlData->programs->program[1]->temperature;
+		SetValueInteger(IPS_GetVariableIDByName("Abschalten bei Außentemperatur über", $KategorieID1), $ScriptData['HKST']);
+
 	}
 }

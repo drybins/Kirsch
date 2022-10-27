@@ -72,6 +72,10 @@ trait BHKWstateHeatControl
 		//IPS_LogMessage("BHKW stateHeatControl ID", $ID);
 		
 		$KategorieID = @IPS_GetCategoryIDByName("Heizkreislauf 1", $ID);
+
+		$ScriptData['HKCP'] = (string) $xmlData->heatCircuits->heatCircuit->currentPreset;
+		SetValueInteger(IPS_GetVariableIDByName("aktive Voreinstellungen", $KategorieID1), $ScriptData['HKCP']);
+
 		$KategorieID1 = @IPS_GetCategoryIDByName("Nachtabsenkung", $KategorieID);
 		//IPS_LogMessage("BHKW stateHeatControl Kategorie1", $KategorieID1);
 		$ScriptData['HKStatus'] = (string) $xmlData->heatCircuits->heatCircuit->program[0]['state'];
@@ -91,7 +95,6 @@ trait BHKWstateHeatControl
 		
 		//IPS_LogMessage("BHKW stateHeatControl HKStatus", $ScriptData['HKStatus']);
 		//IPS_LogMessage("BHKW stateHeatControl HKStatus", $NASID);
-
 
 		$ScriptData['HKSZ'] = (string) $xmlData->heatCircuits->heatCircuit->program[0]->time[0];
 		SetValueInteger(IPS_GetVariableIDByName("Start Zeit", $KategorieID1), strtotime($ScriptData['HKSZ']));

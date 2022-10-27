@@ -171,7 +171,7 @@ trait BHKWstateHeatControl
 			default:
 		}
 		
-		$ScriptData['HKAST'] = (string) $xmlData->programs->program[1]->date[0];
+		$ScriptData['HKAST'] = (string) $xmlData->programs->program[0]->date[0];
 		SetValueInteger(IPS_GetVariableIDByName("Start Zeit", $KategorieID1), strtotime($ScriptData['HKAST']));
 		IPS_LogMessage("BHKW stateHeatControl HKAST", $ScriptData['HKAST']);
 

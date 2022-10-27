@@ -158,7 +158,7 @@ trait BHKWstateHeatControl
 		
 		$UID = IPS_GetVariableIDByName("Status", $KategorieID1);
 		IPS_LogMessage("BHKW stateHeatControl SSID", $UID);
-		$ScriptData['HKU'] = (string) $xmlData->programs->program[1]['state'];
+		$ScriptData['HKU'] = (string) $xmlData->programs->program[0]['state'];
 		IPS_LogMessage("BHKW stateHeatControl HKU", $ScriptData['HKU']);
 		switch($ScriptData['HKU'])
 		{
@@ -169,6 +169,10 @@ trait BHKWstateHeatControl
 				SetValueInteger($UID , 2);
 			break;
 			default:
+
+		$ScriptData['HKAST'] = (string) $xmlData->programs->program[1]->date[0];
+		SetValueInteger(IPS_GetVariableIDByName("Start Zeit", $KategorieID1), strtotime($ScriptData['HKAST']));
+
 		}
 	}
 }

@@ -134,6 +134,22 @@ trait BHKWstateHeatControl
 		$ScriptData['HKWWT'] = (string) $xmlData->programs->program[2]->temperature;
 		SetValueInteger(IPS_GetVariableIDByName("warm Wasser Temperatur", $KategorieID1), $ScriptData['HKWWT']);
 
+		$KategorieID1 = @IPS_GetCategoryIDByName("Sommer", $KategorieID);
+
+		$SSID = IPS_GetVariableIDByName("Status", $KategorieID1);
+		$ScriptData['HKSS'] = (string) $xmlData->programs->program[1]['state'];
+		IPS_LogMessage("BHKW stateHeatControl HKSS", $ScriptData['HKSS']);
+		
+		switch($ScriptData['HKSS'])
+		{
+			case "enabled":
+				SetValueInteger($SSID , 1);
+			break;
+			case "disabled":
+				SetValueInteger($SSID , 2);
+			break;
+			default:
+		}
 
 	}
 }

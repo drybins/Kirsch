@@ -52,6 +52,7 @@ require_once(__ROOT__ . '/libs/BHKW_valuePP.php');
 			IPS_SetVariableProfileAssociation("Kirsch.Status", 4, "läuft", "", 0x7cfc00);
 			IPS_SetVariableProfileAssociation("Kirsch.Status", 5, "abkühlen", "", 0x7cfc00);
 			IPS_SetVariableProfileAssociation("Kirsch.Status", 6, "selbsttest", "", 0x7cfc00);
+			IPS_SetVariableProfileAssociation("Kirsch.Status", 7, "Oel nachfüllen", "", 0x7cfc00);
 			IPS_SetVariableProfileAssociation("Kirsch.Status", 10, "Notstop", "", 0xff0000);
 			IPS_SetVariableProfileAssociation("Kirsch.Status", 11, "Fehler", "", 0xff0000);
 			

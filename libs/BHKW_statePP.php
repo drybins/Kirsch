@@ -47,6 +47,10 @@ trait BHKWstatePP
 		case "selftest":
 			SetValueInteger ($StatusID, 6);
 			break;
+		case "oelrefill":
+			SetValueInteger ($StatusID, 7);
+			break;
+
 		case "emergencystop":
 			SetValueInteger ($StatusID, 10);
 			break;  

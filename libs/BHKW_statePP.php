@@ -213,6 +213,19 @@ trait BHKWstatePP
 			//SetValueString (14320 , "Status nicht gefunden:" . $ScriptData['STATUS']);
 		}
 		
+		$ScriptData['R4'] =  (string) $xmlData->actors[0]->R4;
+		switch ($ScriptData['R4']) 
+		{
+		case "on":
+			SetValueBoolean($this->GetIDForIdent("zH1"), true);
+			break;
+		case "off":
+			SetValueBoolean ($this->GetIDForIdent("zH1"), false);
+			break;
+		default:
+			//SetValueString (14320 , "Status nicht gefunden:" . $ScriptData['STATUS']);
+		}
+		
 		/*[Eickeloh\Heizung\BHKW\Heizung\Rücklauftemperatur]*/
 		$ScriptData['T5'] =  (Float) $xmlData->sensors[0]->T5;
 		SetValue ($this->GetIDForIdent("T5") , $ScriptData['T5']);

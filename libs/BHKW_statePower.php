@@ -68,6 +68,7 @@ trait BHKWstatePower
 			SetValueBoolean ($this->GetIDForIdent("zH1"), false);
 			break;
 		default:		
+		}
 		
 		$ScriptData['ZielleistungDA'] = (string) $xmlData->powerClasses[0]['autoAdapt'];
 		//IPS_LogMessage("BHKW statePower Autoadapt", $ScriptData['ZielleistungDA']);

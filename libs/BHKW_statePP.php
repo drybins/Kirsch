@@ -212,17 +212,7 @@ trait BHKWstatePP
 		default:
 			//SetValueString (14320 , "Status nicht gefunden:" . $ScriptData['STATUS']);
 		}
-		
-		$ScriptData['R4'] =  (string) $xmlData->actors[0]->R4;
-		switch ($ScriptData['R4']) 
-		{
-		case "on":
-			SetValueBoolean($this->GetIDForIdent("zH1"), true);
-			break;
-		case "off":
-			SetValueBoolean ($this->GetIDForIdent("zH1"), false);
-			break;
-		default:
+
 			//SetValueString (14320 , "Status nicht gefunden:" . $ScriptData['STATUS']);
 		}
 		

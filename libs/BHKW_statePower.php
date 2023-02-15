@@ -56,6 +56,19 @@ trait BHKWstatePower
 		default:
 			//SetValueString (14320 , "Status nicht gefunden:" . $ScriptData['STATUS']);
 		}
+		
+		//Status des BHKW'S
+		$ScriptData['zH1'] = (string) $xmlData->extStby;
+		switch ($ScriptData['zH1']) 
+		{
+		case "on":
+			SetValueBoolean($this->GetIDForIdent("zH1"), true);
+			break;
+		case "off":
+			SetValueBoolean ($this->GetIDForIdent("zH1"), false);
+			break;
+		default:		
+		
 		$ScriptData['ZielleistungDA'] = (string) $xmlData->powerClasses[0]['autoAdapt'];
 		//IPS_LogMessage("BHKW statePower Autoadapt", $ScriptData['ZielleistungDA']);
 		switch ($ScriptData['ZielleistungDA']) 

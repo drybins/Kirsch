@@ -55,17 +55,17 @@ trait BHKWCreateProfile
 		$this->IPS_CreateVariableProfile("Kirsch.PGMStatus", 1, "", 1, 11, 1, 2, "");
 		IPS_SetVariableProfileAssociation("Kirsch.PGMStatus", 1, "Aktiv", "", -1);
 		IPS_SetVariableProfileAssociation("Kirsch.PGMStatus", 2, "Inaktiv", "", -1);
+	}
 			
-		private function IPS_CreateVariableProfile($ProfileName, $ProfileType, $Suffix, $MinValue, $MaxValue, $StepSize, $Digits, $Icon) 
-		{
-		    if (!IPS_VariableProfileExists($ProfileName)) 
-		    {
-			       IPS_CreateVariableProfile($ProfileName, $ProfileType);
-			       IPS_SetVariableProfileText($ProfileName, "", $Suffix);
-			       IPS_SetVariableProfileValues($ProfileName, $MinValue, $MaxValue, $StepSize);
-			       IPS_SetVariableProfileDigits($ProfileName, $Digits);
-			       IPS_SetVariableProfileIcon($ProfileName, $Icon);
-		    }
-		}
+	private function IPS_CreateVariableProfile($ProfileName, $ProfileType, $Suffix, $MinValue, $MaxValue, $StepSize, $Digits, $Icon) 
+	{
+	    if (!IPS_VariableProfileExists($ProfileName)) 
+	    {
+		       IPS_CreateVariableProfile($ProfileName, $ProfileType);
+		       IPS_SetVariableProfileText($ProfileName, "", $Suffix);
+		       IPS_SetVariableProfileValues($ProfileName, $MinValue, $MaxValue, $StepSize);
+		       IPS_SetVariableProfileDigits($ProfileName, $Digits);
+		       IPS_SetVariableProfileIcon($ProfileName, $Icon);
+	    }
 	}
 }

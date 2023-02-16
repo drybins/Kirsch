@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 trait BHKWstateExternal
 {
-	private function WriteLog1($data)
+	private function WriteLog10($data)
 	{
 		IPS_LogMessage("BHKW stateExternal TestLog", $data);
 	}

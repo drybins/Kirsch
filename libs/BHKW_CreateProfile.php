@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 trait BHKWCreateProfile
 {
-	private function WriteLog1($data)
-	{
-		IPS_LogMessage("BHKW BHKWCreateProfile TestLog", $data);
-	}
+	//private function WriteLog1($data)
+	//{
+	//	IPS_LogMessage("BHKW BHKWCreateProfile TestLog", $data);
+	//}
 	
 	private function BHKWCreateProfile()
 	{

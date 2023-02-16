@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-trait BHKWstatePower
+trait BHKWstateExternal
 {
 	private function WriteLog1($data)
 	{

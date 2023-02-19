@@ -37,16 +37,9 @@ require_once(__ROOT__ . '/libs/BHKW_CreateProfile.php');
 			parent::Create();
 
 			$this->BHKWCreateProfile();
-			//$HSID=IPS_CreateCategory();
-			//ips_setname($HSID, "HeizungsSteuerung");
-			//$Parent = @IPS_GetCategoryIDByName("BHKW" , 58416);
-			//IPS_LogMessage("BHKW ID2", $Parent);
-			//$Parent = $this->GetParentId();
-			//print_r(IPS_GetInstance($Parent));
-			//$ID = IPS_GetInstanceIDByName ("Kirsch BHKW Nano 4.12", 0);
-			//IPS_LogMessage("BHKW ID1", $ID);
-			///*
+			// lese GUID des BHKW
 			$GUID = "{13D080B9-10DD-1AAD-4C21-B06937CDCA3C}";
+			// 
 			$ID = IPS_GetInstanceListByModuleID($GUID)[0];
 			//IPS_LogMessage("BHKW ID1", $ID);
 			$HKID = @IPS_GetCategoryIDByName("Heizkreislauf 1", $ID);
@@ -387,6 +380,10 @@ require_once(__ROOT__ . '/libs/BHKW_CreateProfile.php');
 				case "valuePP":
 					$this->WriteLog3($data);
 					$this->valuePP($data);
+					break;
+				case "stateExternal":
+					$this->WriteLog10($data);
+					$this->stateExternal($data);
 					break;
 				default:
 					IPS_LogMessage("Splitter CMD1", $cmd);

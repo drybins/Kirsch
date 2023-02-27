@@ -25,39 +25,37 @@ trait BHKWstateExternal
 		$ScriptData['R1'] = (string) $xmlData->R1;
 		switch ($ScriptData['R1']) 
 		{
-		case "on":
-			SetValueBoolean($this->GetIDForIdent("R1"), true);
+			case "on":
+				SetValueBoolean($this->GetIDForIdent("R1"), true);
 			break;
-		case "off":
-			SetValueBoolean ($this->GetIDForIdent("R1"), false);
+			case "off":
+				SetValueBoolean ($this->GetIDForIdent("R1"), false);
 			break;
-		default:
-//			break;
+			default:
 		}	
+
 		$ScriptData['R2'] = (string) $xmlData->R2;
 		switch ($ScriptData['R2']) 
 		{
-		case "on":
-			SetValueBoolean($this->GetIDForIdent("R2"), true);
+			case "on":
+				SetValueBoolean($this->GetIDForIdent("R2"), true);
 			break;
-		case "off":
-			SetValueBoolean ($this->GetIDForIdent("R2"), false);
+			case "off":
+				SetValueBoolean ($this->GetIDForIdent("R2"), false);
 			break;
-		default:
-//			break;
+			default:
 		}
+
 		$ScriptData['R3'] = (string) $xmlData->R3;
 		switch ($ScriptData['R3']) 
 		{
-		case "on":
-			SetValueBoolean($this->GetIDForIdent("R3"), true);
+			case "on":
+				SetValueBoolean($this->GetIDForIdent("R3"), true);
 			break;
-		case "off":
-			SetValueBoolean ($this->GetIDForIdent("R3"), false);
+			case "off":
+				SetValueBoolean ($this->GetIDForIdent("R3"), false);
 			break;
-		default:
-//			break;
+			default:
 		}
-		};
 	}
 }

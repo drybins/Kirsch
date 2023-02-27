@@ -22,8 +22,18 @@ trait BHKWstateExternal
 			IPS_LogMessage("BHKW stateExternal Fehler", $data);
 		}
 		
-		$ScriptData['I1'] = (Float) $xmlData->I1;
-		SetValue ($this->GetIDForIdent("I1") , $ScriptData['I1']);
+		$ScriptData['R1'] = (string) $xmlData->R1;
+		switch ($ScriptData['R1']) 
+		{
+		case "on":
+			SetValueBoolean($this->GetIDForIdent("R1"), true);
+			break;
+		case "off":
+			SetValueBoolean ($this->GetIDForIdent("R1"), false);
+			break;
+		default:
+			//SetValueString (14320 , "Status nicht gefunden:" . $ScriptData['STATUS']);
+		};
 
 	}
 }

@@ -33,6 +33,7 @@ trait BHKWstateExternal
 			break;
 		default:
 			break;
+		}	
 		$ScriptData['R2'] = (string) $xmlData->R2;
 		switch ($ScriptData['R2']) 
 		{
@@ -44,6 +45,7 @@ trait BHKWstateExternal
 			break;
 		default:
 			break;
+		}
 		$ScriptData['R3'] = (string) $xmlData->R3;
 		switch ($ScriptData['R3']) 
 		{
@@ -55,7 +57,7 @@ trait BHKWstateExternal
 			break;
 		default:
 			break;
+		}
 		};
-
 	}
 }

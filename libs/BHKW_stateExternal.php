@@ -32,7 +32,7 @@ trait BHKWstateExternal
 			SetValueBoolean ($this->GetIDForIdent("R1"), false);
 			break;
 		default:
-			break;
+//			break;
 		}	
 		$ScriptData['R2'] = (string) $xmlData->R2;
 		switch ($ScriptData['R2']) 
@@ -44,7 +44,7 @@ trait BHKWstateExternal
 			SetValueBoolean ($this->GetIDForIdent("R2"), false);
 			break;
 		default:
-			break;
+//			break;
 		}
 		$ScriptData['R3'] = (string) $xmlData->R3;
 		switch ($ScriptData['R3']) 
@@ -56,7 +56,7 @@ trait BHKWstateExternal
 			SetValueBoolean ($this->GetIDForIdent("R3"), false);
 			break;
 		default:
-			break;
+//			break;
 		}
 		};
 	}

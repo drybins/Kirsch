@@ -32,7 +32,29 @@ trait BHKWstateExternal
 			SetValueBoolean ($this->GetIDForIdent("R1"), false);
 			break;
 		default:
-			//SetValueString (14320 , "Status nicht gefunden:" . $ScriptData['STATUS']);
+
+		$ScriptData['R2'] = (string) $xmlData->R2;
+		switch ($ScriptData['R2']) 
+		{
+		case "on":
+			SetValueBoolean($this->GetIDForIdent("R2"), true);
+			break;
+		case "off":
+			SetValueBoolean ($this->GetIDForIdent("R2"), false);
+			break;
+		default:
+
+		$ScriptData['R3'] = (string) $xmlData->R3;
+		switch ($ScriptData['R3']) 
+		{
+		case "on":
+			SetValueBoolean($this->GetIDForIdent("R3"), true);
+			break;
+		case "off":
+			SetValueBoolean ($this->GetIDForIdent("R3"), false);
+			break;
+		default:
+
 		};
 
 	}

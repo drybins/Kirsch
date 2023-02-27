@@ -235,6 +235,8 @@ require_once(__ROOT__ . '/libs/BHKW_CreateProfile.php');
 			$this->RegisterVariableFloat("T4", "Speichertemperatur unten", "~Temperature", 530);
 
 			$this->RegisterVariableBoolean("R1", "Heizkreispumpe", "Kirsch.AnAus", 532);
+			$this->RegisterVariableBoolean("R2", "Mischer auf", "Kirsch.AnAus", 533);
+			$this->RegisterVariableBoolean("R3", "Mischer zu", "Kirsch.AnAus", 534);
 			
 			$this->RegisterVariableFloat("VorlaufTemperaturSoll", "Vorlauf Temperatur soll", "~Temperature", 535);
 			$this->RegisterVariableFloat("T5", "Vorlauf Heizkreis 1", "~Temperature", 538);

@@ -2,11 +2,8 @@
 // include autoloader
 define('__ROOT__', dirname(dirname(__FILE__)));
 require_once(__ROOT__ . '/libs/BHKW_Functions.php');
-//define('__ROOT1__', dirname(dirname(__FILE__)));
 require_once(__ROOT__ . '/libs/BHKW_Zusatzheizung.php');
-//define('__ROOT2__', dirname(dirname(__FILE__)));
 require_once(__ROOT__ . '/libs/BHKW_statePP.php');
-//define('__ROOT3__', dirname(dirname(__FILE__)));
 require_once(__ROOT__ . '/libs/BHKW_statePower.php');
 require_once(__ROOT__ . '/libs/BHKW_stateHeatControl.php');
 require_once(__ROOT__ . '/libs/BHKW_errors.php');
@@ -364,7 +361,7 @@ require_once(__ROOT__ . '/libs/BHKW_CreateProfile.php');
 			{
 				case "statePP":
 					//SetValue(37729, time());
-					$this->WriteLog($data);
+					//$this->WriteLog($data);
 					$this->statePP($data);
 					break;
 				case "errors":
@@ -372,24 +369,24 @@ require_once(__ROOT__ . '/libs/BHKW_CreateProfile.php');
 					$this->errors($data);
 					break;
 				case "statePower":
-					$this->WriteLog1($data);
+					//$this->WriteLog1($data);
 					$this->statePower($data);
 					break;
 				case "stateHeatControl":
-					$this->WriteLog4($data);
+					//$this->WriteLog4($data);
 					$this->stateHeatControl($data);
 					break;
 				case "valuePP":
-					$this->WriteLog3($data);
+					//$this->WriteLog3($data);
 					$this->valuePP($data);
 					break;
 				case "stateExternal":
-					$this->WriteLog10($data);
+					//$this->WriteLog10($data);
 					$this->stateExternal($data);
 					break;
 				default:
-					IPS_LogMessage("Splitter CMD1", $cmd);
-					IPS_LogMessage("Splitter data", $data);
+					//IPS_LogMessage("Splitter CMD1", $cmd);
+					//IPS_LogMessage("Splitter data", $data);
 					break;
 			}
 			if (date("H")<>0)

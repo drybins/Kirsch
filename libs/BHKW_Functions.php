@@ -10,9 +10,9 @@ trait BHKWFunctions
 		$time = date("H:i");			
 		//$VorlaufSoll = GetValueFloat($this->GetIDForIdent("VorlaufTemperaturSoll"));
 		$AussenTemp = GetValueFloat($this->GetIDForIdent("T1"));
-		$VorlaufTempDiff = 70 - 45;
+		$VorlaufTempDiff = 70 - 40;
 		$VorlaufTempStep = $VorlaufTempDiff/40;
-		$VorlaufSoll = ((20-$AussenTemp)* $VorlaufTempStep) + 45;
+		$VorlaufSoll = ((20-$AussenTemp)* $VorlaufTempStep) + 40;
 		//Nachtabsenkung bei mehr als 3 Grad AußenTemperatur und zwischen 22:30 und 05:30 Uhr.
 		if(($time >= "22:30")or($time <= "05:30"))
 		{

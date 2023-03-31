@@ -10,6 +10,8 @@ trait BHKWFunctions
 		$time = date("H:i");			
 		//$VorlaufSoll = GetValueFloat($this->GetIDForIdent("VorlaufTemperaturSoll"));
 		$AussenTemp = GetValueFloat($this->GetIDForIdent("T1"));
+		$Volauf20 = GetValueFloat($this->GetIDForIdent("TKFlowMin"));
+		IPS_LogMessage("Dierk1 BHKW stateHeatControl Kategorie", $Volauf20);
 		$VorlaufTempDiff = 70 - 40;
 		$VorlaufTempStep = $VorlaufTempDiff/40;
 		$VorlaufSoll = ((20-$AussenTemp)* $VorlaufTempStep) + 40;

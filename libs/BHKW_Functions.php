@@ -16,7 +16,7 @@ trait BHKWFunctions
 		IPS_LogMessage("Dierk1 BHKW stateHeatControl ID", $ID);
 		$KategorieID = @IPS_GetCategoryIDByName("Heizkreislauf 1", $ID);
 		
-		$Volauf20 = GetValueFloat(IPS_GetVariableIDByName("Vorlauf bei 20°C", $KategorieID));
+		$Volauf20 = GetValueInteger(IPS_GetVariableIDByName("Vorlauf bei 20°C", $KategorieID));
 		IPS_LogMessage("Dierk1 BHKW stateHeatControl Kategorie", $Volauf20);
 		$VorlaufTempDiff = 70 - 40;
 		$VorlaufTempStep = $VorlaufTempDiff/40;

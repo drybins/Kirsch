@@ -78,6 +78,7 @@ trait BHKWstateHeatControl
 
 		$CPreset = $ScriptData['HKCP'] - 1;
 		$ScriptData['HKTKMin'] = (string) $xmlData->heatCircuits->heatCircuit->presets->preset[$CPreset]->temperature[0];
+		IPS_LogMessage("Dierk1 BHKW stateHeatControl Kategorieid:", $KategorieID);
 		IPS_LogMessage("Dierk1 BHKW stateHeatControl Kategorie", $ScriptData['HKTKMin']);
 		SetValueInteger(IPS_GetVariableIDByName("TKFlowMin", $KategorieID), $ScriptData['HKTKMin']);
 		$ScriptData['HKTKMax'] = (string) $xmlData->heatCircuits->heatCircuit->presets->preset[$CPreset]->temperature[1];

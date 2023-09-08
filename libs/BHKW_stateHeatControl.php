@@ -6,7 +6,7 @@ trait BHKWstateHeatControl
 {
 	private function WriteLog4($data)
 	{
-		IPS_LogMessage("BHKW stateHeatControl TestLog", $data);
+		//IPS_LogMessage("BHKW stateHeatControl TestLog", $data);
 	}
 	
 	private function stateHeatControl($data)
@@ -25,7 +25,7 @@ trait BHKWstateHeatControl
 		//Status des BHKW'S
 		$ScriptData['MODE'] = (string) $xmlData->mode;			
 		$StatusID = $this->GetIDForIdent("HeizungsStatus");
-		IPS_LogMessage("BHKW stateHeatControl Mode", $ScriptData['MODE']);
+		//IPS_LogMessage("BHKW stateHeatControl Mode", $ScriptData['MODE']);
 		switch ($ScriptData['MODE']) 
 		{
 			case "automatic":
@@ -123,7 +123,7 @@ trait BHKWstateHeatControl
 
 		$WWSID = IPS_GetVariableIDByName("Status", $KategorieID1);
 		$ScriptData['HKWWS'] = (string) $xmlData->programs->program[2]['state'];
-		IPS_LogMessage("BHKW stateHeatControl HKWWS", $ScriptData['HKWWS']);
+		//IPS_LogMessage("BHKW stateHeatControl HKWWS", $ScriptData['HKWWS']);
 		
 		switch($ScriptData['HKWWS'])
 		{
@@ -169,9 +169,9 @@ trait BHKWstateHeatControl
 		$KategorieID1 = @IPS_GetCategoryIDByName("Urlaubsmodus", $KategorieID);
 		
 		$UID = IPS_GetVariableIDByName("Status", $KategorieID1);
-		IPS_LogMessage("BHKW stateHeatControl SSID", $UID);
+		//IPS_LogMessage("BHKW stateHeatControl SSID", $UID);
 		$ScriptData['HKU'] = (string) $xmlData->programs->program[0]['state'];
-		IPS_LogMessage("BHKW stateHeatControl HKU", $ScriptData['HKU']);
+		//IPS_LogMessage("BHKW stateHeatControl HKU", $ScriptData['HKU']);
 		switch($ScriptData['HKU'])
 		{
 			case "enabled":

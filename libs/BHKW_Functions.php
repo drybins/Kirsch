@@ -13,7 +13,7 @@ trait BHKWFunctions
 		
 				$GUID = "{13D080B9-10DD-1AAD-4C21-B06937CDCA3C}";
 		$ID = IPS_GetInstanceListByModuleID($GUID)[0];
-		IPS_LogMessage("Dierk1 BHKW stateHeatControl ID", $ID);
+		//IPS_LogMessage("Dierk1 BHKW stateHeatControl ID", $ID);
 		$KategorieID = @IPS_GetCategoryIDByName("Heizkreislauf 1", $ID);
 		
 		$Volauf20 = GetValueInteger(IPS_GetVariableIDByName("Vorlauf bei 20°C", $KategorieID));

@@ -34,9 +34,20 @@ trait BHKWerrors
 				if($Datum > $Datumalt)
 				{
 					SetValue($this->GetIDForIdent("DLF"),$Datum);
+					SetValue($this->GetIDForIdent("class"),$elem['class']);
+					SetValue($this->GetIDForIdent("device"),$elem['device']);
+					
+					SetValue($this->GetIDForIdent("type"),$elem['type']);
+					SetValue($this->GetIDForIdent("occurrence"),$elem['occurrence']);
+					SetValue($this->GetIDForIdent("remoteConfirmed"),$elem['remoteConfirmed']);
+					SetValue($this->GetIDForIdent("level"),$elem['level']);
+					SetValue($this->GetIDForIdent("state"),$elem['state']); 
+					SetValue($this->GetIDForIdent("date"),$elem['date']);
+					SetValue($this->GetIDForIdent("time"),$elem['time']);
 					$Datumalt = $Datum;
 					IPS_LogMessage("BHKW Fehler datum:", $elem['date']);
 					IPS_LogMessage("BHKW Fehler Time:", $elem['time']);
+					
 				}
 			}
 		}

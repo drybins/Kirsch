@@ -33,6 +33,9 @@ trait BHKWerrors
 				}
 				if($Datum > $Datumalt)
 				{
+					$level = $elem['level'];
+					$class = $elem['class'];
+					
 					SetValue($this->GetIDForIdent("DLF"),$Datum);
 					SetValue($this->GetIDForIdent("class"),$elem['class']);
 					SetValue($this->GetIDForIdent("device"),$elem['device']);
@@ -45,12 +48,41 @@ trait BHKWerrors
 					SetValue($this->GetIDForIdent("date"),$elem['date']);
 					SetValue($this->GetIDForIdent("time"),$elem['time']);
 					$Datumalt = $Datum;
+					
+					switch ($level) 
+					{
+						case "user":
+						switch ($class) 
+						{
+							case "01":
+								SetValue($this->GetIDForIdent("Software"),"Drosselklappensteuerung");
+								break;
+							case "02":
+								SetValue($this->GetIDForIdent("Software"),"Motorsteuerung");
+								break;
+							case "04":
+								SetValue($this->GetIDForIdent("Software"),"Netzüberwachung (ENS)");
+								break;
+							case "05":
+								SetValue($this->GetIDForIdent("Software"),"Sensorkontrolle");
+								break;
+							case "06":
+								SetValue($this->GetIDForIdent("Software"),"Sicherheitskette");
+							break;
+							default:
+								IPS_LogMessage("BHKW Fehler class:", $class);
+						}
+						break;
+					default:
+						IPS_LogMessage("BHKW  level:", $level);
+					}
+					
 					IPS_LogMessage("BHKW Fehler datum:", $elem['date']);
 					IPS_LogMessage("BHKW Fehler Time:", $elem['time']);
 					
 				}
 			}
 		}
-		IPS_LogMessage("BHKW errors:", $data);
+		IPS_LogMessage("BHKW Fehler:", $data);
 	}
 }

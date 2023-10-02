@@ -75,8 +75,6 @@ trait BHKWerrors
 									default:
 										IPS_LogMessage("BHKW Fehler device:", $device);
 								}
-						switch ($class) 
-						{
 								break;
 							case "04":
 								SetValue($this->GetIDForIdent("Software"),"Netzüberwachung (ENS)");

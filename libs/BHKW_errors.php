@@ -35,6 +35,8 @@ trait BHKWerrors
 				{
 					$level = $elem['level'];
 					$class = $elem['class'];
+					$device = $elem['device'];
+					$type = $elem['type'];
 					
 					SetValue($this->GetIDForIdent("DLF"),$Datum);
 					SetValue($this->GetIDForIdent("class"),$elem['class']);
@@ -59,6 +61,22 @@ trait BHKWerrors
 								break;
 							case "02":
 								SetValue($this->GetIDForIdent("Software"),"Motorsteuerung");
+								switch ($device) 
+								{
+									case "18":
+										SetValue($this->GetIDForIdent("Messpunkt"),"Leistungsüberwachung");
+										break;
+									case "18":
+										SetValue($this->GetIDForIdent("Messpunkt"),"Sanftanlauf (SS)");
+										break;
+									case "1D":
+										SetValue($this->GetIDForIdent("Messpunkt"),"Hauptschütz (C1)");
+										break;
+									default:
+										IPS_LogMessage("BHKW Fehler device:", $device);
+								}
+						switch ($class) 
+						{
 								break;
 							case "04":
 								SetValue($this->GetIDForIdent("Software"),"Netzüberwachung (ENS)");
@@ -68,7 +86,7 @@ trait BHKWerrors
 								break;
 							case "06":
 								SetValue($this->GetIDForIdent("Software"),"Sicherheitskette");
-							break;
+								break;
 							default:
 								IPS_LogMessage("BHKW Fehler class:", $class);
 						}

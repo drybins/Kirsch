@@ -37,6 +37,7 @@ trait BHKWerrors
 					$class = $elem['class'];
 					$device = $elem['device'];
 					$type = $elem['type'];
+					$occurrence = $elem['occurrence'];
 					
 					SetValue($this->GetIDForIdent("DLF"),$Datum);
 					SetValue($this->GetIDForIdent("class"),$elem['class']);
@@ -65,12 +66,23 @@ trait BHKWerrors
 								{
 									case "18":
 										SetValue($this->GetIDForIdent("Messpunkt"),"Leistungsüberwachung");
-										break;
-									case "18":
-										SetValue($this->GetIDForIdent("Messpunkt"),"Sanftanlauf (SS)");
+										switch ($type) 
+										{
+											case "10":
+												SetValue($this->GetIDForIdent("Fehler"),$occurrence . "x Rückleistung");
+												break;
+											case "41":
+												SetValue($this->GetIDForIdent("Fehler"),$occurrence . "x Schleichender Leistungsabfall");
+												break;
+											default:
+												IPS_LogMessage("BHKW Fehler type:", $type);
+										}
 										break;
 									case "1D":
 										SetValue($this->GetIDForIdent("Messpunkt"),"Hauptschütz (C1)");
+										break;
+									case "1E":
+										SetValue($this->GetIDForIdent("Messpunkt"),"Sanftanlauf (SS)");
 										break;
 									default:
 										IPS_LogMessage("BHKW Fehler device:", $device);
@@ -78,6 +90,20 @@ trait BHKWerrors
 								break;
 							case "04":
 								SetValue($this->GetIDForIdent("Software"),"Netzüberwachung (ENS)");
+								switch ($device) 
+								{
+									case "0B":
+										SetValue($this->GetIDForIdent("Messpunkt"),"Energiemessung L3");
+										break;
+									case "0C":
+										SetValue($this->GetIDForIdent("Messpunkt"),"Energiemessung L2");
+										break;
+									case "0D":
+										SetValue($this->GetIDForIdent("Messpunkt"),"Energiemessung L3");
+										break;
+									default:
+										IPS_LogMessage("BHKW Fehler device:", $device);
+								}
 								break;
 							case "05":
 								SetValue($this->GetIDForIdent("Software"),"Sensorkontrolle");

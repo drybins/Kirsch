@@ -80,9 +80,25 @@ trait BHKWerrors
 										break;
 									case "1D":
 										SetValue($this->GetIDForIdent("Messpunkt"),"Hauptschütz (C1)");
+										switch ($type) 
+										{
+											case "01":
+												SetValue($this->GetIDForIdent("Fehler"),$occurrence . "x nicht verbunden oder Kurzschluss zu Betriebsspannung");
+												break;
+											default:
+												IPS_LogMessage("BHKW Fehler type:", $type);
+										}
 										break;
 									case "1E":
 										SetValue($this->GetIDForIdent("Messpunkt"),"Sanftanlauf (SS)");
+										switch ($type) 
+										{
+											case "01":
+												SetValue($this->GetIDForIdent("Fehler"),$occurrence . "x nicht verbunden oder Kurzschluss zu Betriebsspannung");
+												break;
+											default:
+												IPS_LogMessage("BHKW Fehler type:", $type);
+										}
 										break;
 									default:
 										IPS_LogMessage("BHKW Fehler device:", $device);

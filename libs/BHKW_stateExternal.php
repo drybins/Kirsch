@@ -58,6 +58,18 @@ trait BHKWstateExternal
 			default:
 		}
 		
+		$ScriptData['R4'] = (string) $xmlData->R4;
+		switch ($ScriptData['R4']) 
+		{
+			case "on":
+				SetValueBoolean($this->GetIDForIdent("R4"), true);
+			break;
+			case "off":
+				SetValueBoolean ($this->GetIDForIdent("R4"), false);
+			break;
+			default:
+		}
+		
 
 	}
 }

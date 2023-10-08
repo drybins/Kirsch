@@ -62,10 +62,10 @@ trait BHKWstateExternal
 		switch ($ScriptData['R4']) 
 		{
 			case "on":
-				SetValueBoolean($this->GetIDForIdent("R4"), true);
+				SetValueBoolean($this->GetIDForIdent("zH1"), true);
 			break;
 			case "off":
-				SetValueBoolean ($this->GetIDForIdent("R4"), false);
+				SetValueBoolean ($this->GetIDForIdent("zH1"), false);
 			break;
 			default:
 		}

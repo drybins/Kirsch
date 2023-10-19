@@ -238,7 +238,7 @@ require_once(__ROOT__ . '/libs/BHKW_CreateProfile.php');
 			$this->RegisterVariableFloat("VorlaufTemperaturSoll", "Vorlauf Temperatur soll", "~Temperature", 535);
 			$this->RegisterVariableFloat("T5", "Vorlauf Heizkreis 1", "~Temperature", 538);
 			$this->RegisterVariableFloat("T6", "Rücklauf Heizkreis 1", "~Temperature", 540);
-			$this->RegisterVariableBoolean("zH1", "ZusatzHeizung", "Kirsch.AnAus", 542);
+			$this->RegisterVariableBoolean("R4", "ZusatzHeizung", "Kirsch.AnAus", 542);
 			
 			//$this->RegisterVariableBoolean("mixer1", "Mischer Heizkreis 1", "", 550);
 			$this->RegisterVariableFloat("totalTime", "Gesamtbetriebszeit", "Kirsch.Std", 560);

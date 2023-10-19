@@ -59,6 +59,7 @@ trait BHKWstateExternal
 		}
 		
 		$ScriptData['R4'] = (string) $xmlData->R4;
+		IPS_LogMessage("BHKW stateExternal R4:", $ScriptData['R4']);
 		switch ($ScriptData['R4']) 
 		{
 			case "on":

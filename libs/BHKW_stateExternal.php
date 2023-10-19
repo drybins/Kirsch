@@ -57,7 +57,7 @@ trait BHKWstateExternal
 			break;
 			default:
 		}
-		
+		IPS_LogMessage("BHKW stateExternal R4 Ident:", $this->GetIDForIdent("zH1"));
 		$ScriptData['R4'] = (string) $xmlData->R4;
 
 		switch ($ScriptData['R4']) 

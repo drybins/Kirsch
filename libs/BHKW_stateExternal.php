@@ -57,9 +57,8 @@ trait BHKWstateExternal
 			break;
 			default:
 		}
-		IPS_LogMessage("BHKW stateExternal R4 Ident:", $this->GetIDForIdent("zH1"));
+//		IPS_LogMessage("BHKW stateExternal R4 Ident:", $this->GetIDForIdent("zH1"));
 		$ScriptData['R4'] = (string) $xmlData->R4;
-
 		switch ($ScriptData['R4']) 
 		{
 			case "on":
@@ -75,6 +74,21 @@ trait BHKWstateExternal
 			default:
 		}
 		
+		$ScriptData['R5'] = (string) $xmlData->R5;
+		switch ($ScriptData['R5']) 
+		{
+			case "on":
+			{
+				IPS_LogMessage("BHKW stateExternal R5 on:", $ScriptData['R5']);
+				SetValueBoolean($this->GetIDForIdent("R5"), true);
+			break;
+			}
+			case "off":
+				IPS_LogMessage("BHKW stateExternal R5 off:", $ScriptData['R5']);
+				SetValueBoolean ($this->GetIDForIdent("R5"), false);
+			break;
+			default:
+		}
 
 	}
 }

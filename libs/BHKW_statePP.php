@@ -30,7 +30,10 @@ trait BHKWstatePP
 		switch ($ScriptData['STATUS']) 
 		{
 			case "stop":
-			SetValueInteger ($StatusID, 1);
+			if(GetValue($StatusID) === 13)
+				SetValueInteger ($StatusID, 11);
+			else
+				SetValueInteger ($StatusID, 1);
 			break;
 		case "start":
 			SetValueInteger ($StatusID, 2);
@@ -45,7 +48,10 @@ trait BHKWstatePP
 			SetValueInteger ($StatusID, 5);
 			break;
 		case "selftest":
-			SetValueInteger ($StatusID, 6);
+			if(GetValue($StatusID) === 11)
+					SetValueInteger ($StatusID, 13);
+			else
+				SetValueInteger ($StatusID, 6);
 			break;
 		case "oelrefill":
 			SetValueInteger ($StatusID, 7);

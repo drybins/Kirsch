@@ -31,12 +31,12 @@ trait BHKWZusatzHeizung
 			// Heizung ist an
 			if($VorlaufIst < $VorlaufSollAn and $SPmitte < $VorlaufSoll)
 			{
-				SetValue($this->GetIDForIdent("zH1"), true);
+				SetValue($this->GetIDForIdent("R4"), true);
 				IPS_LogMessage("zHeizung Heizung SP oben:",GetValue($this->GetIDForIdent("T5")));
 			}
 			if($SPmitte > $VorlaufMitteAus)
 			{
-				SetValue($this->GetIDForIdent("zH1"), false);
+				SetValue($this->GetIDForIdent("R4"), false);
 				IPS_LogMessage("zHeizung Heizung mitte:",GetValue($this->GetIDForIdent("T3")));
 				IPS_LogMessage("zHeizung Heizung vor+8:",$VorlaufMitteAus);
 			}
@@ -48,13 +48,13 @@ trait BHKWZusatzHeizung
 				// Speichertemperatur oben > 65 zusatzHeizung aus
 				if (GetValue($this->GetIDForIdent("T2")) > 65)
 				{
-					SetValue($this->GetIDForIdent("zH1"), false);
+					SetValue($this->GetIDForIdent("R4"), false);
 					IPS_LogMessage("zHeizung WWaus:",GetValue($this->GetIDForIdent("T2")));	
 				}
 				// Speichertemperatur oben < 55 zusatzHeizung an
 				if (GetValue($this->GetIDForIdent("T2")) < 55)
 				{
-					SetValue($this->GetIDForIdent("zH1"), true);
+					SetValue($this->GetIDForIdent("R4"), true);
 					IPS_LogMessage("zHeizung WWan:",GetValue($this->GetIDForIdent("T2")));
 				}
 			}

@@ -32,7 +32,7 @@ require_once(__ROOT__ . '/libs/BHKW_CreateProfile.php');
 		{
 			//Never delete this line!
 			parent::Create();
-
+			$this->RegisterPropertyInteger("CounterID", 0);
 			$this->BHKWCreateProfile();
 			// lese GUID des BHKW
 			$GUID = "{13D080B9-10DD-1AAD-4C21-B06937CDCA3C}";

@@ -4,7 +4,8 @@
 		"type": "SelectVariable",
 		"name": "PropertyVariableID", 
 		"caption": "Target"
-	}
+	},
+{ "type": "SelectVariable", "name": "CounterID", "caption": "Counter" }
 ],
     "actions": [],
     "status": []

@@ -26,22 +26,26 @@ trait BHKWZusatzHeizung
 		$ZHID = $this->ReadPropertyInteger("CounterID");
 		IPS_LogMessage("zHeizung Heizung Schalter ID:",$ZHID);
 		//IPS_LogMessage("zHeizung SPmitte:", $SPmitte);
-	 /*	IPS_LogMessage("zHeizung VorlaufIst:", $VorlaufIst);
+	 /*	IPS_LogMessage("zHeizung VorlaufIst:", $VorlaufIst);*/
 		$HKPumpe = GetValue($this->GetIDForIdent("R1"));
 		IPS_LogMessage("zHeizung HKPumpe:", $HKPumpe);	*/
-		if(GetValue($this->GetIDForIdent("R1")))
+		if($HKPumpe)
 		{
+			IPS_LogMessage("zHeizung Heizkreispumpe ist an:");
 			// Heizung ist an
 			if($VorlaufIst < $VorlaufSollAn and $SPmitte < $VorlaufSoll)
 			{
-				SetValue($this->GetIDForIdent("R4"), true);
-				IPS_LogMessage("zHeizung Heizung SP oben:",GetValue($this->GetIDForIdent("T5")));
+				$RC = HM_WriteValueBoolean($ZHID, "STATE" , True);
+				//SetValue($this->GetIDForIdent("R4"), true);
+				IPS_LogMessage("zHeizung Heizung an:");
 			}
 			if($SPmitte > $VorlaufMitteAus)
 			{
-				SetValue($this->GetIDForIdent("R4"), false);
-				IPS_LogMessage("zHeizung Heizung mitte:",GetValue($this->GetIDForIdent("T3")));
-				IPS_LogMessage("zHeizung Heizung vor+8:",$VorlaufMitteAus);
+				$RC = HM_WriteValueBoolean($ZHID, "STATE" , false);
+				//SetValue($this->GetIDForIdent("R4"), false);
+				IPS_LogMessage("zHeizung Heizung aus:");
+				//IPS_LogMessage("zHeizung Heizung mitte:",GetValue($this->GetIDForIdent("T3")));
+				//IPS_LogMessage("zHeizung Heizung vor+8:",$VorlaufMitteAus);
 			}
 		}
 		else

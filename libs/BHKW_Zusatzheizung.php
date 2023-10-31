@@ -26,7 +26,7 @@ trait BHKWZusatzHeizung
 		$WarmwasserEnde = GetValue(52528);
 		
 		$VorlaufMitteAus = $VorlaufSoll + 8;
-		$VorlaufSollAn = $VorlaufSoll-2;
+		$VorlaufSollAn = $VorlaufSoll-8;
 		
 		$ZHID = $this->ReadPropertyInteger("CounterID");
 		IPS_LogMessage("zHeizung ","Heizung Schalter ID: " . $ZHID);

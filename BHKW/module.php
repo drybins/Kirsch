@@ -395,7 +395,7 @@ require_once(__ROOT__ . '/libs/BHKW_CreateProfile.php');
 			}
 			if (date("H")<>0)
     		{
-				$CatID = @IPS_GetCategoryIDByName("Heißwasser ", $this);
+				$CatID = @IPS_GetCategoryIDByName("Heißwasser", $this);
 				if ($CatID === false) 
 					echo "Category not found!";
 				else

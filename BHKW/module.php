@@ -395,12 +395,12 @@ require_once(__ROOT__ . '/libs/BHKW_CreateProfile.php');
 			}
 			if (date("H")<>0)
     		{
-				$CatID = @IPS_GetCategoryIDByName("Heißwasser", $this);
-				if ($CatID === false) 
-					echo "Category not found!";
-				else
-					echo "The Category ID is: ". $CatID;
-				IPS_LogMessage("zHeizung", $WWID);
+				//$CatID = @IPS_GetCategoryIDByName("Heißwasser", $this);
+				//if ($CatID === false) 
+				//	echo "Category not found!";
+				//else
+				//	echo "The Category ID is: ". $CatID;
+				//IPS_LogMessage("zHeizung", $WWID);
 				//$Heißwasser = GetValue($this->GetIDForIdent("WWTTarget"));
 				//$WarmwasserStart = GetValue($this->GetIDForIdent("WWStartZeit"));
 				//$WarmwasserEnde = GetValue($this->GetIDForIdent("WWEndeZeit"));

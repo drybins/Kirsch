@@ -28,10 +28,9 @@ require_once(__ROOT__ . '/libs/BHKW_CreateProfile.php');
 	
 		use BHKWFunctions, BHKWZusatzHeizung, BHKWstatePP, BHKWstatePower, BHKWstateHeatControl, BHKWerrors, BHKWvaluePP, BHKWstateExternal, BHKWCreateProfile;
 		
-		global $WWID;
-		
 		public function Create()
 		{
+			global $WWID;
 			//Never delete this line!
 			parent::Create();
 			$this->RegisterPropertyInteger("CounterID", 0);

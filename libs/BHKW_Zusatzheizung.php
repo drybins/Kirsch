@@ -27,10 +27,10 @@ trait BHKWZusatzHeizung
 		IPS_LogMessage("zHeizung ","Heizung Schalter ID: " . $ZHID);
 
 		$HKPumpe = GetValue($this->GetIDForIdent("R1"));
-		IPS_LogMessage($_IPS['SELF'],"zHeizung HKPumpe:" . $HKPumpe);	
-/*		//if($HKPumpe)
-		//{
-			//IPS_LogMessage("zHeizung Heizkreispumpe ist an:");
+		IPS_LogMessage("zHeizung","HKPumpe: " . $HKPumpe);	
+/		if($HKPumpe)
+		{
+			IPS_LogMessage("zHeizung", "Heizkreispumpe ist an:");
 			// Heizung ist an
 			//if($VorlaufIst < $VorlaufSollAn and $SPmitte < $VorlaufSoll)
 			//{

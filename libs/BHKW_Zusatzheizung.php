@@ -38,7 +38,7 @@ trait BHKWZusatzHeizung
 			IPS_LogMessage("zHeizung", "Heizkreispumpe ist an:");
 			if($VorlaufIst < $VorlaufSollAn Or $SPMitte  < $VorlaufSoll)
 			{
-				$RC = HM_WriteValueBoolean($ZHID, "STATE" , True);
+				$RC = HM_WriteValueBoolean(48122, "STATE" , True);
 				//SetValue($this->GetIDForIdent("R4"), true);
 				IPS_LogMessage("zHeizung","Heizung an:");
 			}
@@ -60,12 +60,13 @@ trait BHKWZusatzHeizung
 				if ($SPOben > ($Heißwasser + 2))
 				{
 					//SetValue($this->GetIDForIdent("R4"), false);
-					$RC = HM_WriteValueBoolean($ZHID, "STATE" , false);
+					$RC = HM_WriteValueBoolean(48122, "STATE" , false);
 					IPS_LogMessage("zHeizung", "WWaus:" . $SPOben);	
 				}
 				// Speichertemperatur oben < 55 zusatzHeizung an
 				if ($SPOben < ($Heißwasser - 10))
 				{
+					$RC = HM_WriteValueBoolean(48122, "STATE" , True);
 					//SetValue($this->GetIDForIdent("R4"), true);
 					IPS_LogMessage("zHeizung", "WWan:" . $SPOben);
 				}

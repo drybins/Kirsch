@@ -57,7 +57,7 @@ trait BHKWZusatzHeizung
 			{
 				// Heizung is aus (Warmwasser)
 				// Speichertemperatur oben > 65 zusatzHeizung aus
-				if ($SPOben) > ($Heißwasser + 2))
+				if ($SPOben > ($Heißwasser + 2))
 				{
 					//SetValue($this->GetIDForIdent("R4"), false);
 					$RC = HM_WriteValueBoolean($ZHID, "STATE" , false);

@@ -36,7 +36,7 @@ trait BHKWZusatzHeizung
 		if($HKPumpe)
 		{
 			IPS_LogMessage("zHeizung", "Heizkreispumpe ist an:");
-			if($VorlaufIst < $VorlaufSollAn Or $SPmitte < $VorlaufSoll)
+			if($VorlaufIst < $VorlaufSollAn Or $SPMitte  < $VorlaufSoll)
 			{
 				$RC = HM_WriteValueBoolean($ZHID, "STATE" , True);
 				//SetValue($this->GetIDForIdent("R4"), true);

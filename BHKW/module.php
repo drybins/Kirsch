@@ -335,6 +335,7 @@ require_once(__ROOT__ . '/libs/BHKW_CreateProfile.php');
 
 		public function ReceiveData($JSONString)
 		{
+			global $WWID;
 			$data = json_decode($JSONString);
 			$data = utf8_decode($data->Buffer);
 			//IPS_LogMessage("Device RECV", $data);

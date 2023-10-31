@@ -65,6 +65,5 @@ trait BHKWZusatzHeizung
 				}
 			}
 		}
-		*/
 	}
 }

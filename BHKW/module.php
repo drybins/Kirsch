@@ -393,9 +393,10 @@ require_once(__ROOT__ . '/libs/BHKW_CreateProfile.php');
 			}
 			if (date("H")<>0)
     		{
+				IPS_LogMessage("zHeizung", $WWID);
 				//$Heißwasser = GetValue($this->GetIDForIdent("WWTTarget"));
-				$WarmwasserStart = GetValue($this->GetIDForIdent("WWStartZeit"));
-				$WarmwasserEnde = GetValue($this->GetIDForIdent("WWEndeZeit"));
+				//$WarmwasserStart = GetValue($this->GetIDForIdent("WWStartZeit"));
+				//$WarmwasserEnde = GetValue($this->GetIDForIdent("WWEndeZeit"));
 				$this->ZusatzHeizung();
 			}
 		}

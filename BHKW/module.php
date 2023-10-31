@@ -30,7 +30,7 @@ require_once(__ROOT__ . '/libs/BHKW_CreateProfile.php');
 		
 		public function Create()
 		{
-			global $WWID;
+			//global $WWID;
 			//Never delete this line!
 			parent::Create();
 			$this->RegisterPropertyInteger("CounterID", 0);

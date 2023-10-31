@@ -21,9 +21,12 @@ trait BHKWZusatzHeizung
 		$SPOben = GetValue($this->GetIDForIdent("T2"));
 		$SPMitte = GetValue($this->GetIDForIdent("T3"));
 
+		$Heißwasser = GetValue(13846);
+		$WarmwasserStart = GetValue(20086);
+		$WarmwasserEnde = GetValue(52528);
 		
 		$VorlaufMitteAus = $VorlaufSoll + 8;
-		$VorlaufSollAn = $VorlaufSoll-8;
+		$VorlaufSollAn = $VorlaufSoll-2;
 		
 		$ZHID = $this->ReadPropertyInteger("CounterID");
 		IPS_LogMessage("zHeizung ","Heizung Schalter ID: " . $ZHID);
@@ -33,13 +36,12 @@ trait BHKWZusatzHeizung
 		if($HKPumpe)
 		{
 			IPS_LogMessage("zHeizung", "Heizkreispumpe ist an:");
-			// Heizung ist an
-			//if($VorlaufIst < $VorlaufSollAn and $SPmitte < $VorlaufSoll)
-			//{
-				//$RC = HM_WriteValueBoolean($ZHID, "STATE" , True);
+			if($VorlaufIst < $VorlaufSollAn Or $SPmitte < $VorlaufSoll)
+			{
+				$RC = HM_WriteValueBoolean($ZHID, "STATE" , True);
 				//SetValue($this->GetIDForIdent("R4"), true);
-				//IPS_LogMessage("zHeizung Heizung an:");
-			//}
+				IPS_LogMessage("zHeizung","Heizung an:");
+			}
 			//if($SPmitte > $VorlaufMitteAus)
 			//{
 				//$RC = HM_WriteValueBoolean($ZHID, "STATE" , false);
@@ -51,19 +53,21 @@ trait BHKWZusatzHeizung
 		}
 		else
 		{
+			if (time() > $WarmwasserStart and time() < $WarmwasserEnde)
 			{
 				// Heizung is aus (Warmwasser)
 				// Speichertemperatur oben > 65 zusatzHeizung aus
-				if (GetValue($this->GetIDForIdent("T2")) > 65)
+				if ($SPOben) > ($Heißwasser + 2))
 				{
-					SetValue($this->GetIDForIdent("R4"), false);
-					IPS_LogMessage("zHeizung WWaus:",GetValue($this->GetIDForIdent("T2")));	
+					//SetValue($this->GetIDForIdent("R4"), false);
+					$RC = HM_WriteValueBoolean($ZHID, "STATE" , false);
+					IPS_LogMessage("zHeizung", "WWaus:" . $SPOben);	
 				}
 				// Speichertemperatur oben < 55 zusatzHeizung an
-				if (GetValue($this->GetIDForIdent("T2")) < 55)
+				if ($SPOben < ($Heißwasser - 10))
 				{
-					SetValue($this->GetIDForIdent("R4"), true);
-					IPS_LogMessage("zHeizung WWan:",GetValue($this->GetIDForIdent("T2")));
+					//SetValue($this->GetIDForIdent("R4"), true);
+					IPS_LogMessage("zHeizung", "WWan:" . $SPOben);
 				}
 			}
 		}

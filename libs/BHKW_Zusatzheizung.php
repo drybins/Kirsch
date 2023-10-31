@@ -20,9 +20,7 @@ trait BHKWZusatzHeizung
 		$VorlaufIst = GetValue($this->GetIDForIdent("T5"));
 		$SPOben = GetValue($this->GetIDForIdent("T2"));
 		$SPMitte = GetValue($this->GetIDForIdent("T3"));
-		//$Heißwasser = GetValue($this->GetIDForIdent("WWTTarget"));
-		$WarmwasserStart = GetValue($this->GetIDForIdent("WWStartZeit"));
-		$WarmwasserEnde = GetValue($this->GetIDForIdent("WWEndeZeit"));
+
 		
 		$VorlaufMitteAus = $VorlaufSoll + 8;
 		$VorlaufSollAn = $VorlaufSoll-8;

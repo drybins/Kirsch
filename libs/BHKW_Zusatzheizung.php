@@ -43,13 +43,16 @@ trait BHKWZusatzHeizung
 				IPS_LogMessage("zHeizung","Heizung an:");
 			}
 			//if($SPmitte > $VorlaufMitteAus)
-			//{
+			else
+			{
+				$RC = HM_WriteValueBoolean(48122, "STATE" , false);
+				IPS_LogMessage("zHeizung","Heizung aus:");
 				//$RC = HM_WriteValueBoolean($ZHID, "STATE" , false);
 				//SetValue($this->GetIDForIdent("R4"), false);
 				//IPS_LogMessage("zHeizung Heizung aus:");
 				//IPS_LogMessage("zHeizung Heizung mitte:",GetValue($this->GetIDForIdent("T3")));
 				//IPS_LogMessage("zHeizung Heizung vor+8:",$VorlaufMitteAus);
-			//}
+			}
 		}
 		else
 		{

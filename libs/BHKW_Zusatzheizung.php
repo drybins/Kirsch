@@ -24,12 +24,12 @@ trait BHKWZusatzHeizung
 		$VorlaufSollAn = $VorlaufSoll-8;
 		
 		$ZHID = $this->ReadPropertyInteger("CounterID");
-		IPS_LogMessage("zHeizung Heizung Schalter ID:",$ZHID);
+		IPS_LogMessage(($_IPS['SELF'],"zHeizung Heizung Schalter ID:",$ZHID);
 		//IPS_LogMessage("zHeizung SPmitte:", $SPmitte);
-	 /*	IPS_LogMessage("zHeizung VorlaufIst:", $VorlaufIst);*/
-/*		$HKPumpe = GetValue($this->GetIDForIdent("R1"));
-		IPS_LogMessage("zHeizung HKPumpe:", $HKPumpe);	
-		//if($HKPumpe)
+	 //	IPS_LogMessage("zHeizung VorlaufIst:", $VorlaufIst);*/
+		$HKPumpe = GetValue($this->GetIDForIdent("R1"));
+		IPS_LogMessage(($_IPS['SELF'],"zHeizung HKPumpe:" . $HKPumpe);	
+/*		//if($HKPumpe)
 		//{
 			//IPS_LogMessage("zHeizung Heizkreispumpe ist an:");
 			// Heizung ist an

@@ -28,7 +28,7 @@ trait BHKWZusatzHeizung
 
 		$HKPumpe = GetValue($this->GetIDForIdent("R1"));
 		IPS_LogMessage("zHeizung","HKPumpe: " . $HKPumpe);	
-/		if($HKPumpe)
+		if($HKPumpe)
 		{
 			IPS_LogMessage("zHeizung", "Heizkreispumpe ist an:");
 			// Heizung ist an

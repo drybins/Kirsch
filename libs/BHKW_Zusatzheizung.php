@@ -79,12 +79,12 @@ trait BHKWZusatzHeizung
 		}
 		else
 		{
-			$RC = HM_RequestStatus (48122, "STATE")
-			if($RC)
-			{
+			//$RC = HM_RequestStatus (48122, "STATE")
+			//if($RC)
+			//{
 				$RC = @HM_WriteValueBoolean(48122, "STATE" , false);
 				echo "Heizung au";
-			}
+			//}
 		}
 	}
 }

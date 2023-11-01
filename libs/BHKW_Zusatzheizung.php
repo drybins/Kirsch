@@ -56,6 +56,7 @@ trait BHKWZusatzHeizung
 		}
 		if (time() > $WarmwasserStart and time() < $WarmwasserEnde)
 		{
+			IPS_LogMessage("zHeizung", "WW:" . $SPOben);	
 			// Heizung is aus (Warmwasser)
 			// Speichertemperatur oben > 65 zusatzHeizung aus
 			if ($SPOben > ($Heißwasser + 2))
@@ -79,7 +80,6 @@ trait BHKWZusatzHeizung
 		}
 		else
 		{
-
 			$RC = HM_WriteValueBoolean(48122, "STATE" , false);
 			echo "Heizung au";
 		}

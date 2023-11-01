@@ -25,7 +25,7 @@ trait BHKWZusatzHeizung
 		$WarmwasserStart = GetValue(20086);
 		$WarmwasserEnde = GetValue(52528);
 		
-		$VorlaufMitteAus = $VorlaufSoll + 8;
+		$VorlaufMitteAus = $VorlaufSoll + 12;
 		$VorlaufSollAn = $VorlaufSoll-8;
 		
 		$ZHID = $this->ReadPropertyInteger("CounterID");

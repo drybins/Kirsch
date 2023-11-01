@@ -38,14 +38,14 @@ trait BHKWZusatzHeizung
 			IPS_LogMessage("zHeizung", "Heizkreispumpe ist an:");
 			if($VorlaufIst < $VorlaufSollAn Or $SPMitte  < $VorlaufMitteAus)
 			{
-				$ZH = True;
+				$ZHH = True;
 				//SetValue($this->GetIDForIdent("R4"), true);
 				IPS_LogMessage("zHeizung","Heizung an:");
 			}
 			//if($SPmitte > $VorlaufMitteAus)
 			else
 			{
-				$ZH = false;
+				$ZHH = false;
 				IPS_LogMessage("zHeizung","Heizung aus:");
 				//$RC = HM_WriteValueBoolean($ZHID, "STATE" , false);
 				//SetValue($this->GetIDForIdent("R4"), false);
@@ -56,23 +56,23 @@ trait BHKWZusatzHeizung
 		}
 		if (time() > $WarmwasserStart and time() < $WarmwasserEnde)
 		{
-			IPS_LogMessage("zHeizung", "WW:" . $SPOben . " : " . $Heißwasser . ($Heißwasser - 5));	
+			IPS_LogMessage("zHeizung", "WW:" . $SPOben . " : " . $Heißwasser . " : " . ($Heißwasser - 5));	
 			// Heizung is aus (Warmwasser)
 			// Speichertemperatur oben > 65 zusatzHeizung aus
-			if ($SPOben > ($Heißwasser + 2) and !ZH)
+			if ($SPOben > ($Heißwasser + 2) and !ZHH)
 			{
 				IPS_LogMessage("zHeizung", "WWaus:" . $SPOben);	
 			}
 			// Speichertemperatur oben < 55 zusatzHeizung an
 			if ($SPOben < ($Heißwasser - 5))
 			{
-				$ZH = True;
+				$ZHW = True;
 				//SetValue($this->GetIDForIdent("R4"), true);
 				IPS_LogMessage("zHeizung", "WWan:" . $SPOben);
 			}
 		}
 		
-		if($ZH)
+		if($ZHH or $ZHW)
 		{
 			$RC = @HM_WriteValueBoolean(48122, "STATE" , True);
 			echo "Heizung an";

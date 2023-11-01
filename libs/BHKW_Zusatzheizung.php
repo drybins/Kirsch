@@ -38,14 +38,14 @@ trait BHKWZusatzHeizung
 			IPS_LogMessage("zHeizung", "Heizkreispumpe ist an:");
 			if($VorlaufIst < $VorlaufSollAn Or $SPMitte  < $VorlaufMitteAus)
 			{
-				$RC = HM_WriteValueBoolean(48122, "STATE" , True);
+				$ZH = True;
 				//SetValue($this->GetIDForIdent("R4"), true);
 				IPS_LogMessage("zHeizung","Heizung an:");
 			}
 			//if($SPmitte > $VorlaufMitteAus)
 			else
 			{
-				$RC = HM_WriteValueBoolean(48122, "STATE" , false);
+				$ZH = false;
 				IPS_LogMessage("zHeizung","Heizung aus:");
 				//$RC = HM_WriteValueBoolean($ZHID, "STATE" , false);
 				//SetValue($this->GetIDForIdent("R4"), false);
@@ -54,26 +54,34 @@ trait BHKWZusatzHeizung
 				//IPS_LogMessage("zHeizung Heizung vor+8:",$VorlaufMitteAus);
 			}
 		}
+		if (time() > $WarmwasserStart and time() < $WarmwasserEnde)
+		{
+			// Heizung is aus (Warmwasser)
+			// Speichertemperatur oben > 65 zusatzHeizung aus
+			if ($SPOben > ($Heißwasser + 2))
+			{
+				IPS_LogMessage("zHeizung", "WWaus:" . $SPOben);	
+			}
+			// Speichertemperatur oben < 55 zusatzHeizung an
+			if ($SPOben < ($Heißwasser - 10))
+			{
+				$ZH = True;
+				//SetValue($this->GetIDForIdent("R4"), true);
+				IPS_LogMessage("zHeizung", "WWan:" . $SPOben);
+			}
+		}
+		
+		if($ZH)
+		{
+
+			$RC = HM_WriteValueBoolean(48122, "STATE" , True);
+			echo "Heizung an";
+		}
 		else
 		{
-			if (time() > $WarmwasserStart and time() < $WarmwasserEnde)
-			{
-				// Heizung is aus (Warmwasser)
-				// Speichertemperatur oben > 65 zusatzHeizung aus
-				if ($SPOben > ($Heißwasser + 2))
-				{
-					//SetValue($this->GetIDForIdent("R4"), false);
-					$RC = HM_WriteValueBoolean(48122, "STATE" , false);
-					IPS_LogMessage("zHeizung", "WWaus:" . $SPOben);	
-				}
-				// Speichertemperatur oben < 55 zusatzHeizung an
-				if ($SPOben < ($Heißwasser - 10))
-				{
-					$RC = HM_WriteValueBoolean(48122, "STATE" , True);
-					//SetValue($this->GetIDForIdent("R4"), true);
-					IPS_LogMessage("zHeizung", "WWan:" . $SPOben);
-				}
-			}
+
+			$RC = HM_WriteValueBoolean(48122, "STATE" , false);
+			echo "Heizung au";
 		}
 	}
 }

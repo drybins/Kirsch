@@ -1,11 +1,7 @@
 {
     "elements": [
-	{
-		"type": "SelectVariable",
-		"name": "PropertyVariableID", 
-		"caption": "Target"
-	},
-{ "type": "SelectVariable", "name": "CounterID", "caption": "Counter" }
+	{ "type": "CheckBox", "name": "ZHV", "caption": "Zusatzheizung vorhanden" }
+	{ "type": "SelectVariable", "name": "CounterID", "caption": "Counter" }
 ],
     "actions": [],
     "status": []

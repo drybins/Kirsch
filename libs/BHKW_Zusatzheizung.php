@@ -75,8 +75,8 @@ trait BHKWZusatzHeizung
 		
 		if($ZHH or $ZHW)
 		{
-			SetValueBoolean($ZHID, true);
-			//$RC = @HM_WriteValueBoolean(48122, "STATE" , True);
+			//SetValueBoolean($ZHID, true);
+			$RC = @HM_WriteValueBoolean(48122, "STATE" , True);
 			echo "Heizung an";
 		}
 		else

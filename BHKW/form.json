@@ -1,7 +1,6 @@
 {
     "elements": 
 	[
-		{ "type": "CheckBox", "name": "ZHV", "caption": "Zusatzheizung vorhanden" },
 		{ "type": "SelectVariable", "name": "ZHID", "caption": "Zusatzheizung Schalter ID" }
 	],
     "actions": [],

@@ -28,7 +28,8 @@ trait BHKWZusatzHeizung
 		$VorlaufMitteAus = $VorlaufSoll + 15;
 		$VorlaufSollAn = $VorlaufSoll-15;
 		
-		$ZHID = IPS_GetParent($this->ReadPropertyInteger("ZHID"));
+		//$ZHID = IPS_GetParent($this->ReadPropertyInteger("ZHID"));
+		$ZHID = 48122;
 		IPS_LogMessage("zHeizung ","Heizung Schalter ID: " . $ZHID);
 
 		$HKPumpe = GetValue($this->GetIDForIdent("R1"));

@@ -57,9 +57,10 @@ trait BHKWZusatzHeizung
 				//IPS_LogMessage("zHeizung Heizung vor+8:",$VorlaufMitteAus);
 			}
 		}
+		$ZHW= $ZHH;
 		if (time() > $WarmwasserStart and time() < $WarmwasserEnde)
 		{
-			$ZHW= $ZHH;
+			
 			IPS_LogMessage("zHeizung", "WW:" . $SPOben . " : Heißwasser: " . $Heißwasser . " : Heißwasser aus:" . ($Heißwasser +5) . " : Heißwasser an:" . ($Heißwasser -10 ));	
 			// Heizung is aus (Warmwasser)
 			// Speichertemperatur oben > 65 zusatzHeizung aus

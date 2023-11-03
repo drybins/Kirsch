@@ -25,7 +25,7 @@ trait BHKWZusatzHeizung
 		$WarmwasserStart = GetValue(20086);
 		$WarmwasserEnde = GetValue(52528);
 		
-		$VorlaufMitteAus = $VorlaufSoll + 15;
+		$VorlaufMitteAus = $VorlaufSoll + 10;
 		$VorlaufSollAn = $VorlaufSoll-15;
 		
 		//$ZHID = IPS_GetParent($this->ReadPropertyInteger("ZHID"));
@@ -39,7 +39,7 @@ trait BHKWZusatzHeizung
 			IPS_LogMessage("zHeizung", "Heizkreispumpe ist an:");
 			IPS_LogMessage("zHeizung", "VI:" . $VorlaufIst . " : " . "VSAN" . " : " . $VorlaufSollAn);	
 			IPS_LogMessage("zHeizung", "SPMitte:" . $SPMitte . " : " . "VMAUS" . " : " . $VorlaufMitteAus);	
-			if($VorlaufIst < $VorlaufSollAn Or $SPMitte  < $VorlaufMitteAus)
+			if($VorlaufIst < $VorlaufSollAn Or $SPMitte < $VorlaufMitteAus)
 			{
 				$ZHH = True;
 				//SetValue($this->GetIDForIdent("R4"), true);

@@ -1,7 +1,10 @@
 {
     "elements": 
 	[
-		{ "type": "SelectVariable", "name": "ZHID", "caption": "Zusatzheizung Schalter ID" }
+		{ 	"type": "SelectVariable",
+			"name": "ZHID",
+			"caption": "ID" 
+		}
 	],
     "actions": [],
     "status": []

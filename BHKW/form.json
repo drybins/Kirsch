@@ -1,4 +1,5 @@
 {
+	"_Comment": "Kommentar1" 
     "elements": 
 	[
 		{ 	"type": "SelectVariable",
@@ -9,7 +10,7 @@
 			"type": "NumberSpinner",
 			"name": "Zustandszahl",
 			"caption": "Zustandszahl",
-			"digits": 4 }
+			"digits": 4 },
 	],
     "actions": []
 }

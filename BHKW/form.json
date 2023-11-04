@@ -10,7 +10,8 @@
 			"type": "NumberSpinner",
 			"name": "Zustandszahl",
 			"caption": "Zustandszahl",
-			"digits": 4 },
+			"digits": 4 }
 	],
-    "actions": []
+    "actions": [],
+    "status": []
 }

@@ -410,13 +410,14 @@ require_once(__ROOT__ . '/libs/BHKW_CreateProfile.php');
 		
 		/**
      		* Interne Funktion des SDK.
-     		*/
+     		
     		public function GetConfigurationForm()
     		{
         		$form = json_decode(file_get_contents(__DIR__ . '/form.json'), true);
 		        //$ConfigVars = json_decode($this->ReadPropertyString('Variables'), true);
 		        return json_encode($form);
     		}
+			*/
 				
 		private function IPS_CreateKategorie($KategorieName, $ParentCat, $Position) 
 		{

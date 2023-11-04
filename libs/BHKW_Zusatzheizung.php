@@ -71,6 +71,7 @@ trait BHKWZusatzHeizung
 				$ZHW = false;
 				IPS_LogMessage("zHeizung", "WWaus:" . $SPOben);	
 			}
+			else
 			// Speichertemperatur oben < 55 zusatzHeizung an
 			if ($SPOben < ($Heißwasser - 10) or $SPOben < ($Heißwasser + 5) )
 			{
@@ -80,7 +81,7 @@ trait BHKWZusatzHeizung
 			}
 		}
 		
-		if($ZHH or $ZHW)
+		if($ZHW)
 		{
 			//SetValueBoolean($ZHID, true);
 			$RC = @HM_WriteValueBoolean($ZHID, "STATE" , True);

@@ -92,7 +92,7 @@ trait BHKWZusatzHeizung
 			//$RC = HM_RequestStatus ($ZHID)
 			//if($RC)
 			//{
-				$RC = @HM_WriteValueBoolean($ZHID, "STATE" , false);
+				$RC = HM_WriteValueBoolean($ZHID, "STATE" , false);
 				echo "Heizung auß";
 			//}
 		}

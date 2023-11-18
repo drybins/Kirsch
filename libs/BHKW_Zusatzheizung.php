@@ -47,7 +47,7 @@ trait BHKWZusatzHeizung
 		
 		if($Dauer > 300)
         {
-			Echo "Exit";
+			IPS_LogMessage("zHeizung", "Exit");
 			exit();
 		}
 		

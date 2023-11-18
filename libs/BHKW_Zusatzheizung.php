@@ -94,19 +94,22 @@ trait BHKWZusatzHeizung
 				IPS_LogMessage("zHeizung", "WWan:" . $SPOben);
 			}
 		}
-		
+		$ZHS = HM_RequestStatus($ZHID, "STATE");
 		if($ZHW or $ZHH)
 		{
-			//SetValueBoolean($ZHID, true);
-			$RC = @HM_WriteValueBoolean($ZHID, "STATE" , True);
-			//echo "Heizung an";
+			if(!$ZHS)
+			{
+				//SetValueBoolean($ZHID, true);
+				$RC = @HM_WriteValueBoolean($ZHID, "STATE" , True);
+				//echo "Heizung an";
+			}
 		}
 		else
 		{
 			//$RC = HM_RequestStatus ($ZHID)
 			//if($RC)
 			//{
-				if(HM_RequestStatus($ZHID, "STATE") === true)
+				if($ZHS)
 				{
 					$RC = HM_WriteValueBoolean($ZHID, "STATE" , False);
 					//echo "Heizung auß";

@@ -49,8 +49,6 @@ trait BHKWZusatzHeizung
         {
 			IPS_LogMessage("zHeizung", "Schalten");
 
-
-		
 		if($HKPumpe)
 		{
 			IPS_LogMessage("zHeizung", "Heizkreispumpe ist an:");

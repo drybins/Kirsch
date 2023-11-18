@@ -36,9 +36,14 @@ trait BHKWZusatzHeizung
 		IPS_LogMessage("zHeizung","HKPumpe: " . $HKPumpe);	
 		$ZHH = false;
 		
-		//$VarInfo = IPS_GetVariable($ZHID);
-		//$EndeZeit = $VarInfo[VariableChanged]
-		//Echo "Schaltzeit = " . $EndeZeit;
+		$VarInfo = IPS_GetVariable(20054);
+        //print_r ($VarInfo);
+		$SchaltZeit = $VarInfo["VariableChanged"];
+		IPS_LogMessage("zHeizung", "Schaltzeit = " . $SchaltZeit);
+        $Jetzt  =  time();
+        IPS_LogMessage("zHeizung", "Jetzt = " . $Jetzt);
+        $Dauer = ($Jetzt - $SchaltZeit)/60;
+		IPS_LogMessage("zHeizung", "Dauer: " . $Dauer);
 		
 		if($HKPumpe)
 		{

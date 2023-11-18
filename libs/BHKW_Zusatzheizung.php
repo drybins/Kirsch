@@ -45,8 +45,10 @@ trait BHKWZusatzHeizung
         $Dauer = ($Jetzt - $SchaltZeit)/60;
 		IPS_LogMessage("zHeizung", "Dauer: " . $Dauer);
 		
-		//if($Dauer > 300)
-        //{
+		if($Dauer > 300)
+        {
+			exit();
+		}
 		
 		if($HKPumpe)
 		{

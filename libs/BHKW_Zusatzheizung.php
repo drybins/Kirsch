@@ -36,9 +36,9 @@ trait BHKWZusatzHeizung
 		IPS_LogMessage("zHeizung","HKPumpe: " . $HKPumpe);	
 		$ZHH = false;
 		
-		$VarInfo = IPS_GetVariable($ZHID);
-		$EndeZeit = $VarInfo[VariableChanged]
-		Echo "Schaltzeit = " . $EndeZeit;
+		//$VarInfo = IPS_GetVariable($ZHID);
+		//$EndeZeit = $VarInfo[VariableChanged]
+		//Echo "Schaltzeit = " . $EndeZeit;
 		
 		if($HKPumpe)
 		{
@@ -100,7 +100,7 @@ trait BHKWZusatzHeizung
 				if(HM_RequestStatus($ZHID, "STATE") === true)
 				{
 					$RC = HM_WriteValueBoolean($ZHID, "STATE" , False);
-					echo "Heizung auß";
+					//echo "Heizung auß";
 				}
 				
 			//}

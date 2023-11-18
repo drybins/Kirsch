@@ -47,6 +47,7 @@ trait BHKWZusatzHeizung
 		
 		if($Dauer > 300)
         {
+			Echo "Exit";
 			exit();
 		}
 		

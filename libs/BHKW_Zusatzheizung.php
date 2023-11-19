@@ -94,7 +94,8 @@ trait BHKWZusatzHeizung
 				IPS_LogMessage("zHeizung", "WWan:" . $SPOben);
 			}
 		}
-		$ZHS = HM_RequestStatus($ZHID, "STATE");
+		//$ZHS = HM_RequestStatus($ZHID, "STATE");
+		$ZHS = GetValueBoolean (20054);
 		if($ZHW or $ZHH)
 		{
 			//if(!$ZHS)

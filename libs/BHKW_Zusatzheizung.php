@@ -92,10 +92,11 @@ trait BHKWZusatzHeizung
 			if($ZHW or $ZHH)
 			{
 				$RC = @HM_WriteValueBoolean($ZHID, "STATE" , True);
+				IPS_LogMessage("zHeizung", "Heizung an1 : " . $ZHS);
 				if(!$ZHS)
 				{
 					//SetValueBoolean($ZHID, true);
-					IPS_LogMessage("zHeizung", "Heizung an");
+					IPS_LogMessage("zHeizung", "Heizung an2");
 				}
 			}
 			else

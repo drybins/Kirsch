@@ -49,73 +49,63 @@ trait BHKWZusatzHeizung
         {
 			IPS_LogMessage("zHeizung", "Schalten");
 
-		if($HKPumpe)
-		{
-			IPS_LogMessage("zHeizung", "Heizkreispumpe ist an:");
-			IPS_LogMessage("zHeizung", "VI:" . $VorlaufIst . " : " . "VSAN" . " : " . $VorlaufSollAn);	
-			IPS_LogMessage("zHeizung", "SPMitte:" . $SPMitte . " : " . "VMAUS" . " : " . $VorlaufMitteAus);	
-			if($VorlaufIst < $VorlaufSollAn Or $SPMitte < $VorlaufMitteAus)
+			if($HKPumpe)
 			{
-				$ZHH = True;
-				//SetValue($this->GetIDForIdent("R4"), true);
-				IPS_LogMessage("zHeizung","Heizung an:");
+				IPS_LogMessage("zHeizung", "Heizkreispumpe ist an:");
+				IPS_LogMessage("zHeizung", "VI:" . $VorlaufIst . " : " . "VSAN" . " : " . $VorlaufSollAn);	
+				IPS_LogMessage("zHeizung", "SPMitte:" . $SPMitte . " : " . "VMAUS" . " : " . $VorlaufMitteAus);	
+				if($VorlaufIst < $VorlaufSollAn Or $SPMitte < $VorlaufMitteAus)
+				{
+					$ZHH = True;
+					//SetValue($this->GetIDForIdent("R4"), true);
+					IPS_LogMessage("zHeizung","Heizung an:");
+				}
+				//if($SPmitte > $VorlaufMitteAus)
+				if($SPMitte > $VorlaufMitteAus)
+				{
+					$ZHH = false;
+					IPS_LogMessage("zHeizung","Heizung aus:");
+				}
 			}
-			//if($SPmitte > $VorlaufMitteAus)
-			if($SPMitte > $VorlaufMitteAus)
+			$ZHW= $ZHH;
+			if (time() > $WarmwasserStart and time() < $WarmwasserEnde)
 			{
-				$ZHH = false;
-				IPS_LogMessage("zHeizung","Heizung aus:");
-				//$RC = HM_WriteValueBoolean($ZHID, "STATE" , false);
-				//SetValue($this->GetIDForIdent("R4"), false);
-				//IPS_LogMessage("zHeizung Heizung aus:");
-				//IPS_LogMessage("zHeizung Heizung mitte:",GetValue($this->GetIDForIdent("T3")));
-				//IPS_LogMessage("zHeizung Heizung vor+8:",$VorlaufMitteAus);
-			}
-		}
-		$ZHW= $ZHH;
-		if (time() > $WarmwasserStart and time() < $WarmwasserEnde)
-		{
 			
-			IPS_LogMessage("zHeizung", "WW:" . $SPOben . " : Heißwasser: " . $Heißwasser . " : Heißwasser aus:" . ($Heißwasser +5) . " : Heißwasser an:" . ($Heißwasser -10 ));	
-			// Heizung is aus (Warmwasser)
-			// Speichertemperatur oben > 65 zusatzHeizung aus
-			//if ($SPOben > ($Heißwasser + 5) and !$ZHH)
-			if ($SPOben > ($Heißwasser + 5))
+				IPS_LogMessage("zHeizung", "WW:" . $SPOben . " : Heißwasser: " . $Heißwasser . " : Heißwasser aus:" . ($Heißwasser +5) . " : Heißwasser an:" . ($Heißwasser -10 ));	
+				//if ($SPOben > ($Heißwasser + 5) and !$ZHH)
+				if ($SPOben > ($Heißwasser + 5))
+				{
+					$ZHW = false;
+					IPS_LogMessage("zHeizung", "WWaus:" . $SPOben);	
+				}
+				else
+				// Speichertemperatur oben < 55 zusatzHeizung an
+				if ($SPOben < ($Heißwasser - 10) or $SPOben < ($Heißwasser + 5) )
+				{
+					$ZHW = True;
+					//SetValue($this->GetIDForIdent("R4"), true);
+					IPS_LogMessage("zHeizung", "WWan:" . $SPOben);
+				}
+			}
+			//$ZHS = HM_RequestStatus($ZHID, "STATE");
+			$ZHS = GetValueBoolean (20054);
+			if($ZHW or $ZHH)
 			{
-				$ZHW = false;
-				IPS_LogMessage("zHeizung", "WWaus:" . $SPOben);	
+				$RC = @HM_WriteValueBoolean($ZHID, "STATE" , True);
+				if(!$ZHS)
+				{
+					//SetValueBoolean($ZHID, true);
+					IPS_LogMessage("zHeizung", "Heizung an");
+				}
 			}
 			else
-			// Speichertemperatur oben < 55 zusatzHeizung an
-			if ($SPOben < ($Heißwasser - 10) or $SPOben < ($Heißwasser + 5) )
 			{
-				$ZHW = True;
-				//SetValue($this->GetIDForIdent("R4"), true);
-				IPS_LogMessage("zHeizung", "WWan:" . $SPOben);
-			}
-		}
-		//$ZHS = HM_RequestStatus($ZHID, "STATE");
-		$ZHS = GetValueBoolean (20054);
-		if($ZHW or $ZHH)
-		{
-			$RC = @HM_WriteValueBoolean($ZHID, "STATE" , True);
-			if(!$ZHS)
-			{
-				//SetValueBoolean($ZHID, true);
-				IPS_LogMessage("zHeizung", "Heizung an");
-			}
-		}
-		else
-		{
-			//$RC = HM_RequestStatus ($ZHID)
-			//if($RC)
-			//{
 				if($ZHS)
 				{
 					$RC = HM_WriteValueBoolean($ZHID, "STATE" , False);
 					IPS_LogMessage("zHeizung", "Heizung aus");
 				}
-		}
+			}
 		}
 	}
 }

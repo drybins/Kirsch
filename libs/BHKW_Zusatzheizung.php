@@ -103,7 +103,7 @@ trait BHKWZusatzHeizung
 			{
 				//SetValueBoolean($ZHID, true);
 				IPS_LogMessage("zHeizung", "Heizung an");
-			//}
+			}
 		}
 		else
 		{

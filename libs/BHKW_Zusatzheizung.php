@@ -52,7 +52,11 @@ trait BHKWZusatzHeizung
 			if($HKPumpe)
 			{
 				IPS_LogMessage("zHeizung", "Heizkreispumpe ist an:");
-				IPS_LogMessage("zHeizung", "VI:" . $VorlaufIst . " : " . "VSAN" . " : " . $VorlaufSollAn);	
+				if($VorlaufIst < $VorlaufSollAn)
+				{
+					IPS_LogMessage("zHeizung", "VI:" . $VorlaufIst . " : " . "VSAN" . " : " . $VorlaufSollAn);	
+					IPS_LogMessage("zHeizung", "ZH VorlaufIst ist kleiner Vorlauf soll An.")
+				}
 				IPS_LogMessage("zHeizung", "SPMitte:" . $SPMitte . " : " . "VMAUS" . " : " . $VorlaufMitteAus);	
 				if($VorlaufIst < $VorlaufSollAn Or $SPMitte < $VorlaufMitteAus)
 				{

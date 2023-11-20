@@ -26,7 +26,7 @@ trait BHKWZusatzHeizung
 		$WarmwasserEnde = GetValue(52528);
 		
 		$VorlaufMitteAus = $VorlaufSoll + 10;
-		$VorlaufSollAn = $VorlaufSoll-15;
+		$VorlaufSollAn = $VorlaufSoll-5;
 		
 		//$ZHID = IPS_GetParent($this->ReadPropertyInteger("ZHID"));
 		$ZHID = 48122;
@@ -57,8 +57,13 @@ trait BHKWZusatzHeizung
 					IPS_LogMessage("zHeizung", "VI:" . $VorlaufIst . " : " . "VSAN" . " : " . $VorlaufSollAn);	
 					IPS_LogMessage("zHeizung", "ZH VorlaufIst ist kleiner Vorlauf soll An.");
 				}
-				IPS_LogMessage("zHeizung", "SPMitte:" . $SPMitte . " : " . "VMAUS" . " : " . $VorlaufMitteAus);	
-				if($VorlaufIst < $VorlaufSollAn Or $SPMitte < $VorlaufMitteAus)
+				if($SPMitte < $VorlaufMitteAus)
+				{
+					IPS_LogMessage("zHeizung", "SPMitte:" . $SPMitte . " : " . "VMAUS" . " : " . $VorlaufMitteAus);	
+					IPS_LogMessage("zHeizung", "ZH Speicher mitte ist kleiner Vorlauf mitte Aus.");
+				}
+				//if($VorlaufIst < $VorlaufSollAn Or $SPMitte < $VorlaufMitteAus)
+				if($VorlaufIst < $VorlaufSollAn)
 				{
 					$ZHH = True;
 					//SetValue($this->GetIDForIdent("R4"), true);

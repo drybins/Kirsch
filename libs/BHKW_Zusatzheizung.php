@@ -41,7 +41,7 @@ trait BHKWZusatzHeizung
 		$SchaltZeit = $VarInfo["VariableChanged"];
 		//IPS_LogMessage("zHeizung", "Schaltzeit = " . $SchaltZeit);
         $Jetzt  =  time();
-        /IPS_LogMessage("zHeizung", "Jetzt = " . $Jetzt);
+        //IPS_LogMessage("zHeizung", "Jetzt = " . $Jetzt);
         $Dauer = ($Jetzt - $SchaltZeit)/60;
 		IPS_LogMessage("zHeizung", "Dauer: " . $Dauer);
 		

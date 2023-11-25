@@ -101,6 +101,18 @@ trait BHKWZusatzHeizung
 			{
 				IPS_LogMessage("zHeizung","ZHH ist false");
 			}
+			else
+			{
+				IPS_LogMessage("zHeizung","ZHH ist True");
+			}
+			if(!$ZHW)
+			{
+				IPS_LogMessage("zHeizung","ZHW ist false");
+			}
+			else
+			{
+				IPS_LogMessage("zHeizung","ZHW ist True");
+			}
 			//$ZHS = HM_RequestStatus($ZHID, "STATE");
 			$ZHS = GetValueBoolean (20054);
 			if($ZHW or $ZHH)

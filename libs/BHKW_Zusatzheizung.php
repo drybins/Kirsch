@@ -115,25 +115,32 @@ trait BHKWZusatzHeizung
 			}
 			$Holz = GetValueBoolean (19296);
 			//$ZHS = HM_RequestStatus($ZHID, "STATE");
-			IPS_LogMessage("zHeizung", "Holz: " . $Holz );
-			$ZHS = GetValueBoolean (20054);
-			if($ZHW or $ZHH)
+			if(!$Holz)
 			{
-				$RC = @HM_WriteValueBoolean($ZHID, "STATE" , True);
-				IPS_LogMessage("zHeizung", "Heizung an1 : " . $ZHS . " ZHW: " . $ZHW . " ZHH: " . $ZHH);
-				if(!$ZHS)
+				
+				$ZHS = GetValueBoolean (20054);
+				if($ZHW or $ZHH)
 				{
-					//SetValueBoolean($ZHID, true);
-					IPS_LogMessage("zHeizung", "Heizung an2");
+					$RC = @HM_WriteValueBoolean($ZHID, "STATE" , True);
+					IPS_LogMessage("zHeizung", "Heizung an1 : " . $ZHS . " ZHW: " . $ZHW . " ZHH: " . $ZHH);
+					if(!$ZHS)
+					{
+						//SetValueBoolean($ZHID, true);
+						IPS_LogMessage("zHeizung", "Heizung an2");
+					}
+				}
+				else
+				{
+					if($ZHS)
+					{
+						$RC = HM_WriteValueBoolean($ZHID, "STATE" , False);
+						IPS_LogMessage("zHeizung", "Heizung aus");
+					}
 				}
 			}
 			else
 			{
-				if($ZHS)
-				{
-					$RC = HM_WriteValueBoolean($ZHID, "STATE" , False);
-					IPS_LogMessage("zHeizung", "Heizung aus");
-				}
+				IPS_LogMessage("zHeizung", "Holzist an: " . $Holz );
 			}
 		}
 	}

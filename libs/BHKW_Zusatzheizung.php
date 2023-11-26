@@ -113,7 +113,9 @@ trait BHKWZusatzHeizung
 			{
 				IPS_LogMessage("zHeizung","ZHW ist True");
 			}
+			$Holz = GetValueBoolean (19296);
 			//$ZHS = HM_RequestStatus($ZHID, "STATE");
+			IPS_LogMessage("zHeizung", "Holz: " . $Holz );
 			$ZHS = GetValueBoolean (20054);
 			if($ZHW or $ZHH)
 			{

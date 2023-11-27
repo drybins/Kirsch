@@ -22,7 +22,7 @@ trait BHKWFunctions
 		
 		$Vorlauf20 = GetValueInteger(IPS_GetVariableIDByName("Vorlauf bei 20°C", $KategorieID));
 		$VorlaufM20 = GetValueInteger(IPS_GetVariableIDByName("Vorlauf bei -20°C", $KategorieID));
-		$TMin = GetValueFloat(57986);
+		$TMin = GetValueInteger(57986);
 		IPS_LogMessage("zVorlauf","TMin: " . $TMin);
 		IPS_LogMessage("zVorlauf","Vorlauf 20: " . $Vorlauf20);
 		IPS_LogMessage("zVorlauf","Vorlauf -20: " . $VorlaufM20);

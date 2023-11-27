@@ -58,11 +58,7 @@ trait BHKWZusatzHeizung
 					IPS_LogMessage("zHeizung", "VI:" . $VorlaufIst . " : " . "VSAN" . " : " . $VorlaufSollAn);	
 					IPS_LogMessage("zHeizung", "ZH VorlaufIst ist kleiner Vorlauf soll An.");
 				}
-				if($SPMitte < $VorlaufMitteAus)
-				{
-					IPS_LogMessage("zHeizung", "SPMitte:" . $SPMitte . " : " . "VMAUS" . " : " . $VorlaufMitteAus);	
-					IPS_LogMessage("zHeizung", "ZH Speicher mitte ist kleiner Vorlauf mitte Aus.");
-				}
+
 				//if($VorlaufIst < $VorlaufSollAn Or $SPMitte < $VorlaufMitteAus)
 				if($VorlaufIst < $VorlaufSollAn)
 				{
@@ -73,6 +69,9 @@ trait BHKWZusatzHeizung
 				//if($SPmitte > $VorlaufMitteAus)
 				if($SPMitte > $VorlaufMitteAus)
 				{
+					IPS_LogMessage("zHeizung", "SPMitte:" . $SPMitte . " : " . "VMAUS" . " : " . $VorlaufMitteAus);	
+					IPS_LogMessage("zHeizung", "ZH Speicher mitte ist kleiner Vorlauf mitte Aus.");
+
 					$ZHH = false;
 					IPS_LogMessage("zHeizung","Heizung aus:");
 				}

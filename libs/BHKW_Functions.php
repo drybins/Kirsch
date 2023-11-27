@@ -17,6 +17,7 @@ trait BHKWFunctions
 		$KategorieID = @IPS_GetCategoryIDByName("Heizkreislauf 1", $ID);
 		$KategorieNachtAID = @IPS_GetCategoryIDByName("Nachtabsenkung", $KategorieID);
 		IPS_LogMessage("zVorlauf","Nachtabsenkung: " . $KategorieNachtAID);
+		$TMinID = IPS_GetVariableIDByName("TMin",$KategorieNachtAID);
 		//IPS_LogMessage("zVorlauf","Nachtabsenkung: " . IPS_GetVariableIDByName("TMin",$KategorieNachtAID));
 		IPS_LogMessage("zVorlauf","Vorlauf20 ID: " . IPS_GetVariableIDByName("Vorlauf bei 20°C", $KategorieID));
 		

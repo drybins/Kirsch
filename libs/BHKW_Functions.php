@@ -16,16 +16,18 @@ trait BHKWFunctions
 		//IPS_LogMessage("Dierk1 BHKW stateHeatControl ID", $ID);
 		$KategorieID = @IPS_GetCategoryIDByName("Heizkreislauf 1", $ID);
 		
+		IPS_LogMessage("zVorlauf","Vorlauf20 ID: " . IPS_GetVariableIDByName("Vorlauf bei 20°C", $KategorieID));
+		
 		$Volauf20 = GetValueInteger(IPS_GetVariableIDByName("Vorlauf bei 20°C", $KategorieID));
 		$VolaufM20 = GetValueInteger(IPS_GetVariableIDByName("Vorlauf bei -20°C", $KategorieID));
 		
-		IPS_LogMessage("zVorlauf","Vorlauf 20" . $Vorlauf20);
-		IPS_LogMessage("zVorlauf","Vorlauf -20" . $VorlaufM20);
+		IPS_LogMessage("zVorlauf","Vorlauf 20: " . $Vorlauf20);
+		IPS_LogMessage("zVorlauf","Vorlauf -20: " . $VorlaufM20);
 		//IPS_LogMessage("Dierk1 BHKW stateHeatControl Kategorie", $Volauf20);
 		$VorlaufTempDiff = $VolaufM20 - $Volauf20;
-		IPS_LogMessage("zVorlauf","VorlaufDiff" . $VorlaufTempDiff);
+		IPS_LogMessage("zVorlauf","VorlaufDiff: " . $VorlaufTempDiff);
 		$VorlaufTempStep = $VorlaufTempDiff/40;
-		IPS_LogMessage("zVorlauf","VorlaufTempStep" . $VorlaufTempStep);
+		IPS_LogMessage("zVorlauf","VorlaufTempStep: " . $VorlaufTempStep);
 		$VorlaufSoll = ((20-$AussenTemp)* $VorlaufTempStep) + 40;
 		IPS_LogMessage("zVorlauf","VorlaufSoll" . $VorlaufSoll);
 		//Nachtabsenkung bei mehr als 3 Grad AußenTemperatur und zwischen 22:30 und 05:30 Uhr.

@@ -70,7 +70,7 @@ trait BHKWZusatzHeizung
 				if($SPMitte > $VorlaufMitteAus)
 				{
 					IPS_LogMessage("zHeizung", "SPMitte:" . $SPMitte . " : " . "VMAUS" . " : " . $VorlaufMitteAus);	
-					IPS_LogMessage("zHeizung", "ZH Speicher mitte ist kleiner Vorlauf mitte Aus.");
+					IPS_LogMessage("zHeizung", "ZH Speicher mitte ist größer Vorlauf mitte Aus.");
 
 					$ZHH = false;
 					IPS_LogMessage("zHeizung","Heizung aus:");

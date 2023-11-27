@@ -28,7 +28,7 @@ trait BHKWFunctions
 		IPS_LogMessage("zVorlauf","VorlaufDiff: " . $VorlaufTempDiff);
 		$VorlaufTempStep = $VorlaufTempDiff/40;
 		IPS_LogMessage("zVorlauf","VorlaufTempStep: " . $VorlaufTempStep);
-		$VorlaufSoll = ((20-$AussenTemp)* $VorlaufTempStep) + 40;
+		$VorlaufSoll = ((20-$AussenTemp)* $VorlaufTempStep) + $Vorlauf20;
 		IPS_LogMessage("zVorlauf","VorlaufSoll" . $VorlaufSoll);
 		//Nachtabsenkung bei mehr als 3 Grad AußenTemperatur und zwischen 22:30 und 05:30 Uhr.
 		if(($time >= "22:30")or($time <= "05:30"))

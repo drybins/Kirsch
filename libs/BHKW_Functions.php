@@ -15,7 +15,7 @@ trait BHKWFunctions
 		$ID = IPS_GetInstanceListByModuleID($GUID)[0];
 		//IPS_LogMessage("Dierk1 BHKW stateHeatControl ID", $ID);
 		$KategorieID = @IPS_GetCategoryIDByName("Heizkreislauf 1", $ID);
-		$KategorieNachtAID = @IPS_GetCategoryIDByName("Nachtabsenkung", $ID);
+		$KategorieNachtAID = @IPS_GetCategoryIDByName("Nachtabsenkung", $KategorieID);
 		IPS_LogMessage("zVorlauf","Nachtabsenkung ID: " . $KategorieNachtAID);
 		IPS_LogMessage("zVorlauf","Vorlauf20 ID: " . IPS_GetVariableIDByName("Vorlauf bei 20°C", $KategorieID));
 		

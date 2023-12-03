@@ -75,6 +75,10 @@ trait BHKWZusatzHeizung
 					$ZHH = false;
 					IPS_LogMessage("zHeizung","Heizung aus:");
 				}
+				else
+				{
+					$ZHH = True;
+				}
 			}
 			$ZHW= $ZHH;
 			if (time() > $WarmwasserStart and time() < $WarmwasserEnde)

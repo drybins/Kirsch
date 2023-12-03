@@ -26,7 +26,7 @@ trait BHKWZusatzHeizung
 		$WarmwasserEnde = GetValue(52528);
 		
 		$VorlaufMitteAus = $VorlaufSoll + 10;
-		$VorlaufSollAn = $VorlaufSoll-5;
+		$VorlaufSollAn = $VorlaufSoll-2;
 		
 		//$ZHID = IPS_GetParent($this->ReadPropertyInteger("ZHID"));
 		$ZHID = 48122;

@@ -37,7 +37,7 @@ trait BHKWFunctions
 		//Nachtabsenkung bei mehr als 3 Grad AußenTemperatur und zwischen 22:30 und 05:30 Uhr.
 		if(($time >= "22:30")or($time <= "05:30"))
 		{
-			if($AussenTemp > 3)
+			if($AussenTemp > 4)
 			{
 				$VorlaufSoll = $VorlaufSoll - 5;
 			}

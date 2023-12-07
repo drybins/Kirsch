@@ -158,5 +158,9 @@ trait BHKWZusatzHeizung
 			}
 		}
 		}
+		else
+		{
+			IPS_LogMessage("zHeizung", "BHKW nicht auf Fehler!");
+		}
 	}
 }

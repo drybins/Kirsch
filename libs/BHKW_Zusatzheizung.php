@@ -34,7 +34,7 @@ trait BHKWZusatzHeizung
 		//$ZHID = IPS_GetParent($this->ReadPropertyInteger("ZHID"));
 		$ZHID = 48122;
 		//SetValueBoolean(20054, GetValue(30813));
-		$RC = HM_WriteValueBoolean($ZHID, "STATE" , GetValue(30813));
+		//$RC = HM_WriteValueBoolean($ZHID, "STATE" , GetValue(30813));
 		//IPS_LogMessage("zHeizung ","Heizung Schalter ID: " . $ZHID);
 
 		$HKPumpe = GetValue($this->GetIDForIdent("R1"));

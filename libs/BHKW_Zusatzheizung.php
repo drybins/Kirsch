@@ -25,6 +25,9 @@ trait BHKWZusatzHeizung
 		$WarmwasserStart = GetValue(20086);
 		$WarmwasserEnde = GetValue(52528);
 		
+		$BHKWStatus = GetValue(21751);
+		
+		
 		$VorlaufMitteAus = $VorlaufSoll + 10;
 		$VorlaufSollAn = $VorlaufSoll-4;
 		
@@ -44,7 +47,8 @@ trait BHKWZusatzHeizung
         //IPS_LogMessage("zHeizung", "Jetzt = " . $Jetzt);
         $Dauer = ($Jetzt - $SchaltZeit)/60;
 		IPS_LogMessage("zHeizung", "Dauer: " . $Dauer);
-		
+		if($BHKWStatus <> 11)
+		{	
 		if($Dauer > 30)
         {
 			IPS_LogMessage("zHeizung", "Schalten");
@@ -152,6 +156,7 @@ trait BHKWZusatzHeizung
 			{
 				IPS_LogMessage("zHeizung", "Holzist an: " . $Holz );
 			}
+		}
 		}
 	}
 }

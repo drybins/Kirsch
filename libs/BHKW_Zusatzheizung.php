@@ -89,7 +89,8 @@ trait BHKWZusatzHeizung
 				}
 				else
 				// Speichertemperatur oben < 55 zusatzHeizung an
-				if ($SPOben < ($Heißwasser - 10) or $SPOben < ($Heißwasser + 5) )
+				//if ($SPOben < ($Heißwasser - 10) or $SPOben < ($Heißwasser + 5) )
+				if ($SPOben < ($Heißwasser - 10)) 
 				{
 					$ZHW = True;
 					//SetValue($this->GetIDForIdent("R4"), true);

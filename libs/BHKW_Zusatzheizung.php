@@ -28,7 +28,7 @@ trait BHKWZusatzHeizung
 		$BHKWStatus = GetValue(21751);
 		IPS_LogMessage("zHeizung", "BHKW nicht auf Fehler! " . $BHKWStatus);
 		
-		SetValueBoolean(20054, GetValue(30813);
+		SetValueBoolean(20054, GetValue(30813));
 		
 		
 		$VorlaufMitteAus = $VorlaufSoll + 10;

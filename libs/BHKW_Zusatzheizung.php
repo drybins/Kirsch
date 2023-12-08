@@ -51,8 +51,7 @@ trait BHKWZusatzHeizung
 		IPS_LogMessage("zHeizung", "Dauer: " . $Dauer);
 		
 		
-		if($BHKWStatus === 11)
-		{	
+	
 		if($Dauer > 30)
         {
 			IPS_LogMessage("zHeizung", "Schalten");
@@ -160,11 +159,6 @@ trait BHKWZusatzHeizung
 			{
 				IPS_LogMessage("zHeizung", "Holzist an: " . $Holz );
 			}
-		}
-		}
-		else
-		{
-			IPS_LogMessage("zHeizung", "BHKW nicht auf Fehler! " . $BHKWStatus);
 		}
 	}
 }

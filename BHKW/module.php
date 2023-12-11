@@ -393,7 +393,7 @@ require_once(__ROOT__ . '/libs/BHKW_CreateProfile.php');
 					//IPS_LogMessage("Splitter data", $data);
 					break;
 			}
-			if (date("H")<>0)
+			if (date("H")>1)
     		{
 				//$CatID = @IPS_GetCategoryIDByName("Heißwasser", $this);
 				//if ($CatID === false) 

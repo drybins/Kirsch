@@ -22,7 +22,8 @@ trait BHKWZusatzHeizung
 		$SPMitte = GetValue($this->GetIDForIdent("T3"));
 
 		$Heißwasser = GetValue(13846);
-		$WarmwasserStart = GetValue(20086) + 3600;
+		$WarmwasserStart = GetValue(20086);
+		$WarmwasserStart = $WarmwasserStart  + 3600; 
 		$WarmwasserEnde = GetValue(52528);
 		
 		//$BHKWStatus = GetValue(21751);

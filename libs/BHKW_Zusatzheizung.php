@@ -30,7 +30,7 @@ trait BHKWZusatzHeizung
 		//IPS_LogMessage("zHeizung", "BHKW nicht auf Fehler! " . $BHKWStatus);
 		
 		$VorlaufMitteAus = $VorlaufSoll + 10;
-		$VorlaufSollAn = $VorlaufSoll-4;
+		$VorlaufSollAn = $VorlaufSoll-6;
 		
 		//$ZHID = IPS_GetParent($this->ReadPropertyInteger("ZHID"));
 		$ZHID = 48122;

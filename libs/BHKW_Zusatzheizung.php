@@ -21,7 +21,8 @@ trait BHKWZusatzHeizung
 		$SPOben = GetValue($this->GetIDForIdent("T2"));
 		$SPMitte = GetValue($this->GetIDForIdent("T3"));
 
-		$Heißwasser = GetValue(13846);
+		//$Heißwasser = GetValue(13846);
+		$Heißwasser = 55;
 		$WarmwasserStart = GetValue(20086);
 		$WarmwasserStart = $WarmwasserStart  + 3600; 
 		$WarmwasserEnde = GetValue(52528);

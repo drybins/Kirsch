@@ -43,6 +43,9 @@ trait BHKWZusatzHeizung
 		IPS_LogMessage("zHeizung","HKPumpe: " . $HKPumpe);	
 		$ZHH = false;
 		
+		// Holz= true, Öl = false
+		$Brennstoff = GetValue(19296);
+		
 		$VarInfo = IPS_GetVariable(20054);
         //print_r ($VarInfo);
 		$SchaltZeit = $VarInfo["VariableChanged"];
@@ -136,7 +139,9 @@ trait BHKWZusatzHeizung
 					{
 						//SetValueBoolean(20054, true);
 						IPS_LogMessage("zHeizung", "Heizung eingeschaltet!");
-						$RC = @HM_WriteValueBoolean($ZHID, "STATE" , True);
+						//$RC = @HM_WriteValueBoolean($ZHID, "STATE" , True);
+						SetValue(14611, True);
+						SetValue(23231, True);
 					}
 					else
 					{
@@ -148,7 +153,9 @@ trait BHKWZusatzHeizung
 					if($ZHS)
 					{
 						//SetValueBoolean(20054, false);
-						$RC = HM_WriteValueBoolean($ZHID, "STATE" , False);
+						//$RC = HM_WriteValueBoolean($ZHID, "STATE" , False);
+						SetValue(23231, False);
+						SetValue(14611, False);
 						IPS_LogMessage("zHeizung", "Heizung ausgeschaltet!");
 					}
 					else

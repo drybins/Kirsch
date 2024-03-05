@@ -141,7 +141,9 @@ trait BHKWZusatzHeizung
 						IPS_LogMessage("zHeizung", "Heizung eingeschaltet!");
 						//$RC = @HM_WriteValueBoolean($ZHID, "STATE" , True);
 						SetValue(14611, True);
+						RequestAction(14611, True);
 						SetValue(23231, True);
+						RequestAction(23231, True);
 					}
 					else
 					{
@@ -154,8 +156,10 @@ trait BHKWZusatzHeizung
 					{
 						//SetValueBoolean(20054, false);
 						//$RC = HM_WriteValueBoolean($ZHID, "STATE" , False);
-						SetValue(23231, False);
 						SetValue(14611, False);
+						RequestAction(14611, False);
+						SetValue(23231, False);
+						RequestAction(23231, False);
 						IPS_LogMessage("zHeizung", "Heizung ausgeschaltet!");
 					}
 					else

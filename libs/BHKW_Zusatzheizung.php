@@ -130,7 +130,7 @@ trait BHKWZusatzHeizung
 			if(!$Holz)
 			{
 				IPS_LogMessage("zHeizung","Oel Brenner");
-				$ZHS = GetValueBoolean (20054);
+				$ZHS = GetValueBoolean (14611);
 				if($ZHW or $ZHH)
 				{
 					//$RC = @HM_WriteValueBoolean($ZHID, "STATE" , True);

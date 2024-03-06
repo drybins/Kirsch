@@ -42,11 +42,8 @@ trait BHKWZusatzHeizung
 		$HKPumpe = GetValue($this->GetIDForIdent("R1"));
 		IPS_LogMessage("zHeizung","HKPumpe: " . $HKPumpe);	
 		$ZHH = false;
-		
-		// Holz= true, Öl = false
-		$Brennstoff = GetValue(19296);
-		
-		$VarInfo = IPS_GetVariable(20054);
+			
+		$VarInfo = IPS_GetVariable(23231);
         //print_r ($VarInfo);
 		$SchaltZeit = $VarInfo["VariableChanged"];
 		//IPS_LogMessage("zHeizung", "Schaltzeit = " . $SchaltZeit);
@@ -63,7 +60,7 @@ trait BHKWZusatzHeizung
 
 			if($HKPumpe)
 			{
-				$ZHH = GetValueBoolean (20054);
+				$ZHH = GetValueBoolean (23231);
 				IPS_LogMessage("zHeizung", "Heizkreispumpe ist an:");
 				if($VorlaufIst < $VorlaufSollAn)
 				{

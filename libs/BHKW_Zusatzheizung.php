@@ -57,7 +57,7 @@ trait BHKWZusatzHeizung
 		
 		
 	
-		if($Dauer > 30)
+		if($Dauer > 60)
         {
 			IPS_LogMessage("zHeizung", "Schalten");
 

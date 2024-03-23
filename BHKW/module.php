@@ -161,7 +161,7 @@ require_once(__ROOT__ . '/libs/BHKW_CreateProfile.php');
 				ips_setname($HWID, "Hardware");
 				IPS_SetParent($HWID, $ID);
 				
-				$this->RegisterVariableInteger("IP", "IP ADDR", "", 10);
+				$this->RegisterVariableString("IP", "IP ADDR", "", 10);
 				$IPID = $this->GetIDForIdent("IP");
 				IPS_SetParent($IPID, $HWID);
 				
@@ -169,8 +169,8 @@ require_once(__ROOT__ . '/libs/BHKW_CreateProfile.php');
 				$GNID = $this->GetIDForIdent("Geraetename");
 				IPS_SetParent($GNID, $HWID);
 
-				$this->RegisterVariableInteger("GeraeterSerial", "Geräte Seriennummer", "", 30);
-				$GSID = $this->GetIDForIdent("GeraeterSerial");
+				$this->RegisterVariableInteger("GeraeteSerial", "Geräte Seriennummer", "", 30);
+				$GSID = $this->GetIDForIdent("GeraeteSerial");
 				IPS_SetParent($GSID, $HWID);
 
 				$this->RegisterVariableInteger("GeraeterDT", "Geräte Device Type", "", 40);

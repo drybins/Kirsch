@@ -44,5 +44,18 @@ trait BHKWInfo
 		$ScriptData['Csoftware'] = (string) $xmlData->control->software;		
 		SetValueString(IPS_GetVariableIDByName("Software Version Bedieneinheit", $BedinID), $ScriptData['Csoftware']);
 
+		$SteuerID = @IPS_GetCategoryIDByName("Steuereinheit", $KategorieID);
+		
+		$ScriptData['Sserial'] = (string) $xmlData->userInterface->serial;		
+		SetValueInteger(IPS_GetVariableIDByName("Seriennummer Steuereinheit", $SteuerID), $ScriptData['Sserial']);
+
+		$ScriptData['SHardware'] = (string) $xmlData->userInterface->hardware;		
+		SetValueString(IPS_GetVariableIDByName("Hardware Version Steuereinheit", $SteuerID), $ScriptData['SHardware']);
+
+		$ScriptData['Sdaemon'] = (string) $xmlData->userInterface->daemon;		
+		SetValueString(IPS_GetVariableIDByName("Daemon Steuereinheit", $SteuerID), $ScriptData['Sdaemon']);
+
+		$ScriptData['Sgui'] = (string) $xmlData->userInterface->gui;		
+		SetValueString(IPS_GetVariableIDByName("Software Steuereinheit", $SteuerID), $ScriptData['Sgui']);
 	}
 }

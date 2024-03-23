@@ -461,7 +461,7 @@ require_once(__ROOT__ . '/libs/BHKW_CreateProfile.php');
 					//$this->WriteLog10($data);
 					$this->stateExternal($data);
 					break;
-				case "Info":
+				case "info":
 					$this->WriteLog11($data);
 					$this->Info($data);
 					break;

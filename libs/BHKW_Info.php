@@ -27,7 +27,7 @@ trait BHKWInfo
 		
 		$KategorieID = @IPS_GetCategoryIDByName("Hardware", $ID);
 		$ScriptData['IP'] = (string) $xmlData->ip;
-		SetValueInteger(IPS_GetVariableIDByName("IP ADDR", $KategorieID), $ScriptData['IP']);
+		SetValueString(IPS_GetVariableIDByName("IP ADDR", $KategorieID), $ScriptData['IP']);
 
 	}
 }

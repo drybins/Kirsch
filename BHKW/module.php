@@ -430,7 +430,7 @@ require_once(__ROOT__ . '/libs/BHKW_CreateProfile.php');
 				$data1 = $data;
 				$data=substr($data1,0,38) . substr($data1,76);
 			}	//$data = substr($data,0,$pos);
-				//IPS_LogMessage("Splitter CMD2", $cmd);
+				IPS_LogMessage("Splitter CMD2", $cmd);
 				//IPS_LogMessage("Splitter Fehler Pos:", $pos);
 				//IPS_LogMessage("Splitter Fehler ende pos:",substr($data,0,$pos));
 			//}

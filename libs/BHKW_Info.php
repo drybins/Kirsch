@@ -21,12 +21,13 @@ trait BHKWInfo
 			//print_r($ex);
 			IPS_LogMessage("BHKW Info Fehler", $data);
 		}
-			$GUID = "{13D080B9-10DD-1AAD-4C21-B06937CDCA3C}";
-			$ID = IPS_GetInstanceListByModuleID($GUID)[0];
 		
-			$KategorieID = @IPS_GetCategoryIDByName("Hardware", $ID);
-			$ScriptData['IP'] = (string) $xml->ip;
+		$GUID = "{13D080B9-10DD-1AAD-4C21-B06937CDCA3C}";
+		$ID = IPS_GetInstanceListByModuleID($GUID)[0];
+		
+		$KategorieID = @IPS_GetCategoryIDByName("Hardware", $ID);
+		$ScriptData['IP'] = (string) $xml->ip;
 
-		}
+
 	}
 }

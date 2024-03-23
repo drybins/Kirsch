@@ -181,6 +181,27 @@ require_once(__ROOT__ . '/libs/BHKW_CreateProfile.php');
 				$GFWID = $this->GetIDForIdent("GeraeteFirmware");
 				IPS_SetParent($GFWID, $HWID);				
 			}
+
+			if(@IPS_GetCategoryIDByName("Bedineinheit", $HWID) === false)
+			{
+				$HBEID=IPS_CreateCategory();
+				ips_setname($HBEID, "Bedineinheit");
+				IPS_SetParent($HBEID, $HWID);
+				
+				$this->RegisterVariableInteger("BESerial", "Seriennummer Bedieneinheit", "", 10);
+				$BESEID = $this->GetIDForIdent("BESerial");
+				IPS_SetParent($BESEID, $HBEID);
+			
+				$this->RegisterVariableString("BEHardware", "Hardware Version Bedieneinheit", "", 20);
+				$BEHID = $this->GetIDForIdent("BEHardware");
+				IPS_SetParent($BEHID, $HBEID);
+			
+				$this->RegisterVariableInteger("BESoftware", "Software Version Bedieneinheit", "", 30);
+				$BESID = $this->GetIDForIdent("BESoftware");
+				IPS_SetParent($BESID, $HBEID);
+
+			}			
+			
 			//$statePPID = IPS_GetCategoryIDByName ("statePP", $ID);
 			//if(!IPS_GetCategoryIDByName ("statePP", $ID))
 			//{

@@ -43,6 +43,6 @@ trait BHKWInfo
 
 		$ScriptData['Csoftware'] = (string) $xmlData->control->software;		
 		SetValueString(IPS_GetVariableIDByName("Software Version Bedieneinheit", $KategorieID), $ScriptData['Csoftware']);
-	}
+
 	}
 }

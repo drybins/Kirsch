@@ -177,7 +177,7 @@ require_once(__ROOT__ . '/libs/BHKW_CreateProfile.php');
 				$GDTPID = $this->GetIDForIdent("GeraeterDT");
 				IPS_SetParent($GDTPID, $HWID);		
 				
-				$this->RegisterVariableString("GeraeteFirmware", "Geräte NFirmware", "", 50);
+				$this->RegisterVariableString("GeraeteFirmware", "Geräte Firmware", "", 50);
 				$GFWID = $this->GetIDForIdent("GeraeteFirmware");
 				IPS_SetParent($GFWID, $HWID);				
 			}

@@ -196,7 +196,7 @@ require_once(__ROOT__ . '/libs/BHKW_CreateProfile.php');
 				$BEHID = $this->GetIDForIdent("BEHardware");
 				IPS_SetParent($BEHID, $HBEID);
 			
-				$this->RegisterVariableInteger("BESoftware", "Software Version Bedieneinheit", "", 30);
+				$this->RegisterVariableString("BESoftware", "Software Version Bedieneinheit", "", 30);
 				$BESID = $this->GetIDForIdent("BESoftware");
 				IPS_SetParent($BESID, $HBEID);
 

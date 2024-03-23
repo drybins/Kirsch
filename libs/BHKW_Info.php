@@ -31,6 +31,18 @@ trait BHKWInfo
 
 		$ScriptData['firmware'] = (string) $xmlData->firmware;
 		SetValueString(IPS_GetVariableIDByName("Geräte Firmware", $KategorieID), $ScriptData['firmware']);
+		
 
+		$KategorieID = @IPS_GetCategoryIDByName("Bedineinheit", $ID);
+		
+		$ScriptData['Cserial'] = (string) $xmlData->control->serial;		
+		SetValueInteger(IPS_GetVariableIDByName("Seriennummer Bedieneinheit", $KategorieID), $ScriptData['Cserial']);
+
+		$ScriptData['CHardware'] = (string) $xmlData->control->hardware;		
+		SetValueString(IPS_GetVariableIDByName("Hardware Version Bedieneinheit", $KategorieID), $ScriptData['CHardware']);
+
+		$ScriptData['Csoftware'] = (string) $xmlData->control->software;		
+		SetValueString(IPS_GetVariableIDByName("Software Version Bedieneinheit", $KategorieID), $ScriptData['Csoftware']);
+	}
 	}
 }

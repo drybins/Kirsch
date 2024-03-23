@@ -201,6 +201,29 @@ require_once(__ROOT__ . '/libs/BHKW_CreateProfile.php');
 				IPS_SetParent($BESID, $HBEID);
 
 			}			
+
+			if(@IPS_GetCategoryIDByName("Steuereinheit", $HWID) === false)
+			{
+				$STEID=IPS_CreateCategory();
+				ips_setname($STEID, "Steuereinheit");
+				IPS_SetParent($STEID, $HWID);
+				
+				$this->RegisterVariableInteger("STSerial", "Seriennummer Steuereinheit", "", 10);
+				$STSID = $this->GetIDForIdent("STSerial");
+				IPS_SetParent($STSID, $STEID);
+			
+				$this->RegisterVariableInteger("STHardware", "Hardware Version Steuereinheit", "", 20);
+				$STHID = $this->GetIDForIdent("STHardware");
+				IPS_SetParent($STHID, $STEID);
+			
+				$this->RegisterVariableString("STDaemon", "Daemon Steuereinheit", "", 30);
+				$STDID = $this->GetIDForIdent("STDaemon");
+				IPS_SetParent($STDID, $STEID);
+
+				$this->RegisterVariableString("STSoftware", "Software Steuereinheit", "", 40);
+				$STSFID = $this->GetIDForIdent("STSoftware");
+				IPS_SetParent($STSFID, $STEID);
+			}	
 			
 			//$statePPID = IPS_GetCategoryIDByName ("statePP", $ID);
 			//if(!IPS_GetCategoryIDByName ("statePP", $ID))

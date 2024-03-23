@@ -24,10 +24,13 @@ trait BHKWInfo
 		
 		$GUID = "{13D080B9-10DD-1AAD-4C21-B06937CDCA3C}";
 		$ID = IPS_GetInstanceListByModuleID($GUID)[0];
-		
 		$KategorieID = @IPS_GetCategoryIDByName("Hardware", $ID);
+		
 		$ScriptData['IP'] = (string) $xmlData->ip;
 		SetValueString(IPS_GetVariableIDByName("IP ADDR", $KategorieID), $ScriptData['IP']);
+
+		$ScriptData['firmware'] = (string) $xmlData->firmware;
+		SetValueString(IPS_GetVariableIDByName("Geräte Firmware", $KategorieID), $ScriptData['firmware']);
 
 	}
 }

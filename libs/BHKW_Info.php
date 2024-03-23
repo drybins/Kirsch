@@ -50,7 +50,7 @@ trait BHKWInfo
 		SetValueInteger(IPS_GetVariableIDByName("Seriennummer Steuereinheit", $SteuerID), $ScriptData['Sserial']);
 
 		$ScriptData['SHardware'] = (string) $xmlData->userInterface->hardware;		
-		SetValueString(IPS_GetVariableIDByName("Hardware Version Steuereinheit", $SteuerID), $ScriptData['SHardware']);
+		SetValueInteger(IPS_GetVariableIDByName("Hardware Version Steuereinheit", $SteuerID), $ScriptData['SHardware']);
 
 		$ScriptData['Sdaemon'] = (string) $xmlData->userInterface->daemon;		
 		SetValueString(IPS_GetVariableIDByName("Daemon Steuereinheit", $SteuerID), $ScriptData['Sdaemon']);

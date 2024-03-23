@@ -153,7 +153,7 @@ require_once(__ROOT__ . '/libs/BHKW_CreateProfile.php');
 			}
 			
 			$HWID = @IPS_GetCategoryIDByName("Hardware", $ID);
-			if($HKID === false)
+			if($HWID === false)
 			{
 				IPS_LogMessage("Hardware nicht da!", "dierk1");	
 

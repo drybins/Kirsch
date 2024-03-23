@@ -8,7 +8,7 @@ require_once(__ROOT__ . '/libs/BHKW_statePower.php');
 require_once(__ROOT__ . '/libs/BHKW_stateHeatControl.php');
 require_once(__ROOT__ . '/libs/BHKW_errors.php');
 require_once(__ROOT__ . '/libs/BHKW_valuePP.php');
-
+require_once(__ROOT__ . '/libs/BHKW_Info.php');
 require_once(__ROOT__ . '/libs/BHKW_stateExternal.php');
 require_once(__ROOT__ . '/libs/BHKW_CreateProfile.php');
 //const TempDiff =40;
@@ -26,7 +26,7 @@ require_once(__ROOT__ . '/libs/BHKW_CreateProfile.php');
 
 	class BHKW extends IPSModule {
 	
-		use BHKWFunctions, BHKWZusatzHeizung, BHKWstatePP, BHKWstatePower, BHKWstateHeatControl, BHKWerrors, BHKWvaluePP, BHKWstateExternal, BHKWCreateProfile;
+		use BHKWFunctions, BHKWZusatzHeizung, BHKWstatePP, BHKWstatePower, BHKWstateHeatControl, BHKWerrors, BHKWvaluePP, BHKWstateExternal, BHKWInfo, BHKWCreateProfile;
 		
 		public function Create()
 		{
@@ -460,6 +460,10 @@ require_once(__ROOT__ . '/libs/BHKW_CreateProfile.php');
 				case "stateExternal":
 					//$this->WriteLog10($data);
 					$this->stateExternal($data);
+					break;
+				case "Info":
+					$this->WriteLog11($data);
+					$this->Info($data);
 					break;
 				default:
 					//IPS_LogMessage("Splitter CMD1", $cmd);

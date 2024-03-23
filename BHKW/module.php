@@ -152,6 +152,35 @@ require_once(__ROOT__ . '/libs/BHKW_CreateProfile.php');
 				IPS_SetParent($WWTID, $HWID);
 			}
 			
+			$HWID = @IPS_GetCategoryIDByName("Hardware", $ID);
+			if($HKID === false)
+			{
+				IPS_LogMessage("Hardware nicht da!", "dierk1");	
+
+				$HWID=IPS_CreateCategory();
+				ips_setname($HWID, "Hardware");
+				IPS_SetParent($HWID, $ID);
+				
+				$this->RegisterVariableInteger("IP", "IP ADDR", "", 10);
+				$IPID = $this->GetIDForIdent("IP");
+				IPS_SetParent($IPID, $HWID);
+				
+				$this->RegisterVariableString("Geraetename", "Geräte Name", "", 20);
+				$GNID = $this->GetIDForIdent("Geraetename");
+				IPS_SetParent($GNID, $HWID);
+
+				$this->RegisterVariableInteger("GeraeterSerial", "Geräte Seriennummer", "", 30);
+				$GSID = $this->GetIDForIdent("GeraeterSerial");
+				IPS_SetParent($GSID, $HWID);
+
+				$this->RegisterVariableInteger("GeraeterDT", "Geräte Device Type", "", 40);
+				$GDTPID = $this->GetIDForIdent("GeraeterDT");
+				IPS_SetParent($GDTPID, $HWID);		
+				
+				$this->RegisterVariableString("GeraeteFirmware", "Geräte NFirmware", "", 50);
+				$GFWID = $this->GetIDForIdent("Geraetename");
+				IPS_SetParent($GFWID, $HWID);				
+			}
 			//$statePPID = IPS_GetCategoryIDByName ("statePP", $ID);
 			//if(!IPS_GetCategoryIDByName ("statePP", $ID))
 			//{

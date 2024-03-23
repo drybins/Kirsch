@@ -26,7 +26,7 @@ trait BHKWInfo
 		$ID = IPS_GetInstanceListByModuleID($GUID)[0];
 		
 		$KategorieID = @IPS_GetCategoryIDByName("Hardware", $ID);
-		$ScriptData['IP'] = (string) $xml->ip;
+		$ScriptData['IP'] = (string) $xmlData->ip;
 
 
 	}

@@ -40,6 +40,8 @@ trait BHKWstateExternal
 			case "on":
 				SetValueBoolean($this->GetIDForIdent("R2"), true);
 				$Mischer = GetValue($this->GetIDForIdent("Mischer"));
+				$Mischer = $Mischer + 1;
+				SetValueInteger($this->GetIDForIdent("Mischer"), $Mischer);
 			break;
 			case "off":
 				SetValueBoolean ($this->GetIDForIdent("R2"), false);

@@ -39,6 +39,7 @@ trait BHKWstateExternal
 		{
 			case "on":
 				SetValueBoolean($this->GetIDForIdent("R2"), true);
+				$Mischer = GetValue($this->GetIDForIdent("Mischer"));
 			break;
 			case "off":
 				SetValueBoolean ($this->GetIDForIdent("R2"), false);

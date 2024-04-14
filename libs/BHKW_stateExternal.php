@@ -38,10 +38,14 @@ trait BHKWstateExternal
 		switch ($ScriptData['R2']) 
 		{
 			case "on":
+				$R2 = GetValue($this->GetIDForIdent("R2"));
 				SetValueBoolean($this->GetIDForIdent("R2"), true);
-				$Mischer = GetValue($this->GetIDForIdent("Mischer"));
-				$Mischer = $Mischer + 1;
-				SetValueInteger($this->GetIDForIdent("Mischer"), $Mischer);
+				if(!$R2)
+				{
+					$Mischer = GetValue($this->GetIDForIdent("Mischer"));
+					$Mischer = $Mischer + 1;
+					SetValueInteger($this->GetIDForIdent("Mischer"), $Mischer);
+				]
 			break;
 			case "off":
 				SetValueBoolean ($this->GetIDForIdent("R2"), false);
@@ -53,10 +57,14 @@ trait BHKWstateExternal
 		switch ($ScriptData['R3']) 
 		{
 			case "on":
+				$R3 = GetValue($this->GetIDForIdent("R3"));
 				SetValueBoolean($this->GetIDForIdent("R3"), true);
-				$Mischer = GetValue($this->GetIDForIdent("Mischer"));
-				$Mischer = $Mischer - 1;
-				SetValueInteger($this->GetIDForIdent("Mischer"), $Mischer);
+				if(!$R3)
+				{
+					$Mischer = GetValue($this->GetIDForIdent("Mischer"));
+					$Mischer = $Mischer - 1;
+					SetValueInteger($this->GetIDForIdent("Mischer"), $Mischer);
+				}
 			break;
 			case "off":
 				SetValueBoolean ($this->GetIDForIdent("R3"), false);

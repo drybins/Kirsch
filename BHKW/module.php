@@ -306,7 +306,7 @@ require_once(__ROOT__ . '/libs/BHKW_CreateProfile.php');
 			$this->RegisterVariableFloat("T4", "Speichertemperatur unten", "~Temperature", 530);
 
 			$this->RegisterVariableBoolean("R1", "Heizkreispumpe", "Kirsch.AnAus", 532);
-			$this->RegisterVariableInteger("Mischer", "Mischer Status", "", 533);
+			$this->RegisterVariableInteger#ä("Mischer", "Mischer Status", "", 533);
 			$this->RegisterVariableBoolean("R2", "Mischer auf", "Kirsch.AnAus", 534);
 			$this->RegisterVariableBoolean("R3", "Mischer zu", "Kirsch.AnAus", 535);
 			
@@ -371,6 +371,8 @@ require_once(__ROOT__ . '/libs/BHKW_CreateProfile.php');
 			$this->RegisterVariableInteger("Zielleistung22", "Zielleistung 22 Uhr", "Kirsch.Kw", 1220);
 			$this->RegisterVariableInteger("Zielleistung23", "Zielleistung 23 Uhr", "Kirsch.Kw", 1230);
 
+			SetBuffer("MAufZ","0");
+			SetBuffer("MZuZ","0");
 			
 			//statePower Variablen anlegen
 			//$eventID = IPS_CreateEvent(0);

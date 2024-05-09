@@ -33,7 +33,7 @@ trait BHKWstateExternal
 			break;
 			default:
 		}	
-
+		//Mischer auf
 		$ScriptData['R2'] = (string) $xmlData->R2;
 		switch ($ScriptData['R2']) 
 		{
@@ -42,6 +42,10 @@ trait BHKWstateExternal
 				SetValueBoolean($this->GetIDForIdent("R2"), true);
 				if(!$R2)
 				{
+					if($this->GetBuffer("MAufZ") == 0)
+					{
+						IPS_LogMessage("BHKW stateExternal MischerA", Time());
+					}
 					$Mischer = GetValue($this->GetIDForIdent("Mischer"));
 					$Mischer = $Mischer + 1;
 					SetValueInteger($this->GetIDForIdent("Mischer"), $Mischer);

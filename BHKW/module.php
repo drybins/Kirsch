@@ -371,8 +371,8 @@ require_once(__ROOT__ . '/libs/BHKW_CreateProfile.php');
 			$this->RegisterVariableInteger("Zielleistung22", "Zielleistung 22 Uhr", "Kirsch.Kw", 1220);
 			$this->RegisterVariableInteger("Zielleistung23", "Zielleistung 23 Uhr", "Kirsch.Kw", 1230);
 
-			SetBuffer("MAufZ","0");
-			SetBuffer("MZuZ","0");
+			$this->SetBuffer("MAufZ","0");
+			$this->SetBuffer("MZuZ","0");
 			
 			//statePower Variablen anlegen
 			//$eventID = IPS_CreateEvent(0);

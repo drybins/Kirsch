@@ -127,7 +127,7 @@ trait BHKWZusatzHeizung
 			if(!$Holz)
 			{
 				IPS_LogMessage("zHeizung","Oel Brenner");
-				$ZHS = GetValueBoolean (14611);
+				$ZHS = GetValueBoolean (59746);
 				if($ZHW or $ZHH)
 				{
 					//$RC = @HM_WriteValueBoolean($ZHID, "STATE" , True);
@@ -137,8 +137,8 @@ trait BHKWZusatzHeizung
 						//SetValueBoolean(20054, true);
 						IPS_LogMessage("zHeizung", "Heizung eingeschaltet!");
 						//$RC = @HM_WriteValueBoolean($ZHID, "STATE" , True);
-						SetValue(14611, True);
-						RequestAction(14611, True);
+						SetValue(59746, True);
+						RequestAction(59746, True);
 						SetValue(11816, True);
 						RequestAction(11816, True);
 					}
@@ -153,8 +153,8 @@ trait BHKWZusatzHeizung
 					{
 						//SetValueBoolean(20054, false);
 						//$RC = HM_WriteValueBoolean($ZHID, "STATE" , False);
-						SetValue(14611, False);
-						RequestAction(14611, False);
+						SetValue(59746, False);
+						RequestAction(59746, False);
 						SetValue(11816, False);
 						RequestAction(11816, False);
 						IPS_LogMessage("zHeizung", "Heizung ausgeschaltet!");

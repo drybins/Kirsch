@@ -64,6 +64,17 @@ trait BHKWerrors
 								SetValue($this->GetIDForIdent("Software"),"Motorsteuerung");
 								switch ($device) 
 								{
+									case "04":
+										SetValue($this->GetIDForIdent("Messpunkt"),"Motoröl (TI4)");
+										switch ($type) 
+										{
+											case "0B":
+												SetValue($this->GetIDForIdent("Fehler"),$occurrence . "x Übertemperatur");
+												break;
+											default:
+												IPS_LogMessage("BHKW Fehler type:", $type);
+										}
+										break;
 									case "10":
 										SetValue($this->GetIDForIdent("Messpunkt"),"Öldruckschalter (S4)");
 										switch ($type) 

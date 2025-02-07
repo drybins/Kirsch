@@ -75,6 +75,17 @@ trait BHKWerrors
 												IPS_LogMessage("BHKW Fehler type:", $type);
 										}
 										break;
+									case "0F":
+										SetValue($this->GetIDForIdent("Messpunkt"),"Drehzahlmessung (S1)");
+										switch ($type) 
+										{
+											case "09":
+												SetValue($this->GetIDForIdent("Fehler"),$occurrence . "x Generatordrehzahl zu gering");
+												break;
+											default:
+												IPS_LogMessage("BHKW Fehler type:", $type);
+										}
+										break;
 									case "10":
 										SetValue($this->GetIDForIdent("Messpunkt"),"Öldruckschalter (S4)");
 										switch ($type) 

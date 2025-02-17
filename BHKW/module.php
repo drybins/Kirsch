@@ -320,6 +320,7 @@ require_once(__ROOT__ . '/libs/BHKW_CreateProfile.php');
 			//$this->RegisterVariableBoolean("mixer1", "Mischer Heizkreis 1", "", 550);
 			$this->RegisterVariableFloat("totalTime", "Gesamtbetriebszeit", "Kirsch.Std", 560);
 			$this->RegisterVariableFloat("Wartungzaehler", "letzte Wartung", "Kirsch.Std", 561);
+						$this->RegisterVariableString("Wdate", "Wartungs Datum", "", 562);
 			$this->RegisterVariableFloat("oilTime", "Betriebszeit nach Ölnachfüllung", "Kirsch.Std", 570);
 			$this->RegisterVariableFloat("electricity", "Elektrische Energiemenge", "Kirsch.kWh", 580);
 			$this->RegisterVariableFloat("heat", "Thermische Energiemenge", "Kirsch.kWh", 590);			

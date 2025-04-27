@@ -43,7 +43,7 @@ trait BHKWZusatzHeizung
 		//$
 		//IPS_LogMessage("zHeizung","VorlaufKrupp: " . $last_value[1] . ":" . $Vorlauf_Krupp);
 		//var_dump($last_value);
-		$strtest = implode(",",$last_value);
+		$strtest = $last_value[0]["Value"];
 		IPS_LogMessage("zHeizung","VorlaufKrupp: " . $strtest);
 
 		//$Heißwasser = GetValue(13846);

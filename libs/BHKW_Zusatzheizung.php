@@ -29,7 +29,7 @@ trait BHKWZusatzHeizung
 		$KategorieNacht2ID = @IPS_GetCategoryIDByName("Krupp Kessel", $KategorieNacht1ID);
 		$GeräteID = IPS_GetObjectIDByName ("DS 18B20 Temperature Sensor", $KategorieNacht2ID)
 
-		$IdentVorlaufKrupp = IPS_GetObjectIDByIdent("VorlaufKrupp",$GeräteID );
+		$IdentVorlaufKrupp = IPS_GetObjectIDByIdent("Temperatur",$GeräteID );
 		IPS_LogMessage("zHeizung","IdentVorlaufKrupp: " . $IdentVorlaufKrupp);
 
 		//$Heißwasser = GetValue(13846);

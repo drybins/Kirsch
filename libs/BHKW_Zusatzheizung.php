@@ -26,11 +26,12 @@ trait BHKWZusatzHeizung
 		//IPS_LogMessage("Dierk1 BHKW stateHeatControl ID", $ID);
 		$KategorieID = @IPS_GetCategoryIDByName("19", 0);
 		$KategorieNacht1ID = @IPS_GetCategoryIDByName("Keller", $KategorieID);
-		$KategorieNacht2ID = @IPS_GetCategoryIDByName("Krupp Kessel", $KategorieNacht1ID);
+		$KategorieNacht2ID = @IPS_GetCategoryIDByName("Heizungsraum", $KategorieNacht1ID);
+		$KategorieNacht3ID = @IPS_GetCategoryIDByName("Krupp Kessel", $KategorieNacht3ID);
 //		$GeraeteID = IPS_GetObjectIDByName ("DS 18B20 Temperature Sensor", $KategorieNacht2ID);
 
 //		$IdentVorlaufKrupp = IPS_GetObjectIDByIdent("Temperatur",$GeraeteID);
-		IPS_LogMessage("zHeizung","IdentVorlaufKrupp: " . $KategorieNacht2ID);
+		IPS_LogMessage("zHeizung","IdentVorlaufKrupp: " . $KategorieNacht3ID);
 
 		//$Heißwasser = GetValue(13846);
 		$Heißwasser = 55;

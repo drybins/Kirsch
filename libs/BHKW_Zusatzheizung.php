@@ -38,7 +38,7 @@ trait BHKWZusatzHeizung
 		$newDate = date('Y-m-d H:i:s', strtotime(' -5 minutes'));
 		$newDate1 = date('Y-m-d H:i:s', strtotime(' -1 minutes'));
 		//$last_value = AC_GetLoggedValues($AID, $IdentVorlaufKrupp,  strtotime($newDate), strtotime($newDate1), 1)[0]['Value'];
-		$last_value = AC_GetLoggedValues($AID, $IdentVorlaufKrupp,  strtotime($newDate), strtotime($newDate1), 1);
+		$last_value = AC_GetLoggedValues($AID, $IdentVorlaufKrupp,  strtotime($newDate), strtotime($newDate1), 0);
 		$Vorlauf_Krupp = GetValue($IdentVorlaufKrupp);
 		//$
 		//IPS_LogMessage("zHeizung","VorlaufKrupp: " . $last_value[1] . ":" . $Vorlauf_Krupp);

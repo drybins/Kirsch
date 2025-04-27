@@ -21,7 +21,7 @@ trait BHKWZusatzHeizung
 		$SPOben = GetValue($this->GetIDForIdent("T2"));
 		$SPMitte = GetValue($this->GetIDForIdent("T3"));
 		
-		$IdentVorlaufKrupp = $this->GetIDForIdent("T3");
+		$IdentVorlaufKrupp = $this->GetIDForIdent("Temperatur");
 		IPS_LogMessage("zHeizung","IdentVorlaufKrupp: " . $IdentVorlaufKrupp);
 
 		//$Heißwasser = GetValue(13846);

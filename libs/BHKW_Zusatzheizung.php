@@ -47,7 +47,8 @@ trait BHKWZusatzHeizung
 		IPS_LogMessage("zHeizung","VorlaufKrupp: " . $strtest);
 		$difTemp =  $Vorlauf_Krupp - $strtest;
 		IPS_LogMessage("zHeizung","DifTemp: " . $difTemp);
-
+		SetValueFloat (59571, $difTemp)
+		
 		//$Heißwasser = GetValue(13846);
 		$Heißwasser = 55;
 		$WarmwasserStart = GetValue(20086);
@@ -56,7 +57,6 @@ trait BHKWZusatzHeizung
 		
 		//$BHKWStatus = GetValue(21751);
 		//IPS_LogMessage("zHeizung", "BHKW nicht auf Fehler! " . $BHKWStatus);
-		
 		$VorlaufMitteAus = $VorlaufSoll + 10;
 		$VorlaufSollAn = $VorlaufSoll-6;
 		

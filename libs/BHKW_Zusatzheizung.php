@@ -20,6 +20,9 @@ trait BHKWZusatzHeizung
 		$VorlaufIst = GetValue($this->GetIDForIdent("T5"));
 		$SPOben = GetValue($this->GetIDForIdent("T2"));
 		$SPMitte = GetValue($this->GetIDForIdent("T3"));
+		
+		$IdentVorlaufKrupp = $this->GetIDForIdent("T3");
+		IPS_LogMessage("zHeizung","IdentVorlaufKrupp: " . $IdentVorlaufKrupp);
 
 		//$Heißwasser = GetValue(13846);
 		$Heißwasser = 55;

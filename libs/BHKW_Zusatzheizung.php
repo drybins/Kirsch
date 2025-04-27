@@ -20,9 +20,14 @@ trait BHKWZusatzHeizung
 		$VorlaufIst = GetValue($this->GetIDForIdent("T5"));
 		$SPOben = GetValue($this->GetIDForIdent("T2"));
 		$SPMitte = GetValue($this->GetIDForIdent("T3"));
-		
+
+//		$GUID = "{13D080B9-10DD-1AAD-4C21-B06937CDCA3C}";
+//		$ID = IPS_GetInstanceListByModuleID($GUID)[0];
+		//IPS_LogMessage("Dierk1 BHKW stateHeatControl ID", $ID);
+		$KategorieID = @IPS_GetCategoryIDByName("19", 0);
+//		$KategorieNachtAID = @IPS_GetCategoryIDByName("Nachtabsenkung", $KategorieID);
 		$IdentVorlaufKrupp = $this->GetIDForIdent("Temperatur");
-		IPS_LogMessage("zHeizung","IdentVorlaufKrupp: " . $IdentVorlaufKrupp);
+		IPS_LogMessage("zHeizung","IdentVorlaufKrupp: " . $KategorieID);
 
 		//$Heißwasser = GetValue(13846);
 		$Heißwasser = 55;

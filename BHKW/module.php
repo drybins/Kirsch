@@ -435,7 +435,7 @@ require_once(__ROOT__ . '/libs/BHKW_CreateProfile.php');
 				$data1 = $data;
 				$data=substr($data1,0,38) . substr($data1,76);
 			}	//$data = substr($data,0,$pos);
-				IPS_LogMessage("Splitter CMD2", $cmd);
+				IPS_LogMessage("zHeizung", $cmd);
 				//IPS_LogMessage("Splitter Fehler Pos:", $pos);
 				//IPS_LogMessage("Splitter Fehler ende pos:",substr($data,0,$pos));
 			//}
@@ -467,7 +467,7 @@ require_once(__ROOT__ . '/libs/BHKW_CreateProfile.php');
 					$this->stateExternal($data);
 					break;
 				case "info":
-					$this->WriteLog11($data);
+					//$this->WriteLog11($data);
 					$this->Info($data);
 					break;
 				default:

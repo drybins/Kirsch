@@ -475,6 +475,9 @@ require_once(__ROOT__ . '/libs/BHKW_CreateProfile.php');
 					//IPS_LogMessage("Splitter data", $data);
 					break;
 			}
+			$BHKW_Stataus_Ident = IPS_GetObjectIDByIdent("KirschStatus",11235);
+			$BHKW_Status = GetValue($BHKW_Stataus_Ident);
+			IPS_LogMessage("zHeizung","Kirsch_Status: " . $BHKW_Status);
 			if (date("H")>1)
     		{
 				//$CatID = @IPS_GetCategoryIDByName("Heißwasser", $this);

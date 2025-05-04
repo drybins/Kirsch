@@ -52,7 +52,7 @@ trait BHKWZusatzHeizung
 		$Status_Krupp = GetValue($IdentKruppStatus);
 		IPS_LogMessage("zHeizung","Status_Krupp: " . $Status_Krupp);
 		if($Status_Krupp === 0 and $difTemp >0)
-		[
+		{
 			SetValueFloat ($IdentKruppStatus1, 1);
 		}	
 		

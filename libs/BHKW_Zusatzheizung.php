@@ -30,11 +30,10 @@ trait BHKWZusatzHeizung
 		$KategorieNacht3ID = @IPS_GetCategoryIDByName("Krupp Kessel", $KategorieNacht2ID);
 		$GeraeteID = IPS_GetObjectIDByName ("DS 18B20 Temperature Sensor", $KategorieNacht3ID);
 
+		$IdentKruppStatus = IPS_GetObjectIDByIdent("Temperatur",$KategorieNacht3ID);
 		$IdentVorlaufKrupp = IPS_GetObjectIDByIdent("Temperatur",$GeraeteID);
-		IPS_LogMessage("zHeizung","IdentVorlaufKrupp: " . $IdentVorlaufKrupp);
-		
+		IPS_LogMessage("zHeizung","IdentKruppStatus: " . $IdentKruppStatus);
 		$AID = IPS_GetObjectIDByName ("Archive", 0);
-		
 		$newDate = date('Y-m-d H:i:s', strtotime(' -5 minutes'));
 		//$newDate1 = date('Y-m-d H:i:s', strtotime(' -4 minutes'));
 		//$last_value = AC_GetLoggedValues($AID, $IdentVorlaufKrupp,  strtotime($newDate), strtotime($newDate1), 1)[0]['Value'];
@@ -49,6 +48,8 @@ trait BHKWZusatzHeizung
 		$difTemp =  $Vorlauf_Krupp - $strtest;
 		IPS_LogMessage("zHeizung","DifTemp: " . $difTemp);
 		SetValueFloat (59571, $difTemp);
+
+		
 		
 		//$Heißwasser = GetValue(13846);
 		$Heißwasser = 55;

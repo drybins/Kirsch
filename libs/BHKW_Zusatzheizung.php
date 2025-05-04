@@ -55,6 +55,10 @@ trait BHKWZusatzHeizung
 		{
 			SetValueFloat ($IdentKruppStatus1, 1);
 		}	
+		if($Status_Krupp === 1 and $Vorlauf_Krupp >80)
+		{
+			SetValueFloat ($IdentKruppStatus1, 2);
+		}	
 		
 		
 		//$Heißwasser = GetValue(13846);

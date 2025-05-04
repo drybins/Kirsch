@@ -32,7 +32,7 @@ trait BHKWZusatzHeizung
 
 		$IdentKruppStatus = IPS_GetObjectIDByIdent("KruppStatus",$KategorieNacht3ID);
 		$IdentVorlaufKrupp = IPS_GetObjectIDByIdent("Temperatur",$GeraeteID);
-		IPS_LogMessage("zHeizung","IdentKruppStatus: " . $IdentKruppStatus);
+		//IPS_LogMessage("zHeizung","IdentKruppStatus: " . $IdentKruppStatus);
 		$AID = IPS_GetObjectIDByName ("Archive", 0);
 		$newDate = date('Y-m-d H:i:s', strtotime(' -5 minutes'));
 		//$newDate1 = date('Y-m-d H:i:s', strtotime(' -4 minutes'));
@@ -48,7 +48,9 @@ trait BHKWZusatzHeizung
 		$difTemp =  $Vorlauf_Krupp - $strtest;
 		IPS_LogMessage("zHeizung","DifTemp: " . $difTemp);
 		SetValueFloat (59571, $difTemp);
-
+		
+		$Status_Krupp = GetValue($IdentKruppStatus);
+		IPS_LogMessage("zHeizung","Status_Krupp: " . $Status_Krupp);
 		
 		
 		//$Heißwasser = GetValue(13846);

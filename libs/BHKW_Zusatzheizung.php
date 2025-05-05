@@ -55,10 +55,16 @@ trait BHKWZusatzHeizung
 		{
 			SetValueInteger ($IdentKruppStatus, 1);
 		}	
-		if($Status_Krupp === 1 and $Vorlauf_Krupp >80)
+		if(($Status_Krupp === 1 or $Status_Krupp === 3)  and $Vorlauf_Krupp >80)
 		{
 			SetValueInteger ($IdentKruppStatus, 2);
-		}	
+			//Pumpe an
+		}
+		if($Status_Krupp === 2 and $Vorlauf_Krupp <60)
+		{
+			SetValueInteger ($IdentKruppStatus, 3);
+			//Pumpe aus
+		}			
 		
 		
 		//$Heißwasser = GetValue(13846);

@@ -53,7 +53,7 @@ trait BHKWZusatzHeizung
 		IPS_LogMessage("zHeizung","Status_Krupp: " . $Status_Krupp);
 		if($Status_Krupp === 0 and $difTemp >0)
 		{
-			SetValueFloat ($IdentKruppStatus1, 1);
+			SetValueFloat ($IdentKruppStatus, 1);
 		}	
 		if($Status_Krupp === 1 and $Vorlauf_Krupp >80)
 		{

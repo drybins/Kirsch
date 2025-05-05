@@ -57,7 +57,7 @@ trait BHKWZusatzHeizung
 		}	
 		if($Status_Krupp === 1 and $Vorlauf_Krupp >80)
 		{
-			SetValueFloat ($IdentKruppStatus1, 2);
+			SetValueFloat ($IdentKruppStatus, 2);
 		}	
 		
 		

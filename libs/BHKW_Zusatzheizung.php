@@ -24,48 +24,53 @@ trait BHKWZusatzHeizung
 //		$GUID = "{13D080B9-10DD-1AAD-4C21-B06937CDCA3C}";
 //		$ID = IPS_GetInstanceListByModuleID($GUID)[0];
 		//IPS_LogMessage("Dierk1 BHKW stateHeatControl ID", $ID);
+		
+		
 		$KategorieID = @IPS_GetCategoryIDByName("19", 0);
 		$KategorieNacht1ID = @IPS_GetCategoryIDByName("Keller", $KategorieID);
 		$KategorieNacht2ID = @IPS_GetCategoryIDByName("Heizungsraum", $KategorieNacht1ID);
 		$KategorieNacht3ID = @IPS_GetCategoryIDByName("Krupp Kessel", $KategorieNacht2ID);
 		$GeraeteID = IPS_GetObjectIDByName ("DS 18B20 Temperature Sensor", $KategorieNacht3ID);
-
-		$IdentKruppStatus = IPS_GetObjectIDByIdent("KruppStatus",$KategorieNacht3ID);
-		$IdentVorlaufKrupp = IPS_GetObjectIDByIdent("Temperatur",$GeraeteID);
-		//IPS_LogMessage("zHeizung","IdentKruppStatus: " . $IdentKruppStatus);
-		$AID = IPS_GetObjectIDByName ("Archive", 0);
-		$newDate = date('Y-m-d H:i:s', strtotime(' -5 minutes'));
-		//$newDate1 = date('Y-m-d H:i:s', strtotime(' -4 minutes'));
-		//$last_value = AC_GetLoggedValues($AID, $IdentVorlaufKrupp,  strtotime($newDate), strtotime($newDate1), 1)[0]['Value'];
-		//$last_value = AC_GetLoggedValues($AID, $IdentVorlaufKrupp,  strtotime($newDate), strtotime($newDate1), 1);
-		$last_value = AC_GetLoggedValues($AID, $IdentVorlaufKrupp,  0, strtotime($newDate), 1);
-		$Vorlauf_Krupp = GetValue($IdentVorlaufKrupp);
-		//$
-		//IPS_LogMessage("zHeizung","VorlaufKrupp: " . $last_value[1] . ":" . $Vorlauf_Krupp);
-		//var_dump($last_value);
-		$strtest = $last_value[0]["Value"];
-		IPS_LogMessage("zHeizung","VorlaufKrupp: " . $strtest);
-		$difTemp =  $Vorlauf_Krupp - $strtest;
-		IPS_LogMessage("zHeizung","DifTemp: " . $difTemp);
-		SetValueFloat (59571, $difTemp);
 		
-		$Status_Krupp = GetValue($IdentKruppStatus);
-		IPS_LogMessage("zHeizung","Status_Krupp: " . $Status_Krupp);
-		if($Status_Krupp === 0 and $difTemp >0)
-		{
-			SetValueInteger ($IdentKruppStatus, 1);
-		}	
-		if(($Status_Krupp === 1 or $Status_Krupp === 3)  and $Vorlauf_Krupp >80)
-		{
-			SetValueInteger ($IdentKruppStatus, 2);
-			//Pumpe an
+		$HO = GetValue(19296);
+		if($HO)
+		{	
+			$IdentKruppStatus = IPS_GetObjectIDByIdent("KruppStatus",$KategorieNacht3ID);
+			$IdentVorlaufKrupp = IPS_GetObjectIDByIdent("Temperatur",$GeraeteID);
+			//IPS_LogMessage("zHeizung","IdentKruppStatus: " . $IdentKruppStatus);
+			$AID = IPS_GetObjectIDByName ("Archive", 0);
+			$newDate = date('Y-m-d H:i:s', strtotime(' -5 minutes'));
+			//$newDate1 = date('Y-m-d H:i:s', strtotime(' -4 minutes'));
+			//$last_value = AC_GetLoggedValues($AID, $IdentVorlaufKrupp,  strtotime($newDate), strtotime($newDate1), 1)[0]['Value'];
+			//$last_value = AC_GetLoggedValues($AID, $IdentVorlaufKrupp,  strtotime($newDate), strtotime($newDate1), 1);
+			$last_value = AC_GetLoggedValues($AID, $IdentVorlaufKrupp,  0, strtotime($newDate), 1);
+			$Vorlauf_Krupp = GetValue($IdentVorlaufKrupp);
+			//$
+			//IPS_LogMessage("zHeizung","VorlaufKrupp: " . $last_value[1] . ":" . $Vorlauf_Krupp);
+			//var_dump($last_value);
+			$strtest = $last_value[0]["Value"];
+			IPS_LogMessage("zHeizung","VorlaufKrupp: " . $strtest);
+			$difTemp =  $Vorlauf_Krupp - $strtest;
+			IPS_LogMessage("zHeizung","DifTemp: " . $difTemp);
+			SetValueFloat (59571, $difTemp);
+		
+			$Status_Krupp = GetValue($IdentKruppStatus);
+			IPS_LogMessage("zHeizung","Status_Krupp: " . $Status_Krupp);
+			if($Status_Krupp === 0 and $difTemp >0)
+			{
+				SetValueInteger ($IdentKruppStatus, 1);
+			}	
+			if(($Status_Krupp === 1 or $Status_Krupp === 3)  and $Vorlauf_Krupp >80)
+			{
+				SetValueInteger ($IdentKruppStatus, 2);
+				//Pumpe an
+			}
+			if($Status_Krupp === 2 and $Vorlauf_Krupp <60)
+			{
+				SetValueInteger ($IdentKruppStatus, 3);
+				//Pumpe aus
+			}			
 		}
-		if($Status_Krupp === 2 and $Vorlauf_Krupp <60)
-		{
-			SetValueInteger ($IdentKruppStatus, 3);
-			//Pumpe aus
-		}			
-		
 		
 		//$Heißwasser = GetValue(13846);
 		$Heißwasser = 55;

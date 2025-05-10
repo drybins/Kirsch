@@ -73,7 +73,7 @@ trait BHKWZusatzHeizung
 		}
 		
 		//$Heißwasser = GetValue(13846);
-		$Heißwasser = 55;
+		$Heißwasser = GetValue(13846);
 		$WarmwasserStart = GetValue(20086);
 		$WarmwasserStart = $WarmwasserStart  + 3600; 
 		$WarmwasserEnde = GetValue(52528);

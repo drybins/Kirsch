@@ -74,7 +74,7 @@ trait BHKWZusatzHeizung
 			if(!$HolzNachlegen)
 			{
 				SetValueInteger ($IdentKruppStatus, 4);
-				if($difTemp > 0 and $Vorlauf_Krupp < 100)
+				if($difTemp < 0 and $Vorlauf_Krupp < 100)
 				{
 					IPS_LogMessage("zHeizungH","Pumpe abschalten.");
 				}

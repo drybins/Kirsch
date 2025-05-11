@@ -49,9 +49,9 @@ trait BHKWZusatzHeizung
 			//IPS_LogMessage("zHeizung","VorlaufKrupp: " . $last_value[1] . ":" . $Vorlauf_Krupp);
 			//var_dump($last_value);
 			$strtest = $last_value[0]["Value"];
-			IPS_LogMessage("zHeizung","VorlaufKrupp: " . $strtest);
+			IPS_LogMessage("zHeizungH","VorlaufKrupp: " . $strtest);
 			$difTemp =  $Vorlauf_Krupp - $strtest;
-			IPS_LogMessage("zHeizung","DifTemp: " . $difTemp);
+			IPS_LogMessage("zHeizungH","DifTemp: " . $difTemp);
 			SetValueFloat (59571, $difTemp);
 		
 			$Status_Krupp = GetValue($IdentKruppStatus);
@@ -76,7 +76,7 @@ trait BHKWZusatzHeizung
 				SetValueInteger ($IdentKruppStatus, 4);
 				if($difTemp > 0 and $Vorlauf_Krupp < 100)
 				{
-					IPS_LogMessage("zHeizung","Pumpe abschalten.");
+					IPS_LogMessage("zHeizungH","Pumpe abschalten.");
 				}
 			}
 		}
@@ -99,7 +99,7 @@ trait BHKWZusatzHeizung
 		//IPS_LogMessage("zHeizung ","Heizung Schalter ID: " . $ZHID);
 
 		$HKPumpe = GetValue($this->GetIDForIdent("R1"));
-		IPS_LogMessage("zHeizung","HKPumpe: " . $HKPumpe);	
+		//IPS_LogMessage("zHeizung","HKPumpe: " . $HKPumpe);	
 		$ZHH = false;
 			
 		$VarInfo = IPS_GetVariable(11816);
@@ -109,7 +109,7 @@ trait BHKWZusatzHeizung
         $Jetzt  =  time();
         //IPS_LogMessage("zHeizung", "Jetzt = " . $Jetzt);
         $Dauer = ($Jetzt - $SchaltZeit)/60;
-		IPS_LogMessage("zHeizung", "Dauer: " . $Dauer);
+		//IPS_LogMessage("zHeizung", "Dauer: " . $Dauer);
 		
 		
 	

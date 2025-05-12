@@ -32,44 +32,7 @@ trait BHKWZusatzHeizung
 		$HO = GetValue(19296);   // Holz/Oel
 		if($HO)			// Ist Holz
 		{	
-			$IdentKruppStatus = IPS_GetObjectIDByIdent("KruppStatus",$KategorieNacht3ID);
-			$IdentVorlaufKrupp = IPS_GetObjectIDByIdent("Temperatur",$GeraeteID);
-			//IPS_LogMessage("zHeizung","IdentKruppStatus: " . $IdentKruppStatus);
-			$AID = IPS_GetObjectIDByName ("Archive", 0);
-			$newDate = date('Y-m-d H:i:s', strtotime(' -5 minutes'));
-			$last_value = AC_GetLoggedValues($AID, $IdentVorlaufKrupp,  0, strtotime($newDate), 1);
-			$Vorlauf_Krupp = GetValue($IdentVorlaufKrupp);
-			$strtest = $last_value[0]["Value"];
-			IPS_LogMessage("zHeizungH","VorlaufKrupp: " . $strtest);
-			$difTemp =  $Vorlauf_Krupp - $strtest;
-			IPS_LogMessage("zHeizungH","DifTemp: " . $difTemp);
-			SetValueFloat (59571, $difTemp);
-		
-			$Status_Krupp = GetValue($IdentKruppStatus);
-			IPS_LogMessage("zHeizung","Status_Krupp: " . $Status_Krupp);
-			if($Status_Krupp === 0 and $difTemp >0)
-			{
-				SetValueInteger ($IdentKruppStatus, 1);
-			}	
-			if(($Status_Krupp === 1 or $Status_Krupp === 3)  and $Vorlauf_Krupp >80)
-			{
-				SetValueInteger ($IdentKruppStatus, 2);
-				//Pumpe an
-			}
-			if($Status_Krupp === 2 and $Vorlauf_Krupp <60)
-			{
-				SetValueInteger ($IdentKruppStatus, 3);
-				//Pumpe aus
-			}
-			$HolzNachlegen = GetValue(34665);
-			if(!$HolzNachlegen)
-			{
-				SetValueInteger ($IdentKruppStatus, 4);
-				if($difTemp < 0 and $Vorlauf_Krupp < 100)
-				{
-					IPS_LogMessage("zHeizungH","Pumpe abschalten.");
-				}
-			}
+			$this->Holz();
 		}
 		
 		//$Heißwasser = GetValue(13846);
@@ -228,5 +191,47 @@ trait BHKWZusatzHeizung
 	
 	private function WarmWasser()
 	{
+	}
+	
+	private function Holz()
+	{
+		$IdentKruppStatus = IPS_GetObjectIDByIdent("KruppStatus",$KategorieNacht3ID);
+		$IdentVorlaufKrupp = IPS_GetObjectIDByIdent("Temperatur",$GeraeteID);
+		//IPS_LogMessage("zHeizung","IdentKruppStatus: " . $IdentKruppStatus);
+		$AID = IPS_GetObjectIDByName ("Archive", 0);
+		$newDate = date('Y-m-d H:i:s', strtotime(' -5 minutes'));
+		$last_value = AC_GetLoggedValues($AID, $IdentVorlaufKrupp,  0, strtotime($newDate), 1);
+		$Vorlauf_Krupp = GetValue($IdentVorlaufKrupp);
+		$strtest = $last_value[0]["Value"];
+		IPS_LogMessage("zHeizungH","VorlaufKrupp: " . $strtest);
+		$difTemp =  $Vorlauf_Krupp - $strtest;
+		IPS_LogMessage("zHeizungH","DifTemp: " . $difTemp);
+		SetValueFloat (59571, $difTemp);
+	
+		$Status_Krupp = GetValue($IdentKruppStatus);
+		IPS_LogMessage("zHeizung","Status_Krupp: " . $Status_Krupp);
+		if($Status_Krupp === 0 and $difTemp >0)
+		{
+			SetValueInteger ($IdentKruppStatus, 1);
+		}	
+		if(($Status_Krupp === 1 or $Status_Krupp === 3)  and $Vorlauf_Krupp >80)
+		{
+			SetValueInteger ($IdentKruppStatus, 2);
+			//Pumpe an
+		}
+		if($Status_Krupp === 2 and $Vorlauf_Krupp <60)
+		{
+			SetValueInteger ($IdentKruppStatus, 3);
+			//Pumpe aus
+		}
+		$HolzNachlegen = GetValue(34665);
+		if(!$HolzNachlegen)
+		{
+			SetValueInteger ($IdentKruppStatus, 4);
+			if($difTemp < 0 and $Vorlauf_Krupp < 100)
+			{
+				IPS_LogMessage("zHeizungH","Pumpe abschalten.");
+			}
+		}
 	}
 }

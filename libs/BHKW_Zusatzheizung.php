@@ -83,22 +83,16 @@ trait BHKWZusatzHeizung
 		$Heißwasser = GetValue($GeraeteHWID);
 		$GeraeteWWSID = IPS_GetObjectIDByIdent("WWStartZeit", $KategorieHWID);
 		$GeraeteWWEID = IPS_GetObjectIDByIdent("WWEndeZeit", $KategorieHWID);
-		IPS_LogMessage("zHeizungH","GeraeteWWEID ID: " . $GeraeteWWEID);	
+		//IPS_LogMessage("zHeizungH","GeraeteWWEID ID: " . $GeraeteWWEID);	
 		$WarmwasserStart = GetValue($GeraeteWWSID);
 		$WarmwasserStart = $WarmwasserStart  + 3600; 
-		$WarmwasserEnde = GetValue(52528);
+		$WarmwasserEnde = GetValue($GeraeteWWEID);
 		
 		//$BHKWStatus = GetValue(21751);
 		//IPS_LogMessage("zHeizung", "BHKW nicht auf Fehler! " . $BHKWStatus);
 		$VorlaufMitteAus = $VorlaufSoll + 10;
 		$VorlaufSollAn = $VorlaufSoll-6;
 		
-		//$ZHID = IPS_GetParent($this->ReadPropertyInteger("ZHID"));
-		$ZHID = 48122;
-		//SetValueBoolean(20054, GetValue(30813));
-		//$RC = HM_WriteValueBoolean($ZHID, "STATE" , GetValue(30813));
-		//IPS_LogMessage("zHeizung ","Heizung Schalter ID: " . $ZHID);
-
 		$HKPumpe = GetValue($this->GetIDForIdent("R1"));
 		//IPS_LogMessage("zHeizung","HKPumpe: " . $HKPumpe);	
 		$ZHH = false;
@@ -230,5 +224,9 @@ trait BHKWZusatzHeizung
 				IPS_LogMessage("zHeizung", "Holzist an: " . $Holz );
 			}
 		}
+	}
+	
+	private function WarmWasser()
+	{
 	}
 }

@@ -78,6 +78,9 @@ trait BHKWZusatzHeizung
 		$KategorieHK1ID = @IPS_GetCategoryIDByName("Heizkreislauf 1", $GeraeteBHKWID);
 		$KategorieHWID = @IPS_GetCategoryIDByName("Heißwasser", $KategorieHK1ID);
 		IPS_LogMessage("zHeizungH","KategorieHWID ID: " . $KategorieHWID);
+		
+		$GeraeteHWID = IPS_GetObjectIDByIdent  ("WWTTarget", $KategorieHWID);
+		IPS_LogMessage("zHeizungH","GeraeteHWID ID: " . $GeraeteHWID);
 		$Heißwasser = GetValue(13846);
 		$WarmwasserStart = GetValue(20086);
 		$WarmwasserStart = $WarmwasserStart  + 3600; 

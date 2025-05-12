@@ -76,7 +76,8 @@ trait BHKWZusatzHeizung
 		$KategorieBHKWID = @IPS_GetCategoryIDByName("BHKW", 0);
 		$GeraeteBHKWID = IPS_GetObjectIDByName ("Kirsch BHKW Nano 4.12", $KategorieBHKWID);
 		$KategorieHK1ID = @IPS_GetCategoryIDByName("Heizkreislauf 1", $GeraeteBHKWID);
-		IPS_LogMessage("zHeizungH","KategorieHK1ID ID: " . $KategorieHK1ID);
+		$KategorieHWID = @IPS_GetCategoryIDByName("Heißwasser", $KategorieHK1ID);
+		IPS_LogMessage("zHeizungH","KategorieHWID ID: " . $KategorieHWID);
 		$Heißwasser = GetValue(13846);
 		$WarmwasserStart = GetValue(20086);
 		$WarmwasserStart = $WarmwasserStart  + 3600; 

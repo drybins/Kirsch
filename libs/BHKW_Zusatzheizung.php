@@ -31,23 +31,19 @@ trait BHKWZusatzHeizung
 		$KategorieNacht2ID = @IPS_GetCategoryIDByName("Heizungsraum", $KategorieNacht1ID);
 		$KategorieNacht3ID = @IPS_GetCategoryIDByName("Krupp Kessel", $KategorieNacht2ID);
 		$GeraeteID = IPS_GetObjectIDByName ("DS 18B20 Temperature Sensor", $KategorieNacht3ID);
+		$GeraeteID1 = IPS_GetObjectIDByName ("shellyplus2pm-a0dd6c28b4f4", $KategorieNacht3ID);
+		IPS_LogMessage("zHeizung","Schelly ID: " . $GeraeteID1);
 		
-		$HO = GetValue(19296);
-		if($HO)
+		$HO = GetValue(19296);   // Holz/Oel
+		if($HO)			// Ist Holz
 		{	
 			$IdentKruppStatus = IPS_GetObjectIDByIdent("KruppStatus",$KategorieNacht3ID);
 			$IdentVorlaufKrupp = IPS_GetObjectIDByIdent("Temperatur",$GeraeteID);
 			//IPS_LogMessage("zHeizung","IdentKruppStatus: " . $IdentKruppStatus);
 			$AID = IPS_GetObjectIDByName ("Archive", 0);
 			$newDate = date('Y-m-d H:i:s', strtotime(' -5 minutes'));
-			//$newDate1 = date('Y-m-d H:i:s', strtotime(' -4 minutes'));
-			//$last_value = AC_GetLoggedValues($AID, $IdentVorlaufKrupp,  strtotime($newDate), strtotime($newDate1), 1)[0]['Value'];
-			//$last_value = AC_GetLoggedValues($AID, $IdentVorlaufKrupp,  strtotime($newDate), strtotime($newDate1), 1);
 			$last_value = AC_GetLoggedValues($AID, $IdentVorlaufKrupp,  0, strtotime($newDate), 1);
 			$Vorlauf_Krupp = GetValue($IdentVorlaufKrupp);
-			//$
-			//IPS_LogMessage("zHeizung","VorlaufKrupp: " . $last_value[1] . ":" . $Vorlauf_Krupp);
-			//var_dump($last_value);
 			$strtest = $last_value[0]["Value"];
 			IPS_LogMessage("zHeizungH","VorlaufKrupp: " . $strtest);
 			$difTemp =  $Vorlauf_Krupp - $strtest;
@@ -186,7 +182,7 @@ trait BHKWZusatzHeizung
 			if(!$Holz)
 			{
 				IPS_LogMessage("zHeizung","Oel Brenner");
-				$ZHS = GetValueBoolean (59746);
+				$ZHS = GetValueBoolean (59746);    // Krupp Heizungs Pumpe An/Aus
 				if($ZHW or $ZHH)
 				{
 					//$RC = @HM_WriteValueBoolean($ZHID, "STATE" , True);

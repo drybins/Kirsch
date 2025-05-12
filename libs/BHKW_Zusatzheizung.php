@@ -32,7 +32,7 @@ trait BHKWZusatzHeizung
 		$KategorieNacht3ID = @IPS_GetCategoryIDByName("Krupp Kessel", $KategorieNacht2ID);
 		$GeraeteID = IPS_GetObjectIDByName ("DS 18B20 Temperature Sensor", $KategorieNacht3ID);
 		$GeraeteID1 = IPS_GetObjectIDByName ("shellyplus2pm-a0dd6c28b4f4", $KategorieNacht3ID);
-		IPS_LogMessage("zHeizung","Schelly ID: " . $GeraeteID1);
+		IPS_LogMessage("zHeizungH","Schelly ID: " . $GeraeteID1);
 		
 		$HO = GetValue(19296);   // Holz/Oel
 		if($HO)			// Ist Holz

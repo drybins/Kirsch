@@ -197,7 +197,7 @@ trait BHKWZusatzHeizung
 	{
 		IPS_LogMessage("zHeizungH","Schelly ID: " . $SchellyID);
 		$IdentVorlaufKrupp = IPS_GetObjectIDByIdent("KesselVorlauf",$SchellyID);
-		IPS_LogMessage("zHeizungH","IdentKruppStatus: " . $IdentKruppStatus);
+		IPS_LogMessage("zHeizungH","IdentVorlaufKrupp: " . $IdentVorlaufKrupp);
 		$AID = IPS_GetObjectIDByName ("Archive", 0);
 		$newDate = date('Y-m-d H:i:s', strtotime(' -5 minutes'));
 		$last_value = AC_GetLoggedValues($AID, $IdentVorlaufKrupp,  0, strtotime($newDate), 1);

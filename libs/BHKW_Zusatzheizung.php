@@ -204,7 +204,7 @@ trait BHKWZusatzHeizung
 	private function Holz(int $SchellyID, int $IdentKruppStatus)
 	{
 		IPS_LogMessage("zHeizungH","Schelly ID: " . $SchellyID);
-		$IdentVorlaufKrupp = IPS_GetObjectIDByIdent("KesselVorlauf",$SchellyID);
+		$IdentVorlaufKrupp = IPS_GetObjectIDByIdent("Temperature100",$SchellyID);
 		IPS_LogMessage("zHeizungH","IdentVorlaufKrupp: " . $IdentVorlaufKrupp);
 		$AID = IPS_GetObjectIDByName ("Archive", 0);
 		$newDate = date('Y-m-d H:i:s', strtotime(' -5 minutes'));

@@ -195,7 +195,7 @@ trait BHKWZusatzHeizung
 	{
 	}
 	
-	private function PumpeSchalten(Boolean $PumpeStatusSoll, int $SchellyID)
+	private function PumpeSchalten(int $PumpeStatusSoll, int $SchellyID)
 	{
 			$IdentKruppPumpe = IPS_GetObjectIDByIdent("KruppPumpe",$SchellyID);
 			IPS_LogMessage("zHeizungH","IdentKruppPumpe: " . $IdentKruppPumpe);

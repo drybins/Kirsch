@@ -243,6 +243,7 @@ trait BHKWZusatzHeizung
 				{
 					SetValue(11816, False);
 					RequestAction(11816, False);
+					IPS_LogMessage("zHeizungH","Pumpe abgeschaltet!");
 				}
 				IPS_LogMessage("zHeizungH","Pumpe abschalten.");
 			}

@@ -25,7 +25,8 @@ trait BHKWZusatzHeizung
 		$KategorieNacht1ID = @IPS_GetCategoryIDByName("Keller", $KategorieID);
 		$KategorieNacht2ID = @IPS_GetCategoryIDByName("Heizungsraum", $KategorieNacht1ID);
 		$KategorieNacht3ID = @IPS_GetCategoryIDByName("Krupp Kessel", $KategorieNacht2ID);
-		$GeraeteID = IPS_GetObjectIDByName ("DS 18B20 Temperature Sensor", $KategorieNacht3ID);
+		$IdentKruppStatus = IPS_GetObjectIDByIdent("KruppStatus",$KategorieNacht3ID);
+		//$GeraeteID = IPS_GetObjectIDByName ("DS 18B20 Temperature Sensor", $KategorieNacht3ID);
 		$SchellyID = IPS_GetObjectIDByName ("shellyplus2pm-a0dd6c28b4f4", $KategorieNacht3ID);
 		
 		$HO = GetValue(19296);   // Holz/Oel
@@ -192,11 +193,10 @@ trait BHKWZusatzHeizung
 	{
 	}
 	
-	private function Holz(int $SchellyID)
+	private function Holz(int $SchellyID, int $IdentKruppStatus)
 	{
 		IPS_LogMessage("zHeizungH","Schelly ID: " . $SchellyID);
-		$IdentKruppStatus = IPS_GetObjectIDByIdent("KruppStatus",$KategorieNacht3ID);
-		$IdentVorlaufKrupp = IPS_GetObjectIDByIdent("Temperatur",$GeraeteID);
+		$IdentVorlaufKrupp = IPS_GetObjectIDByIdent("KesselVorlauf",$SchellyID);
 		IPS_LogMessage("zHeizungH","IdentKruppStatus: " . $IdentKruppStatus);
 		$AID = IPS_GetObjectIDByName ("Archive", 0);
 		$newDate = date('Y-m-d H:i:s', strtotime(' -5 minutes'));

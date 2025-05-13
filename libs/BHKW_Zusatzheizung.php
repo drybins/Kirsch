@@ -29,6 +29,8 @@ trait BHKWZusatzHeizung
 		//$GeraeteID = IPS_GetObjectIDByName ("DS 18B20 Temperature Sensor", $KategorieNacht3ID);
 		$SchellyID = IPS_GetObjectIDByName ("shellyplus2pm-a0dd6c28b4f4", $KategorieNacht3ID);
 		
+		$this->PumpeSchalten(True, $SchellyID);
+		
 		$HO = GetValue(19296);   // Holz/Oel
 		if($HO)			// Ist Holz
 		{	
@@ -144,7 +146,7 @@ trait BHKWZusatzHeizung
 			if(!$Holz)
 			{
 				IPS_LogMessage("zHeizung","Oel Brenner");
-				$ZHS = GetValueBoolean (59746);    // Krupp Heizungs Pumpe An/Aus
+				$ZHS = GetValueBoolean (59746);    // Krupp Heizungs OelBrenner An/Aus
 				if($ZHW or $ZHH)
 				{
 					//$RC = @HM_WriteValueBoolean($ZHID, "STATE" , True);
@@ -191,6 +193,12 @@ trait BHKWZusatzHeizung
 	
 	private function WarmWasser()
 	{
+	}
+	
+	private function PumpeSchalten(Boolean PumpeStatusSoll, int $SchellyID)
+	{
+			$IdentKruppPumpe = IPS_GetObjectIDByIdent("KruppPumpe",$SchellyID);
+			IPS_LogMessage("zHeizungH","IdentKruppPumpe: " . $IdentKruppPumpe);
 	}
 	
 	private function Holz(int $SchellyID, int $IdentKruppStatus)

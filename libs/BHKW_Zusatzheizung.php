@@ -239,7 +239,7 @@ trait BHKWZusatzHeizung
 			SetValueInteger ($IdentKruppStatus, 4);
 			if($difTemp < 0 and $Vorlauf_Krupp < 100)
 			{
-				if(!GetValueBoolean (11816))
+				if(GetValueBoolean (11816))
 				{
 					SetValue(11816, False);
 					RequestAction(11816, False);

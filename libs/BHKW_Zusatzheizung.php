@@ -32,7 +32,7 @@ trait BHKWZusatzHeizung
 		$HO = GetValue(19296);   // Holz/Oel
 		if($HO)			// Ist Holz
 		{	
-			$this->Holz($SchellyID);
+			$this->Holz($SchellyID, $IdentKruppStatus);
 		}
 		
 		//$Heißwasser = GetValue(13846);

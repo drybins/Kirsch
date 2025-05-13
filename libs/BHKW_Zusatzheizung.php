@@ -203,7 +203,8 @@ trait BHKWZusatzHeizung
 		$last_value = AC_GetLoggedValues($AID, $IdentVorlaufKrupp,  0, strtotime($newDate), 1);
 		$Vorlauf_Krupp = GetValue($IdentVorlaufKrupp);
 		$strtest = $last_value[0]["Value"];
-		IPS_LogMessage("zHeizungH","VorlaufKrupp: " . $strtest);
+		IPS_LogMessage("zHeizungH","lastValue: " . $strtest);
+		IPS_LogMessage("zHeizungH","VorlaufKrupp: " . $Vorlauf_Krupp);
 		$difTemp =  $Vorlauf_Krupp - $strtest;
 		IPS_LogMessage("zHeizungH","DifTemp: " . $difTemp);
 		SetValueFloat (59571, $difTemp);

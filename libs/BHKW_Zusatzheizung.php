@@ -232,19 +232,25 @@ trait BHKWZusatzHeizung
 		if(($Status_Krupp === 1 or $Status_Krupp === 3)  and $Vorlauf_Krupp >80)
 		{
 			SetValueInteger ($IdentKruppStatus, 2);
+			//Pumpe an
 			if(!GetValueBoolean (11816))
 			{
 				SetValue(11816, True);
 				RequestAction(11816, True);
 				IPS_LogMessage("zHeizungH","Pumpe abgeschaltet!");
 			}
-			//Pumpe an
 		}
 		// Speicher laden --> nachheizen
 		if($Status_Krupp === 2 and $Vorlauf_Krupp <60)
 		{
 			SetValueInteger ($IdentKruppStatus, 3);
 			//Pumpe aus
+			if(GetValueBoolean (11816))
+			{
+				SetValue(11816, False);
+				RequestAction(11816, False);
+				IPS_LogMessage("zHeizungH","Pumpe abgeschaltet!");
+			}
 		}
 		
 		$HolzNachlegen = GetValue(34665);

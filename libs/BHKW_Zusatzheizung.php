@@ -199,6 +199,36 @@ trait BHKWZusatzHeizung
 	{
 			$IdentKruppPumpe = IPS_GetObjectIDByIdent("State0",$SchellyID);
 			IPS_LogMessage("zHeizungH","IdentKruppPumpe: " . $IdentKruppPumpe);
+			
+			
+
+			switch ($PumpeStatusSoll) 
+			{
+				case "1":
+					if(GetValueBoolean ($IdentKruppPumpe))
+					{
+						//SetValue($IdentKruppPumpe, False);
+						//RequestAction($IdentKruppPumpe, False);
+						IPS_LogMessage("zHeizungH","Pumpe abgeschaltet!");
+					}
+				break;
+				case "2":
+					if(!GetValueBoolean ($IdentKruppPumpe))
+					{
+						//SetValue($IdentKruppPumpe, False);
+						//RequestAction($IdentKruppPumpe, False);
+						IPS_LogMessage("zHeizungH","Pumpe eingeschaltet!");
+					}
+				break;
+				default:
+					IPS_LogMessage("zHeizungH","Fehlerhafter Parametert Pumpe schalten!");
+			}
+
+
+			if( === 1)
+			{
+
+			}
 			//if(GetValueBoolean (11816))
 			//{
 			//	IPS_LogMessage("zHeizungH","Pumpe abgeschaltet!");
@@ -237,7 +267,7 @@ trait BHKWZusatzHeizung
 			{
 				SetValue(11816, True);
 				RequestAction(11816, True);
-				IPS_LogMessage("zHeizungH","Pumpe abgeschaltet!");
+				IPS_LogMessage("zHeizungH","Pumpe eingeschaltet!");
 			}
 		}
 		// Speicher laden --> nachheizen

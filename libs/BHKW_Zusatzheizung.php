@@ -223,16 +223,6 @@ trait BHKWZusatzHeizung
 				default:
 					IPS_LogMessage("zHeizungH","Fehlerhafter Parametert Pumpe schalten!");
 			}
-
-
-			if( === 1)
-			{
-
-			}
-			//if(GetValueBoolean (11816))
-			//{
-			//	IPS_LogMessage("zHeizungH","Pumpe abgeschaltet!");
-			//}
 	}
 	
 	private function Holz(int $SchellyID, int $IdentKruppStatus)

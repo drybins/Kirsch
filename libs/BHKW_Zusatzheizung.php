@@ -199,6 +199,10 @@ trait BHKWZusatzHeizung
 	{
 			$IdentKruppPumpe = IPS_GetObjectIDByIdent("KruppPumpe",$SchellyID);
 			IPS_LogMessage("zHeizungH","IdentKruppPumpe: " . $IdentKruppPumpe);
+			if(GetValueBoolean (11816))
+			{
+				IPS_LogMessage("zHeizungH","Pumpe abgeschaltet!");
+			}
 	}
 	
 	private function Holz(int $SchellyID, int $IdentKruppStatus)
@@ -219,21 +223,32 @@ trait BHKWZusatzHeizung
 	
 		$Status_Krupp = GetValue($IdentKruppStatus);
 		IPS_LogMessage("zHeizung","Status_Krupp: " . $Status_Krupp);
+		// aus --> anheizen
 		if($Status_Krupp === 0 and $difTemp >0)
 		{
 			SetValueInteger ($IdentKruppStatus, 1);
-		}	
+		}
+		// anheizen --> Speicher laden
 		if(($Status_Krupp === 1 or $Status_Krupp === 3)  and $Vorlauf_Krupp >80)
 		{
 			SetValueInteger ($IdentKruppStatus, 2);
+			if(!GetValueBoolean (11816))
+			{
+				SetValue(11816, True);
+				RequestAction(11816, True);
+				IPS_LogMessage("zHeizungH","Pumpe abgeschaltet!");
+			}
 			//Pumpe an
 		}
+		// Speicher laden --> nachheizen
 		if($Status_Krupp === 2 and $Vorlauf_Krupp <60)
 		{
 			SetValueInteger ($IdentKruppStatus, 3);
 			//Pumpe aus
 		}
+		
 		$HolzNachlegen = GetValue(34665);
+		
 		if(!$HolzNachlegen)
 		{
 			SetValueInteger ($IdentKruppStatus, 4);

@@ -278,7 +278,7 @@ trait BHKWZusatzHeizung
 		if(!$HolzNachlegen)
 		{
 			SetValueInteger ($IdentKruppStatus, 4);
-			if($difTemp < 0 and $Vorlauf_Krupp < 100)
+			if($difTemp < 0 and $Vorlauf_Krupp < 106)
 			{
 				if(GetValueBoolean (11816))
 				{

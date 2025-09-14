@@ -11,6 +11,7 @@ require_once(__ROOT__ . '/libs/BHKW_valuePP.php');
 require_once(__ROOT__ . '/libs/BHKW_Info.php');
 require_once(__ROOT__ . '/libs/BHKW_stateExternal.php');
 require_once(__ROOT__ . '/libs/BHKW_CreateProfile.php');
+require_once(__ROOT__ . '/libs/BHKW_CMD.php');
 //const TempDiff =40;
 //const VorlaufSoll20 = 45;
 //const VorlaufSollminus20 = 70;

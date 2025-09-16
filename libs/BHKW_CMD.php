@@ -2,28 +2,15 @@
 
 declare(strict_types=1);
 
-trait CommonFunctions
+trait BHKWCMD
 {
-	public function VorlaufSoll()
+	public function BHKW_Start()
 	{
-
-		$time = date("H:i");			
-		//$VorlaufSoll = GetValueFloat($this->GetIDForIdent("VorlaufTemperaturSoll"));
-		$AussenTemp = GetValueFloat($this->GetIDForIdent("T1"));
-		$VorlaufTempDiff = 70 - 45;
-		$VorlaufTempStep = $VorlaufTempDiff/40;
-		$VorlaufSoll = ((20-$AussenTemp)* $VorlaufTempStep) + 45;
-		//Nachtabsenkung bei mehr als 3 Grad AußenTemperatur und zwischen 22:30 und 05:00 Uhr.
-		if(($time >= "22:30")or($time <= "05:00"))
-		{
-			$VorlaufSoll = $VorlaufSoll - 5;
-		}
-		//If($AußenTemperatur > 3)
-		//{
-    		//}
-		IPS_LogMessage("$VorlaufTempStep",$VorlaufTempStep);
-		IPS_LogMessage("AußentemperaturT",$VorlaufSoll);
-		IPS_LogMessage("Außentemperatur", $this->GetIDForIdent("T1"));
-		SetValueFloat($this->GetIDForIdent("VorlaufTemperaturSoll"), $VorlaufSoll);
+		CSCK_SendText(22145,"<?xml version=\"1.0\" encoding=\"UTF-8\"?><setPower>\r\n <automatic>on</automatic>\r\n <automatic>on</automatic></setPower>");
+	}
+	
+	public function BHKW_Stop()
+	{
+		CSCK_SendText(22145,"<?xml version=\"1.0\" encoding=\"UTF-8\"?><setPower>\r\n <automatic>on</automatic>\r\n <automatic>off</automatic></setPower>");
 	}
 }

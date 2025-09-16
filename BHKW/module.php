@@ -27,7 +27,7 @@ require_once(__ROOT__ . '/libs/BHKW_CMD.php');
 
 	class BHKW extends IPSModule {
 	
-		use BHKWFunctions, BHKWZusatzHeizung, BHKWstatePP, BHKWstatePower, BHKWstateHeatControl, BHKWerrors, BHKWvaluePP, BHKWstateExternal, BHKWInfo, BHKWCreateProfile;
+		use BHKWFunctions, BHKWZusatzHeizung, BHKWstatePP, BHKWstatePower, BHKWstateHeatControl, BHKWerrors, BHKWvaluePP, BHKWstateExternal, BHKWInfo, BHKWCreateProfile, BHKWCMD;
 		
 		public function Create()
 		{

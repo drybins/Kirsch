@@ -201,6 +201,8 @@ trait BHKWerrors
 								break;
 							case "06":
 								SetValue($this->GetIDForIdent("Software"),"Sicherheitskette");
+								switch ($device) 
+								{
 									case "10":
 										SetValue($this->GetIDForIdent("Messpunkt"),"Öldruckschalter (S4)");
 										switch ($type) 
@@ -212,6 +214,7 @@ trait BHKWerrors
 												IPS_LogMessage("BHKW Fehler type:", $type);
 										}
 										break;
+								}
 								break;
 							default:
 								IPS_LogMessage("BHKW Fehler class:", $class);

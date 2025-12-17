@@ -142,7 +142,21 @@ trait BHKWerrors
 								switch ($device) 
 								{
 									case "0B":
-										SetValue($this->GetIDForIdent("Messpunkt"),"Energiemessung L3");
+										SetValue($this->GetIDForIdent("Messpunkt"),"Energiemessung L1");
+										switch ($type) 
+										{																				{
+											case "2A":
+												SetValue($this->GetIDForIdent("Fehler"),$occurrence . "Spannungsüberschreitung (200ms)");
+												break;
+											case "2B":
+												SetValue($this->GetIDForIdent("Fehler"),$occurrence . "Frequenzeinbruch");
+												break;
+											case "2C":
+												SetValue($this->GetIDForIdent("Fehler"),$occurrence . "Frequenzüberschreitung");
+												break;
+											default:
+												IPS_LogMessage("BHKW Fehler type:", $type);
+										}
 										break;
 									case "0C":
 										SetValue($this->GetIDForIdent("Messpunkt"),"Energiemessung L2");
@@ -150,6 +164,12 @@ trait BHKWerrors
 										{
 											case "2A":
 												SetValue($this->GetIDForIdent("Fehler"),$occurrence . "Spannungsüberschreitung (200ms)");
+												break;
+											case "2B":
+												SetValue($this->GetIDForIdent("Fehler"),$occurrence . "Frequenzeinbruch");
+												break;
+											case "2C":
+												SetValue($this->GetIDForIdent("Fehler"),$occurrence . "Frequenzüberschreitung");
 												break;
 											default:
 												IPS_LogMessage("BHKW Fehler type:", $type);
@@ -159,6 +179,12 @@ trait BHKWerrors
 										SetValue($this->GetIDForIdent("Messpunkt"),"Energiemessung L3");
 										switch ($type) 
 										{
+											case "2A":
+												SetValue($this->GetIDForIdent("Fehler"),$occurrence . "Spannungsüberschreitung (200ms)");
+												break;
+											case "2B":
+												SetValue($this->GetIDForIdent("Fehler"),$occurrence . "Frequenzeinbruch");
+												break;
 											case "2C":
 												SetValue($this->GetIDForIdent("Fehler"),$occurrence . "Frequenzüberschreitung");
 												break;

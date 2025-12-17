@@ -214,6 +214,17 @@ trait BHKWerrors
 												IPS_LogMessage("BHKW Fehler type:", $type);
 										}
 										break;
+									case "15":
+										SetValue($this->GetIDForIdent("Messpunkt"),"Leckagesensor (S7)");
+										switch ($type) 
+										{
+											case "0D":
+												SetValue($this->GetIDForIdent("Fehler"),$occurrence . "x Leckage");
+												break;
+											default:
+												IPS_LogMessage("BHKW Fehler type:", $type);
+										}
+										break;
 								}
 								break;
 							default:

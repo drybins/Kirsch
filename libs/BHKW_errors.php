@@ -144,7 +144,7 @@ trait BHKWerrors
 									case "0B":
 										SetValue($this->GetIDForIdent("Messpunkt"),"Energiemessung L1");
 										switch ($type) 
-										{																				{
+										{																				
 											case "2A":
 												SetValue($this->GetIDForIdent("Fehler"),$occurrence . "Spannungsüberschreitung (200ms)");
 												break;

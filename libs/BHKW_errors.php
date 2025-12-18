@@ -9,7 +9,11 @@ trait BHKWerrors
 		IPS_LogMessage("BHKW errors TestLog", $data);
 	}
 
-
+	private function Perror($data)
+	{
+		SetValue($this->GetIDForIdent("date"),date("Y-m-d");
+		SetValue($this->GetIDForIdent("time"),date("h:i"));
+	}
 	
 	private function errors($data)
 	{

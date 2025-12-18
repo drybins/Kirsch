@@ -11,7 +11,7 @@ trait BHKWerrors
 
 	private function Perror($data)
 	{
-		SetValue($this->GetIDForIdent("date"),date("Y-m-d");
+		SetValue($this->GetIDForIdent("date"),date("Y-m-d"));
 		SetValue($this->GetIDForIdent("time"),date("h:i"));
 	}
 	

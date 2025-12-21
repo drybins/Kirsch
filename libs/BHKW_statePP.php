@@ -169,7 +169,12 @@ trait BHKWstatePP
 			//SetValueString (14320 , "Status nicht gefunden:" . $ScriptData['STATUS']);
 		}
 		$ScriptData['V2'] =  (Float) $xmlData->actors[0]->V2;
+		
 		SetValue ($this->GetIDForIdent("V2")  , $ScriptData['V2']);
+		if ($ScriptData['V2'] > 71)
+		{
+			Perror("Test");
+		}
 		$ScriptData['V3'] =  (string) $xmlData->actors[0]->V3;
 		SetValueString ($this->GetIDForIdent("V3") , $ScriptData['V3']);
 	

@@ -13,6 +13,20 @@ trait BHKWerrors
 	{
 		SetValue($this->GetIDForIdent("date"),date("Y-m-d"));
 		SetValue($this->GetIDForIdent("time"),date("h:i"));
+		
+		SetValue($this->GetIDForIdent("class"),"FF");
+		SetValue($this->GetIDForIdent("device"),"01");
+		SetValue($this->GetIDForIdent("type"),"10");
+		SetValue($this->GetIDForIdent("occurrence"),"1");
+		SetValue($this->GetIDForIdent("remoteConfirmed"),"0");
+		SetValue($this->GetIDForIdent("level"),"System");
+		SetValue($this->GetIDForIdent("state"),"unconfirmed"); 
+		
+		SetValue($this->GetIDForIdent("DLF"),$Datum);
+		
+		SetValue($this->GetIDForIdent("Software"),"IP Symcon");
+		SetValue($this->GetIDForIdent("Messpunkt"),"Drosselklappensteuerung");
+		SetValue($this->GetIDForIdent("Fehler"),"Drosselklappenstellung > 71%");
 	}
 	
 	private function errors($data)

@@ -449,7 +449,7 @@ require_once(__ROOT__ . '/libs/BHKW_CMD.php');
 					break;
 				case "errors":
 					//SetValue(37729, time());
-					$this->WriteLog2($data);
+					//$this->WriteLog2($data);
 					$this->errors($data);
 					break;
 				case "statePower":

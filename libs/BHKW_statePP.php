@@ -171,6 +171,7 @@ trait BHKWstatePP
 		$ScriptData['V2'] =  (Float) $xmlData->actors[0]->V2;
 		
 		SetValue ($this->GetIDForIdent("V2")  , $ScriptData['V2']);
+		IPS_LogMessage("BHKW statePP Drosselklappe", $ScriptData['V2']);
 		if ($ScriptData['V2'] > 71)
 		{
 			Perror("Test");

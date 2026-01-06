@@ -174,7 +174,7 @@ trait BHKWstatePP
 		
 		SetValue ($this->GetIDForIdent("V2")  , $ScriptData['V2']);
 		IPS_LogMessage("BHKW statePP Drosselklappe", $DKS);
-		if ($$DKS > 39)
+		if ($DKS > 39)
 		{
 			IPS_LogMessage("BHKW statePP Drosselklappe > 71%", $DKS);
 			//Perror("Test");

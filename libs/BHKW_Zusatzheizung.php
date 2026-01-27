@@ -288,6 +288,7 @@ trait BHKWZusatzHeizung
 				}
 				IPS_LogMessage("zHeizungH","Pumpe abschalten.");
 			}
+			//Krupp temperatur > Speicher mitte 
 		}
 	}
 }

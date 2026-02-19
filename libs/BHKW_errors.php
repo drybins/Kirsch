@@ -124,6 +124,9 @@ trait BHKWerrors
 											case "10":
 												SetValue($this->GetIDForIdent("Fehler"),$occurrence . "x Rückleistung");
 												break;
+											case "33":
+												SetValue($this->GetIDForIdent("Fehler"),$occurrence . "x Phasenunsymertie");
+												break;
 											case "41":
 												SetValue($this->GetIDForIdent("Fehler"),$occurrence . "x Schleichender Leistungsabfall");
 												break;

@@ -254,6 +254,18 @@ trait BHKWerrors
 												IPS_LogMessage("BHKW Fehler type:", $type);
 										}
 										break;
+										
+									case "21":
+										SetValue($this->GetIDForIdent("Messpunkt"),"Sicherheitsüberwachung");
+										switch ($type) 
+										{
+											case "0D":
+												SetValue($this->GetIDForIdent("Fehler"),$occurrence . "x Periodischer Sicherheitsneustart überfällig");
+												break;
+											default:
+												IPS_LogMessage("BHKW Fehler type:", $type);
+										}
+										break;
 								}
 								break;
 							default:

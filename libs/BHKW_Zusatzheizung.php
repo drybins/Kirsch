@@ -25,11 +25,11 @@ trait BHKWZusatzHeizung
 		$KategorieNacht1ID = @IPS_GetCategoryIDByName("Keller", $KategorieID);
 		$KategorieNacht2ID = @IPS_GetCategoryIDByName("Heizungsraum", $KategorieNacht1ID);
 		$KategorieNacht3ID = @IPS_GetCategoryIDByName("Krupp Kessel", $KategorieNacht2ID);
-		$IdentKruppStatus = IPS_GetObjectIDByIdent("Krupp Kessel",$KategorieNacht3ID);
+		//$IdentKruppStatus = IPS_GetObjectIDByIdent("Krupp Kessel",$KategorieNacht3ID);
 		//$GeraeteID = IPS_GetObjectIDByName ("DS 18B20 Temperature Sensor", $KategorieNacht3ID);
 		IPS_LogMessage("zHeizung KategorieNacht3ID", $KategorieNacht3ID);
 		//$SchellyID = IPS_FindObjectIDByName ("shellyplus2pm-a0dd6c28b4f4", $KategorieNacht3ID);
-		$SchellyID = IPS_FindObjectIDByName ("shellyplus2pm-a0dd6c28b4f4", 57930);
+		$SchellyID = IPS_FindObjectIDByName ("Krupp Kessel", 57930);
 		
 		IPS_LogMessage("zHeizung SchellyID", $SchellyID);
 		

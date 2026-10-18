@@ -33,7 +33,7 @@ trait BHKWZusatzHeizung
 		
 		IPS_LogMessage("zHeizung SchellyID", $SchellyID);
 		
-		//$this->PumpeSchalten(1, $SchellyID);
+		$this->PumpeSchalten(1, $SchellyID);
 		
 		$HO = GetValue(19296);   // Holz/Oel
 		if($HO)			// Ist Holz
